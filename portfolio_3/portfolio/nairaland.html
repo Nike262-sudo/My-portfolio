@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nairaland Redesign — Case Study · Oyeniran Joel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:  #0a0a0a;
+      --white:  #f8f7f4;
+      --mid:    #6b6b6b;
+      --light:  #a8a8a8;
+      --line:   #e0deda;
+      --serif:  'Instrument Serif', Georgia, serif;
+      --sans:   'DM Sans', sans-serif;
+      --ease:   cubic-bezier(0.25, 0.1, 0.25, 1);
+      --max:    740px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--mid);
+      transition: color 0.2s var(--ease);
+    }
+
+    .nav-back:hover { color: var(--black); }
+    .nav-back svg { width: 14px; height: 14px; transition: transform 0.2s var(--ease); }
+    .nav-back:hover svg { transform: translateX(-3px); }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── LAYOUT ── */
+    .wrap      { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
+    .wrap-wide { max-width: 1000px;     margin: 0 auto; padding: 0 40px; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 96px 0 80px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(42px, 6.5vw, 76px);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(18px, 2.2vw, 24px);
+      color: var(--mid);
+      line-height: 1.35;
+      margin-bottom: 28px;
+    }
+
+    .hero-desc {
+      font-size: 15.5px;
+      font-weight: 300;
+      color: var(--mid);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 56px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      max-width: 520px;
+    }
+
+    .meta-item {
+      padding: 20px 24px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .meta-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 6px;
+    }
+
+    .meta-value {
+      font-size: 13.5px;
+      color: var(--black);
+      line-height: 1.4;
+    }
+
+    .hero-image {
+      margin-top: 72px;
+      border-top: 1px solid var(--line);
+      padding-top: 72px;
+    }
+
+    /* ── IMAGE BLOCKS ── */
+    .img-block {
+      width: 100%;
+      background: #e8e6e2;
+      overflow: hidden;
+    }
+
+    .img-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .img-block.tall   { aspect-ratio: 16 / 9; }
+    .img-block.medium { aspect-ratio: 4 / 3; }
+    .img-block.short  { aspect-ratio: 21 / 9; }
+
+    .img-caption {
+      font-size: 12px;
+      color: var(--light);
+      margin-top: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-number {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 28px;
+    }
+
+    .section-title em { font-style: italic; color: var(--mid); }
+
+    .body-text {
+      font-size: 15.5px;
+      font-weight: 300;
+      color: #2e2e2e;
+      line-height: 1.8;
+      max-width: 620px;
+    }
+
+    .body-text + .body-text { margin-top: 20px; }
+
+    /* ── PROBLEM LIST ── */
+    .problem-list {
+      list-style: none;
+      margin-top: 32px;
+    }
+
+    .problem-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+      font-size: 15px;
+      font-weight: 300;
+      color: #2e2e2e;
+      line-height: 1.65;
+    }
+
+    .problem-list li:last-child { border-bottom: 1px solid var(--line); }
+
+    .problem-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--light);
+      letter-spacing: 0.06em;
+      margin-top: 3px;
+      min-width: 24px;
+    }
+
+    /* ── GOAL LIST ── */
+    .goal-list {
+      list-style: none;
+      margin-top: 32px;
+    }
+
+    .goal-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      font-size: 15px;
+      font-weight: 300;
+      color: #2e2e2e;
+      line-height: 1.65;
+    }
+
+    .goal-list li:last-child { border-bottom: 1px solid var(--line); }
+
+    .goal-dash {
+      color: var(--light);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    /* ── APPROACH ── */
+    .approach-list { margin-top: 40px; }
+
+    .approach-item {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 28px;
+      align-items: start;
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .approach-item:last-child { border-bottom: 1px solid var(--line); }
+
+    .approach-step {
+      font-family: var(--serif);
+      font-size: 28px;
+      color: var(--line);
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .approach-title {
+      font-size: 15.5px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .approach-desc {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* ── BEFORE / AFTER ── */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      background: transparent;
+      margin-top: 40px;
+    }
+
+    .ba-panel { background: var(--white); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+
+    .ba-label {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ba-badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+    }
+
+    .ba-badge.before { color: var(--mid); }
+    .ba-badge.after  { color: var(--black); background: var(--black); color: var(--white); border-color: var(--black); }
+
+    .ba-img { background: #e8e6e2; aspect-ratio: 4 / 3; overflow: hidden; }
+    .ba-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .ba-note {
+      padding: 20px 24px;
+      border-top: 1px solid var(--line);
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* ── KEY IMPROVEMENTS ── */
+    .improvements {
+      margin-top: 40px;
+      border: 1px solid var(--line);
+    }
+
+    .improvement-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .improvement-row:last-child { border-bottom: none; }
+
+    .improvement-name {
+      padding: 24px 28px;
+      font-size: 13.5px;
+      font-weight: 500;
+      border-right: 1px solid var(--line);
+      display: flex;
+      align-items: flex-start;
+      padding-top: 26px;
+    }
+
+    .improvement-detail {
+      padding: 24px 28px;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* ── VISUAL SPECS ── */
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .spec-row:first-child { border-top: 1px solid var(--line); }
+    .spec-label { font-weight: 400; color: var(--mid); }
+    .spec-value { font-weight: 300; color: var(--black); text-align: right; }
+
+    /* ── OUTCOME ── */
+    .outcome-list {
+      list-style: none;
+      margin-top: 32px;
+    }
+
+    .outcome-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      font-size: 15px;
+      font-weight: 300;
+      color: #2e2e2e;
+      line-height: 1.65;
+    }
+
+    .outcome-list li:last-child { border-bottom: 1px solid var(--line); }
+
+    /* ── REFLECTION ── */
+    .reflection-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 40px;
+    }
+
+    .reflection-col h4 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 20px;
+    }
+
+    .reflection-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .reflection-col li {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: #2e2e2e;
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .reflection-col li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--light);
+      font-size: 12px;
+      top: 3px;
+    }
+
+    /* ── NEXT / FOOTER ── */
+    .next-project { padding: 64px 0; border-top: 1px solid var(--line); }
+
+    .next-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 16px;
+    }
+
+    .next-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 36px);
+      letter-spacing: -0.02em;
+      transition: gap 0.2s var(--ease);
+    }
+
+    .next-link:hover { gap: 20px; }
+    .next-link svg { width: 28px; height: 28px; flex-shrink: 0; }
+
+    footer { padding: 32px 0; border-top: 1px solid var(--line); }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy { font-size: 12px; color: var(--light); }
+    .footer-back { font-size: 12px; color: var(--mid); transition: color 0.2s; }
+    .footer-back:hover { color: var(--black); }
+
+    /* ── TWO-UP IMAGE ── */
+    .img-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+    }
+
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.06s; }
+    .reveal.d2 { transition-delay: 0.13s; }
+    .reveal.d3 { transition-delay: 0.20s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-inner, .wrap, .wrap-wide, .footer-inner { padding: 0 24px; }
+      .hero { padding: 64px 0 56px; }
+      .meta-grid { grid-template-columns: 1fr 1fr; max-width: 100%; }
+      .meta-grid .meta-item:last-child { grid-column: 1 / -1; }
+      .before-after { grid-template-columns: 1fr; }
+      .img-two { grid-template-columns: 1fr; }
+      .improvement-row { grid-template-columns: 1fr; }
+      .improvement-name { border-right: none; border-bottom: 1px solid var(--line); }
+      .reflection-cols { grid-template-columns: 1fr; gap: 32px; }
+      .approach-item { grid-template-columns: 28px 1fr; gap: 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .meta-grid { grid-template-columns: 1fr; }
+    }
+
+    /* HAMBURGER */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      height: 1.5px;
+      background: var(--black);
+      transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      border-top: 1px solid var(--line);
+      background: var(--white);
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 15px;
+      color: var(--mid);
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--line);
+      transition: color 0.2s var(--ease);
+    }
+    .nav-mobile a:last-child { border-bottom: none; }
+    .nav-mobile a:hover { color: var(--black); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 7H2M2 7L6 3M2 7L6 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Home
+      </a>
+      <span class="nav-name">Oyeniran Joel</span>
+      <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="index.html" onclick="closeMenu()">Home</a>
+      <a href="index.html#work" onclick="closeMenu()">Work</a>
+      <a href="index.html#about" onclick="closeMenu()">About</a>
+      <a href="contact.html" onclick="closeMenu()">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <span class="hero-tag reveal">Case Study · UX/UI Redesign</span>
+      <h1 class="hero-title reveal d1">Nairaland<br />Redesign</h1>
+      <p class="hero-subtitle reveal d2">Improving usability and readability for a legacy forum platform</p>
+      <p class="hero-desc reveal d3">
+        A redesign of Nairaland focused on improving readability, navigation, and overall user experience while maintaining its core functionality.
+      </p>
+
+      <div class="meta-grid reveal">
+        <div class="meta-item">
+          <div class="meta-label">Role</div>
+          <div class="meta-value">Product Designer</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Type</div>
+          <div class="meta-value">UX/UI Redesign</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Timeline</div>
+          <div class="meta-value">1–2 weeks</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image wrap-wide reveal">
+      <div class="img-block tall">
+        <img src="/images/nairaland-1.jpg" alt="Nairaland redesign overview" />
+      </div>
+      <p class="img-caption">Nairaland Redesign — full interface overview</p>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">01 — Overview</div>
+      <h2 class="section-title reveal d1">The platform</h2>
+      <p class="body-text reveal d2">
+        Nairaland is one of the largest online forums in Nigeria, but its interface has remained largely unchanged over the years. This project explores how a modern redesign could improve usability without losing the platform's identity.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">02 — Problem</div>
+      <h2 class="section-title reveal d1">What needed <em>to change</em></h2>
+      <p class="body-text reveal d2">
+        Nairaland carries a significant amount of content per page — long threads, dense post lists, and category navigation all competing for attention at once. Over time, these patterns have compounded into real usability friction.
+      </p>
+
+      <ul class="problem-list">
+        <li class="reveal">
+          <span class="problem-num">01</span>
+          <span>Text is displayed at small sizes with minimal line height, making extended reading uncomfortable and tiring — a critical issue for a platform where users spend long periods reading threads</span>
+        </li>
+        <li class="reveal">
+          <span class="problem-num">02</span>
+          <span>Thread lists lack visual separation — post titles, metadata, and reply counts are compressed together with no clear spacing, making it hard to scan and identify relevant threads quickly</span>
+        </li>
+        <li class="reveal">
+          <span class="problem-num">03</span>
+          <span>No clear visual hierarchy between page sections means users must actively search for context rather than having it surface naturally through layout</span>
+        </li>
+        <li class="reveal">
+          <span class="problem-num">04</span>
+          <span>Navigation labels are ambiguous and inconsistently placed — new users often struggle to understand how sections are organized or how to move between them without trial and error</span>
+        </li>
+      </ul>
+
+      <p class="body-text reveal" style="margin-top: 28px;">
+        Individually, each of these is a minor irritation. Together, they create a browsing experience that demands more from users than it should — leading to disengagement before they find what they came for.
+      </p>
+    </div>
+  </section>
+
+  <!-- GOAL -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">03 — Goal</div>
+      <h2 class="section-title reveal d1">Design <em>objectives</em></h2>
+      <p class="body-text reveal d2">
+        The goal was to redesign the platform in a way that modernizes the experience without disrupting the familiarity users already have with it.
+      </p>
+
+      <ul class="goal-list">
+        <li class="reveal"><span class="goal-dash">—</span><span>Improve readability and content structure throughout the interface</span></li>
+        <li class="reveal"><span class="goal-dash">—</span><span>Create a clearer visual hierarchy to help users scan and navigate content</span></li>
+        <li class="reveal"><span class="goal-dash">—</span><span>Simplify navigation to reduce friction for both new and returning users</span></li>
+        <li class="reveal"><span class="goal-dash">—</span><span>Modernize the interface while preserving the familiarity of the original</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DESIGN APPROACH -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">04 — Design Approach</div>
+      <h2 class="section-title reveal d1">Balancing modernization <em>with familiarity</em></h2>
+      <p class="body-text reveal d2">
+        The redesign focused on making targeted, meaningful improvements — not reinventing the product from scratch.
+      </p>
+
+      <div class="approach-list">
+        <div class="approach-item reveal">
+          <div class="approach-step">1</div>
+          <div>
+            <div class="approach-title">Improved Hierarchy</div>
+            <div class="approach-desc">Forums are inherently layered — categories contain boards, boards contain threads, threads contain posts. When that structure isn't reflected visually, users have to reconstruct it mentally on every page. Introducing clear typographic levels and spatial separation between each layer means users spend less effort orienting themselves and more time engaging with content.</div>
+          </div>
+        </div>
+        <div class="approach-item reveal">
+          <div class="approach-step">2</div>
+          <div>
+            <div class="approach-title">Better Readability</div>
+            <div class="approach-desc">On a content-heavy platform like Nairaland, readability isn't a nice-to-have — it directly affects how long users stay and how much they read. Increasing line height to 1.7, bumping base font size, and adding generous padding between post blocks reduces eye strain and makes reading feel effortless rather than labored.</div>
+          </div>
+        </div>
+        <div class="approach-item reveal">
+          <div class="approach-step">3</div>
+          <div>
+            <div class="approach-title">Simplified Navigation</div>
+            <div class="approach-desc">When users can't predict where a link will take them, they stop exploring. Reorganizing the navigation around actual user tasks — browsing by category, finding trending threads, returning to recent activity — removes that hesitation. Fewer clicks to common destinations means users reach their goal faster and are more likely to return.</div>
+          </div>
+        </div>
+        <div class="approach-item reveal">
+          <div class="approach-step">4</div>
+          <div>
+            <div class="approach-title">Modern UI</div>
+            <div class="approach-desc">Nairaland has millions of regular users with deeply ingrained habits. The risk of a full visual overhaul is alienating that base. The approach was to modernize the aesthetic — cleaner spacing, consistent type scale, subdued color use — without changing the fundamental structure users already know. Familiar enough to feel comfortable; refined enough to feel current.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">05 — Before vs After</div>
+      <h2 class="section-title reveal d1">The <em>difference</em></h2>
+      <p class="body-text reveal d2">
+        A direct comparison between the original interface and the redesign — showing what changed and why each decision was made.
+      </p>
+    </div>
+
+    <div class="wrap-wide" style="margin-top: 40px;">
+      <div class="before-after reveal">
+        <div class="ba-panel">
+          <div class="ba-label">
+            <span class="ba-badge before">Before</span>
+          </div>
+          <div class="ba-img">
+            <img src="/images/nairaland-before.jpg" alt="Nairaland original interface" />
+          </div>
+          <div class="ba-note">Thread titles, post counts, and category labels are packed together with no breathing room. The lack of spacing forces users to read every line rather than scan — creating unnecessary effort on every page load.</div>
+        </div>
+        <div class="ba-panel">
+          <div class="ba-label">
+            <span class="ba-badge after">After</span>
+          </div>
+          <div class="ba-img">
+            <img src="/images/nairaland-after.jpg" alt="Nairaland redesigned interface" />
+          </div>
+          <div class="ba-note">Consistent padding between thread rows, a clear typographic hierarchy, and visible separation between categories allow users to scan the page in seconds and go directly to what's relevant.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY IMPROVEMENTS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">06 — Key Improvements</div>
+      <h2 class="section-title reveal d1">What <em>changed</em></h2>
+      <p class="body-text reveal d2">
+        Each improvement was driven by a specific usability issue identified in the original interface.
+      </p>
+
+      <div class="improvements reveal">
+        <div class="improvement-row">
+          <div class="improvement-name">Typography &amp; Readability</div>
+          <div class="improvement-detail">Base font size was increased and line height set to 1.7 to make reading longer threads comfortable. A structured type scale — with clear distinctions between thread titles, metadata, and body text — means users no longer need to parse every element individually. The eye moves naturally down the page rather than having to stop and orient at each row.</div>
+        </div>
+        <div class="improvement-row">
+          <div class="improvement-name">Layout Structure</div>
+          <div class="improvement-detail">Consistent vertical spacing was added between thread rows, and section headers were made visually distinct from content. This separation gives users a mental model of the page before they read a single word — they can identify categories, threads, and post counts at a glance and jump directly to what's relevant without scrolling through everything.</div>
+        </div>
+        <div class="improvement-row">
+          <div class="improvement-name">Navigation</div>
+          <div class="improvement-detail">Navigation items were reorganized around the tasks users actually perform: browsing categories, finding active threads, and returning to recent activity. Labels were made more descriptive, and the structure was flattened to reduce the number of steps between a user's intent and their destination — especially important for first-time or infrequent visitors.</div>
+        </div>
+        <div class="improvement-row">
+          <div class="improvement-name">Visual Design</div>
+          <div class="improvement-detail">Decoration was removed in favor of structure. Subtle 1px dividers replace heavy borders. A neutral off-white background reduces contrast fatigue during long reading sessions. The overall aesthetic is cleaner and more current — but because the layout patterns remain familiar, long-time users experience it as a refinement rather than a disruption.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UI SCREENS -->
+  <div class="wrap-wide reveal" style="padding-bottom: 80px;">
+    <div class="img-block short">
+      <img src="/images/nairaland-2.jpg" alt="Redesigned UI detail" />
+    </div>
+    <p class="img-caption">Redesigned thread view — improved spacing and hierarchy</p>
+  </div>
+
+  <!-- VISUAL DESIGN -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">07 — Visual Design</div>
+      <h2 class="section-title reveal d1">Design <em>decisions</em></h2>
+      <p class="body-text reveal d2">
+        The visual direction focuses on clarity and usability — making every design choice serve the content rather than compete with it.
+      </p>
+
+      <div style="margin-top: 36px;" class="reveal">
+        <div class="spec-row">
+          <span class="spec-label">Typography</span>
+          <span class="spec-value">Clean, legible typefaces — optimized for long-form reading</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Spacing system</span>
+          <span class="spec-value">Consistent scale that separates content clearly without wasting space</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Color usage</span>
+          <span class="spec-value">Minimal — black, white, and grey only for maximum clarity</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Contrast</span>
+          <span class="spec-value">Improved contrast ratios to support readability across all content types</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">08 — Outcome</div>
+      <h2 class="section-title reveal d1">What was <em>achieved</em></h2>
+      <p class="body-text reveal d2">
+        The redesigned interface directly addresses the friction points identified in the original — making everyday browsing faster, less effortful, and more predictable.
+      </p>
+
+      <ul class="outcome-list">
+        <li class="reveal"><span class="goal-dash">—</span><span>Faster content scanning — users can identify relevant threads and categories without reading every line on the page</span></li>
+        <li class="reveal"><span class="goal-dash">—</span><span>Improved readability — increased font size, line height, and spacing make extended reading sessions significantly more comfortable</span></li>
+        <li class="reveal"><span class="goal-dash">—</span><span>More structured browsing — clearer navigation and consistent layout patterns reduce the cognitive effort required to move through the platform</span></li>
+      </ul>
+
+      <p class="body-text reveal" style="margin-top: 32px;">
+        The result is an interface that feels immediately more usable to new users, while remaining familiar enough that existing users experience it as an upgrade — not a replacement.
+      </p>
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">09 — Reflection</div>
+      <h2 class="section-title reveal d1">Looking <em>back</em></h2>
+      <p class="body-text reveal d2">
+        Redesigning an existing product with a large, loyal user base is a different challenge from designing from scratch. The goal isn't to express a design vision — it's to solve real friction without breaking what already works.
+      </p>
+
+      <div class="reflection-cols">
+        <div class="reflection-col reveal">
+          <h4>Key takeaways</h4>
+          <ul>
+            <li>Designing for existing users means earning their trust incrementally — not resetting their expectations all at once</li>
+            <li>Familiarity is a design asset. Preserving recognizable patterns while improving the details is harder than redesigning freely, but produces better outcomes for real users</li>
+            <li>On content-heavy platforms, spacing and typography do more UX work than any visual feature</li>
+          </ul>
+        </div>
+        <div class="reflection-col reveal d1">
+          <h4>What I'd improve</h4>
+          <ul>
+            <li>Test with actual Nairaland users — assumptions about scanning behavior need validation before they become design decisions</li>
+            <li>Design the mobile experience in parallel — the majority of Nigerian internet users are on mobile, making it the primary surface, not a secondary one</li>
+            <li>Avoid adding complexity in the name of modernity — every new element should solve a specific usability problem, not just look cleaner</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT PROJECT -->
+  <div class="next-project">
+    <div class="wrap">
+      <div class="next-label reveal">Next project</div>
+      <a href="lume.html" class="next-link reveal d1">
+        Lume
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 14H24M24 14L16 6M24 14L16 22" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 Oyeniran Joel</span>
+      <a href="index.html" class="footer-back">← Back to Home</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    function toggleMenu() {
+      var btn = document.querySelector('.nav-hamburger');
+      var menu = document.getElementById('mobileMenu');
+      btn.classList.toggle('open');
+      menu.classList.toggle('open');
+    }
+    function closeMenu() {
+      var btn = document.querySelector('.nav-hamburger');
+      var menu = document.getElementById('mobileMenu');
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+    }
+  </script>
+</body>
+</html>

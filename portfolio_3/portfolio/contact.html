@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Oyeniran Joel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f8f7f4;
+      --mid:   #6b6b6b;
+      --light: #a8a8a8;
+      --line:  #e0deda;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans:  'DM Sans', sans-serif;
+      --ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    html { scroll-behavior: smooth; min-height: 100%; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13.5px;
+      color: var(--mid);
+      letter-spacing: 0.01em;
+      transition: color 0.2s var(--ease);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--black); }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 96px 40px;
+    }
+
+    .contact-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    /* ── LEFT COLUMN ── */
+    .contact-left {}
+
+    .contact-headline {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .contact-headline em {
+      font-style: italic;
+      color: var(--mid);
+    }
+
+    .contact-desc {
+      font-size: 15.5px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.75;
+      max-width: 380px;
+      margin-bottom: 52px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      transition: opacity 0.2s var(--ease);
+    }
+
+    .contact-link-item:hover { opacity: 0.6; }
+
+    .link-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    .link-value {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .link-arrow {
+      width: 12px;
+      height: 12px;
+      color: var(--light);
+    }
+
+    /* ── RIGHT COLUMN — FORM ── */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 4px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.2s var(--ease);
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--light);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-bottom-color: var(--black);
+    }
+
+    .form-group textarea {
+      resize: none;
+      height: 120px;
+      line-height: 1.6;
+    }
+
+    .form-submit {
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 14px 28px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: opacity 0.2s var(--ease);
+      align-self: flex-start;
+    }
+
+    .form-submit:hover { opacity: 0.75; }
+
+    .form-submit svg {
+      width: 13px;
+      height: 13px;
+      transition: transform 0.2s var(--ease);
+    }
+
+    .form-submit:hover svg { transform: translateX(3px); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy { font-size: 12px; color: var(--light); }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: var(--light);
+      font-style: italic;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 64px;
+      }
+
+      main { padding: 72px 40px; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-inner, .footer-inner { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      main { padding: 56px 24px; }
+      .contact-wrap { gap: 48px; }
+      .footer-tagline { display: none; }
+    }
+
+    /* HAMBURGER */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      height: 1.5px;
+      background: var(--black);
+      transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      border-top: 1px solid var(--line);
+      background: var(--white);
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 15px;
+      color: var(--mid);
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--line);
+      transition: color 0.2s var(--ease);
+    }
+    .nav-mobile a:last-child { border-bottom: none; }
+    .nav-mobile a:hover { color: var(--black); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Oyeniran Joel</a>
+      <ul class="nav-links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="index.html" onclick="closeMenu()">Home</a>
+      <a href="index.html#work" onclick="closeMenu()">Work</a>
+      <a href="index.html#about" onclick="closeMenu()">About</a>
+      <a href="contact.html" onclick="closeMenu()">Contact</a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <div class="contact-wrap">
+
+      <!-- LEFT -->
+      <div class="contact-left">
+        <h1 class="contact-headline">Let's work<br /><em>together</em></h1>
+        <p class="contact-desc">
+          I'm open to freelance opportunities, collaborations, and product design roles. Feel free to reach out.
+        </p>
+
+        <div class="contact-links">
+          <a href="/cdn-cgi/l/email-protection#d5bdb0b9b9ba95baacb0bbbca7b4bbbfbab0b9fbb6bab8" class="contact-link-item">
+            <span class="link-label">Email</span>
+            <span class="link-value">
+              <span class="__cf_email__" data-cfemail="afc7cac3c3c0efc0d6cac1c6ddcec1c5c0cac381ccc0c2">[email&#160;protected]</span>
+              <svg class="link-arrow" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a href="https://www.linkedin.com/in/joel-oyekola-a76234240" target="_blank" rel="noopener" class="contact-link-item">
+            <span class="link-label">LinkedIn</span>
+            <span class="link-value">
+              Joel Oyekola
+              <svg class="link-arrow" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT — FORM -->
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">
+          Send message
+          <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 6.5H12M12 6.5L7 1.5M12 6.5L7 11.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 Oyeniran Joel</span>
+      <span class="footer-tagline">Product Designer</span>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function handleSubmit(e) {
+
+  <script>
+    function toggleMenu() {
+      var btn = document.querySelector('.nav-hamburger');
+      var menu = document.getElementById('mobileMenu');
+      btn.classList.toggle('open');
+      menu.classList.toggle('open');
+    }
+    function closeMenu() {
+      var btn = document.querySelector('.nav-hamburger');
+      var menu = document.getElementById('mobileMenu');
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+    }
+  </script>
+</body>
+</html>
