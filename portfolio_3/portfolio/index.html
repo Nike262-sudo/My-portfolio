@@ -180,11 +180,11 @@
 
     /* Card body */
     .project-body {
-      padding: 28px;
+      padding: 20px 28px;
       display: flex;
-      flex-direction: column;
-      flex: 1;
-      gap: 12px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .project-title {
@@ -194,11 +194,13 @@
       line-height: 1.2;
     }
 
-    .project-desc {
-      font-size: 14.5px;
-      font-weight: 300;
+    .project-tag {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       color: var(--mid);
-      line-height: 1.65;
     }
 
     /* ABOUT */
@@ -398,7 +400,7 @@
           </div>
           <div class="project-body">
             <h3 class="project-title">Educraft</h3>
-            <p class="project-desc">An e-learning platform built for modern students with intuitive course navigation and a clean, distraction-free interface.</p>
+            <span class="project-tag">E-Learning Platform</span>
           </div>
         </a>
 
@@ -408,8 +410,8 @@
             <img src="images/Nairaland redesigned interface.png" alt="Nairaland Redesign" />
           </div>
           <div class="project-body">
-            <h3 class="project-title">Nairaland Redesign</h3>
-            <p class="project-desc">A complete platform redesign that modernises Nigeria's most popular online community with improved usability and visual clarity.</p>
+            <h3 class="project-title">Nairaland</h3>
+            <span class="project-tag">Product Redesign</span>
           </div>
         </a>
 
@@ -420,7 +422,7 @@
           </div>
           <div class="project-body">
             <h3 class="project-title">Lume</h3>
-            <p class="project-desc">A minimalist landing page centred on clean typography, generous whitespace, and purposeful visual restraint.</p>
+            <span class="project-tag">Landing Page</span>
           </div>
         </a>
 
@@ -431,7 +433,7 @@
           </div>
           <div class="project-body">
             <h3 class="project-title">Nuvioweb</h3>
-            <p class="project-desc">A conversion-focused marketing website for a modern SaaS product, balancing bold visual identity with clear information hierarchy.</p>
+            <span class="project-tag">Marketing Website</span>
           </div>
         </a>
 
