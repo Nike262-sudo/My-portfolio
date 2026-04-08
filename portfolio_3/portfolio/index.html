@@ -159,13 +159,12 @@
       box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
     }
 
-    /* Image area with overlay */
+    /* Image area */
     .project-thumb {
       width: 100%;
       aspect-ratio: 4 / 3;
       overflow: hidden;
       background: #e8e6e2;
-      position: relative;
     }
 
     .project-thumb img {
@@ -175,46 +174,8 @@
       transition: transform 0.5s var(--ease);
     }
 
-    .project-thumb:hover img {
+    .project-card:hover .project-thumb img {
       transform: scale(1.05);
-    }
-
-    /* Dark overlay + centered live-site button on image hover */
-    .project-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s var(--ease);
-    }
-
-    .project-thumb:hover .project-overlay {
-      background: rgba(0, 0, 0, 0.3);
-    }
-
-    .overlay-live-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 20px;
-      background: var(--white);
-      color: var(--black);
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 500;
-      border-radius: 6px;
-      white-space: nowrap;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
-      text-decoration: none;
-    }
-
-    .project-thumb:hover .overlay-live-btn {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     /* Card body */
@@ -223,7 +184,7 @@
       display: flex;
       flex-direction: column;
       flex: 1;
-      gap: 16px;
+      gap: 12px;
     }
 
     .project-title {
@@ -231,7 +192,6 @@
       font-size: 22px;
       letter-spacing: -0.02em;
       line-height: 1.2;
-      margin-bottom: 4px;
     }
 
     .project-desc {
@@ -239,69 +199,6 @@
       font-weight: 300;
       color: var(--mid);
       line-height: 1.65;
-    }
-
-    /* Action buttons row */
-    .project-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: auto;
-    }
-
-    .btn-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 11px 20px;
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 500;
-      border-radius: 6px;
-      border: 1.5px solid var(--black);
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.25s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
-      min-height: 44px;
-    }
-
-    .btn-live:hover {
-      background: #2a2a2a;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
-    }
-
-    .btn-case {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 11px 20px;
-      background: transparent;
-      color: var(--black);
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 500;
-      border-radius: 6px;
-      border: 1.5px solid var(--line);
-      cursor: pointer;
-      text-decoration: none;
-      transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.2s var(--ease);
-      min-height: 44px;
-    }
-
-    .btn-case:hover {
-      border-color: var(--black);
-      background: rgba(10, 10, 10, 0.04);
-      transform: translateY(-2px);
-    }
-
-    /* Small detail text below buttons */
-    .project-detail {
-      font-size: 11.5px;
-      color: var(--mid);
-      letter-spacing: 0.02em;
     }
 
     /* ABOUT */
@@ -495,88 +392,48 @@
       <div class="projects-grid">
 
         <!-- Educraft -->
-        <div class="project-card">
+        <a href="educraft.html" class="project-card">
           <div class="project-thumb">
             <img src="images/Educraft.png" alt="Educraft" />
-            <div class="project-overlay">
-              <a href="https://educraft-vg9w.vercel.app/" target="_blank" rel="noopener noreferrer" class="overlay-live-btn">View Live Site ↗</a>
-            </div>
           </div>
           <div class="project-body">
-            <div>
-              <h3 class="project-title">Educraft</h3>
-              <p class="project-desc">An e-learning platform built for modern students with intuitive course navigation and a clean, distraction-free interface.</p>
-            </div>
-            <div class="project-actions">
-              <a href="https://educraft-vg9w.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live Site ↗</a>
-              <a href="educraft.html" class="btn-case">View Case Study</a>
-            </div>
-            <p class="project-detail">Fully responsive build · Mobile-optimized</p>
+            <h3 class="project-title">Educraft</h3>
+            <p class="project-desc">An e-learning platform built for modern students with intuitive course navigation and a clean, distraction-free interface.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Nairaland -->
-        <div class="project-card">
+        <a href="nairaland.html" class="project-card">
           <div class="project-thumb">
             <img src="images/Nairaland redesigned interface.png" alt="Nairaland Redesign" />
-            <div class="project-overlay">
-              <a href="https://nairaland-tau.vercel.app/" target="_blank" rel="noopener noreferrer" class="overlay-live-btn">View Live Site ↗</a>
-            </div>
           </div>
           <div class="project-body">
-            <div>
-              <h3 class="project-title">Nairaland Redesign</h3>
-              <p class="project-desc">A complete platform redesign that modernises Nigeria's most popular online community with improved usability and visual clarity.</p>
-            </div>
-            <div class="project-actions">
-              <a href="https://nairaland-tau.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live Site ↗</a>
-              <a href="nairaland.html" class="btn-case">View Case Study</a>
-            </div>
-            <p class="project-detail">Live production site · Fully responsive build</p>
+            <h3 class="project-title">Nairaland Redesign</h3>
+            <p class="project-desc">A complete platform redesign that modernises Nigeria's most popular online community with improved usability and visual clarity.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Lume -->
-        <div class="project-card">
+        <a href="lume.html" class="project-card">
           <div class="project-thumb">
             <img src="images/Lume.png" alt="Lume" />
-            <div class="project-overlay">
-              <a href="https://lume-black-delta.vercel.app/" target="_blank" rel="noopener noreferrer" class="overlay-live-btn">View Live Site ↗</a>
-            </div>
           </div>
           <div class="project-body">
-            <div>
-              <h3 class="project-title">Lume</h3>
-              <p class="project-desc">A minimalist landing page centred on clean typography, generous whitespace, and purposeful visual restraint.</p>
-            </div>
-            <div class="project-actions">
-              <a href="https://lume-black-delta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live Site ↗</a>
-              <a href="lume.html" class="btn-case">View Case Study</a>
-            </div>
-            <p class="project-detail">Live production site · Mobile-optimized</p>
+            <h3 class="project-title">Lume</h3>
+            <p class="project-desc">A minimalist landing page centred on clean typography, generous whitespace, and purposeful visual restraint.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Nuvioweb -->
-        <div class="project-card">
+        <a href="nuvioweb.html" class="project-card">
           <div class="project-thumb">
             <img src="images/Nuvioweb.png" alt="Nuvioweb" />
-            <div class="project-overlay">
-              <a href="https://nuvioweb-phi.vercel.app/" target="_blank" rel="noopener noreferrer" class="overlay-live-btn">View Live Site ↗</a>
-            </div>
           </div>
           <div class="project-body">
-            <div>
-              <h3 class="project-title">Nuvioweb</h3>
-              <p class="project-desc">A conversion-focused marketing website for a modern SaaS product, balancing bold visual identity with clear information hierarchy.</p>
-            </div>
-            <div class="project-actions">
-              <a href="https://nuvioweb-phi.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live Site ↗</a>
-              <a href="nuvioweb.html" class="btn-case">View Case Study</a>
-            </div>
-            <p class="project-detail">Live production site · Fully responsive build</p>
+            <h3 class="project-title">Nuvioweb</h3>
+            <p class="project-desc">A conversion-focused marketing website for a modern SaaS product, balancing bold visual identity with clear information hierarchy.</p>
           </div>
-        </div>
+        </a>
 
       </div>
     </div>
