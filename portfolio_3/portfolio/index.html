@@ -136,88 +136,173 @@
     /* PROJECTS GRID */
     .projects-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      padding-top: 32px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding-top: 40px;
       padding-bottom: 80px;
     }
 
+    /* Project card */
     .project-card {
-      display: block;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      overflow: hidden;
-      position: relative;
       background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
     }
 
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Image area with overlay */
     .project-thumb {
       width: 100%;
       aspect-ratio: 4 / 3;
       overflow: hidden;
       background: #e8e6e2;
+      position: relative;
     }
 
     .project-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s var(--ease), filter 0.4s var(--ease);
-      filter: grayscale(20%);
+      transition: transform 0.5s var(--ease);
     }
 
-    .project-card:hover .project-thumb img {
-      transform: scale(1.03);
-      filter: grayscale(0%);
+    .project-thumb:hover img {
+      transform: scale(1.05);
     }
 
-    .project-info {
-      padding: 20px 24px 24px;
+    /* Dark overlay + centered live-site button on image hover */
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--line);
+      justify-content: center;
+      transition: background 0.3s var(--ease);
+    }
+
+    .project-thumb:hover .project-overlay {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .overlay-live-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+      text-decoration: none;
+    }
+
+    .project-thumb:hover .overlay-live-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Card body */
+    .project-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 16px;
     }
 
     .project-title {
       font-family: var(--serif);
-      font-size: 20px;
+      font-size: 22px;
       letter-spacing: -0.02em;
       line-height: 1.2;
+      margin-bottom: 4px;
     }
 
-    .project-tag {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .project-desc {
+      font-size: 14.5px;
+      font-weight: 300;
       color: var(--mid);
-      white-space: nowrap;
+      line-height: 1.65;
     }
 
-    .project-arrow {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 32px;
-      height: 32px;
+    /* Action buttons row */
+    .project-actions {
       display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .btn-live {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      border: 1px solid var(--black);
-      border-radius: 50%;
-      opacity: 0;
-      transform: translate(4px, -4px);
-      transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
-      background: var(--white);
+      gap: 5px;
+      padding: 11px 20px;
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      border: 1.5px solid var(--black);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+      min-height: 44px;
     }
 
-    .project-card:hover .project-arrow {
-      opacity: 1;
-      transform: translate(0, 0);
+    .btn-live:hover {
+      background: #2a2a2a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
     }
 
-    .project-arrow svg { width: 13px; height: 13px; }
+    .btn-case {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 11px 20px;
+      background: transparent;
+      color: var(--black);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      border: 1.5px solid var(--line);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.2s var(--ease);
+      min-height: 44px;
+    }
+
+    .btn-case:hover {
+      border-color: var(--black);
+      background: rgba(10, 10, 10, 0.04);
+      transform: translateY(-2px);
+    }
+
+    /* Small detail text below buttons */
+    .project-detail {
+      font-size: 11.5px;
+      color: var(--mid);
+      letter-spacing: 0.02em;
+    }
 
     /* ABOUT */
     .about {
@@ -346,14 +431,19 @@
     .nav-mobile a:hover { color: var(--black); }
 
     /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    }
+
     @media (max-width: 768px) {
       .container { padding: 0 24px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .hero { padding: 72px 0 64px; }
-      .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+      .projects-grid { grid-template-columns: 1fr; gap: 20px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .footer-links { display: none; }
+      .project-body { padding: 20px; }
     }
   </style>
 </head>
@@ -404,65 +494,89 @@
     <div class="container">
       <div class="projects-grid">
 
-        <a href="educraft.html" class="project-card">
+        <!-- Educraft -->
+        <div class="project-card">
           <div class="project-thumb">
             <img src="images/Educraft.png" alt="Educraft" />
+            <div class="project-overlay">
+              <a href="#" target="_blank" rel="noopener" class="overlay-live-btn">View Live Site ↗</a>
+            </div>
           </div>
-          <div class="project-info">
-            <span class="project-title">Educraft</span>
-            <span class="project-tag">E-learning Platform</span>
+          <div class="project-body">
+            <div>
+              <h3 class="project-title">Educraft</h3>
+              <p class="project-desc">An e-learning platform built for modern students with intuitive course navigation and a clean, distraction-free interface.</p>
+            </div>
+            <div class="project-actions">
+              <a href="#" target="_blank" rel="noopener" class="btn-live">View Live Site ↗</a>
+              <a href="educraft.html" class="btn-case">View Case Study</a>
+            </div>
+            <p class="project-detail">Fully responsive build · Mobile-optimized</p>
           </div>
-          <div class="project-arrow">
-            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 12L12 2M12 2H5M12 2V9" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </a>
+        </div>
 
-        <a href="nairaland.html" class="project-card">
+        <!-- Nairaland -->
+        <div class="project-card">
           <div class="project-thumb">
-            <img src="images/Nairaland.png" alt="Nairaland" />
+            <img src="images/Nairaland redesigned interface.png" alt="Nairaland Redesign" />
+            <div class="project-overlay">
+              <a href="#" target="_blank" rel="noopener" class="overlay-live-btn">View Live Site ↗</a>
+            </div>
           </div>
-          <div class="project-info">
-            <span class="project-title">Nairaland</span>
-            <span class="project-tag">Product Redesign</span>
+          <div class="project-body">
+            <div>
+              <h3 class="project-title">Nairaland Redesign</h3>
+              <p class="project-desc">A complete platform redesign that modernises Nigeria's most popular online community with improved usability and visual clarity.</p>
+            </div>
+            <div class="project-actions">
+              <a href="#" target="_blank" rel="noopener" class="btn-live">View Live Site ↗</a>
+              <a href="nairaland.html" class="btn-case">View Case Study</a>
+            </div>
+            <p class="project-detail">Live production site · Fully responsive build</p>
           </div>
-          <div class="project-arrow">
-            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 12L12 2M12 2H5M12 2V9" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </a>
+        </div>
 
-        <a href="lume.html" class="project-card">
+        <!-- Lume -->
+        <div class="project-card">
           <div class="project-thumb">
             <img src="images/Lume.png" alt="Lume" />
+            <div class="project-overlay">
+              <a href="#" target="_blank" rel="noopener" class="overlay-live-btn">View Live Site ↗</a>
+            </div>
           </div>
-          <div class="project-info">
-            <span class="project-title">Lume</span>
-            <span class="project-tag">Landing Page</span>
+          <div class="project-body">
+            <div>
+              <h3 class="project-title">Lume</h3>
+              <p class="project-desc">A minimalist landing page centred on clean typography, generous whitespace, and purposeful visual restraint.</p>
+            </div>
+            <div class="project-actions">
+              <a href="#" target="_blank" rel="noopener" class="btn-live">View Live Site ↗</a>
+              <a href="lume.html" class="btn-case">View Case Study</a>
+            </div>
+            <p class="project-detail">Live production site · Mobile-optimized</p>
           </div>
-          <div class="project-arrow">
-            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 12L12 2M12 2H5M12 2V9" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </a>
+        </div>
 
-        <a href="nuvioweb.html" class="project-card">
+        <!-- Nuvioweb -->
+        <div class="project-card">
           <div class="project-thumb">
             <img src="images/Nuvioweb.png" alt="Nuvioweb" />
+            <div class="project-overlay">
+              <a href="#" target="_blank" rel="noopener" class="overlay-live-btn">View Live Site ↗</a>
+            </div>
           </div>
-          <div class="project-info">
-            <span class="project-title">Nuvioweb</span>
-            <span class="project-tag">Marketing Website</span>
+          <div class="project-body">
+            <div>
+              <h3 class="project-title">Nuvioweb</h3>
+              <p class="project-desc">A conversion-focused marketing website for a modern SaaS product, balancing bold visual identity with clear information hierarchy.</p>
+            </div>
+            <div class="project-actions">
+              <a href="#" target="_blank" rel="noopener" class="btn-live">View Live Site ↗</a>
+              <a href="nuvioweb.html" class="btn-case">View Case Study</a>
+            </div>
+            <p class="project-detail">Live production site · Fully responsive build</p>
           </div>
-          <div class="project-arrow">
-            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 12L12 2M12 2H5M12 2V9" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </a>
+        </div>
 
       </div>
     </div>
