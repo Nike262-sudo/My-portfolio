@@ -591,6 +591,20 @@
     .reveal.d2 { transition-delay: 0.12s; }
     .reveal.d3 { transition-delay: 0.20s; }
 
+    /* ── DESIGN SHOWCASE PLACEHOLDERS ── */
+    .showcase-placeholder {
+      width: 100%;
+      height: 300px;
+      background: #f0f0f0;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      font-size: 13px;
+      font-family: var(--sans);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .nav-inner, .wrap, .wrap-wide, .footer-inner { padding: 0 24px; }
@@ -604,11 +618,13 @@
       .key-row { grid-template-columns: 1fr; }
       .key-name { border-right: none; border-bottom: 1px solid var(--line); }
       .approach-item { grid-template-columns: 28px 1fr; gap: 16px; }
+      .showcase-placeholder, .showcase-placeholder--half { height: 250px; }
     }
 
     @media (max-width: 480px) {
       .outcome-grid { grid-template-columns: 1fr; }
       .meta-grid { grid-template-columns: 1fr; }
+      .showcase-placeholder, .showcase-placeholder--half { height: 200px; }
     }
 
     /* HAMBURGER */
@@ -681,12 +697,9 @@
     <div class="wrap">
       <span class="hero-tag reveal" data-aos="fade-up">Case Study · E-learning Platform</span>
       <h1 class="hero-title reveal d1" data-aos="fade-up" data-aos-delay="100">Educraft</h1>
-      <p class="hero-subtitle reveal d2" data-aos="fade-up" data-aos-delay="200">Designing a modern e-learning experience</p>
-      <p class="hero-desc reveal d3" data-aos="fade-up" data-aos-delay="300">
-        A platform designed to simplify how users discover and enroll in practical, career-focused courses.
-      </p>
+      <p class="hero-subtitle reveal d2" data-aos="fade-up" data-aos-delay="200">Modern e-learning platform designed for course discovery</p>
 
-      <div class="meta-grid reveal" data-aos="fade-up" data-aos-delay="400">
+      <div class="meta-grid reveal" data-aos="fade-up" data-aos-delay="300">
         <div class="meta-item">
           <div class="meta-label">Role</div>
           <div class="meta-value">Product Designer</div>
@@ -714,10 +727,21 @@
   <section class="section">
     <div class="wrap">
       <div class="section-number reveal">01 — Overview</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">What is Educraft?</h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Educraft is an e-learning platform designed to help users discover and enroll in practical, career-focused courses. The goal was to create a structured and conversion-focused experience that simplifies the learning journey.
-      </p>
+      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Quick <em>Info</em></h2>
+      <div class="key-sections reveal" data-aos="fade-up" data-aos-delay="200" style="margin-top: 0;">
+        <div class="key-row">
+          <div class="key-name">Role</div>
+          <div class="key-detail">Product Designer</div>
+        </div>
+        <div class="key-row">
+          <div class="key-name">Platform</div>
+          <div class="key-detail">Web</div>
+        </div>
+        <div class="key-row">
+          <div class="key-name">Goal</div>
+          <div class="key-detail">Simplify course discovery</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -726,9 +750,6 @@
     <div class="wrap">
       <div class="section-number reveal">02 — Problem</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">What was <em>broken?</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Many e-learning platforms overwhelm users with too many options and poor content structure, making it difficult to quickly identify relevant courses.
-      </p>
 
       <ul class="problem-list">
         <li class="reveal" data-aos="fade-right" data-aos-delay="100">
@@ -744,10 +765,6 @@
           <span>Trust the platform enough to take action</span>
         </li>
       </ul>
-
-      <p class="body-text reveal" style="margin-top: 28px;">
-        This creates friction between discovery and enrollment, leading to drop-offs before users engage with the product.
-      </p>
     </div>
   </section>
 
@@ -774,9 +791,6 @@
     <div class="wrap">
       <div class="section-number reveal">03 — Goal</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Design <em>objectives</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        The goal of this project was to design a clear and structured experience that:
-      </p>
 
       <div class="goal-grid reveal" data-aos="fade-up" data-aos-delay="100">
         <div class="goal-item">
@@ -814,21 +828,21 @@
           <div class="approach-step">1</div>
           <div>
             <div class="approach-title">Visual Hierarchy</div>
-            <div class="approach-desc">Content was structured using strong typography and spacing to guide users through the page naturally. Each section has a clear focal point — nothing competes for attention.</div>
+            <div class="approach-desc">Strong typography and spacing to guide users naturally.</div>
           </div>
         </div>
         <div class="approach-item reveal" data-aos="fade-left" data-aos-delay="200">
           <div class="approach-step">2</div>
           <div>
             <div class="approach-title">Minimalism</div>
-            <div class="approach-desc">Unnecessary elements were removed to reduce cognitive load and improve focus. White space was used intentionally to create clarity between sections.</div>
+            <div class="approach-desc">Removed distractions, used white space intentionally.</div>
           </div>
         </div>
         <div class="approach-item reveal" data-aos="fade-left" data-aos-delay="300">
           <div class="approach-step">3</div>
           <div>
             <div class="approach-title">Conversion Flow</div>
-            <div class="approach-desc">Each section was intentionally designed to move users closer to enrolling — from discovery to trust to decision. Structure follows strategy throughout the experience.</div>
+            <div class="approach-desc">Structured to move users from discovery to enrollment.</div>
           </div>
         </div>
       </div>
@@ -848,30 +862,67 @@
     <div class="wrap">
       <div class="section-number reveal">05 — Key Sections</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Building the <em>experience</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Each section of the landing page was designed intentionally. Here's the rationale behind the five most critical parts of the layout.
-      </p>
 
       <div class="key-sections reveal">
         <div class="key-row" data-aos="fade-up" data-aos-delay="100">
           <div class="key-name">Hero Section</div>
-          <div class="key-detail">The hero section was designed to immediately communicate the platform's value with a clear headline and a focused call-to-action. The layout prioritizes clarity, not decoration.</div>
+          <div class="key-detail">Clear headline and CTA — communicates value immediately.</div>
         </div>
         <div class="key-row" data-aos="fade-up" data-aos-delay="200">
           <div class="key-name">Course Section</div>
-          <div class="key-detail">Courses are presented in a clean card-based layout, making it easy for users to scan and compare options. Spacing and alignment were carefully used to improve readability.</div>
+          <div class="key-detail">Card layout for easy scanning and comparison.</div>
         </div>
         <div class="key-row" data-aos="fade-up" data-aos-delay="300">
           <div class="key-name">Testimonials</div>
-          <div class="key-detail">A testimonial section was introduced to build credibility and reduce hesitation, helping users feel more confident about enrolling.</div>
+          <div class="key-detail">Social proof to build credibility and reduce enrollment hesitation.</div>
         </div>
         <div class="key-row" data-aos="fade-up" data-aos-delay="400">
           <div class="key-name">Pricing</div>
-          <div class="key-detail">Pricing was structured to allow easy comparison between options, helping users quickly understand value and choose a plan without confusion.</div>
+          <div class="key-detail">Easy-to-compare tiers so users choose a plan confidently.</div>
         </div>
         <div class="key-row" data-aos="fade-up" data-aos-delay="500">
           <div class="key-name">Call-to-Action</div>
-          <div class="key-detail">Call-to-action elements were placed at key points throughout the page to capture users at different stages of decision-making.</div>
+          <div class="key-detail">Placed at key decision points throughout the page.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN SHOWCASE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">06 — Design Showcase</div>
+      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Final <em>Screens</em></h2>
+    </div>
+
+    <div class="wrap-wide">
+      <!-- Full-width placeholder -->
+      <div class="reveal" data-aos="zoom-in" data-aos-delay="100" style="margin-top: 48px;">
+        <div class="showcase-placeholder" role="img" aria-label="Complete Design System placeholder">Image Placeholder</div>
+        <p class="img-caption">Complete Design System</p>
+      </div>
+
+      <!-- Two-column grid: Homepage + Dashboard -->
+      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="200" style="margin-top: 32px;">
+        <div>
+          <div class="showcase-placeholder showcase-placeholder--half" role="img" aria-label="Homepage placeholder">Image Placeholder</div>
+          <p class="img-caption">Homepage</p>
+        </div>
+        <div>
+          <div class="showcase-placeholder showcase-placeholder--half" role="img" aria-label="Dashboard placeholder">Image Placeholder</div>
+          <p class="img-caption">Dashboard</p>
+        </div>
+      </div>
+
+      <!-- Two-column grid: Course View + Mobile Experience -->
+      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="300" style="margin-top: 32px; padding-bottom: 0;">
+        <div>
+          <div class="showcase-placeholder showcase-placeholder--half" role="img" aria-label="Course View placeholder">Image Placeholder</div>
+          <p class="img-caption">Course View</p>
+        </div>
+        <div>
+          <div class="showcase-placeholder showcase-placeholder--half" role="img" aria-label="Mobile Experience placeholder">Image Placeholder</div>
+          <p class="img-caption">Mobile Experience</p>
         </div>
       </div>
     </div>
@@ -905,11 +956,8 @@
   <!-- VISUAL DESIGN -->
   <section class="section">
     <div class="wrap">
-      <div class="section-number reveal">06 — Visual Design</div>
+      <div class="section-number reveal">07 — Visual Design</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Design <em>decisions</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        The visual design focuses on clarity and consistency across the entire interface.
-      </p>
 
       <div style="margin-top: 36px;" class="reveal" data-aos="fade-up" data-aos-delay="100">
         <div class="spec-row">
@@ -935,10 +983,10 @@
   <!-- IMPLEMENTATION -->
   <section class="section">
     <div class="wrap">
-      <div class="section-number reveal">07 — Implementation</div>
+      <div class="section-number reveal">08 — Implementation</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">From design <em>to live product</em></h2>
       <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        The design was translated into a live, responsive interface. Tools like Claude AI were used to accelerate development and ensure consistency between design and implementation, allowing for rapid iteration.
+        Translated into a responsive live product using Figma and Claude AI for rapid iteration.
       </p>
     </div>
   </section>
@@ -946,7 +994,7 @@
   <!-- OUTCOME -->
   <section class="section">
     <div class="wrap">
-      <div class="section-number reveal">08 — Outcome</div>
+      <div class="section-number reveal">09 — Outcome</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">What was <em>achieved</em></h2>
 
       <div class="outcome-grid reveal" data-aos="fade-up" data-aos-delay="100">
@@ -965,10 +1013,7 @@
       </div>
 
       <p class="body-text reveal">
-        The final design delivers a clear and structured user experience that simplifies course discovery, improves overall readability and navigation, and creates a more engaging and modern interface.
-      </p>
-      <p class="body-text reveal">
-        The result is a product that feels intuitive, focused, and aligned with current design standards.
+        A focused, modern interface that simplifies course discovery and drives enrollment.
       </p>
     </div>
   </section>
@@ -984,11 +1029,8 @@
   <!-- REFLECTION -->
   <section class="section">
     <div class="wrap">
-      <div class="section-number reveal">09 — Reflection</div>
+      <div class="section-number reveal">10 — Reflection</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Looking <em>back</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        This project reinforced the importance of designing for clarity and user decision-making.
-      </p>
 
       <div class="reflection-cols">
         <div class="reflection-col reveal">
