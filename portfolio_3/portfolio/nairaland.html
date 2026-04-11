@@ -535,6 +535,54 @@
       margin-top: 48px;
     }
 
+    /* ── KEY SECTIONS TABLE ── */
+    .key-sections {
+      margin-top: 40px;
+      border: 1px solid var(--line);
+    }
+
+    .key-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .key-row:last-child { border-bottom: none; }
+
+    .key-name {
+      padding: 22px 28px;
+      font-size: 13.5px;
+      font-weight: 500;
+      border-right: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+    }
+
+    .key-detail {
+      padding: 22px 28px;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── DESIGN SHOWCASE PLACEHOLDERS ── */
+    .showcase-placeholder,
+    .showcase-placeholder--half {
+      width: 100%;
+      height: 300px;
+      background: #f0f0f0;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      font-size: 13px;
+      font-family: var(--sans);
+    }
+
     /* ── REVEAL ── */
     .reveal {
       opacity: 0;
@@ -557,12 +605,16 @@
       .img-two { grid-template-columns: 1fr; }
       .improvement-row { grid-template-columns: 1fr; }
       .improvement-name { border-right: none; border-bottom: 1px solid var(--line); }
+      .key-row { grid-template-columns: 1fr; }
+      .key-name { border-right: none; border-bottom: 1px solid var(--line); }
       .reflection-cols { grid-template-columns: 1fr; gap: 32px; }
       .approach-item { grid-template-columns: 28px 1fr; gap: 16px; }
+      .showcase-placeholder, .showcase-placeholder--half { height: 250px; }
     }
 
     @media (max-width: 480px) {
       .meta-grid { grid-template-columns: 1fr; }
+      .showcase-placeholder, .showcase-placeholder--half { height: 200px; }
     }
 
     /* HAMBURGER */
@@ -635,10 +687,7 @@
     <div class="wrap">
       <span class="hero-tag reveal" data-aos="fade-up">Case Study · UX/UI Redesign</span>
       <h1 class="hero-title reveal d1" data-aos="fade-up" data-aos-delay="100">Nairaland<br />Redesign</h1>
-      <p class="hero-subtitle reveal d2" data-aos="fade-up" data-aos-delay="200">Improving usability and readability for a legacy forum platform</p>
-      <p class="hero-desc reveal d3" data-aos="fade-up" data-aos-delay="300">
-        A redesign of Nairaland focused on improving readability, navigation, and overall user experience while maintaining its core functionality.
-      </p>
+      <p class="hero-subtitle reveal d2" data-aos="fade-up" data-aos-delay="200">Modern redesign of Nigeria's largest forum</p>
 
       <div class="meta-grid reveal" data-aos="fade-up" data-aos-delay="400">
         <div class="meta-item">
@@ -668,10 +717,21 @@
   <section class="section">
     <div class="wrap">
       <div class="section-number reveal">01 — Overview</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The platform</h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Nairaland is one of the largest online forums in Nigeria, but its interface has remained largely unchanged over the years. This project explores how a modern redesign could improve usability and readability without losing what makes the platform familiar.
-      </p>
+      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Quick <em>Info</em></h2>
+      <div class="key-sections reveal" data-aos="fade-up" data-aos-delay="200" style="margin-top: 0;">
+        <div class="key-row">
+          <div class="key-name">Role</div>
+          <div class="key-detail">Product Designer</div>
+        </div>
+        <div class="key-row">
+          <div class="key-name">Platform</div>
+          <div class="key-detail">Web</div>
+        </div>
+        <div class="key-row">
+          <div class="key-name">Goal</div>
+          <div class="key-detail">Improve readability and navigation</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -680,35 +740,25 @@
     <div class="wrap">
       <div class="section-number reveal">02 — Problem</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">What needed <em>to change</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Nairaland carries a significant amount of content per page — long threads, dense post lists, and category navigation all competing for attention at once. Over time, these patterns have become barriers to comfortable use.
-      </p>
 
       <ul class="problem-list">
         <li class="reveal" data-aos="fade-right" data-aos-delay="100">
           <span class="problem-num">01</span>
-          <span>Text is displayed at small sizes with minimal line height, making extended reading uncomfortable and tiring — a critical issue for a platform where users spend long periods reading through threads.
-          </span>
+          <span>Small font sizes and minimal line height make extended reading uncomfortable</span>
         </li>
         <li class="reveal" data-aos="fade-right" data-aos-delay="200">
           <span class="problem-num">02</span>
-          <span>Thread lists lack visual separation — post titles, metadata, and reply counts are compressed together with no clear spacing, making it hard to scan and identify relevant threads quickly.
-          </span>
+          <span>Thread lists lack visual separation, making it hard to scan quickly</span>
         </li>
         <li class="reveal" data-aos="fade-right" data-aos-delay="300">
           <span class="problem-num">03</span>
-          <span>No clear visual hierarchy between page sections means users must actively search for context rather than having it surface naturally through layout</span>
+          <span>No clear visual hierarchy between page sections — users must search for context</span>
         </li>
         <li class="reveal" data-aos="fade-right" data-aos-delay="400">
           <span class="problem-num">04</span>
-          <span>Navigation labels are ambiguous and inconsistently placed — new users often struggle to understand how sections are organized or how to move between them without trial and error.
-          </span>
+          <span>Ambiguous navigation labels make it hard to understand how sections are organized</span>
         </li>
       </ul>
-
-      <p class="body-text reveal" style="margin-top: 28px;">
-        Individually, each of these is a minor irritation. Together, they create a browsing experience that demands more from users than it should — leading to disengagement before they find what they came for.
-      </p>
     </div>
   </section>
 
@@ -735,41 +785,34 @@
     <div class="wrap">
       <div class="section-number reveal">04 — Design Approach</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Balancing modernization <em>with familiarity</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        The redesign focused on making targeted, meaningful improvements — not reinventing the product from scratch.
-      </p>
 
       <div class="approach-list">
         <div class="approach-item reveal" data-aos="fade-left" data-aos-delay="100">
           <div class="approach-step">1</div>
           <div>
             <div class="approach-title">Improved Hierarchy</div>
-            <div class="approach-desc">Forums are inherently layered — categories contain boards, boards contain threads, threads contain posts. When that structure isn't reflected visually, users are forced to reconstruct it mentally on every page.
-            </div>
+            <div class="approach-desc">Clear visual structure reflecting the forum's layered architecture.</div>
           </div>
         </div>
         <div class="approach-item reveal" data-aos="fade-left" data-aos-delay="200">
           <div class="approach-step">2</div>
           <div>
             <div class="approach-title">Better Readability</div>
-            <div class="approach-desc">On a content-heavy platform like Nairaland, readability isn't a nice-to-have — it directly affects how long users stay and how much they read. Increasing font size, line height, and contrast was the highest-priority fix.
-            </div>
+            <div class="approach-desc">Larger type, improved line height, and better contrast for long reads.</div>
           </div>
         </div>
         <div class="approach-item reveal" data-aos="fade-left" data-aos-delay="300">
           <div class="approach-step">3</div>
           <div>
             <div class="approach-title">Simplified Navigation</div>
-            <div class="approach-desc">When users can't predict where a link will take them, they stop exploring. Reorganizing the navigation around actual user tasks — browsing by category, finding active threads, returning to recent content — restores that predictability.
-            </div>
+            <div class="approach-desc">Reorganized around real user tasks — browsing, finding, returning.</div>
           </div>
         </div>
         <div class="approach-item reveal" data-aos="fade-left" data-aos-delay="400">
           <div class="approach-step">4</div>
           <div>
             <div class="approach-title">Modern UI</div>
-            <div class="approach-desc">Nairaland has millions of regular users with deeply ingrained habits. The risk of a full visual overhaul is alienating that base. The approach was to modernize the interface incrementally — improving structure and clarity without discarding what users recognize.
-            </div>
+            <div class="approach-desc">Incremental modernization that preserves what millions of users recognize.</div>
           </div>
         </div>
       </div>
@@ -781,9 +824,6 @@
     <div class="wrap">
       <div class="section-number reveal">05 — Before vs After</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>difference</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        A direct comparison between the original interface and the redesign — showing what changed and why each decision was made.
-      </p>
     </div>
 
     <div class="wrap-wide" style="margin-top: 40px;">
@@ -817,30 +857,63 @@
     <div class="wrap">
       <div class="section-number reveal">06 — Key Improvements</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">What <em>changed</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Each improvement was driven by a specific usability issue identified in the original interface.
-      </p>
 
       <div class="improvements reveal">
         <div class="improvement-row" data-aos="fade-up" data-aos-delay="100">
           <div class="improvement-name">Typography &amp; Readability</div>
-          <div class="improvement-detail">Base font size was increased and line height set to 1.7 to make reading longer threads comfortable. A structured type scale — with clear distinctions between headings, thread titles, and metadata — helps users parse content at a glance.
-          </div>
+          <div class="improvement-detail">Larger base font, 1.7 line height, and clear type scale for comfortable reading.</div>
         </div>
         <div class="improvement-row" data-aos="fade-up" data-aos-delay="200">
           <div class="improvement-name">Layout Structure</div>
-          <div class="improvement-detail">Consistent vertical spacing was added between thread rows, and section headers were made visually distinct from content. This separation gives users a mental model of the page before they begin reading.
-          </div>
+          <div class="improvement-detail">Consistent vertical spacing and distinct section headers improve page scanning.</div>
         </div>
         <div class="improvement-row" data-aos="fade-up" data-aos-delay="300">
           <div class="improvement-name">Navigation</div>
-          <div class="improvement-detail">Navigation items were reorganized around the tasks users actually perform: browsing categories, finding active threads, and returning to recent activity. Labels were rewritten for clarity, and the overall structure was simplified.
-          </div>
+          <div class="improvement-detail">Reorganized around real tasks — browsing, finding active threads, recent activity.</div>
         </div>
         <div class="improvement-row" data-aos="fade-up" data-aos-delay="400">
           <div class="improvement-name">Visual Design</div>
-          <div class="improvement-detail">Decoration was removed in favor of structure. Subtle 1px dividers replace heavy borders. A neutral off-white background reduces contrast fatigue during long reading sessions.
-          </div>
+          <div class="improvement-detail">Subtle dividers, neutral off-white background, and minimal decoration reduce fatigue.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN SHOWCASE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-number reveal">07 — Design Showcase</div>
+      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Final <em>Screens</em></h2>
+    </div>
+
+    <div class="wrap-wide">
+      <!-- Full-width: Homepage Redesign -->
+      <div class="reveal" data-aos="zoom-in" data-aos-delay="100" style="margin-top: 48px;">
+        <div class="showcase-placeholder">Image Placeholder</div>
+        <p class="img-caption">Homepage Redesign</p>
+      </div>
+
+      <!-- Two-column: Thread View + Category Navigation -->
+      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="200" style="margin-top: 32px;">
+        <div>
+          <div class="showcase-placeholder showcase-placeholder--half">Image Placeholder</div>
+          <p class="img-caption">Thread View</p>
+        </div>
+        <div>
+          <div class="showcase-placeholder showcase-placeholder--half">Image Placeholder</div>
+          <p class="img-caption">Category Navigation</p>
+        </div>
+      </div>
+
+      <!-- Two-column: Mobile View + Post Details -->
+      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="300" style="margin-top: 32px; padding-bottom: 0;">
+        <div>
+          <div class="showcase-placeholder showcase-placeholder--half">Image Placeholder</div>
+          <p class="img-caption">Mobile View</p>
+        </div>
+        <div>
+          <div class="showcase-placeholder showcase-placeholder--half">Image Placeholder</div>
+          <p class="img-caption">Post Details</p>
         </div>
       </div>
     </div>
@@ -857,11 +930,8 @@
   <!-- VISUAL DESIGN -->
   <section class="section">
     <div class="wrap">
-      <div class="section-number reveal">07 — Visual Design</div>
+      <div class="section-number reveal">08 — Visual Design</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Design <em>decisions</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        The visual direction focuses on clarity and usability — making every design choice serve the content rather than compete with it.
-      </p>
 
       <div style="margin-top: 36px;" class="reveal" data-aos="fade-up" data-aos-delay="100">
         <div class="spec-row">
@@ -887,34 +957,22 @@
   <!-- OUTCOME -->
   <section class="section">
     <div class="wrap">
-      <div class="section-number reveal">08 — Outcome</div>
+      <div class="section-number reveal">09 — Outcome</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">What was <em>achieved</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        The redesigned interface directly addresses the friction points identified in the original — making everyday browsing faster, less effortful, and more predictable.
-      </p>
 
       <ul class="outcome-list">
-        <li class="reveal" data-aos="fade-right" data-aos-delay="100"><span class="goal-dash">—</span><span>Faster content scanning — users can identify relevant threads and categories without reading every line on the page</span></li>
-        <li class="reveal" data-aos="fade-right" data-aos-delay="200"><span class="goal-dash">—</span><span>Improved readability — increased font size, line height, and spacing make extended reading sessions significantly more comfortable.
-        </span></li>
-        <li class="reveal" data-aos="fade-right" data-aos-delay="300"><span class="goal-dash">—</span><span>More structured browsing — clearer navigation and consistent layout patterns reduce the cognitive effort required to move through the platform.
-        </span></li>
+        <li class="reveal" data-aos="fade-right" data-aos-delay="100"><span class="goal-dash">—</span><span>Faster content scanning — users identify relevant threads without reading every line</span></li>
+        <li class="reveal" data-aos="fade-right" data-aos-delay="200"><span class="goal-dash">—</span><span>Improved readability — larger type and better spacing ease long reading sessions</span></li>
+        <li class="reveal" data-aos="fade-right" data-aos-delay="300"><span class="goal-dash">—</span><span>More structured browsing — clearer navigation reduces cognitive effort throughout</span></li>
       </ul>
-
-      <p class="body-text reveal" style="margin-top: 32px;">
-        The result is an interface that feels immediately more usable to new users, while remaining familiar enough that existing users experience it as an upgrade — not a replacement.
-      </p>
     </div>
   </section>
 
   <!-- REFLECTION -->
   <section class="section">
     <div class="wrap">
-      <div class="section-number reveal">09 — Reflection</div>
+      <div class="section-number reveal">10 — Reflection</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Looking <em>back</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Redesigning an existing product with a large, loyal user base is a different challenge from designing from scratch. The goal isn't to express a design vision — it's to solve real friction without introducing new confusion.
-      </p>
 
       <div class="reflection-cols">
         <div class="reflection-col reveal">
@@ -952,7 +1010,7 @@
 
   <!-- CTA -->
   <section class="cta-section">
-    <p class="cta-headline">View the live redesign</p>
+    <p class="cta-headline">See the live product</p>
     <a href="https://nairaland-tau.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-cta-live">View Live Site ↗</a>
   </section>
 
