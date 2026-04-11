@@ -160,21 +160,37 @@
     }
 
     /* IMAGE BLOCKS */
-    .img-block { width: 100%; background: #e8e6e2; overflow: hidden; }
+    .img-block {
+      width: 100%;
+      background: #f0f0f0;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+    }
     .img-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .img-block.tall   { aspect-ratio: 16 / 9; }
     .img-block.medium { aspect-ratio: 4 / 3; }
+    .img-block.hero-full { aspect-ratio: 16 / 8; min-height: 400px; }
+
+    @media (min-width: 960px) {
+      .img-block:hover {
+        box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+        transform: scale(1.015);
+      }
+    }
 
     .img-caption {
       font-size: 12px;
-      color: var(--light);
-      margin-top: 12px;
+      font-weight: 300;
+      color: var(--mid);
+      margin-top: 14px;
       letter-spacing: 0.02em;
     }
 
     /* SECTIONS */
     .section {
-      padding: 80px 0;
+      padding: 100px 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -192,7 +208,7 @@
       font-size: clamp(26px, 3.5vw, 38px);
       line-height: 1.1;
       letter-spacing: -0.025em;
-      margin-bottom: 28px;
+      margin-bottom: 36px;
     }
 
     .section-title em { font-style: italic; color: var(--mid); }
@@ -314,6 +330,60 @@
 
     .outcome-list li:last-child { border-bottom: 1px solid var(--line); }
 
+    /* ── FIRST VISUAL ── */
+    .first-visual {
+      padding: 80px 0 100px;
+    }
+
+    /* ── DESIGN SHOWCASE ── */
+    .showcase-section {
+      padding: 100px 0 120px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ── IMAGE GRID ── */
+    .img-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .img-labeled {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── FINAL EXPERIENCE ── */
+    .final-experience {
+      padding: 100px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .final-experience .section-number,
+    .final-experience .section-title {
+      text-align: center;
+    }
+
+    .final-experience .section-title {
+      margin-bottom: 48px;
+    }
+
+    /* ── UTILITY ── */
+    .second-image-wrap {
+      padding-bottom: 80px;
+    }
+
+    .spec-list {
+      margin-top: 32px;
+    }
+
+    .body-text-spaced {
+      margin-top: 32px;
+    }
+
     /* NEXT / FOOTER */
     .next-project { padding: 64px 0; border-top: 1px solid var(--line); }
 
@@ -342,7 +412,7 @@
     /* ── CTA SECTION ── */
     .cta-section {
       border-top: 1px solid var(--line);
-      padding: 72px 0;
+      padding: 100px 0;
       text-align: center;
     }
 
@@ -409,6 +479,12 @@
       .approach-grid { grid-template-columns: 1fr; }
       .key-row { grid-template-columns: 1fr; }
       .key-name { border-right: none; border-bottom: 1px solid var(--line); }
+      .section { padding: 64px 0; }
+      .first-visual { padding: 48px 0 64px; }
+      .showcase-section { padding: 64px 0 80px; }
+      .img-grid-2 { grid-template-columns: 1fr; gap: 24px; }
+      .img-block.hero-full { min-height: 280px; }
+      .final-experience { padding: 64px 0; }
     }
 
     @media (max-width: 480px) {
@@ -510,7 +586,17 @@
       <div class="img-block tall">
         <img src="images/Nuvioweb full page view.png" alt="Nuvioweb full page view" />
       </div>
-      <p class="img-caption">Nuvioweb — full page overview</p>
+      <p class="img-caption">Full view</p>
+    </div>
+  </div>
+
+  <!-- FIRST VISUAL -->
+  <div class="first-visual wrap-wide reveal" data-aos="zoom-in" data-aos-delay="100">
+    <div class="img-labeled">
+      <div class="img-block hero-full">
+        <img src="images/Nuvioweb.png" alt="Nuvioweb homepage" />
+      </div>
+      <p class="img-caption">Homepage</p>
     </div>
   </div>
 
@@ -520,7 +606,7 @@
       <div class="section-number reveal">01 — Overview</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>project</em></h2>
       <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Nuvioweb is a marketing website concept focused on presenting a product or service in a clear and structured way. The design prioritizes clarity, content hierarchy, and user flow to improve engagement.
+        A marketing website designed to communicate value clearly and guide users toward action.
       </p>
     </div>
   </section>
@@ -546,25 +632,25 @@
       <div class="section-number reveal">03 — Design Approach</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Guided by <em>intent</em></h2>
       <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        The design focuses on guiding users through a clear journey — from introduction to action — with no unnecessary detours.
+        Guiding users through a clear journey — from introduction to action.
       </p>
 
       <div class="approach-grid reveal" data-aos="fade-left" data-aos-delay="100">
         <div class="approach-item">
           <div class="approach-title">Clarity First</div>
-          <div class="approach-desc">Content is structured to communicate value quickly. Users understand what the product does within seconds of landing on the page.</div>
+          <div class="approach-desc">Communicates value instantly — users understand the product within seconds.</div>
         </div>
         <div class="approach-item">
           <div class="approach-title">Visual Hierarchy</div>
-          <div class="approach-desc">Sections are organized to guide attention naturally — from headline to features to action — without requiring users to think about where to look next.</div>
+          <div class="approach-desc">Sections guide attention naturally — headline to features to action.</div>
         </div>
         <div class="approach-item">
           <div class="approach-title">Conversion Focus</div>
-          <div class="approach-desc">Each section is designed to support a clear next step. CTAs are placed where users are most ready to act, not just wherever space allows.</div>
+          <div class="approach-desc">CTAs placed where users are most ready to act.</div>
         </div>
         <div class="approach-item">
           <div class="approach-title">Minimalism</div>
-          <div class="approach-desc">Unnecessary elements were removed to reduce distraction. Every component on the page earns its place by contributing to clarity or conversion.</div>
+          <div class="approach-desc">Every element earns its place by contributing to clarity or conversion.</div>
         </div>
       </div>
     </div>
@@ -579,26 +665,28 @@
       <div class="key-table reveal" data-aos="fade-up">
         <div class="key-row" data-aos="fade-up" data-aos-delay="100">
           <div class="key-name">Hero Section</div>
-          <div class="key-detail">Designed to immediately communicate value with a clear message and a single, focused call-to-action. No carousel, no competing elements — just an immediate answer to "what is this?"</div>
+          <div class="key-detail">Immediate value communication — one message, one action.</div>
         </div>
         <div class="key-row" data-aos="fade-up" data-aos-delay="200">
           <div class="key-name">Features Section</div>
-          <div class="key-detail">Structured to present key information in a way that is easy to scan and understand. Content is broken into digestible blocks with clear labels, reducing the time needed to grasp the offering.</div>
+          <div class="key-detail">Scannable, digestible blocks with clear labels.</div>
         </div>
         <div class="key-row" data-aos="fade-up" data-aos-delay="300">
           <div class="key-name">Call-to-Action</div>
-          <div class="key-detail">Placed strategically at the end of the page to capture users who have read through and are ready to decide. The copy is action-oriented and specific — not generic.</div>
+          <div class="key-detail">Action-oriented copy placed where users are ready to decide.</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SECOND IMAGE -->
-  <div class="wrap-wide reveal" data-aos="zoom-in" style="padding-bottom: 80px;">
-    <div class="img-block medium">
-      <img src="images/Nuvioweb section detail.png" alt="Nuvioweb section detail" />
+  <div class="wrap-wide second-image-wrap reveal" data-aos="zoom-in">
+    <div class="img-labeled">
+      <div class="img-block medium">
+        <img src="images/Nuvioweb section detail.png" alt="Nuvioweb section detail" />
+      </div>
+      <p class="img-caption">Features</p>
     </div>
-    <p class="img-caption">Nuvioweb — features and CTA sections</p>
   </div>
 
   <!-- VISUAL DESIGN -->
@@ -607,10 +695,10 @@
       <div class="section-number reveal">05 — Visual Design</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Design <em>decisions</em></h2>
       <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        The visual design emphasizes clarity and balance — each choice made to serve the content, not decorate it.
+        Clarity and balance — every visual choice serves the content.
       </p>
 
-      <div style="margin-top: 32px;" class="reveal" data-aos="fade-up" data-aos-delay="100">
+      <div class="spec-list reveal" data-aos="fade-up" data-aos-delay="100">
         <div class="spec-row">
           <span class="spec-label">Typography</span>
           <span class="spec-value">Clean, legible — hierarchy drives user attention</span>
@@ -631,6 +719,36 @@
     </div>
   </section>
 
+  <!-- DESIGN SHOWCASE -->
+  <section class="showcase-section">
+    <div class="wrap-wide">
+      <div class="section-number reveal">Design Showcase</div>
+      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>screens</em></h2>
+
+      <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="100">
+        <div class="img-block tall">
+          <img src="images/Nuvioweb full page view.png" alt="Nuvioweb full page view" />
+        </div>
+        <p class="img-caption">Homepage</p>
+      </div>
+
+      <div class="img-grid-2">
+        <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="100">
+          <div class="img-block medium">
+            <img src="images/Nuvioweb.png" alt="Nuvioweb interface" />
+          </div>
+          <p class="img-caption">Features</p>
+        </div>
+        <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="200">
+          <div class="img-block medium">
+            <img src="images/Nuvioweb section detail.png" alt="Nuvioweb section detail" />
+          </div>
+          <p class="img-caption">Section detail</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- OUTCOME -->
   <section class="section">
     <div class="wrap">
@@ -643,9 +761,23 @@
         <li class="reveal" data-aos="fade-right" data-aos-delay="300"><span class="goal-dash">—</span><span>Encourages interaction through well-placed, intentional CTAs</span></li>
       </ul>
 
-      <p class="body-text reveal" style="margin-top: 32px;">
-        The result is a modern and conversion-friendly interface — one that feels trustworthy, easy to navigate, and designed with the user's decision-making process in mind.
+      <p class="body-text body-text-spaced reveal">
+        A modern, conversion-friendly interface — trustworthy, clean, and designed for action.
       </p>
+    </div>
+  </section>
+
+  <!-- FINAL EXPERIENCE -->
+  <section class="final-experience">
+    <div class="wrap-wide">
+      <div class="section-number reveal">Final Experience</div>
+      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>product</em></h2>
+      <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="100">
+        <div class="img-block hero-full">
+          <img src="images/Nuvioweb.png" alt="Nuvioweb final view" />
+        </div>
+        <p class="img-caption">Live product</p>
+      </div>
     </div>
   </section>
 
