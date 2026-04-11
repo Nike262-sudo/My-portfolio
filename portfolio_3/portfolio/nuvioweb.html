@@ -220,6 +220,21 @@
       flex-direction: column;
     }
 
+    /* ── SECOND IMAGE BLOCK ── */
+    .second-image {
+      padding: 60px 40px 80px;
+    }
+
+    /* ── FINAL SECTION MODIFIER ── */
+    .section-final {
+      border-bottom: none;
+    }
+
+    /* ── SHOWCASE IMAGE SPACING ── */
+    .showcase-img-wrap {
+      margin-top: 40px;
+    }
+
     .section-number {
       font-size: 11px;
       font-weight: 600;
@@ -454,6 +469,7 @@
       .section { padding: 64px 0; }
       .first-visual { padding: 48px 0 64px; }
       .showcase-section { padding: 64px 0 80px; }
+      .second-image { padding: 40px 24px 56px; }
       .img-grid-2 { grid-template-columns: 1fr; gap: 24px; }
       .img-block.hero-full { min-height: 280px; }
     }
@@ -651,7 +667,7 @@
   </section>
 
   <!-- SECOND IMAGE -->
-  <div class="wrap-wide reveal" data-aos="zoom-in" style="padding: 60px 40px 80px;">
+  <div class="wrap-wide second-image reveal" data-aos="zoom-in">
     <div class="img-labeled">
       <div class="img-block medium">
         <img src="images/Nuvioweb section detail.png" alt="Nuvioweb section detail" />
@@ -739,10 +755,10 @@
   </section>
 
   <!-- FINAL EXPERIENCE -->
-  <section class="section" style="border-bottom: none;">
+  <section class="section section-final">
     <div class="wrap-wide">
       <div class="section-number reveal">Final Experience</div>
-      <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="100" style="margin-top: 40px;">
+      <div class="img-labeled showcase-img-wrap reveal" data-aos="zoom-in" data-aos-delay="100">
         <div class="img-block hero-full">
           <img src="images/Nuvioweb full page view.png" alt="Nuvioweb final view" />
         </div>
