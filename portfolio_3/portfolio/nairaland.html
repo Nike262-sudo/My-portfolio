@@ -160,25 +160,30 @@
     /* ── IMAGE BLOCKS ── */
     .img-block {
       width: 100%;
-      background: #e8e6e2;
+      background: #f0f0f0;
       overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
 
-    .img-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .img-block.tall   { aspect-ratio: 16 / 9; }
-    .img-block.medium { aspect-ratio: 4 / 3; }
-    .img-block.short  { aspect-ratio: 21 / 9; }
+    .img-block img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s var(--ease); }
+    .img-block:hover img { transform: scale(1.03); }
+    .img-block.tall     { aspect-ratio: 16 / 9; }
+    .img-block.medium   { aspect-ratio: 4 / 3; }
+    .img-block.short    { aspect-ratio: 21 / 9; }
+    .img-block.featured { aspect-ratio: 16 / 7; }
 
     .img-caption {
       font-size: 12px;
-      color: var(--light);
-      margin-top: 12px;
+      font-weight: 300;
+      color: var(--mid);
+      margin-top: 14px;
       letter-spacing: 0.02em;
     }
 
     /* ── SECTIONS ── */
     .section {
-      padding: 80px 0;
+      padding: 96px 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -196,7 +201,7 @@
       font-size: clamp(28px, 4vw, 40px);
       line-height: 1.1;
       letter-spacing: -0.025em;
-      margin-bottom: 28px;
+      margin-bottom: 36px;
     }
 
     .section-title em { font-style: italic; color: var(--mid); }
@@ -209,7 +214,7 @@
       max-width: 620px;
     }
 
-    .body-text + .body-text { margin-top: 20px; }
+    .body-text + .body-text { margin-top: 24px; }
 
     /* ── PROBLEM LIST ── */
     .problem-list {
@@ -311,7 +316,7 @@
       margin-top: 40px;
     }
 
-    .ba-panel { background: var(--white); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+    .ba-panel { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 
     .ba-label {
       padding: 16px 24px;
@@ -531,8 +536,8 @@
     .img-two {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 48px;
+      gap: 28px;
+      margin-top: 64px;
     }
 
     /* ── KEY SECTIONS TABLE ── */
@@ -572,15 +577,33 @@
     .showcase-placeholder,
     .showcase-placeholder--half {
       width: 100%;
-      height: 300px;
+      height: 420px;
       background: #f0f0f0;
-      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--light);
       font-size: 13px;
       font-family: var(--sans);
+      transition: box-shadow 0.25s var(--ease);
+    }
+
+    .showcase-placeholder:hover,
+    .showcase-placeholder--half:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    }
+
+    /* ── FIRST VISUAL ── */
+    .first-visual {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ── DESIGN SHOWCASE SECTION ── */
+    .section.design-showcase {
+      padding: 120px 0;
     }
 
     /* ── REVEAL ── */
@@ -599,22 +622,25 @@
     @media (max-width: 768px) {
       .nav-inner, .wrap, .wrap-wide, .footer-inner { padding: 0 24px; }
       .hero { padding: 64px 0 56px; }
+      .section { padding: 64px 0; }
       .meta-grid { grid-template-columns: 1fr 1fr; max-width: 100%; }
       .meta-grid .meta-item:last-child { grid-column: 1 / -1; }
       .before-after { grid-template-columns: 1fr; }
-      .img-two { grid-template-columns: 1fr; }
+      .img-two { grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
       .improvement-row { grid-template-columns: 1fr; }
       .improvement-name { border-right: none; border-bottom: 1px solid var(--line); }
       .key-row { grid-template-columns: 1fr; }
       .key-name { border-right: none; border-bottom: 1px solid var(--line); }
       .reflection-cols { grid-template-columns: 1fr; gap: 32px; }
       .approach-item { grid-template-columns: 28px 1fr; gap: 16px; }
-      .showcase-placeholder, .showcase-placeholder--half { height: 250px; }
+      .showcase-placeholder, .showcase-placeholder--half { height: 280px; }
+      .first-visual { padding: 40px 0; }
+      .section.design-showcase { padding: 80px 0; }
     }
 
     @media (max-width: 480px) {
       .meta-grid { grid-template-columns: 1fr; }
-      .showcase-placeholder, .showcase-placeholder--half { height: 200px; }
+      .showcase-placeholder, .showcase-placeholder--half { height: 220px; }
     }
 
     /* HAMBURGER */
@@ -709,8 +735,16 @@
       <div class="img-block tall">
         <img src="images/Nairaland redesign overview.png" alt="Nairaland redesign overview" />
       </div>
-      <p class="img-caption">Nairaland Redesign — full interface overview</p>
+      <p class="img-caption">Full overview</p>
     </div>
+  </div>
+
+  <!-- FIRST VISUAL — Homepage Redesign -->
+  <div class="first-visual wrap-wide reveal" data-aos="zoom-in" data-aos-delay="100">
+    <div class="img-block featured">
+      <img src="images/Nairaland redesigned interface.png" alt="Homepage redesign" />
+    </div>
+    <p class="img-caption">Homepage redesign</p>
   </div>
 
   <!-- OVERVIEW -->
@@ -835,8 +869,7 @@
           <div class="ba-img">
             <img src="images/Nairaland original interface.png" alt="Nairaland original interface" />
           </div>
-          <div class="ba-note">Thread titles, post counts, and category labels are packed together with no breathing room. The lack of spacing forces users to read every line rather than scan — significantly slowing navigation.
-          </div>
+          <div class="ba-note">No breathing room between elements — users must read every line to find what they need.</div>
         </div>
         <div class="ba-panel">
           <div class="ba-label">
@@ -845,8 +878,7 @@
           <div class="ba-img">
             <img src="images/Nairaland redesigned interface.png" alt="Nairaland redesigned interface" />
           </div>
-          <div class="ba-note">Consistent padding between thread rows, a clear typographic hierarchy, and visible separation between categories allow users to scan the page in seconds and go directly to what they need.
-          </div>
+          <div class="ba-note">Clear spacing, hierarchy, and section separation let users scan and navigate in seconds.</div>
         </div>
       </div>
     </div>
@@ -880,7 +912,7 @@
   </section>
 
   <!-- DESIGN SHOWCASE -->
-  <section class="section">
+  <section class="section design-showcase">
     <div class="wrap">
       <div class="section-number reveal">07 — Design Showcase</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Final <em>Screens</em></h2>
@@ -888,32 +920,32 @@
 
     <div class="wrap-wide">
       <!-- Full-width: Homepage Redesign -->
-      <div class="reveal" data-aos="zoom-in" data-aos-delay="100" style="margin-top: 48px;">
+      <div class="reveal" data-aos="zoom-in" data-aos-delay="100" style="margin-top: 64px;">
         <div class="showcase-placeholder">Image Placeholder</div>
-        <p class="img-caption">Homepage Redesign</p>
+        <p class="img-caption">Homepage redesign</p>
       </div>
 
       <!-- Two-column: Thread View + Category Navigation -->
-      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="200" style="margin-top: 32px;">
+      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="200">
         <div>
           <div class="showcase-placeholder showcase-placeholder--half">Image Placeholder</div>
-          <p class="img-caption">Thread View</p>
+          <p class="img-caption">Thread view</p>
         </div>
         <div>
           <div class="showcase-placeholder showcase-placeholder--half">Image Placeholder</div>
-          <p class="img-caption">Category Navigation</p>
+          <p class="img-caption">Category navigation</p>
         </div>
       </div>
 
       <!-- Two-column: Mobile View + Post Details -->
-      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="300" style="margin-top: 32px; padding-bottom: 0;">
+      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="300">
         <div>
           <div class="showcase-placeholder showcase-placeholder--half">Image Placeholder</div>
-          <p class="img-caption">Mobile View</p>
+          <p class="img-caption">Mobile view</p>
         </div>
         <div>
           <div class="showcase-placeholder showcase-placeholder--half">Image Placeholder</div>
-          <p class="img-caption">Post Details</p>
+          <p class="img-caption">Post details</p>
         </div>
       </div>
     </div>
@@ -924,7 +956,7 @@
     <div class="img-block short">
       <img src="images/Redesigned UI detail.png" alt="Redesigned UI detail" />
     </div>
-    <p class="img-caption">Redesigned thread view — improved spacing and hierarchy</p>
+    <p class="img-caption">Thread detail</p>
   </div>
 
   <!-- VISUAL DESIGN -->
@@ -979,7 +1011,7 @@
           <h4>Key takeaways</h4>
           <ul>
             <li>Designing for existing users means earning their trust incrementally — not resetting their expectations all at once</li>
-            <li>Familiarity is a design asset. Preserving recognizable patterns while improving the details is harder than redesigning freely, but produces better outcomes for real users</li>
+            <li>Familiarity is a design asset — preserving recognizable patterns while improving details produces better outcomes for real users</li>
             <li>On content-heavy platforms, spacing and typography do more UX work than any visual feature</li>
           </ul>
         </div>
@@ -987,7 +1019,7 @@
           <h4>What I'd improve</h4>
           <ul>
             <li>Test with actual Nairaland users — assumptions about scanning behavior need validation before they become design decisions</li>
-            <li>Design the mobile experience in parallel — the majority of Nigerian internet users are on mobile, making it the primary surface, not a secondary one</li>
+            <li>Design the mobile experience in parallel — most Nigerian internet users are on mobile, making it the primary surface</li>
             <li>Avoid adding complexity in the name of modernity — every new element should solve a specific usability problem, not just look cleaner</li>
           </ul>
         </div>
