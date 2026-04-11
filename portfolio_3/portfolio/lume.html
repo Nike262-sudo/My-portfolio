@@ -161,24 +161,36 @@
     /* IMAGE BLOCKS */
     .img-block {
       width: 100%;
-      background: #e8e6e2;
+      background: #f0f0f0;
       overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
     }
 
     .img-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .img-block.tall   { aspect-ratio: 16 / 9; }
     .img-block.medium { aspect-ratio: 4 / 3; }
+    .img-block.hero-full { aspect-ratio: 16 / 8; min-height: 400px; }
+
+    @media (min-width: 960px) {
+      .img-block:hover {
+        box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+        transform: scale(1.015);
+      }
+    }
 
     .img-caption {
       font-size: 12px;
-      color: var(--light);
-      margin-top: 12px;
+      font-weight: 300;
+      color: var(--mid);
+      margin-top: 14px;
       letter-spacing: 0.02em;
     }
 
     /* SECTIONS */
     .section {
-      padding: 80px 0;
+      padding: 100px 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -196,7 +208,7 @@
       font-size: clamp(26px, 3.5vw, 38px);
       line-height: 1.1;
       letter-spacing: -0.025em;
-      margin-bottom: 28px;
+      margin-bottom: 36px;
     }
 
     .section-title em { font-style: italic; color: var(--mid); }
@@ -263,6 +275,31 @@
       line-height: 1.7;
     }
 
+    /* ── FIRST VISUAL ── */
+    .first-visual {
+      padding: 80px 0 100px;
+    }
+
+    /* ── DESIGN SHOWCASE ── */
+    .showcase-section {
+      padding: 100px 0 120px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ── IMAGE GRID ── */
+    .img-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .img-labeled {
+      display: flex;
+      flex-direction: column;
+    }
+
     /* NEXT / FOOTER */
     .next-project { padding: 64px 0; border-top: 1px solid var(--line); }
 
@@ -291,7 +328,7 @@
     /* ── CTA SECTION ── */
     .cta-section {
       border-top: 1px solid var(--line);
-      padding: 72px 0;
+      padding: 100px 0;
       text-align: center;
     }
 
@@ -357,6 +394,11 @@
       .meta-grid .meta-item:last-child { grid-column: 1 / -1; }
       .decision-row { grid-template-columns: 1fr; }
       .decision-name { border-right: none; border-bottom: 1px solid var(--line); }
+      .section { padding: 64px 0; }
+      .first-visual { padding: 48px 0 64px; }
+      .showcase-section { padding: 64px 0 80px; }
+      .img-grid-2 { grid-template-columns: 1fr; gap: 24px; }
+      .img-block.hero-full { min-height: 280px; }
     }
 
     @media (max-width: 480px) {
@@ -458,7 +500,17 @@
       <div class="img-block tall">
         <img src="images/Lume landing page.png" alt="Lume landing page" />
       </div>
-      <p class="img-caption">Lume — full page view</p>
+      <p class="img-caption">Full view</p>
+    </div>
+  </div>
+
+  <!-- FIRST VISUAL -->
+  <div class="first-visual wrap-wide reveal" data-aos="zoom-in" data-aos-delay="100">
+    <div class="img-labeled">
+      <div class="img-block hero-full">
+        <img src="images/Lume.png" alt="Lume landing page overview" />
+      </div>
+      <p class="img-caption">Landing page</p>
     </div>
   </div>
 
@@ -468,7 +520,7 @@
       <div class="section-number reveal">01 — Overview</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>exploration</em></h2>
       <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Lume is a design exploration focused on creating a visually clean and modern landing page. The goal was to reduce visual noise and prioritize clarity through strong typography and spacing — letting the content do the work.
+        A design exploration in minimalism — clean layouts, strong typography, and intentional spacing.
       </p>
     </div>
   </section>
@@ -500,31 +552,37 @@
       <div class="decisions reveal" data-aos="fade-up">
         <div class="decision-row" data-aos="fade-up" data-aos-delay="100">
           <div class="decision-name">Minimal Layout</div>
-          <div class="decision-detail">The layout was intentionally kept simple, removing unnecessary elements to allow content to stand out. Each section has one job — it does that job and not more.</div>
+          <div class="decision-detail">Layout stripped to essentials — every section has one clear purpose.</div>
         </div>
         <div class="decision-row" data-aos="fade-up" data-aos-delay="200">
           <div class="decision-name">Typography</div>
-          <div class="decision-detail">Typography was used as a primary design element. Careful attention to hierarchy, size, and spacing does the heavy lifting — guiding the user through the page without relying on decorative elements.</div>
+          <div class="decision-detail">Type as a design element. Hierarchy, scale, and spacing guide the user without decoration.</div>
         </div>
         <div class="decision-row" data-aos="fade-up" data-aos-delay="300">
           <div class="decision-name">Spacing &amp; Balance</div>
-          <div class="decision-detail">A consistent spacing system was used to create visual rhythm across the page. Generous white space isn't emptiness — it gives content room to breathe and draws the eye to what matters.</div>
+          <div class="decision-detail">Generous white space creates visual rhythm and draws the eye to what matters.</div>
         </div>
         <div class="decision-row" data-aos="fade-up" data-aos-delay="400">
           <div class="decision-name">Visual Restraint</div>
-          <div class="decision-detail">Colors and decorative elements were intentionally limited to a black and white palette. Restraint in visual design forces stronger decisions about structure, layout, and content.</div>
+          <div class="decision-detail">Black and white palette only — restraint forces stronger structural decisions.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECOND IMAGE -->
-  <div class="wrap-wide reveal" data-aos="zoom-in" style="padding-bottom: 80px;">
-    <div class="img-block medium">
-      <img src="images/Lume detail view.png" alt="Lume detail view" />
+  <!-- DESIGN SHOWCASE -->
+  <section class="showcase-section">
+    <div class="wrap-wide">
+      <div class="section-number reveal">Design Showcase</div>
+      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>screens</em></h2>
+      <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="100">
+        <div class="img-block tall">
+          <img src="images/Lume detail view.png" alt="Lume detail view" />
+        </div>
+        <p class="img-caption">Section detail</p>
+      </div>
     </div>
-    <p class="img-caption">Lume — section detail</p>
-  </div>
+  </section>
 
   <!-- OUTCOME -->
   <section class="section">
@@ -532,7 +590,7 @@
       <div class="section-number reveal">04 — Outcome</div>
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>result</em></h2>
       <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        The final design presents a clean and modern interface that feels calm, structured, and easy to navigate. The project highlights how simplicity and strong fundamentals can create an effective and memorable visual experience.
+        Clean, structured, and easy to navigate — simplicity and strong fundamentals create a memorable experience.
       </p>
     </div>
   </section>
