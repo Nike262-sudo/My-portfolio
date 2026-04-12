@@ -592,6 +592,8 @@
     .reveal.d3 { transition-delay: 0.20s; }
 
     /* ── DESIGN SHOWCASE PLACEHOLDERS ── */
+    .img-two--enlarged-right { grid-template-columns: 1fr 1.5fr; }
+
     .showcase-placeholder {
       width: 100%;
       height: 300px;
@@ -902,20 +904,14 @@
         <p class="img-caption">Complete Design System</p>
       </div>
 
-      <!-- Two-column grid: Homepage + Dashboard -->
-      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="200" style="margin-top: 32px;">
-        <div>
-          <div class="showcase-placeholder showcase-placeholder--half" role="img" aria-label="Homepage placeholder">Image Placeholder</div>
-          <p class="img-caption">Homepage</p>
-        </div>
-        <div>
-          <div class="showcase-placeholder showcase-placeholder--half" role="img" aria-label="Dashboard placeholder">Image Placeholder</div>
-          <p class="img-caption">Dashboard</p>
-        </div>
+      <!-- Full-width: Homepage -->
+      <div class="reveal" data-aos="fade-up" data-aos-delay="200" style="margin-top: 32px;">
+        <div class="showcase-placeholder" role="img" aria-label="Homepage placeholder">Image Placeholder</div>
+        <p class="img-caption">Homepage</p>
       </div>
 
-      <!-- Two-column grid: Course View + Mobile Experience -->
-      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="300" style="margin-top: 32px; padding-bottom: 0;">
+      <!-- Two-column grid: Course View + Mobile Experience (enlarged) -->
+      <div class="img-two img-two--enlarged-right reveal" data-aos="fade-up" data-aos-delay="300" style="margin-top: 32px; padding-bottom: 0;">
         <div>
           <div class="showcase-placeholder showcase-placeholder--half" role="img" aria-label="Course View placeholder">Image Placeholder</div>
           <p class="img-caption">Course View</p>
