@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Educraft — Case Study · Oyeniran Joel</title>
+  <title>DesignMock AI — Case Study · Oyeniran Joel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:  #0a0a0a;
-      --white:  #f8f7f4;
-      --mid:    #6b6b6b;
-      --light:  #a8a8a8;
-      --line:   #e0deda;
-      --serif:  'Instrument Serif', Georgia, serif;
-      --sans:   'DM Sans', sans-serif;
-      --ease:   cubic-bezier(0.25, 0.1, 0.25, 1);
-      --max:    740px;
+      --black: #0a0a0a;
+      --white: #f8f7f4;
+      --mid: #5f5f5f;
+      --light: #9b9b9b;
+      --line: #e3e1dc;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+      --page-max: 1280px;
+      --read-max: 820px;
+      --screen-max: 1100px;
     }
 
     html { scroll-behavior: smooth; }
@@ -30,20 +31,22 @@
       font-family: var(--sans);
       background: var(--white);
       color: var(--black);
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 18px;
+      line-height: 1.72;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { display: block; width: 100%; }
+    img { display: block; width: 100%; height: auto; }
 
-    /* ── NAV ── */
+    /* NAV (unchanged structure) */
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--white);
+      background: color-mix(in srgb, var(--white) 96%, transparent);
+      backdrop-filter: blur(6px);
       border-bottom: 1px solid var(--line);
       padding: 20px 0;
     }
@@ -82,411 +85,375 @@
       letter-spacing: -0.02em;
     }
 
-    /* ── LAYOUT ── */
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 40px;
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
     }
 
-    .wrap-wide {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 40px;
+    .nav-hamburger span {
+      display: block;
+      height: 1.5px;
+      background: var(--black);
+      transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+      transform-origin: center;
     }
 
-    /* ── HERO ── */
-    .hero {
-      padding: 96px 0 80px;
-      border-bottom: 1px solid var(--line);
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      border-top: 1px solid var(--line);
+      background: var(--white);
     }
 
-    .hero-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .nav-mobile.open { display: flex; }
+
+    .nav-mobile a {
+      font-size: 15px;
       color: var(--mid);
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--line);
+      transition: color 0.2s var(--ease);
+    }
+
+    .nav-mobile a:last-child { border-bottom: none; }
+    .nav-mobile a:hover { color: var(--black); }
+
+    /* LAYOUT */
+    .page-wrap {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .read-wrap {
+      max-width: var(--read-max);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .screen-wrap {
+      max-width: calc(var(--screen-max) + 80px);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section { padding: 132px 0; }
+    .chapter + .chapter { border-top: 1px solid var(--line); }
+
+    /* HERO */
+    .hero { padding: 96px 0 108px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+      gap: 60px;
+      align-items: start;
+    }
+
+    .project-name {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
       margin-bottom: 24px;
+      font-weight: 500;
     }
 
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(48px, 7vw, 80px);
-      line-height: 1.0;
+      font-size: clamp(52px, 7vw, 82px);
+      line-height: 1.01;
       letter-spacing: -0.03em;
-      margin-bottom: 20px;
-    }
-
-    .hero-subtitle {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: clamp(20px, 2.5vw, 26px);
-      color: var(--mid);
-      line-height: 1.3;
       margin-bottom: 28px;
+      max-width: 16ch;
     }
 
-    .hero-desc {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--mid);
-      max-width: 520px;
-      line-height: 1.7;
-      margin-bottom: 56px;
-    }
-
-    .meta-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-      max-width: 520px;
-    }
-
-    .meta-item {
-      padding: 20px 24px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .meta-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 6px;
-    }
-
-    .meta-value {
-      font-size: 13.5px;
-      font-weight: 400;
-      color: var(--black);
-      line-height: 1.4;
-    }
-
-    /* ── HERO IMAGE ── */
-    .hero-image {
-      margin-top: 72px;
-      border-top: 1px solid var(--line);
-      padding-top: 72px;
-    }
-
-    .img-block {
-      width: 100%;
-      background: #e8e6e2;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .img-block img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .img-block.tall   { aspect-ratio: 16 / 9; }
-    .img-block.medium { aspect-ratio: 4 / 3; }
-    .img-block.short  { aspect-ratio: 21 / 9; }
-
-    .img-caption {
-      font-size: 12px;
-      color: var(--light);
-      margin-top: 12px;
-      letter-spacing: 0.02em;
-    }
-
-    /* ── SECTIONS ── */
-    .section {
-      padding: 80px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section:last-of-type { border-bottom: none; }
-
-    .section-number {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.1;
-      letter-spacing: -0.025em;
-      margin-bottom: 28px;
-    }
-
-    .section-title em {
-      font-style: italic;
-      color: var(--mid);
-    }
-
-    .body-text {
-      font-size: 16px;
-      font-weight: 300;
-      color: #2e2e2e;
-      line-height: 1.8;
-      max-width: 620px;
-    }
-
-    .body-text + .body-text { margin-top: 20px; }
-
-    /* ── PROBLEM LIST ── */
-    .problem-list {
-      list-style: none;
-      margin-top: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .problem-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      padding: 20px 0;
-      border-top: 1px solid var(--line);
-      font-size: 15.5px;
-      font-weight: 300;
-      color: #2e2e2e;
-      line-height: 1.6;
-    }
-
-    .problem-list li:last-child { border-bottom: 1px solid var(--line); }
-
-    .problem-num {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--light);
-      letter-spacing: 0.06em;
-      margin-top: 3px;
-      min-width: 24px;
-    }
-
-    /* ── GOAL GRID ── */
-    .goal-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--line);
-      margin-top: 36px;
-      border: 1px solid var(--line);
-    }
-
-    .goal-item {
-      background: var(--white);
-      padding: 28px 32px;
-    }
-
-    .goal-icon {
+    .hero-intro {
       font-size: 20px;
-      margin-bottom: 12px;
+      line-height: 1.76;
+      color: #2c2c2c;
+      max-width: 60ch;
+      margin-bottom: 52px;
     }
 
-    .goal-title {
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 8px;
-    }
-
-    .goal-desc {
-      font-size: 13.5px;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.6;
-    }
-
-    /* ── APPROACH CARDS ── */
-    .approach-list {
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .approach-item {
-      display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 28px;
-      align-items: start;
-      padding: 32px 0;
+    .meta-block {
       border-top: 1px solid var(--line);
-    }
-
-    .approach-item:last-child { border-bottom: 1px solid var(--line); }
-
-    .approach-step {
-      font-family: var(--serif);
-      font-size: 28px;
-      color: var(--line);
-      line-height: 1;
-      margin-top: 2px;
-    }
-
-    .approach-title {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-
-    .approach-desc {
-      font-size: 14.5px;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.7;
-    }
-
-    /* ── KEY SECTIONS TABLE ── */
-    .key-sections {
-      margin-top: 40px;
-      border: 1px solid var(--line);
-    }
-
-    .key-row {
+      max-width: 620px;
+      padding-top: 18px;
       display: grid;
-      grid-template-columns: 180px 1fr;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .key-row:last-child { border-bottom: none; }
-
-    .key-name {
-      padding: 22px 28px;
-      font-size: 13.5px;
-      font-weight: 500;
-      border-right: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-    }
-
-    .key-detail {
-      padding: 22px 28px;
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.6;
-      display: flex;
-      align-items: center;
-    }
-
-    /* ── TWO-UP IMAGE ── */
-    .img-two {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 48px;
-    }
-
-    /* ── VISUAL DESIGN SPECS ── */
-    .spec-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 14px;
-    }
-
-    .spec-row:first-child { border-top: 1px solid var(--line); }
-
-    .spec-label {
-      font-weight: 400;
-      color: var(--mid);
-    }
-
-    .spec-value {
-      font-weight: 300;
-      color: var(--black);
-      text-align: right;
-    }
-
-    /* ── OUTCOME STATS ── */
-    .outcome-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      margin-top: 40px;
-      margin-bottom: 40px;
-    }
-
-    .outcome-item {
-      background: var(--white);
-      padding: 36px 28px;
-    }
-
-    .outcome-val {
-      font-family: var(--serif);
-      font-size: 42px;
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .outcome-label {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.5;
-    }
-
-    /* ── REFLECTION ── */
-    .reflection-cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      margin-top: 40px;
-    }
-
-    .reflection-col h4 {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 20px;
-    }
-
-    .reflection-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
       gap: 14px;
     }
 
-    .reflection-col li {
-      font-size: 14.5px;
-      font-weight: 300;
-      color: #2e2e2e;
-      line-height: 1.65;
-      padding-left: 16px;
-      position: relative;
+    .meta-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 24px;
+      align-items: baseline;
     }
 
-    .reflection-col li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--light);
+    .meta-label {
       font-size: 12px;
-      top: 3px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
+      font-weight: 600;
     }
 
-    /* ── NEXT PROJECT ── */
+    .meta-value {
+      font-size: 17px;
+      color: #212121;
+      font-weight: 400;
+    }
+
+    .meta-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      line-height: 1.65;
+    }
+
+    .hero-visual {
+      display: grid;
+      gap: 20px;
+    }
+
+    .hero-main {
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: #ece9e3;
+      aspect-ratio: 16 / 11;
+      transform: translateX(24px);
+    }
+
+    .hero-main img {
+      width: 118%;
+      max-width: none;
+      height: 100%;
+      object-fit: cover;
+      object-position: left top;
+    }
+
+    .thumb-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .thumb {
+      border: 1px solid var(--line);
+      background: #efede8;
+      padding: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: transform 0.26s var(--ease), border-color 0.26s var(--ease);
+    }
+
+    .thumb:hover,
+    .thumb:focus-visible {
+      transform: scale(1.02);
+      border-color: #c7c3bc;
+      outline: none;
+    }
+
+    .thumb-image {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      margin-bottom: 8px;
+      background: #dfdcd6;
+    }
+
+    .thumb-image img { object-fit: cover; height: 100%; }
+
+    .thumb-title {
+      font-size: 12px;
+      line-height: 1.35;
+      color: #454545;
+      letter-spacing: 0.01em;
+    }
+
+    /* TYPE */
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 26px;
+    }
+
+    .section-intro {
+      font-size: clamp(22px, 3vw, 28px);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      margin-bottom: 34px;
+      color: #222;
+    }
+
+    .body-text {
+      font-size: 18px;
+      line-height: 1.85;
+      color: #2f2f2f;
+      max-width: 72ch;
+    }
+
+    .body-text + .body-text { margin-top: 24px; }
+
+    .caption {
+      font-size: 14px;
+      color: #7a7a7a;
+      line-height: 1.6;
+      margin-top: 14px;
+      max-width: 82ch;
+    }
+
+    /* CHAPTER SPECIFIC */
+    .chapter-opportunity .feature-screen { margin-top: 52px; }
+
+    .feature-frame {
+      border: 1px solid var(--line);
+      background: #ece9e3;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+    }
+
+    .feature-frame img { height: 100%; object-fit: cover; object-position: center top; }
+
+    .matter-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 44px;
+      margin-top: 18px;
+    }
+
+    .matter-col p {
+      font-size: 23px;
+      line-height: 1.52;
+      letter-spacing: -0.01em;
+      color: #1f1f1f;
+    }
+
+    .vision {
+      min-height: 48vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 72px 0;
+    }
+
+    .vision p {
+      font-family: var(--serif);
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 22ch;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .principle-card {
+      border: 1px solid var(--line);
+      padding: 26px 24px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 16px;
+      background: transparent;
+    }
+
+    .principle-icon {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      color: #4d4d4d;
+    }
+
+    .principle-title {
+      font-size: 22px;
+      line-height: 1.28;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+      color: #181818;
+    }
+
+    .principle-desc {
+      font-size: 17px;
+      color: #444;
+      line-height: 1.72;
+      max-width: 54ch;
+    }
+
+    .principles-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+      gap: 58px;
+      align-items: start;
+    }
+
+    .annotated-frame {
+      border: 1px solid var(--line);
+      background: #ece9e3;
+      overflow: hidden;
+      aspect-ratio: 11 / 12;
+      position: relative;
+      margin-top: 84px;
+    }
+
+    .annotated-frame img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .callout {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      line-height: 1.25;
+      color: #424242;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+      transition-delay: var(--delay, 0s);
+    }
+
+    .callout::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: rgba(57, 57, 57, 0.55);
+      flex-shrink: 0;
+    }
+
+    .callout.in { opacity: 1; transform: translateY(0); }
+
+    .c1 { top: 15%; right: 6%; --delay: .08s; }
+    .c2 { top: 30%; right: 6%; --delay: .16s; }
+    .c3 { top: 45%; right: 6%; --delay: .24s; }
+    .c4 { top: 60%; right: 6%; --delay: .32s; }
+
+    /* NEXT */
     .next-project {
-      padding: 64px 0;
+      padding: 78px 0;
       border-top: 1px solid var(--line);
     }
 
@@ -496,7 +463,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--light);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .next-link {
@@ -504,54 +471,14 @@
       align-items: center;
       gap: 12px;
       font-family: var(--serif);
-      font-size: clamp(24px, 3vw, 36px);
+      font-size: clamp(25px, 3vw, 38px);
       letter-spacing: -0.02em;
       transition: gap 0.2s var(--ease);
     }
 
     .next-link:hover { gap: 20px; }
+    .next-link svg { width: 28px; height: 28px; flex-shrink: 0; }
 
-    .next-link svg {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-    }
-
-    /* ── CTA SECTION ── */
-    .cta-section {
-      border-top: 1px solid var(--line);
-      padding: 72px 0;
-      text-align: center;
-    }
-
-    .cta-headline {
-      font-family: var(--serif);
-      font-size: clamp(24px, 3vw, 32px);
-      letter-spacing: -0.02em;
-      margin-bottom: 28px;
-    }
-
-    .btn-cta-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 14px 28px;
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
-    }
-
-    .btn-cta-live:hover {
-      background: #2a2a2a;
-      transform: translateY(-2px);
-    }
-
-    /* ── FOOTER ── */
     footer {
       padding: 32px 0;
       border-top: 1px solid var(--line);
@@ -564,6 +491,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .footer-copy {
@@ -579,100 +508,102 @@
 
     .footer-back:hover { color: var(--black); }
 
-    /* ── SCROLL REVEAL ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
-    }
-
-    .reveal.in { opacity: 1; transform: none; }
-    .reveal.d1 { transition-delay: 0.05s; }
-    .reveal.d2 { transition-delay: 0.12s; }
-    .reveal.d3 { transition-delay: 0.20s; }
-
-    /* ── DESIGN SHOWCASE PLACEHOLDERS ── */
-    .img-two--enlarged-right { grid-template-columns: 1fr 1.5fr; }
-
-    .showcase-placeholder {
-      width: 100%;
-      height: 300px;
-      background: #f0f0f0;
-      border: 1px solid var(--line);
-      display: flex;
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.74);
+      display: none;
       align-items: center;
       justify-content: center;
-      color: var(--light);
-      font-size: 13px;
-      font-family: var(--sans);
+      z-index: 999;
+      padding: 24px;
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .nav-inner, .wrap, .wrap-wide, .footer-inner { padding: 0 24px; }
-      .hero { padding: 64px 0 56px; }
-      .meta-grid { grid-template-columns: 1fr 1fr; max-width: 100%; }
-      .meta-grid .meta-item:last-child { grid-column: 1 / -1; }
-      .goal-grid { grid-template-columns: 1fr; }
-      .img-two { grid-template-columns: 1fr; }
-      .outcome-grid { grid-template-columns: 1fr 1fr; }
-      .reflection-cols { grid-template-columns: 1fr; gap: 32px; }
-      .key-row { grid-template-columns: 1fr; }
-      .key-name { border-right: none; border-bottom: 1px solid var(--line); }
-      .approach-item { grid-template-columns: 28px 1fr; gap: 16px; }
-      .showcase-placeholder, .showcase-placeholder--half { height: 250px; }
+    .lightbox.open { display: flex; }
+
+    .lightbox-dialog {
+      width: min(1100px, 100%);
+      max-height: 90vh;
+      background: #f3f1ed;
+      border: 1px solid #d8d4ce;
+      position: relative;
+      overflow: hidden;
     }
 
-    @media (max-width: 480px) {
-      .outcome-grid { grid-template-columns: 1fr; }
-      .meta-grid { grid-template-columns: 1fr; }
-      .showcase-placeholder, .showcase-placeholder--half { height: 200px; }
+    .lightbox-image-wrap {
+      max-height: 86vh;
+      overflow: auto;
+      background: #ece8e2;
     }
 
-    /* HAMBURGER */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .nav-hamburger span {
+    .lightbox-image-wrap img {
+      width: 100%;
+      height: auto;
       display: block;
-      height: 1.5px;
-      background: var(--black);
-      transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
-      transform-origin: center;
     }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .nav-mobile {
-      display: none;
-      flex-direction: column;
-      border-top: 1px solid var(--line);
-      background: var(--white);
+
+    .lightbox-close {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      width: 36px;
+      height: 36px;
+      border: 1px solid #c8c4be;
+      background: rgba(248, 247, 244, 0.95);
+      color: #202020;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
     }
-    .nav-mobile.open { display: flex; }
-    .nav-mobile a {
-      font-size: 15px;
-      color: var(--mid);
-      padding: 16px 24px;
-      border-bottom: 1px solid var(--line);
-      transition: color 0.2s var(--ease);
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
     }
-    .nav-mobile a:last-child { border-bottom: none; }
-    .nav-mobile a:hover { color: var(--black); }
+
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .principles-layout { grid-template-columns: 1fr; gap: 42px; }
+
+      .hero-main { transform: none; }
+      .annotated-frame { margin-top: 6px; }
+    }
+
+    @media (max-width: 900px) {
+      .matter-columns { grid-template-columns: 1fr; gap: 22px; }
+      .matter-col p { font-size: 21px; }
+      .hero-title { max-width: none; }
+      .section { padding: 102px 0; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner, .page-wrap, .read-wrap, .screen-wrap, .footer-inner { padding: 0 24px; }
+      .nav-hamburger { display: flex; }
+      .thumb-row { grid-template-columns: 1fr 1fr; }
+      .meta-row { grid-template-columns: 124px 1fr; gap: 12px; }
+      .hero { padding-top: 72px; }
+      .section { padding: 90px 0; }
+    }
+
+    @media (max-width: 520px) {
+      body { font-size: 17px; }
+      .thumb-row { grid-template-columns: 1fr; }
+      .project-name { margin-bottom: 16px; }
+      .hero-title { font-size: clamp(44px, 14vw, 64px); }
+      .section-intro { font-size: 23px; }
+      .principle-title { font-size: 20px; }
+      .meta-row { grid-template-columns: 1fr; }
+      .meta-label { margin-bottom: 4px; }
+    }
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
   <nav>
     <div class="nav-inner">
       <a href="index.html" class="nav-back">
@@ -694,381 +625,175 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="wrap">
-      <span class="hero-tag reveal" data-aos="fade-up">Case Study · E-learning Platform</span>
-      <h1 class="hero-title reveal d1" data-aos="fade-up" data-aos-delay="100">Educraft</h1>
-      <p class="hero-subtitle reveal d2" data-aos="fade-up" data-aos-delay="200">Modern e-learning platform designed for course discovery</p>
+  <main>
+    <section class="hero page-wrap">
+      <div class="hero-grid">
+        <div class="reveal">
+          <p class="project-name">DesignMock AI</p>
+          <h1 class="hero-title">Designing an AI interview coach that helps Product Designers practice realistic interviews, receive recruiter-style feedback and improve through deliberate practice.</h1>
+          <p class="hero-intro">
+            DesignMock AI is a concept product exploring how artificial intelligence can help Product, UX and UI Designers prepare for interviews through realistic mock sessions, structured evaluation and personalised improvement plans.
+          </p>
 
-      <div class="meta-grid reveal" data-aos="fade-up" data-aos-delay="300">
-        <div class="meta-item">
-          <div class="meta-label">Role</div>
-          <div class="meta-value">Product Designer</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label">Tools</div>
-          <div class="meta-value">Figma, Claude AI</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label">Timeline</div>
-          <div class="meta-value">1–2 weeks</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-image wrap-wide reveal" data-aos="zoom-in" data-aos-delay="200">
-      <div class="img-block tall">
-        <img src="images/Educraft hero screen.png" alt="Educraft hero screen" />
-      </div>
-      <p class="img-caption">Educraft — Hero section overview</p>
-    </div>
-  </div>
-
-  <!-- OVERVIEW -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">01 — Overview</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Quick <em>Info</em></h2>
-      <div class="key-sections reveal" data-aos="fade-up" data-aos-delay="200" style="margin-top: 0;">
-        <div class="key-row">
-          <div class="key-name">Role</div>
-          <div class="key-detail">Product Designer</div>
-        </div>
-        <div class="key-row">
-          <div class="key-name">Platform</div>
-          <div class="key-detail">Web</div>
-        </div>
-        <div class="key-row">
-          <div class="key-name">Goal</div>
-          <div class="key-detail">Simplify course discovery</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROBLEM -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">02 — Problem</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">What was <em>broken?</em></h2>
-
-      <ul class="problem-list">
-        <li class="reveal" data-aos="fade-right" data-aos-delay="100">
-          <span class="problem-num">01</span>
-          <span>Understand what the platform offers at a glance</span>
-        </li>
-        <li class="reveal" data-aos="fade-right" data-aos-delay="200">
-          <span class="problem-num">02</span>
-          <span>Identify courses that match their goals or skill level</span>
-        </li>
-        <li class="reveal" data-aos="fade-right" data-aos-delay="300">
-          <span class="problem-num">03</span>
-          <span>Trust the platform enough to take action</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PROBLEM IMAGE -->
-  <div class="wrap-wide reveal" data-aos="zoom-in" style="padding-top: 0; padding-bottom: 80px;">
-    <div class="img-two">
-      <div>
-        <div class="img-block medium">
-          <img src="images/educraft-research-map.jpg" alt="Research and problem mapping" />
-        </div>
-        <p class="img-caption">User pain point mapping</p>
-      </div>
-      <div>
-        <div class="img-block medium">
-          <img src="images/educraft-competitor-audit.jpg" alt="Competitor audit" />
-        </div>
-        <p class="img-caption">Competitor audit — key gaps</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- GOAL -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">03 — Goal</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Design <em>objectives</em></h2>
-
-      <div class="goal-grid reveal" data-aos="fade-up" data-aos-delay="100">
-        <div class="goal-item">
-          <div class="goal-icon">◎</div>
-          <div class="goal-title">Simplify Discovery</div>
-          <div class="goal-desc">Simplifies how users discover and identify courses relevant to their goals.</div>
-        </div>
-        <div class="goal-item">
-          <div class="goal-icon">◈</div>
-          <div class="goal-title">Improve Clarity</div>
-          <div class="goal-desc">Improves content hierarchy and readability across all key sections.</div>
-        </div>
-        <div class="goal-item">
-          <div class="goal-icon">◇</div>
-          <div class="goal-title">Build Trust</div>
-          <div class="goal-desc">Builds trust through well-organized information and credibility signals.</div>
-        </div>
-        <div class="goal-item">
-          <div class="goal-icon">▷</div>
-          <div class="goal-title">Drive Enrollment</div>
-          <div class="goal-desc">Encourages users to take action — enroll or sign up — at the right moments.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DESIGN APPROACH -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">04 — Design Approach</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">How I approached <em>the design</em></h2>
-
-      <div class="approach-list">
-        <div class="approach-item reveal" data-aos="fade-left" data-aos-delay="100">
-          <div class="approach-step">1</div>
-          <div>
-            <div class="approach-title">Visual Hierarchy</div>
-            <div class="approach-desc">Strong typography and spacing to guide users naturally.</div>
+          <div class="meta-block" aria-label="Project metadata">
+            <div class="meta-row">
+              <span class="meta-label">Role</span>
+              <span class="meta-value">Product Designer</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Timeline</span>
+              <span class="meta-value">3 Weeks</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Project Type</span>
+              <span class="meta-value">Concept Product</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Responsibilities</span>
+              <span class="meta-value meta-stack">UX Strategy · Product Design · Interaction Design · Visual Design · Design System · Prototyping</span>
+            </div>
           </div>
         </div>
-        <div class="approach-item reveal" data-aos="fade-left" data-aos-delay="200">
-          <div class="approach-step">2</div>
-          <div>
-            <div class="approach-title">Minimalism</div>
-            <div class="approach-desc">Removed distractions, used white space intentionally.</div>
+
+        <aside class="hero-visual reveal" aria-label="DesignMock AI previews">
+          <figure class="hero-main">
+            <img loading="eager" src="images/DesignMock AI Landing page.png" alt="DesignMock AI landing page preview" />
+          </figure>
+
+          <div class="thumb-row">
+            <button class="thumb" data-full="images/DesignMock AI Landing page.png" data-alt="DesignMock AI landing page" aria-label="Open Landing Page screenshot">
+              <div class="thumb-image"><img loading="lazy" src="images/DesignMock AI Landing page.png" alt="Landing Page thumbnail" /></div>
+              <span class="thumb-title">Landing Page</span>
+            </button>
+            <button class="thumb" data-full="images/AI interview page.png" data-alt="AI Interview experience" aria-label="Open AI Interview screenshot">
+              <div class="thumb-image"><img loading="lazy" src="images/AI interview page.png" alt="AI Interview thumbnail" /></div>
+              <span class="thumb-title">AI Interview</span>
+            </button>
+            <button class="thumb" data-full="images/Real-time feedback panel.png" data-alt="Live feedback panel" aria-label="Open Live Feedback screenshot">
+              <div class="thumb-image"><img loading="lazy" src="images/Real-time feedback panel.png" alt="Live Feedback thumbnail" /></div>
+              <span class="thumb-title">Live Feedback</span>
+            </button>
+            <button class="thumb" data-full="images/Performance analytics dashboard.png" data-alt="Performance dashboard" aria-label="Open Performance Dashboard screenshot">
+              <div class="thumb-image"><img loading="lazy" src="images/Performance analytics dashboard.png" alt="Performance Dashboard thumbnail" /></div>
+              <span class="thumb-title">Performance Dashboard</span>
+            </button>
           </div>
-        </div>
-        <div class="approach-item reveal" data-aos="fade-left" data-aos-delay="300">
-          <div class="approach-step">3</div>
-          <div>
-            <div class="approach-title">Conversion Flow</div>
-            <div class="approach-desc">Structured to move users from discovery to enrollment.</div>
-          </div>
-        </div>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- WIREFRAMES IMAGE -->
-  <div class="wrap-wide reveal" data-aos="zoom-in" style="padding-bottom: 80px;">
-    <div class="img-block short">
-      <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776070529/Early_wireframe_explorations_structure_before_style_ezrqm4.png" alt="Early wireframe explorations" />
-    </div>
-    <p class="img-caption">Early wireframe explorations — structure before style</p>
-  </div>
+    <section class="chapter chapter-opportunity section">
+      <div class="read-wrap">
+        <h2 class="section-title reveal">The Opportunity</h2>
+        <p class="section-intro reveal">Product designers spend months refining portfolios, yet many still struggle to communicate their thinking during interviews.</p>
 
-  <!-- KEY SECTIONS -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">05 — Key Sections</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Building the <em>experience</em></h2>
-
-      <div class="key-sections reveal">
-        <div class="key-row" data-aos="fade-up" data-aos-delay="100">
-          <div class="key-name">Hero Section</div>
-          <div class="key-detail">Clear headline and CTA — communicates value immediately.</div>
-        </div>
-        <div class="key-row" data-aos="fade-up" data-aos-delay="200">
-          <div class="key-name">Course Section</div>
-          <div class="key-detail">Card layout for easy scanning and comparison.</div>
-        </div>
-        <div class="key-row" data-aos="fade-up" data-aos-delay="300">
-          <div class="key-name">Testimonials</div>
-          <div class="key-detail">Social proof to build credibility and reduce enrollment hesitation.</div>
-        </div>
-        <div class="key-row" data-aos="fade-up" data-aos-delay="400">
-          <div class="key-name">Pricing</div>
-          <div class="key-detail">Easy-to-compare tiers so users choose a plan confidently.</div>
-        </div>
-        <div class="key-row" data-aos="fade-up" data-aos-delay="500">
-          <div class="key-name">Call-to-Action</div>
-          <div class="key-detail">Placed at key decision points throughout the page.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DESIGN SHOWCASE -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">06 — Design Showcase</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Final <em>Screens</em></h2>
-    </div>
-
-    <div class="wrap-wide">
-      <!-- Full-width placeholder -->
-      <div class="reveal" data-aos="zoom-in" data-aos-delay="100" style="margin-top: 48px;">
-        <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776070484/Complete_Design_System_cid5r9.png" alt="Complete Design System" class="img-block" />
-        <p class="img-caption">Complete Design System</p>
+        <p class="body-text reveal">
+          Designing a strong product and explaining design thinking in an interview are two very different skills. In day-to-day work, designers have time to gather context, explore trade-offs and refine rationale. Interviews compress all of that into a high-pressure conversation where clarity, structure and confidence matter as much as craft.
+        </p>
+        <p class="body-text reveal">
+          Most hiring teams are not only evaluating visual output; they are evaluating how decisions were made. They want to hear a coherent story: what problem was framed, what alternatives were considered, what constraints shaped the outcome and what measurable results followed. Without that narrative, good work often appears shallow.
+        </p>
+        <p class="body-text reveal">
+          Existing preparation methods often rely on static documents, one-off mock questions or generic tips that fail to recreate real interview pressure. Designers are left practising in isolation, without timely critique or a system that helps them improve over repeated sessions. DesignMock AI was framed to close that gap with realistic practice and recruiter-style feedback loops.
+        </p>
       </div>
 
-      <!-- Full-width: Homepage -->
-      <div class="reveal" data-aos="fade-up" data-aos-delay="200" style="margin-top: 32px;">
-        <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776070435/Homepage_z2ywlh.png" alt="Homepage" class="img-block" />
-        <p class="img-caption">Homepage</p>
+      <div class="screen-wrap feature-screen reveal">
+        <figure class="feature-frame">
+          <img loading="lazy" src="images/DesignMock AI Landing page.png" alt="DesignMock AI homepage screenshot" />
+        </figure>
+        <p class="caption">The landing experience introduces DesignMock AI by immediately focusing on realistic interview practice and recruiter-style AI feedback instead of technical features.</p>
       </div>
+    </section>
 
-      <!-- Two-column grid: Course View + Mobile Experience (enlarged) -->
-      <div class="img-two reveal" data-aos="fade-up" data-aos-delay="300" style="margin-top: 32px; padding-bottom: 0;">
+    <section class="chapter section">
+      <div class="read-wrap">
+        <h2 class="section-title reveal">Why This Matters</h2>
+
+        <div class="matter-columns">
+          <article class="matter-col reveal">
+            <p>Knowing how to design is different from knowing how to communicate design decisions.</p>
+          </article>
+          <article class="matter-col reveal">
+            <p>Interview performance depends on storytelling, structured thinking and measurable impact.</p>
+          </article>
+          <article class="matter-col reveal">
+            <p>Current preparation resources rarely recreate the pressure or depth of a real product design interview.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="read-wrap vision">
+        <p class="reveal">Rather than helping designers memorise answers, DesignMock AI was created to help them build confidence through deliberate practice and meaningful feedback.</p>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="page-wrap principles-layout">
         <div>
-          <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776070336/Course_view_o9tbhd.png" alt="Course View" class="img-block medium" />
-          <p class="img-caption">Course View</p>
-        </div>
-        <div>
-          <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776070387/Mobile_Experience_xxhwmx.png" alt="Mobile Experience" class="img-block medium" />
-          <p class="img-caption">Mobile Experience</p>
-        </div>
-      </div>
-    </div>
-  </section>
+          <h2 class="section-title reveal">Design Principles</h2>
+          <div class="principles-grid">
+            <article class="principle-card reveal">
+              <svg class="principle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <div>
+                <h3 class="principle-title">Practice should feel realistic.</h3>
+                <p class="principle-desc">Sessions mirror the pacing and uncertainty of real interviews so users can rehearse how they think aloud, not just what they say.</p>
+              </div>
+            </article>
 
-  <!-- UI SCREENS -->
-  <div class="wrap-wide reveal" data-aos="zoom-in" style="padding-bottom: 80px;">
-    <div class="img-block tall">
-      <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Educraft final design, full-page view" />
-    </div>
-    <p class="img-caption">Educraft — key screens at desktop breakpoint</p>
-  </div>
+            <article class="principle-card reveal">
+              <svg class="principle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12h14M5 8h14M5 16h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <div>
+                <h3 class="principle-title">Feedback should be actionable.</h3>
+                <p class="principle-desc">Every critique is anchored to communication behaviours and interview expectations, so improvement points can be applied in the very next session.</p>
+              </div>
+            </article>
 
-  <div class="wrap-wide reveal" data-aos="zoom-in" data-aos-delay="100" style="padding-bottom: 80px;">
-    <div class="img-two">
-      <div>
-        <div class="img-block medium">
-          <img src="images/Course cards.png" alt="Course cards" />
-        </div>
-        <p class="img-caption">Course section — card layout</p>
-      </div>
-      <div>
-        <div class="img-block medium">
-          <img src="images/Pricing section.png" alt="Pricing section" />
-        </div>
-        <p class="img-caption">Pricing — three-tier layout</p>
-      </div>
-    </div>
-  </div>
+            <article class="principle-card reveal">
+              <svg class="principle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 19h16M7 16V9m5 7V6m5 10v-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <div>
+                <h3 class="principle-title">Progress should be measurable.</h3>
+                <p class="principle-desc">The product tracks performance across sessions to reveal trends in clarity, storytelling and strategic depth over time.</p>
+              </div>
+            </article>
 
-  <!-- VISUAL DESIGN -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">07 — Visual Design</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Design <em>decisions</em></h2>
+            <article class="principle-card reveal">
+              <svg class="principle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z" stroke="currentColor" stroke-width="1.3"/></svg>
+              <div>
+                <h3 class="principle-title">Every session should encourage improvement.</h3>
+                <p class="principle-desc">Recommendations are framed as next steps, helping users convert feedback into focused practice rather than passive score watching.</p>
+              </div>
+            </article>
+          </div>
+        </div>
 
-      <div style="margin-top: 36px;" class="reveal" data-aos="fade-up" data-aos-delay="100">
-        <div class="spec-row">
-          <span class="spec-label">Typography</span>
-          <span class="spec-value">Clean typefaces chosen to improve readability and hierarchy</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Spacing system</span>
-          <span class="spec-value">Consistent spacing scale to create structure and visual rhythm</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Aesthetic</span>
-          <span class="spec-value">Minimal — unnecessary elements removed to reduce distractions</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Color</span>
-          <span class="spec-value">Subtle contrast used intentionally to guide user attention</span>
+        <div class="reveal" id="calloutZone">
+          <figure class="annotated-frame">
+            <img loading="lazy" src="images/Performance analytics dashboard.png" alt="DesignMock AI feedback dashboard" />
+            <figcaption class="callout c1">Overall Score</figcaption>
+            <figcaption class="callout c2">Communication</figcaption>
+            <figcaption class="callout c3">Product Thinking</figcaption>
+            <figcaption class="callout c4">Recommendation</figcaption>
+          </figure>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- IMPLEMENTATION -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">08 — Implementation</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">From design <em>to live product</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Translated into a responsive live product using Figma and Claude AI for rapid iteration.
-      </p>
-    </div>
-  </section>
-
-  <!-- OUTCOME -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">09 — Outcome</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">What was <em>achieved</em></h2>
-
-      <div class="outcome-grid reveal" data-aos="fade-up" data-aos-delay="100">
-        <div class="outcome-item">
-          <div class="outcome-val">5</div>
-          <div class="outcome-label">Key sections designed and shipped</div>
-        </div>
-        <div class="outcome-item">
-          <div class="outcome-val">1:2</div>
-          <div class="outcome-label">Weeks from brief to live product</div>
-        </div>
-        <div class="outcome-item">
-          <div class="outcome-val">100%</div>
-          <div class="outcome-label">Responsive across all breakpoints</div>
-        </div>
-      </div>
-
-      <p class="body-text reveal">
-        A focused, modern interface that simplifies course discovery and drives enrollment.
-      </p>
-    </div>
-  </section>
-
-  <!-- FINAL IMAGE -->
-  <div class="wrap-wide reveal" data-aos="zoom-in" style="padding-bottom: 80px;">
-    <div class="img-block tall">
-      <img src="images/Final product overview.png" alt="Final product overview" />
-    </div>
-    <p class="img-caption">Educraft — final design, full-page view</p>
-  </div>
-
-  <!-- REFLECTION -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">10 — Reflection</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Looking <em>back</em></h2>
-
-      <div class="reflection-cols">
-        <div class="reflection-col reveal">
-          <h4>Key takeaways</h4>
-          <ul>
-            <li>Structure and hierarchy are critical in content-heavy interfaces</li>
-            <li>Simplicity improves usability and overall engagement</li>
-            <li>Designing with intent leads to better user outcomes</li>
-          </ul>
-        </div>
-        <div class="reflection-col reveal d1">
-          <h4>What I'd improve</h4>
-          <ul>
-            <li>Conduct user testing to validate layout and content decisions</li>
-            <li>Explore personalization features to improve course relevance</li>
-            <li>Expand the platform into a more complete product experience beyond the landing page</li>
-          </ul>
-        </div>
+    <div class="next-project">
+      <div class="page-wrap">
+        <div class="next-label reveal">Next Chapter</div>
+        <a href="nairaland.html" class="next-link reveal">
+          Explore the product experience and interview flow
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 14H24M24 14L16 6M24 14L16 22" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
-  </section>
+  </main>
 
-  <!-- NEXT PROJECT -->
-  <div class="next-project" data-aos="fade-up">
-    <div class="wrap">
-      <div class="next-label reveal">Next project</div>
-      <a href="nairaland.html" class="next-link reveal d1">
-        Nairaland Redesign
-        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 14H24M24 14L16 6M24 14L16 22" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <p class="cta-headline">See the live product</p>
-    <a href="https://educraft-vg9w.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-cta-live">View Live Site ↗</a>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <span class="footer-copy">© 2025 Oyeniran Joel</span>
@@ -1077,35 +802,81 @@
     </div>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 900, once: true, offset: 80 });
-  </script>
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">×</button>
+      <div class="lightbox-image-wrap">
+        <img id="lightboxImage" src="" alt="" />
+      </div>
+    </div>
+  </div>
+
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          observer.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) entry.target.classList.add('in');
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
 
-  <script>
-    function toggleMenu() {
-      var btn = document.querySelector('.nav-hamburger');
-      var menu = document.getElementById('mobileMenu');
-      btn.classList.toggle('open');
-      menu.classList.toggle('open');
+    const calloutZone = document.getElementById('calloutZone');
+    const calloutObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          calloutZone.querySelectorAll('.callout').forEach(c => c.classList.add('in'));
+        }
+      });
+    }, { threshold: 0.34 });
+
+    calloutObserver.observe(calloutZone);
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function openLightbox(src, alt) {
+      lightboxImage.src = src;
+      lightboxImage.alt = alt;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.thumb').forEach(btn => {
+      btn.addEventListener('click', () => {
+        openLightbox(btn.dataset.full, btn.dataset.alt || 'Preview image');
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const button = document.querySelector('.nav-hamburger');
+      menu.classList.toggle('open');
+      button.classList.toggle('open');
+    }
+
     function closeMenu() {
-      var btn = document.querySelector('.nav-hamburger');
-      var menu = document.getElementById('mobileMenu');
-      btn.classList.remove('open');
+      const menu = document.getElementById('mobileMenu');
+      const button = document.querySelector('.nav-hamburger');
       menu.classList.remove('open');
+      button.classList.remove('open');
     }
   </script>
 </body>
