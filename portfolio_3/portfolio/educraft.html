@@ -20,8 +20,8 @@
       --sans: 'DM Sans', sans-serif;
       --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
       --page-max: 1280px;
-      --read-max: 820px;
-      --screen-max: 1100px;
+      --read-max: 840px;
+      --screen-max: 1120px;
     }
 
     html { scroll-behavior: smooth; }
@@ -47,6 +47,7 @@
       border-bottom: 1px solid var(--line);
       padding: 20px 0;
     }
+
     .nav-inner {
       max-width: 1120px;
       margin: 0 auto;
@@ -55,19 +56,18 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .nav-back {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 13px;
       color: var(--mid);
-      transition: color 0.2s var(--ease);
+      transition: color .2s var(--ease);
     }
+
     .nav-back:hover { color: var(--black); }
-    .nav-back svg {
-      width: 14px; height: 14px;
-      transition: transform 0.2s var(--ease);
-    }
+    .nav-back svg { width: 14px; height: 14px; transition: transform .2s var(--ease); }
     .nav-back:hover svg { transform: translateX(-3px); }
     .nav-name { font-family: var(--serif); font-size: 16px; letter-spacing: -0.02em; }
 
@@ -76,12 +76,14 @@
       flex-direction: column;
       justify-content: center;
       gap: 5px;
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       cursor: pointer;
       background: none;
       border: none;
       padding: 4px;
     }
+
     .nav-hamburger span {
       display: block;
       height: 1.5px;
@@ -89,6 +91,7 @@
       transition: transform .3s var(--ease), opacity .3s var(--ease);
       transform-origin: center;
     }
+
     .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
@@ -99,7 +102,9 @@
       border-top: 1px solid var(--line);
       background: var(--white);
     }
+
     .nav-mobile.open { display: flex; }
+
     .nav-mobile a {
       font-size: 15px;
       color: var(--mid);
@@ -107,6 +112,7 @@
       border-bottom: 1px solid var(--line);
       transition: color .2s var(--ease);
     }
+
     .nav-mobile a:last-child { border-bottom: none; }
     .nav-mobile a:hover { color: var(--black); }
 
@@ -114,16 +120,18 @@
     .read-wrap { max-width: var(--read-max); margin: 0 auto; padding: 0 40px; }
     .screen-wrap { max-width: calc(var(--screen-max) + 80px); margin: 0 auto; padding: 0 40px; }
 
-    .section { padding: 132px 0; }
+    .section { padding: 128px 0; }
     .chapter + .chapter { border-top: 1px solid var(--line); }
 
-    .hero { padding: 96px 0 108px; }
+    .hero { padding: 92px 0 108px; }
+
     .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
       gap: 60px;
       align-items: start;
     }
+
     .project-name {
       font-size: 14px;
       letter-spacing: .12em;
@@ -132,14 +140,16 @@
       margin-bottom: 24px;
       font-weight: 500;
     }
+
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(52px, 7vw, 82px);
-      line-height: 1.02;
+      font-size: clamp(50px, 7vw, 82px);
+      line-height: 1.01;
       letter-spacing: -0.03em;
       margin-bottom: 28px;
       max-width: 16ch;
     }
+
     .hero-intro {
       font-size: 20px;
       line-height: 1.78;
@@ -155,12 +165,14 @@
       display: grid;
       gap: 14px;
     }
+
     .meta-row {
       display: grid;
       grid-template-columns: 160px 1fr;
       gap: 24px;
       align-items: baseline;
     }
+
     .meta-label {
       font-size: 12px;
       letter-spacing: .12em;
@@ -168,17 +180,22 @@
       color: var(--light);
       font-weight: 600;
     }
+
     .meta-value { font-size: 17px; color: #212121; font-weight: 400; }
     .meta-stack { display: flex; flex-wrap: wrap; gap: 10px 18px; line-height: 1.65; }
 
     .hero-visual { display: grid; gap: 20px; }
+
     .hero-main {
       border: 1px solid var(--line);
+      border-radius: 14px;
       overflow: hidden;
       background: #ece9e3;
-      aspect-ratio: 16 / 11;
+      aspect-ratio: 16/11;
+      box-shadow: 0 8px 22px rgba(10,10,10,.03);
       transform: translateX(24px);
     }
+
     .hero-main img {
       width: 118%;
       max-width: none;
@@ -187,26 +204,36 @@
       object-position: left top;
     }
 
-    .thumb-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .thumb-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
     .thumb {
       border: 1px solid var(--line);
+      border-radius: 12px;
       background: #efede8;
       padding: 8px;
       cursor: pointer;
       text-align: left;
       transition: transform .26s var(--ease), border-color .26s var(--ease);
     }
+
     .thumb:hover, .thumb:focus-visible {
       transform: scale(1.02);
       border-color: #c7c3bc;
       outline: none;
     }
+
     .thumb-image {
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16/10;
       overflow: hidden;
       margin-bottom: 8px;
       background: #dfdcd6;
+      border-radius: 8px;
     }
+
     .thumb-image img { object-fit: cover; height: 100%; }
     .thumb-title { font-size: 12px; line-height: 1.35; color: #454545; letter-spacing: .01em; }
 
@@ -217,6 +244,7 @@
       letter-spacing: -0.02em;
       margin-bottom: 26px;
     }
+
     .section-intro {
       font-size: clamp(22px, 3vw, 28px);
       line-height: 1.52;
@@ -224,13 +252,16 @@
       margin-bottom: 34px;
       color: #222;
     }
+
     .body-text {
       font-size: 18px;
       line-height: 1.88;
       color: #2f2f2f;
       max-width: 72ch;
     }
+
     .body-text + .body-text { margin-top: 24px; }
+
     .caption {
       font-size: 14px;
       color: #7a7a7a;
@@ -240,16 +271,31 @@
     }
 
     .feature-screen { margin-top: 52px; }
+
     .feature-frame {
       border: 1px solid var(--line);
+      border-radius: 14px;
       background: #ece9e3;
       overflow: hidden;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16/9;
+      box-shadow: 0 8px 22px rgba(10,10,10,.03);
     }
+
     .feature-frame img { height: 100%; object-fit: cover; object-position: center top; }
 
-    .matter-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px; margin-top: 18px; }
-    .matter-col p { font-size: 23px; line-height: 1.52; letter-spacing: -0.01em; color: #1f1f1f; }
+    .matter-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 44px;
+      margin-top: 18px;
+    }
+
+    .matter-col p {
+      font-size: 23px;
+      line-height: 1.52;
+      letter-spacing: -0.01em;
+      color: #1f1f1f;
+    }
 
     .vision {
       min-height: 48vh;
@@ -259,6 +305,7 @@
       text-align: center;
       padding: 72px 0;
     }
+
     .vision p {
       font-family: var(--serif);
       font-size: clamp(34px, 5vw, 54px);
@@ -273,27 +320,34 @@
       gap: 58px;
       align-items: start;
     }
+
     .principles-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+
     .principle-card {
       border: 1px solid var(--line);
+      border-radius: 14px;
       padding: 26px 24px;
       display: grid;
       grid-template-columns: 28px 1fr;
       gap: 16px;
       background: transparent;
     }
+
     .principle-icon { width: 18px; height: 18px; margin-top: 3px; color: #4d4d4d; }
     .principle-title { font-size: 22px; line-height: 1.28; margin-bottom: 8px; letter-spacing: -0.01em; color: #181818; }
     .principle-desc { font-size: 17px; color: #444; line-height: 1.72; max-width: 54ch; }
 
     .annotated-frame {
       border: 1px solid var(--line);
+      border-radius: 14px;
       background: #ece9e3;
       overflow: hidden;
-      aspect-ratio: 11 / 12;
+      aspect-ratio: 11/12;
       position: relative;
       margin-top: 84px;
+      box-shadow: 0 8px 22px rgba(10,10,10,.03);
     }
+
     .annotated-frame img { height: 100%; object-fit: cover; object-position: center top; }
 
     .callout {
@@ -311,8 +365,10 @@
       transition: opacity .7s var(--ease), transform .7s var(--ease);
       transition-delay: var(--delay, 0s);
     }
+
     .callout::before { content: ""; width: 34px; height: 1px; background: rgba(57,57,57,.55); flex-shrink: 0; }
     .callout.in { opacity: 1; transform: translateY(0); }
+
     .c1 { top: 15%; right: 6%; --delay: .08s; }
     .c2 { top: 30%; right: 6%; --delay: .16s; }
     .c3 { top: 45%; right: 6%; --delay: .24s; }
@@ -320,12 +376,16 @@
 
     /* PART 2 */
     .journey-wrap { margin-top: 54px; }
+
     .journey-board {
       border: 1px solid var(--line);
+      border-radius: 14px;
       padding: 30px;
       overflow: auto;
       background: #f6f4f0;
+      box-shadow: 0 8px 22px rgba(10,10,10,.03);
     }
+
     .journey-track {
       min-width: 1120px;
       display: grid;
@@ -333,6 +393,7 @@
       align-items: center;
       gap: 0;
     }
+
     .journey-step {
       position: relative;
       padding: 18px 12px;
@@ -345,6 +406,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .journey-step:not(:last-child)::after {
       content: "";
       position: absolute;
@@ -356,6 +418,7 @@
       z-index: 0;
       transform: translateY(-50%);
     }
+
     .journey-step span { background: #f6f4f0; padding: 0 8px; position: relative; z-index: 1; }
 
     .walk-grid {
@@ -365,10 +428,19 @@
       align-items: center;
       margin-top: 70px;
     }
+
     .walk-grid + .walk-grid { margin-top: 96px; }
-    .walk-image { border: 1px solid var(--line); background: #ece9e3; overflow: hidden; }
+
+    .walk-image {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #ece9e3;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(10,10,10,.03);
+    }
+
     .walk-image img { height: 100%; object-fit: cover; object-position: center top; }
-    .walk-image.large { max-width: 75%; margin: 0 auto; }
+
     .walk-title {
       font-family: var(--serif);
       font-size: clamp(30px, 4vw, 42px);
@@ -378,15 +450,20 @@
     }
 
     .live-shell { margin-top: 70px; }
+
     .live-container {
       max-width: 75%;
       margin: 0 auto;
       border: 1px solid var(--line);
+      border-radius: 14px;
       background: #ebe8e2;
       overflow: hidden;
       position: relative;
+      box-shadow: 0 8px 22px rgba(10,10,10,.03);
     }
+
     .live-container img { object-fit: cover; }
+
     .live-annotation {
       position: absolute;
       display: inline-flex;
@@ -401,6 +478,7 @@
       transition: opacity .7s var(--ease), transform .7s var(--ease);
       transition-delay: var(--delay, 0s);
     }
+
     .live-annotation::before {
       content: "";
       width: 30px;
@@ -408,7 +486,9 @@
       background: rgba(58,58,58,.55);
       flex-shrink: 0;
     }
+
     .live-annotation.in { opacity: 1; transform: translateY(0); }
+
     .la1 { top: 16%; left: 4%; --delay: .08s; }
     .la2 { bottom: 24%; left: 4%; --delay: .16s; }
     .la3 { top: 16%; right: 4%; --delay: .24s; }
@@ -420,6 +500,7 @@
       text-align: center;
       padding: 30px 40px;
     }
+
     .editorial-title {
       font-family: var(--serif);
       font-size: clamp(44px, 6vw, 68px);
@@ -427,6 +508,7 @@
       margin-bottom: 28px;
       letter-spacing: -0.03em;
     }
+
     .editorial-body {
       font-size: 22px;
       line-height: 1.76;
@@ -438,11 +520,15 @@
     .feedback-major {
       margin-top: 62px;
       border: 1px solid var(--line);
+      border-radius: 14px;
       background: #ece8e2;
       overflow: hidden;
       position: relative;
+      box-shadow: 0 8px 22px rgba(10,10,10,.03);
     }
+
     .feedback-major img { max-height: 78vh; object-fit: cover; object-position: center top; }
+
     .feedback-annotation {
       position: absolute;
       display: inline-flex;
@@ -457,6 +543,7 @@
       transition: opacity .7s var(--ease), transform .7s var(--ease);
       transition-delay: var(--delay, 0s);
     }
+
     .feedback-annotation::before {
       content: "";
       width: 34px;
@@ -464,7 +551,9 @@
       background: rgba(60,60,60,.6);
       flex-shrink: 0;
     }
+
     .feedback-annotation.in { opacity: 1; transform: translateY(0); }
+
     .fa1 { top: 10%; left: 4%; --delay: .08s; }
     .fa2 { top: 24%; left: 4%; --delay: .16s; }
     .fa3 { top: 38%; left: 4%; --delay: .24s; }
@@ -474,43 +563,41 @@
 
     .feedback-reasoning { margin-top: 38px; }
     .reason-item + .reason-item { margin-top: 20px; }
-    .reason-item h4 {
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: #232323;
-      margin-bottom: 6px;
-    }
+    .reason-item h4 { font-size: 16px; text-transform: uppercase; letter-spacing: .08em; color: #232323; margin-bottom: 6px; }
     .reason-item p { font-size: 17px; line-height: 1.82; color: #343434; }
 
     .loop-shell {
       margin: 58px auto 0;
       width: min(760px, 100%);
       border: 1px solid var(--line);
+      border-radius: 14px;
       background: #f6f4f0;
       padding: 38px 26px;
     }
+
     .loop-track {
       display: grid;
-      grid-template-columns: repeat(6, minmax(90px, 1fr));
+      grid-template-columns: repeat(11, minmax(20px, 1fr));
       align-items: center;
       text-align: center;
-      gap: 10px;
+      gap: 8px;
     }
+
     .loop-node {
-      font-size: 15px;
-      line-height: 1.4;
+      grid-column: span 1;
+      font-size: 14px;
+      line-height: 1.35;
       color: #2f2f2f;
-      padding: 8px;
+      padding: 10px 8px;
       border: 1px solid #d6d0c7;
+      border-radius: 9px;
       background: #f8f6f2;
     }
-    .loop-arrow { font-size: 14px; color: #8a857b; }
 
-    .micro-block {
-      max-width: 920px;
-      margin: 0 auto;
-    }
+    .loop-node.wide { grid-column: span 2; }
+    .loop-arrow { color: #8a857b; font-size: 14px; }
+
+    .micro-block { max-width: 920px; margin: 0 auto; }
 
     .key-cards {
       margin-top: 34px;
@@ -518,26 +605,20 @@
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
+
     .key-card {
       border: 1px solid var(--line);
+      border-radius: 14px;
       padding: 24px;
       background: transparent;
       opacity: 0;
       transform: translateY(12px);
       transition: opacity .45s var(--ease), transform .45s var(--ease);
     }
+
     .key-card.in { opacity: 1; transform: translateY(0); }
-    .key-card h4 {
-      font-size: 18px;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-      color: #171717;
-    }
-    .key-card p {
-      font-size: 16px;
-      line-height: 1.75;
-      color: #3a3a3a;
-    }
+    .key-card h4 { font-size: 18px; margin-bottom: 8px; letter-spacing: -0.01em; color: #171717; }
+    .key-card p { font-size: 16px; line-height: 1.75; color: #3a3a3a; }
 
     .chapter-quote {
       min-height: 56vh;
@@ -547,6 +628,7 @@
       text-align: center;
       padding: 90px 40px;
     }
+
     .chapter-quote blockquote {
       font-family: var(--serif);
       font-size: clamp(34px, 5vw, 58px);
@@ -558,36 +640,292 @@
       transform: translateY(16px);
       transition: opacity .8s var(--ease), transform .8s var(--ease);
     }
+
     .chapter-quote blockquote.in { opacity: 1; transform: translateY(0); }
 
-    .next-project {
-      padding: 78px 0;
-      border-top: 1px solid var(--line);
+    /* PART 3 */
+    .vl-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+      gap: 58px;
+      align-items: start;
+      margin-top: 40px;
     }
-    .next-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .14em;
+
+    .system-stack { display: grid; gap: 34px; }
+
+    .system-block {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f7f5f1;
+      padding: 24px;
+    }
+
+    .system-title {
+      font-size: 12px;
+      letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--light);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      font-weight: 600;
     }
-    .next-link {
-      display: inline-flex;
+
+    .type-sample { display: grid; gap: 14px; }
+    .type-sample .display { font-family: var(--serif); font-size: clamp(40px, 6vw, 58px); line-height: 1.02; letter-spacing: -0.03em; }
+    .type-sample .heading { font-family: var(--serif); font-size: clamp(30px, 4vw, 40px); line-height: 1.08; }
+    .type-sample .body { font-size: 18px; line-height: 1.8; color: #2f2f2f; }
+    .type-sample .caption { font-size: 13px; color: #6d6d6d; letter-spacing: .01em; }
+
+    .token-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .token {
+      border: 1px solid #d8d3cc;
+      border-radius: 12px;
+      padding: 10px;
+      background: #fbfaf8;
+      font-size: 12px;
+      color: #454545;
+      min-height: 82px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .swatch {
+      width: 100%;
+      height: 26px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,.08);
+      margin-bottom: 8px;
+    }
+
+    .component-masonry {
+      columns: 2 260px;
+      column-gap: 14px;
+    }
+
+    .component-card {
+      break-inside: avoid;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fbfaf8;
+      padding: 16px;
+      margin-bottom: 14px;
+      transition: transform .25s var(--ease), border-color .25s var(--ease);
+    }
+
+    .component-card:hover { transform: translateY(-2px); border-color: #cdc7bf; }
+
+    .chip-row, .btn-row, .pill-row, .bar-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .ui-btn {
+      border: 1px solid #cfc9c1;
+      background: #f7f4ef;
+      color: #1f1f1f;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      line-height: 1;
+    }
+
+    .ui-btn.primary { background: #111; color: #f6f5f2; border-color: #111; }
+
+    .ui-input {
+      width: 100%;
+      border: 1px solid #d0cbc4;
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .ui-tag, .ui-pill {
+      border: 1px solid #d4cec6;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 7px 10px;
+      color: #3f3f3f;
+      background: #f7f5f1;
+    }
+
+    .ui-pill.success { border-color: #becdbf; }
+    .ui-pill.warn { border-color: #d7c9ad; }
+    .ui-pill.error { border-color: #d5b8b8; }
+
+    .progress {
+      width: 100%;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid #d3cdc6;
+      overflow: hidden;
+      background: #f0ede8;
+    }
+
+    .progress > span {
+      display: block;
+      height: 100%;
+      background: #111;
+      width: var(--w, 55%);
+    }
+
+    .mini-chart {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 6px;
+      align-items: end;
+      height: 90px;
+      margin-top: 8px;
+    }
+
+    .mini-chart span {
+      border: 1px solid #d0cbc4;
+      background: #ece8e1;
+      border-radius: 6px 6px 2px 2px;
+      height: var(--h, 40%);
+    }
+
+    .a11y-list { margin-top: 22px; display: grid; gap: 12px; }
+
+    .a11y-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      background: #faf8f4;
+    }
+
+    .device-strip {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1.22fr .92fr .72fr;
+      gap: 16px;
+      align-items: end;
+    }
+
+    .device {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #ece8e1;
+      box-shadow: 0 8px 22px rgba(15,15,15,.04);
+    }
+
+    .device img { aspect-ratio: 16/10; object-fit: cover; }
+    .device.tablet img { aspect-ratio: 4/3; }
+    .device.mobile img { aspect-ratio: 9/16; }
+
+    .reflection-wrap { max-width: 860px; margin: 0 auto; }
+
+    .final-gallery {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+    }
+
+    .gallery-col { display: grid; gap: 16px; }
+
+    .gallery-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #ede9e2;
+      box-shadow: 0 7px 20px rgba(14,14,14,.04);
+      opacity: 0;
+      transform: translateY(12px) scale(.98);
+      transition: opacity .5s var(--ease), transform .5s var(--ease);
+    }
+
+    .gallery-item.in { opacity: 1; transform: translateY(0) scale(1); }
+
+    .closing-statement {
+      min-height: 44vh;
+      display: flex;
       align-items: center;
-      gap: 12px;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+    }
+
+    .closing-statement p {
       font-family: var(--serif);
-      font-size: clamp(25px, 3vw, 38px);
+      font-size: clamp(32px, 4.8vw, 54px);
+      line-height: 1.18;
       letter-spacing: -0.02em;
+      max-width: 24ch;
+    }
+
+    .next-project-shell {
+      padding: 86px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .next-card {
+      margin-top: 24px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, .92fr);
+      background: #f7f4ef;
+      transition: border-color .25s var(--ease), transform .25s var(--ease);
+    }
+
+    .next-card:hover { border-color: #cfc8be; transform: translateY(-2px); }
+
+    .next-card-copy { padding: 30px 28px; }
+
+    .next-kicker {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .next-card-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .next-card-desc { font-size: 17px; color: #333; line-height: 1.72; max-width: 44ch; }
+
+    .next-arrow {
+      margin-top: 18px;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+      color: #3f3f3f;
       transition: gap .2s var(--ease);
     }
-    .next-link:hover { gap: 20px; }
-    .next-link svg { width: 28px; height: 28px; flex-shrink: 0; }
+
+    .next-card:hover .next-arrow { gap: 16px; }
+
+    .next-thumb { border-left: 1px solid var(--line); overflow: hidden; }
+    .next-thumb img {
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.01);
+      transition: transform .32s var(--ease);
+    }
+
+    .next-card:hover .next-thumb img { transform: scale(1.06); }
 
     footer {
       padding: 32px 0;
       border-top: 1px solid var(--line);
     }
+
     .footer-inner {
       max-width: 1120px;
       margin: 0 auto;
@@ -598,6 +936,7 @@
       gap: 16px;
       flex-wrap: wrap;
     }
+
     .footer-copy { font-size: 12px; color: var(--light); }
     .footer-back { font-size: 12px; color: var(--mid); transition: color .2s; }
     .footer-back:hover { color: var(--black); }
@@ -612,7 +951,9 @@
       z-index: 999;
       padding: 24px;
     }
+
     .lightbox.open { display: flex; }
+
     .lightbox-dialog {
       width: min(1100px, 100%);
       max-height: 90vh;
@@ -620,9 +961,12 @@
       border: 1px solid #d8d4ce;
       position: relative;
       overflow: hidden;
+      border-radius: 14px;
     }
+
     .lightbox-image-wrap { max-height: 86vh; overflow: auto; background: #ece8e2; }
     .lightbox-image-wrap img { width: 100%; height: auto; display: block; }
+
     .lightbox-close {
       position: absolute;
       right: 12px; top: 12px;
@@ -633,21 +977,26 @@
       font-size: 18px;
       line-height: 1;
       cursor: pointer;
+      border-radius: 10px;
     }
 
     .reveal {
       opacity: 0;
       transform: translateY(22px);
       transition: opacity .75s var(--ease), transform .75s var(--ease);
+      will-change: transform, opacity;
     }
+
     .reveal.in { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 1100px) {
-      .hero-grid, .principles-layout, .walk-grid { grid-template-columns: 1fr; gap: 42px; }
+      .hero-grid, .principles-layout, .walk-grid, .vl-grid, .next-card { grid-template-columns: 1fr; gap: 42px; }
       .hero-main { transform: none; }
       .annotated-frame { margin-top: 6px; }
-      .walk-image.large, .live-container { max-width: 100%; }
+      .live-container { max-width: 100%; }
       .journey-track { min-width: 980px; }
+      .next-thumb { border-left: none; border-top: 1px solid var(--line); }
+      .device-strip { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 900px) {
@@ -658,13 +1007,8 @@
       .key-cards { grid-template-columns: 1fr; }
       .editorial-body { font-size: 20px; }
       .journey-board { padding: 20px; }
-      .journey-track {
-        min-width: 100%;
-        grid-template-columns: 1fr;
-      }
-      .journey-step {
-        min-height: 64px;
-      }
+      .journey-track { min-width: 100%; grid-template-columns: 1fr; }
+      .journey-step { min-height: 64px; }
       .journey-step:not(:last-child)::after {
         width: 1px;
         height: 100%;
@@ -673,6 +1017,9 @@
         top: 100%;
         transform: translateX(-50%);
       }
+      .token-row { grid-template-columns: 1fr 1fr; }
+      .final-gallery { grid-template-columns: 1fr; }
+      .device-strip { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
@@ -683,6 +1030,7 @@
       .hero { padding-top: 72px; }
       .section { padding: 90px 0; }
       .loop-track { grid-template-columns: 1fr; }
+      .loop-node, .loop-node.wide { grid-column: auto; }
       .loop-arrow { transform: rotate(90deg); }
     }
 
@@ -727,9 +1075,7 @@
         <div class="reveal">
           <p class="project-name">DesignMock AI</p>
           <h1 class="hero-title">Designing an AI interview coach that helps Product Designers practice realistic interviews, receive recruiter-style feedback and improve through deliberate practice.</h1>
-          <p class="hero-intro">
-            DesignMock AI is a concept product exploring how artificial intelligence can help Product, UX and UI Designers prepare for interviews through realistic mock sessions, structured evaluation and personalised improvement plans.
-          </p>
+          <p class="hero-intro">DesignMock AI is a concept product exploring how artificial intelligence can help Product, UX and UI Designers prepare for interviews through realistic mock sessions, structured evaluation and personalised improvement plans.</p>
 
           <div class="meta-block" aria-label="Project metadata">
             <div class="meta-row"><span class="meta-label">Role</span><span class="meta-value">Product Designer</span></div>
@@ -774,10 +1120,9 @@
         <p class="body-text reveal">Most hiring teams are not only evaluating visual output; they are evaluating how decisions were made. They want to hear a coherent story: what problem was framed, what alternatives were considered, what constraints shaped the outcome and what measurable results followed. Without that narrative, good work often appears shallow.</p>
         <p class="body-text reveal">Existing preparation methods often rely on static documents, one-off mock questions or generic tips that fail to recreate real interview pressure. Designers are left practising in isolation, without timely critique or a system that helps them improve over repeated sessions. DesignMock AI was framed to close that gap with realistic practice and recruiter-style feedback loops.</p>
       </div>
-
       <div class="screen-wrap feature-screen reveal">
         <figure class="feature-frame"><img loading="lazy" src="images/Educraft hero screen.png" alt="DesignMock AI homepage screenshot" /></figure>
-        <p class="caption">The landing experience introduces DesignMock AI by immediately focusing on realistic interview practice and recruiter-style AI feedback instead of technical features.</p>
+        <p class="caption">The landing experience introduces DesignMock AI by immediately focusing on realistic interview practice and recruiter-style feedback instead of technical feature noise.</p>
       </div>
     </section>
 
@@ -838,9 +1183,7 @@
     <section class="chapter section">
       <div class="read-wrap">
         <h2 class="section-title reveal">Designing the Experience</h2>
-        <p class="body-text reveal">
-          A realistic interview experience is more than asking questions. It requires uncertainty, follow-up conversations, structured evaluation and meaningful reflection. Every interaction inside DesignMock AI was shaped to recreate those moments while staying approachable for designers at different stages of their careers. The flow begins by reducing ambiguity: users understand what they will practise, why it matters and how progress will be measured. From there, each step builds deliberate focus — choosing context before starting, answering in a conversational rhythm, receiving critique mapped to interview expectations, then returning for another round with clearer intent. The product was designed to protect cognitive energy during high-pressure practice. Rather than overwhelming users with options, it narrows each moment to the most meaningful next decision. This creates an experience that feels steady and realistic, helping designers build confidence through repetition rather than performative perfection.
-        </p>
+        <p class="body-text reveal">A realistic interview experience is more than asking questions. It requires uncertainty, follow-up conversations, structured evaluation and meaningful reflection. Every interaction inside DesignMock AI was shaped to recreate those moments while staying approachable for designers at different stages of their careers. The flow begins by reducing ambiguity: users understand what they will practise, why it matters and how progress will be measured. From there, each step builds deliberate focus — choosing context before starting, answering in a conversational rhythm, receiving critique mapped to interview expectations, then returning for another round with clearer intent. The product was designed to protect cognitive energy during high-pressure practice. Rather than overwhelming users with options, it narrows each moment to the most meaningful next decision.</p>
       </div>
 
       <div class="screen-wrap journey-wrap reveal">
@@ -883,7 +1226,7 @@
             <p class="body-text">Customised setup also improves preparation quality. Designers practise articulating decisions that are relevant to the conversations they are likely to face, making each session feel less like a simulation and more like targeted rehearsal.</p>
           </div>
           <figure class="walk-image reveal">
-            <img loading="lazy" src="images/Course cards.png" alt="Interview selection style screen" />
+            <img loading="lazy" src="images/Course cards.png" alt="Interview selection screen" />
           </figure>
         </div>
 
@@ -939,17 +1282,17 @@
       </div>
       <div class="loop-shell reveal">
         <div class="loop-track">
-          <div class="loop-node">Interview</div>
+          <div class="loop-node wide">Interview</div>
           <div class="loop-arrow">→</div>
-          <div class="loop-node">Feedback</div>
+          <div class="loop-node wide">Feedback</div>
           <div class="loop-arrow">→</div>
-          <div class="loop-node">Reflection</div>
+          <div class="loop-node wide">Reflection</div>
           <div class="loop-arrow">→</div>
-          <div class="loop-node">Practice</div>
+          <div class="loop-node wide">Practice</div>
           <div class="loop-arrow">→</div>
-          <div class="loop-node">Improvement</div>
+          <div class="loop-node wide">Improvement</div>
           <div class="loop-arrow">→</div>
-          <div class="loop-node">Interview</div>
+          <div class="loop-node wide">Interview</div>
         </div>
       </div>
       <div class="read-wrap" style="margin-top:40px;">
@@ -984,17 +1327,202 @@
       <blockquote id="endQuote">“The goal wasn’t to simulate an interviewer perfectly. It was to create an environment where designers could think more clearly, communicate more confidently and improve with every conversation.”</blockquote>
     </section>
 
-    <div class="next-project">
+    <!-- PART 3 -->
+    <section class="chapter section">
+      <div class="read-wrap">
+        <h2 class="section-title reveal">Visual Language</h2>
+        <p class="body-text reveal">Every visual decision inside DesignMock AI was made to reduce cognitive load during interview practice. The goal was never to make the interface feel futuristic for its own sake, but to create a stable environment that supports concentration under pressure. Hierarchy ensures that the next action is always clear, consistency reduces interpretation effort across screens, readability protects momentum during longer sessions, and predictability helps users stay focused on their reasoning instead of navigating interface ambiguity. Together, these principles were used to design for confidence: users should feel guided, not managed, and supported, not overwhelmed.</p>
+      </div>
+
+      <div class="page-wrap vl-grid">
+        <div class="system-stack">
+          <article class="system-block reveal">
+            <h3 class="system-title">Typography</h3>
+            <div class="type-sample">
+              <div class="display">Display / Hero Heading</div>
+              <div class="heading">Section Heading</div>
+              <p class="body">Body text is tuned for extended reading so users can process instructions and feedback without fatigue.</p>
+              <p class="caption">Caption text is reserved for supporting context, never primary action.</p>
+            </div>
+          </article>
+
+          <article class="system-block reveal">
+            <h3 class="system-title">Color Roles</h3>
+            <div class="token-row">
+              <div class="token"><div class="swatch" style="background:#111;"></div><span>Primary</span></div>
+              <div class="token"><div class="swatch" style="background:#ece8e1;"></div><span>Neutral</span></div>
+              <div class="token"><div class="swatch" style="background:#dce8dd;"></div><span>Success</span></div>
+              <div class="token"><div class="swatch" style="background:#efe3cd;"></div><span>Warning</span></div>
+              <div class="token"><div class="swatch" style="background:#ecd6d6;"></div><span>Error</span></div>
+            </div>
+            <p class="caption">The palette stays restrained so status and hierarchy remain readable without visual noise.</p>
+          </article>
+
+          <article class="system-block reveal">
+            <h3 class="system-title">Spacing & Rhythm</h3>
+            <p class="body-text">Generous vertical spacing was intentionally used to create pauses between decisions. During interview practice, breathing room improves comprehension, prevents dense blocks of information, and helps users recover context quickly after each action.</p>
+          </article>
+        </div>
+
+        <div class="system-stack">
+          <article class="system-block reveal">
+            <h3 class="system-title">Component Library</h3>
+            <div class="component-masonry">
+              <div class="component-card">
+                <p class="caption" style="margin-bottom:10px;">Buttons</p>
+                <div class="btn-row">
+                  <button class="ui-btn primary">Start Interview</button>
+                  <button class="ui-btn">Save Progress</button>
+                  <button class="ui-btn">Review Feedback</button>
+                </div>
+              </div>
+
+              <div class="component-card">
+                <p class="caption" style="margin-bottom:10px;">Input Fields</p>
+                <input class="ui-input" placeholder="Describe your design decision..." />
+              </div>
+
+              <div class="component-card">
+                <p class="caption" style="margin-bottom:10px;">Tags & Badges</p>
+                <div class="chip-row">
+                  <span class="ui-tag">Senior</span>
+                  <span class="ui-tag">Product Design</span>
+                  <span class="ui-tag">Mock Session</span>
+                </div>
+                <div class="pill-row" style="margin-top:10px;">
+                  <span class="ui-pill success">Ready</span>
+                  <span class="ui-pill warn">In Review</span>
+                  <span class="ui-pill error">Needs Practice</span>
+                </div>
+              </div>
+
+              <div class="component-card">
+                <p class="caption" style="margin-bottom:10px;">Progress Indicators</p>
+                <div class="bar-row" style="display:grid; gap:10px; width:100%;">
+                  <div class="progress"><span style="--w:72%;"></span></div>
+                  <div class="progress"><span style="--w:54%;"></span></div>
+                  <div class="progress"><span style="--w:83%;"></span></div>
+                </div>
+              </div>
+
+              <div class="component-card">
+                <p class="caption" style="margin-bottom:10px;">Charts</p>
+                <div class="mini-chart">
+                  <span style="--h:44%;"></span><span style="--h:58%;"></span><span style="--h:72%;"></span>
+                  <span style="--h:66%;"></span><span style="--h:78%;"></span><span style="--h:84%;"></span>
+                </div>
+              </div>
+
+              <div class="component-card">
+                <p class="caption" style="margin-bottom:10px;">Interview & Score Cards</p>
+                <div style="display:grid; gap:10px;">
+                  <div style="border:1px solid #d8d2ca; border-radius:10px; padding:10px; background:#fff;">
+                    <strong style="font-size:13px;">Live Session</strong>
+                    <p class="caption" style="margin-top:4px;">Question 3 of 7 · Active</p>
+                  </div>
+                  <div style="border:1px solid #d8d2ca; border-radius:10px; padding:10px; background:#fff;">
+                    <strong style="font-size:13px;">Feedback Summary</strong>
+                    <p class="caption" style="margin-top:4px;">Communication 78 · Storytelling 72</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="read-wrap">
+        <h2 class="section-title reveal">Accessibility</h2>
+        <p class="body-text reveal">Interview preparation already creates cognitive pressure, so the interface should never become an additional obstacle. Accessibility was treated as a product requirement, not a compliance checkbox.</p>
+        <div class="a11y-list">
+          <article class="a11y-item reveal"><strong>Large touch targets</strong><p class="caption">Interactive controls are sized for confident tapping and reduced input error.</p></article>
+          <article class="a11y-item reveal"><strong>Readable typography</strong><p class="caption">Text hierarchy prioritises legibility in long reading and response-writing moments.</p></article>
+          <article class="a11y-item reveal"><strong>Strong contrast & clear focus states</strong><p class="caption">Keyboard and low-vision users can reliably track active elements and context.</p></article>
+          <article class="a11y-item reveal"><strong>Keyboard accessibility & semantic HTML</strong><p class="caption">Core flows remain navigable and understandable without pointer-only interaction.</p></article>
+          <article class="a11y-item reveal"><strong>Reduced motion support</strong><p class="caption">Motion remains subtle and avoids interfering with concentration.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter section">
       <div class="page-wrap">
-        <div class="next-label reveal">Next Chapter</div>
-        <a href="nairaland.html" class="next-link reveal">
-          Visual language, system decisions and outcomes
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 14H24M24 14L16 6M24 14L16 22" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <h2 class="section-title reveal">Responsive Experience</h2>
+        <p class="body-text reveal">The experience adapts by intent, not only by screen size. Desktop focuses on immersion during longer practice sessions, tablet optimises readability and scan rhythm, while mobile prioritises simplicity and quick continuity between sessions.</p>
+        <div class="device-strip">
+          <figure class="device reveal">
+            <img loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Desktop mockup" />
+          </figure>
+          <figure class="device tablet reveal">
+            <img loading="lazy" src="images/Course cards.png" alt="Tablet mockup" />
+          </figure>
+          <figure class="device mobile reveal">
+            <img loading="lazy" src="images/Pricing section.png" alt="Mobile mockup" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="read-wrap">
+        <h2 class="section-title reveal">Outcome</h2>
+        <p class="body-text reveal">Success for this concept is defined by behavioural outcomes rather than vanity metrics. The intended impact is helping designers communicate decisions with greater confidence, practise more deliberately, and develop repeatable preparation habits before high-stakes interviews.</p>
+        <p class="body-text reveal">The product also aims to make interview preparation more accessible by turning abstract advice into structured sessions with clear reflection loops. Over time, this could improve storytelling quality, clarity of reasoning and confidence in real interview contexts.</p>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="reflection-wrap">
+        <h2 class="section-title reveal">Reflection</h2>
+        <p class="body-text reveal">Designing an AI interview experience highlighted a recurring tension in product design: automation can accelerate guidance, but trust determines whether users accept that guidance. Throughout this project, the central challenge was not how much intelligence to surface, but how to shape interactions so feedback feels credible, humane and useful under pressure. In interview preparation, people are often already self-critical. If a product sounds overly corrective or mechanistic, it can reduce motivation rather than improve performance.</p>
+        <p class="body-text reveal">That is why the feedback model in DesignMock AI was framed to encourage instead of discourage. The system points to patterns, not personal shortcomings. It emphasises what can be practised next, not what went wrong in isolation. This shift matters because confidence is not separate from competence; confidence directly influences how clearly candidates explain their thinking, how calmly they respond to ambiguity and how well they recover when challenged.</p>
+        <p class="body-text reveal">Another lesson was that realism requires restraint. A strong simulation does not need theatrical complexity. It needs pacing, context and reflection loops that mirror genuine interview behaviour. The product works best when interface friction stays low and cognitive effort is directed toward articulation, reasoning and narrative structure.</p>
+        <p class="body-text reveal">If this concept were extended, future iterations could explore voice-led interviews, portfolio walkthrough mode, hiring manager personas, company-specific interview tracks, collaborative peer practice, richer progress history and custom coaching paths. The next frontier is personalisation with accountability: adapting guidance to users over time while maintaining transparency in how recommendations are generated. The long-term ambition remains simple: help designers think more clearly, communicate more confidently and grow through repeated, intentional practice.</p>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="page-wrap">
+        <h2 class="section-title reveal">Final Gallery</h2>
+        <div class="final-gallery" id="finalGallery">
+          <div class="gallery-col">
+            <figure class="gallery-item"><img loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Gallery large 1" /></figure>
+            <figure class="gallery-item"><img loading="lazy" src="images/Educraft hero screen.png" alt="Gallery medium 1" /></figure>
+          </div>
+          <div class="gallery-col">
+            <figure class="gallery-item"><img loading="lazy" src="images/Course cards.png" alt="Gallery small 1" /></figure>
+            <figure class="gallery-item"><img loading="lazy" src="images/Pricing section.png" alt="Gallery medium 2" /></figure>
+            <figure class="gallery-item"><img loading="lazy" src="images/Educraft hero screen.png" alt="Gallery small 2" /></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter closing-statement">
+      <p class="reveal">DesignMock AI explores how thoughtful AI experiences can help designers prepare with greater confidence, communicate more clearly and continually improve through structured practice.</p>
+    </section>
+
+    <section class="next-project-shell">
+      <div class="page-wrap">
+        <h2 class="section-title reveal">Next Project</h2>
+        <a href="nairaland.html" class="next-card reveal" aria-label="Open next project">
+          <div class="next-card-copy">
+            <p class="next-kicker">Case Study</p>
+            <h3 class="next-card-title">Nairaland Product Experience</h3>
+            <p class="next-card-desc">Exploring content architecture, interaction simplification and clearer contributor flows in a high-volume community product.</p>
+            <span class="next-arrow">View Project
+              <svg viewBox="0 0 20 20" fill="none" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 10H17M17 10L11 4M17 10L11 16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+          <figure class="next-thumb">
+            <img loading="lazy" src="images/Course cards.png" alt="Next project preview" />
+          </figure>
         </a>
       </div>
-    </div>
+    </section>
   </main>
 
   <footer>
@@ -1071,6 +1599,21 @@
       quoteObserver.observe(endQuote);
     }
 
+    const finalGallery = document.getElementById('finalGallery');
+    if (finalGallery) {
+      const gObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            finalGallery.querySelectorAll('.gallery-item').forEach((item, i) => {
+              item.style.transitionDelay = `${i * 0.06}s`;
+              item.classList.add('in');
+            });
+          }
+        });
+      }, { threshold: 0.2 });
+      gObserver.observe(finalGallery);
+    }
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
@@ -1082,6 +1625,7 @@
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
+
     function closeLightbox() {
       lightbox.classList.remove('open');
       lightbox.setAttribute('aria-hidden', 'true');
@@ -1095,9 +1639,7 @@
 
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
-    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
 
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
