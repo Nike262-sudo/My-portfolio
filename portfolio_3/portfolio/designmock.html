@@ -36,7 +36,7 @@
     }
 
     a { color: inherit; text-decoration: none; }
-    img { display: block; width: 100%; height: auto; }
+    img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { display: block; width: 100%; height: auto; }
 
     nav {
       position: sticky;
@@ -263,7 +263,7 @@
       transform: translateX(24px);
     }
 
-    .hero-main img {
+    .hero-main img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } {
       width: 118%;
       max-width: none;
       height: 100%;
@@ -301,7 +301,7 @@
       border-radius: 8px;
     }
 
-    .thumb-image img { object-fit: cover; height: 100%; }
+    .thumb-image img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { object-fit: cover; height: 100%; }
     .thumb-title { font-size: 12px; line-height: 1.35; color: #454545; letter-spacing: .01em; }
 
     .section-title {
@@ -352,7 +352,7 @@
       box-shadow: 0 8px 22px rgba(10,10,10,.03);
     }
 
-    .feature-frame img { height: 100%; object-fit: cover; object-position: center top; }
+    .feature-frame img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { height: 100%; object-fit: cover; object-position: center top; }
 
     .matter-columns {
       display: grid;
@@ -419,7 +419,7 @@
       box-shadow: 0 8px 22px rgba(10,10,10,.03);
     }
 
-    .annotated-frame img { height: 100%; object-fit: cover; object-position: center top; }
+    .annotated-frame img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { height: 100%; object-fit: cover; object-position: center top; }
 
     .callout {
       position: absolute;
@@ -510,7 +510,7 @@
       box-shadow: 0 8px 22px rgba(10,10,10,.03);
     }
 
-    .walk-image img { height: 100%; object-fit: cover; object-position: center top; }
+    .walk-image img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { height: 100%; object-fit: cover; object-position: center top; }
 
     .walk-title {
       font-family: var(--serif);
@@ -533,7 +533,7 @@
       box-shadow: 0 8px 22px rgba(10,10,10,.03);
     }
 
-    .live-container img { object-fit: cover; }
+    .live-container img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { object-fit: cover; }
 
     .live-annotation {
       position: absolute;
@@ -598,7 +598,7 @@
       box-shadow: 0 8px 22px rgba(10,10,10,.03);
     }
 
-    .feedback-major img { max-height: 78vh; object-fit: cover; object-position: center top; }
+    .feedback-major img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { max-height: 78vh; object-fit: cover; object-position: center top; }
 
     .feedback-annotation {
       position: absolute;
@@ -886,9 +886,9 @@
       box-shadow: 0 8px 22px rgba(15,15,15,.04);
     }
 
-    .device img { aspect-ratio: 16/10; object-fit: cover; }
-    .device.tablet img { aspect-ratio: 4/3; }
-    .device.mobile img { aspect-ratio: 9/16; }
+    .device img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { aspect-ratio: 16/10; object-fit: cover; }
+    .device.tablet img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { aspect-ratio: 4/3; }
+    .device.mobile img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { aspect-ratio: 9/16; }
 
     .reflection-wrap { max-width: 860px; margin: 0 auto; }
 
@@ -987,14 +987,14 @@
     .next-card:hover .next-arrow { gap: 16px; }
 
     .next-thumb { border-left: 1px solid var(--line); overflow: hidden; }
-    .next-thumb img {
+    .next-thumb img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } {
       height: 100%;
       object-fit: cover;
       transform: scale(1.01);
       transition: transform .32s var(--ease);
     }
 
-    .next-card:hover .next-thumb img { transform: scale(1.06); }
+    .next-card:hover .next-thumb img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { transform: scale(1.06); }
 
     footer {
       padding: 32px 0;
@@ -1040,7 +1040,7 @@
     }
 
     .lightbox-image-wrap { max-height: 86vh; overflow: auto; background: #ece8e2; }
-    .lightbox-image-wrap img { width: 100%; height: auto; display: block; }
+    .lightbox-image-wrap img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { width: 100%; height: auto; display: block; }
 
     .lightbox-close {
       position: absolute;
@@ -1064,63 +1064,224 @@
 
     .reveal.in { opacity: 1; transform: translateY(0); }
 
-    @media (max-width: 1100px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 34px; }
-  .hero-title { max-width: 14ch; font-size: clamp(42px, 8vw, 62px); }
+  /* ===========================================================
+   RESPONSIVE DESIGN
+=========================================================== */
+
+@media (max-width: 1100px) {
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:56px;
+  }
+
+  .hero-title{
+    max-width:100%;
+  }
+
+  .hero-main{
+    max-width:900px;
+    margin:auto;
+  }
+
+  .experience-row,
+  .experience-row.reverse{
+    grid-template-columns:1fr;
+    gap:56px;
+  }
+
+  .principles-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
 }
 
-@media (max-width: 768px) {
-  .hero { padding-top: 64px; }
-  .hero-title { font-size: clamp(38px, 11vw, 52px); line-height: 1.08; }
-  .hero-intro { font-size: 18px; line-height: 1.68; }
-  .thumb-row { grid-template-columns: 1fr 1fr; }
+@media (max-width:768px){
+
+  body{
+    font-size:17px;
+  }
+
+  .page-wrap,
+  .read-wrap,
+  .screen-wrap,
+  .footer-inner,
+  .nav-inner{
+    padding-inline:20px;
+  }
+
+  .hero{
+    padding:64px 0 72px;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .hero-title{
+
+    font-size:clamp(38px,10vw,52px);
+
+    line-height:.95;
+
+    letter-spacing:-.045em;
+
+    max-width:100%;
+  }
+
+  .hero-intro{
+
+    font-size:18px;
+
+    line-height:1.65;
+
+    max-width:100%;
+  }
+
+  .meta-row{
+
+    grid-template-columns:1fr;
+
+    gap:20px;
+  }
+
+  .hero-main{
+
+    width:100%;
+  }
+
+  .thumb-row{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+  }
+
+  .section{
+
+    padding:88px 0;
+  }
+
+  .section-title{
+
+    font-size:42px;
+
+    line-height:.95;
+
+    letter-spacing:-.04em;
+  }
+
+  .section-intro{
+
+    font-size:22px;
+  }
+
+  .editorial-columns{
+
+    grid-template-columns:1fr;
+
+    gap:40px;
+  }
+
+  .design-principles{
+
+    grid-template-columns:1fr;
+  }
+
+  .experience-row,
+  .experience-row.reverse{
+
+    grid-template-columns:1fr;
+
+    gap:40px;
+  }
+
+  .feedback-layout{
+
+    grid-template-columns:1fr;
+  }
+
+  .loop-track{
+
+    grid-template-columns:1fr;
+  }
+
+  .loop-node,
+  .loop-node.wide{
+
+    grid-column:auto;
+  }
+
+  .loop-arrow{
+
+    transform:rotate(90deg);
+  }
+
+  .gallery-grid{
+
+    grid-template-columns:1fr;
+  }
+
+  .next-card{
+
+    padding:32px;
+  }
+
 }
-    }
 
-    @media (max-width: 900px) {
-      .matter-columns { grid-template-columns: 1fr; gap: 22px; }
-      .matter-col p { font-size: 21px; }
-      .hero-title { max-width: none; }
-      .section { padding: 102px 0; }
-      .key-cards { grid-template-columns: 1fr; }
-      .editorial-body { font-size: 20px; }
-      .journey-board { padding: 20px; }
-      .journey-track { min-width: 100%; grid-template-columns: 1fr; }
-      .journey-step { min-height: 64px; }
-      .journey-step:not(:last-child)::after {
-        width: 1px;
-        height: 100%;
-        left: 50%;
-        right: auto;
-        top: 100%;
-        transform: translateX(-50%);
-      }
-      .token-row { grid-template-columns: 1fr 1fr; }
-      .final-gallery { grid-template-columns: 1fr; }
-      .device-strip { grid-template-columns: 1fr; }
-    }
+@media (max-width:520px){
 
-    @media (max-width: 768px) {
-      .nav-inner, .page-wrap, .read-wrap, .screen-wrap, .footer-inner { padding: 0 24px; }
-      .nav-hamburger { display: flex; }
-      .thumb-row { grid-template-columns: 1fr 1fr; }
-      .meta-row { grid-template-columns: 124px 1fr; gap: 12px; }
-      .hero { padding-top: 72px; }
-      .section { padding: 90px 0; }
-      .loop-track { grid-template-columns: 1fr; }
-      .loop-node, .loop-node.wide { grid-column: auto; }
-      .loop-arrow { transform: rotate(90deg); }
-    }
+  body{
 
-    @media (max-width: 520px) {
-      body { font-size: 17px; }
-      .thumb-row { grid-template-columns: 1fr; }
-      .project-name { margin-bottom: 16px; }
-      .hero-title { font-size: clamp(44px, 14vw, 64px); }
-      .section-intro { font-size: 23px; }
-      .principle-title { font-size: 20px; }
-      .meta-row { grid-template-columns: 1fr; }
-      .meta-label { margin-bottom: 4px; }
+    font-size:16px;
+  }
+
+  .hero{
+
+    padding:48px 0 60px;
+  }
+
+  .hero-title{
+
+    font-size:36px;
+  }
+
+  .hero-intro{
+
+    font-size:17px;
+  }
+
+  .thumb-row{
+
+    grid-template-columns:1fr;
+  }
+
+  .section{
+
+    padding:72px 0;
+  }
+
+  .section-title{
+
+    font-size:34px;
+  }
+
+  .section-intro{
+
+    font-size:20px;
+  }
+
+  .next-card-title{
+
+    font-size:30px;
+  }
+
+}
     }
   </style>
 </head>
@@ -1165,24 +1326,24 @@
 
         <aside class="hero-visual reveal" aria-label="DesignMock AI previews">
           <figure class="hero-main">
-            <img loading="eager" src="images/Educraft hero screen.png" alt="DesignMock AI landing page preview" />
+            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="eager" src="images/Educraft hero screen.png" alt="DesignMock AI landing page preview" />
           </figure>
 
           <div class="thumb-row">
             <button class="thumb" data-full="images/Educraft hero screen.png" data-alt="Landing page" aria-label="Open Landing Page screenshot">
-              <div class="thumb-image"><img loading="lazy" src="images/Educraft hero screen.png" alt="Landing Page thumbnail" /></div>
+              <div class="thumb-image"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Educraft hero screen.png" alt="Landing Page thumbnail" /></div>
               <span class="thumb-title">Landing Page</span>
             </button>
             <button class="thumb" data-full="images/Course cards.png" data-alt="AI Interview" aria-label="Open AI Interview screenshot">
-              <div class="thumb-image"><img loading="lazy" src="images/Course cards.png" alt="AI Interview thumbnail" /></div>
+              <div class="thumb-image"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Course cards.png" alt="AI Interview thumbnail" /></div>
               <span class="thumb-title">AI Interview</span>
             </button>
             <button class="thumb" data-full="images/Pricing section.png" data-alt="Live Feedback" aria-label="Open Live Feedback screenshot">
-              <div class="thumb-image"><img loading="lazy" src="images/Pricing section.png" alt="Live Feedback thumbnail" /></div>
+              <div class="thumb-image"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Pricing section.png" alt="Live Feedback thumbnail" /></div>
               <span class="thumb-title">Live Feedback</span>
             </button>
             <button class="thumb" data-full="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" data-alt="Performance Dashboard" aria-label="Open Performance Dashboard screenshot">
-              <div class="thumb-image"><img loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Performance Dashboard thumbnail" /></div>
+              <div class="thumb-image"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Performance Dashboard thumbnail" /></div>
               <span class="thumb-title">Performance Dashboard</span>
             </button>
           </div>
@@ -1199,7 +1360,7 @@
         <p class="body-text reveal">Existing preparation methods often rely on static documents, one-off mock questions or generic tips that fail to recreate real interview pressure. Designers are left practising in isolation, without timely critique or a system that helps them improve over repeated sessions. DesignMock AI was framed to close that gap with realistic practice and recruiter-style feedback loops.</p>
       </div>
       <div class="screen-wrap feature-screen reveal">
-        <figure class="feature-frame"><img loading="lazy" src="images/Educraft hero screen.png" alt="DesignMock AI homepage screenshot" /></figure>
+        <figure class="feature-frame"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Educraft hero screen.png" alt="DesignMock AI homepage screenshot" /></figure>
         <p class="caption">The landing experience introduces DesignMock AI by immediately focusing on realistic interview practice and recruiter-style feedback instead of technical feature noise.</p>
       </div>
     </section>
@@ -1247,7 +1408,7 @@
 
         <div class="reveal" id="calloutZone">
           <figure class="annotated-frame">
-            <img loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="DesignMock AI feedback dashboard" />
+            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="DesignMock AI feedback dashboard" />
             <figcaption class="callout c1">Overall Score</figcaption>
             <figcaption class="callout c2">Communication</figcaption>
             <figcaption class="callout c3">Product Thinking</figcaption>
@@ -1288,7 +1449,7 @@
 
         <div class="walk-grid">
           <figure class="walk-image reveal">
-            <img loading="lazy" src="images/Educraft hero screen.png" alt="Landing experience" />
+            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Educraft hero screen.png" alt="Landing experience" />
           </figure>
           <div class="reveal">
             <h3 class="walk-title">A single promise builds clarity quickly.</h3>
@@ -1304,13 +1465,13 @@
             <p class="body-text">Customised setup also improves preparation quality. Designers practise articulating decisions that are relevant to the conversations they are likely to face, making each session feel less like a simulation and more like targeted rehearsal.</p>
           </div>
           <figure class="walk-image reveal">
-            <img loading="lazy" src="images/Course cards.png" alt="Interview selection screen" />
+            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Course cards.png" alt="Interview selection screen" />
           </figure>
         </div>
 
         <div class="live-shell">
           <div class="live-container reveal" id="liveZone">
-            <img loading="lazy" src="images/Pricing section.png" alt="Live interview style interface" />
+            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Pricing section.png" alt="Live interview style interface" />
             <figcaption class="live-annotation la1">Interview Question</figcaption>
             <figcaption class="live-annotation la2">Response Area</figcaption>
             <figcaption class="live-annotation la3">Progress Indicator</figcaption>
@@ -1335,7 +1496,7 @@
       <div class="screen-wrap">
         <h2 class="section-title reveal">Designing Feedback</h2>
         <div class="feedback-major reveal" id="feedbackZone">
-          <img loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Feedback report" />
+          <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Feedback report" />
           <figcaption class="feedback-annotation fa1">Overall Score</figcaption>
           <figcaption class="feedback-annotation fa2">Communication</figcaption>
           <figcaption class="feedback-annotation fa3">Storytelling</figcaption>
@@ -1530,13 +1691,13 @@
         <p class="body-text reveal">The experience adapts by intent, not only by screen size. Desktop focuses on immersion during longer practice sessions, tablet optimises readability and scan rhythm, while mobile prioritises simplicity and quick continuity between sessions.</p>
         <div class="device-strip">
           <figure class="device reveal">
-            <img loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Desktop mockup" />
+            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Desktop mockup" />
           </figure>
           <figure class="device tablet reveal">
-            <img loading="lazy" src="images/Course cards.png" alt="Tablet mockup" />
+            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Course cards.png" alt="Tablet mockup" />
           </figure>
           <figure class="device mobile reveal">
-            <img loading="lazy" src="images/Pricing section.png" alt="Mobile mockup" />
+            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Pricing section.png" alt="Mobile mockup" />
           </figure>
         </div>
       </div>
@@ -1565,13 +1726,13 @@
         <h2 class="section-title reveal">Final Gallery</h2>
         <div class="final-gallery" id="finalGallery">
           <div class="gallery-col">
-            <figure class="gallery-item"><img loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Gallery large 1" /></figure>
-            <figure class="gallery-item"><img loading="lazy" src="images/Educraft hero screen.png" alt="Gallery medium 1" /></figure>
+            <figure class="gallery-item"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Gallery large 1" /></figure>
+            <figure class="gallery-item"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Educraft hero screen.png" alt="Gallery medium 1" /></figure>
           </div>
           <div class="gallery-col">
-            <figure class="gallery-item"><img loading="lazy" src="images/Course cards.png" alt="Gallery small 1" /></figure>
-            <figure class="gallery-item"><img loading="lazy" src="images/Pricing section.png" alt="Gallery medium 2" /></figure>
-            <figure class="gallery-item"><img loading="lazy" src="images/Educraft hero screen.png" alt="Gallery small 2" /></figure>
+            <figure class="gallery-item"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Course cards.png" alt="Gallery small 1" /></figure>
+            <figure class="gallery-item"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Pricing section.png" alt="Gallery medium 2" /></figure>
+            <figure class="gallery-item"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Educraft hero screen.png" alt="Gallery small 2" /></figure>
           </div>
         </div>
       </div>
@@ -1596,7 +1757,7 @@
             </span>
           </div>
           <figure class="next-thumb">
-            <img loading="lazy" src="images/Course cards.png" alt="Next project preview" />
+            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Course cards.png" alt="Next project preview" />
           </figure>
         </a>
       </div>
@@ -1614,7 +1775,7 @@
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
     <div class="lightbox-dialog">
       <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">×</button>
-      <div class="lightbox-image-wrap"><img id="lightboxImage" src="" alt="" /></div>
+      <div class="lightbox-image-wrap"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } id="lightboxImage" src="" alt="" /></div>
     </div>
   </div>
 
