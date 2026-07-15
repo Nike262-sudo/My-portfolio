@@ -23,93 +23,294 @@
       --read-max: 820px;
       --screen-max: 1100px;
     }
+
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--sans);
       background: var(--white);
       color: var(--black);
       font-size: 18px;
-      line-height: 1.72;
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
+
     a { color: inherit; text-decoration: none; }
     img { display: block; width: 100%; height: auto; }
 
-    nav { position: sticky; top: 0; z-index: 100; background: color-mix(in srgb, var(--white) 96%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); padding: 20px 0; }
-    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--mid); transition: color .2s var(--ease); }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in srgb, var(--white) 96%, transparent);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--mid);
+      transition: color 0.2s var(--ease);
+    }
     .nav-back:hover { color: var(--black); }
-    .nav-back svg { width: 14px; height: 14px; transition: transform .2s var(--ease); }
+    .nav-back svg {
+      width: 14px; height: 14px;
+      transition: transform 0.2s var(--ease);
+    }
     .nav-back:hover svg { transform: translateX(-3px); }
     .nav-name { font-family: var(--serif); font-size: 16px; letter-spacing: -0.02em; }
 
-    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .nav-hamburger span { display: block; height: 1.5px; background: var(--black); transition: transform .3s var(--ease), opacity .3s var(--ease); transform-origin: center; }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px; height: 32px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      height: 1.5px;
+      background: var(--black);
+      transition: transform .3s var(--ease), opacity .3s var(--ease);
+      transform-origin: center;
+    }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .nav-mobile { display: none; flex-direction: column; border-top: 1px solid var(--line); background: var(--white); }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      border-top: 1px solid var(--line);
+      background: var(--white);
+    }
     .nav-mobile.open { display: flex; }
-    .nav-mobile a { font-size: 15px; color: var(--mid); padding: 16px 24px; border-bottom: 1px solid var(--line); transition: color .2s var(--ease); }
+    .nav-mobile a {
+      font-size: 15px;
+      color: var(--mid);
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--line);
+      transition: color .2s var(--ease);
+    }
     .nav-mobile a:last-child { border-bottom: none; }
     .nav-mobile a:hover { color: var(--black); }
 
     .page-wrap { max-width: var(--page-max); margin: 0 auto; padding: 0 40px; }
     .read-wrap { max-width: var(--read-max); margin: 0 auto; padding: 0 40px; }
     .screen-wrap { max-width: calc(var(--screen-max) + 80px); margin: 0 auto; padding: 0 40px; }
+
     .section { padding: 132px 0; }
     .chapter + .chapter { border-top: 1px solid var(--line); }
 
     .hero { padding: 96px 0 108px; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr); gap: 60px; align-items: start; }
-    .project-name { font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--light); margin-bottom: 24px; font-weight: 500; }
-    .hero-title { font-family: var(--serif); font-size: clamp(52px, 7vw, 82px); line-height: 1.01; letter-spacing: -0.03em; margin-bottom: 28px; max-width: 16ch; }
-    .hero-intro { font-size: 20px; line-height: 1.76; color: #2c2c2c; max-width: 60ch; margin-bottom: 52px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+      gap: 60px;
+      align-items: start;
+    }
+    .project-name {
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(52px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+      max-width: 16ch;
+    }
+    .hero-intro {
+      font-size: 20px;
+      line-height: 1.78;
+      color: #2c2c2c;
+      max-width: 60ch;
+      margin-bottom: 52px;
+    }
 
-    .meta-block { border-top: 1px solid var(--line); max-width: 620px; padding-top: 18px; display: grid; gap: 14px; }
-    .meta-row { display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: baseline; }
-    .meta-label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--light); font-weight: 600; }
+    .meta-block {
+      border-top: 1px solid var(--line);
+      max-width: 620px;
+      padding-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+    .meta-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 24px;
+      align-items: baseline;
+    }
+    .meta-label {
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--light);
+      font-weight: 600;
+    }
     .meta-value { font-size: 17px; color: #212121; font-weight: 400; }
     .meta-stack { display: flex; flex-wrap: wrap; gap: 10px 18px; line-height: 1.65; }
 
     .hero-visual { display: grid; gap: 20px; }
-    .hero-main { border: 1px solid var(--line); overflow: hidden; background: #ece9e3; aspect-ratio: 16 / 11; transform: translateX(24px); }
-    .hero-main img { width: 118%; max-width: none; height: 100%; object-fit: cover; object-position: left top; }
+    .hero-main {
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: #ece9e3;
+      aspect-ratio: 16 / 11;
+      transform: translateX(24px);
+    }
+    .hero-main img {
+      width: 118%;
+      max-width: none;
+      height: 100%;
+      object-fit: cover;
+      object-position: left top;
+    }
 
     .thumb-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-    .thumb { border: 1px solid var(--line); background: #efede8; padding: 8px; cursor: pointer; text-align: left; transition: transform .26s var(--ease), border-color .26s var(--ease); }
-    .thumb:hover, .thumb:focus-visible { transform: scale(1.02); border-color: #c7c3bc; outline: none; }
-    .thumb-image { aspect-ratio: 16 / 10; overflow: hidden; margin-bottom: 8px; background: #dfdcd6; }
+    .thumb {
+      border: 1px solid var(--line);
+      background: #efede8;
+      padding: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: transform .26s var(--ease), border-color .26s var(--ease);
+    }
+    .thumb:hover, .thumb:focus-visible {
+      transform: scale(1.02);
+      border-color: #c7c3bc;
+      outline: none;
+    }
+    .thumb-image {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      margin-bottom: 8px;
+      background: #dfdcd6;
+    }
     .thumb-image img { object-fit: cover; height: 100%; }
     .thumb-title { font-size: 12px; line-height: 1.35; color: #454545; letter-spacing: .01em; }
 
-    .section-title { font-family: var(--serif); font-size: clamp(36px, 5vw, 48px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 26px; }
-    .section-intro { font-size: clamp(22px, 3vw, 28px); line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 34px; color: #222; }
-    .body-text { font-size: 18px; line-height: 1.85; color: #2f2f2f; max-width: 72ch; }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 48px);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      margin-bottom: 26px;
+    }
+    .section-intro {
+      font-size: clamp(22px, 3vw, 28px);
+      line-height: 1.52;
+      letter-spacing: -0.01em;
+      margin-bottom: 34px;
+      color: #222;
+    }
+    .body-text {
+      font-size: 18px;
+      line-height: 1.88;
+      color: #2f2f2f;
+      max-width: 72ch;
+    }
     .body-text + .body-text { margin-top: 24px; }
-    .caption { font-size: 14px; color: #7a7a7a; line-height: 1.6; margin-top: 14px; max-width: 82ch; }
+    .caption {
+      font-size: 14px;
+      color: #7a7a7a;
+      line-height: 1.6;
+      margin-top: 14px;
+      max-width: 82ch;
+    }
 
     .feature-screen { margin-top: 52px; }
-    .feature-frame { border: 1px solid var(--line); background: #ece9e3; overflow: hidden; aspect-ratio: 16 / 9; }
+    .feature-frame {
+      border: 1px solid var(--line);
+      background: #ece9e3;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+    }
     .feature-frame img { height: 100%; object-fit: cover; object-position: center top; }
 
     .matter-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px; margin-top: 18px; }
     .matter-col p { font-size: 23px; line-height: 1.52; letter-spacing: -0.01em; color: #1f1f1f; }
 
-    .vision { min-height: 48vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 72px 0; }
-    .vision p { font-family: var(--serif); font-size: clamp(34px, 5vw, 54px); line-height: 1.15; letter-spacing: -0.02em; max-width: 22ch; }
+    .vision {
+      min-height: 48vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 72px 0;
+    }
+    .vision p {
+      font-family: var(--serif);
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 22ch;
+    }
 
-    .principles-layout { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr); gap: 58px; align-items: start; }
+    .principles-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+      gap: 58px;
+      align-items: start;
+    }
     .principles-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
-    .principle-card { border: 1px solid var(--line); padding: 26px 24px; display: grid; grid-template-columns: 28px 1fr; gap: 16px; background: transparent; }
+    .principle-card {
+      border: 1px solid var(--line);
+      padding: 26px 24px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 16px;
+      background: transparent;
+    }
     .principle-icon { width: 18px; height: 18px; margin-top: 3px; color: #4d4d4d; }
     .principle-title { font-size: 22px; line-height: 1.28; margin-bottom: 8px; letter-spacing: -0.01em; color: #181818; }
     .principle-desc { font-size: 17px; color: #444; line-height: 1.72; max-width: 54ch; }
 
-    .annotated-frame { border: 1px solid var(--line); background: #ece9e3; overflow: hidden; aspect-ratio: 11 / 12; position: relative; margin-top: 84px; }
+    .annotated-frame {
+      border: 1px solid var(--line);
+      background: #ece9e3;
+      overflow: hidden;
+      aspect-ratio: 11 / 12;
+      position: relative;
+      margin-top: 84px;
+    }
     .annotated-frame img { height: 100%; object-fit: cover; object-position: center top; }
-    .callout { position: absolute; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; line-height: 1.25; color: #424242; text-transform: uppercase; letter-spacing: .1em; opacity: 0; transform: translateY(12px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: var(--delay, 0s); }
+
+    .callout {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      line-height: 1.25;
+      color: #424242;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+      transition-delay: var(--delay, 0s);
+    }
     .callout::before { content: ""; width: 34px; height: 1px; background: rgba(57,57,57,.55); flex-shrink: 0; }
     .callout.in { opacity: 1; transform: translateY(0); }
     .c1 { top: 15%; right: 6%; --delay: .08s; }
@@ -117,39 +318,363 @@
     .c3 { top: 45%; right: 6%; --delay: .24s; }
     .c4 { top: 60%; right: 6%; --delay: .32s; }
 
-    .next-project { padding: 78px 0; border-top: 1px solid var(--line); }
-    .next-label { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--light); margin-bottom: 14px; }
-    .next-link { display: inline-flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: clamp(25px, 3vw, 38px); letter-spacing: -0.02em; transition: gap .2s var(--ease); }
+    /* PART 2 */
+    .journey-wrap { margin-top: 54px; }
+    .journey-board {
+      border: 1px solid var(--line);
+      padding: 30px;
+      overflow: auto;
+      background: #f6f4f0;
+    }
+    .journey-track {
+      min-width: 1120px;
+      display: grid;
+      grid-template-columns: repeat(10, minmax(110px, 1fr));
+      align-items: center;
+      gap: 0;
+    }
+    .journey-step {
+      position: relative;
+      padding: 18px 12px;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #333;
+      text-align: center;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .journey-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      background: #cfcac2;
+      z-index: 0;
+      transform: translateY(-50%);
+    }
+    .journey-step span { background: #f6f4f0; padding: 0 8px; position: relative; z-index: 1; }
+
+    .walk-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      margin-top: 70px;
+    }
+    .walk-grid + .walk-grid { margin-top: 96px; }
+    .walk-image { border: 1px solid var(--line); background: #ece9e3; overflow: hidden; }
+    .walk-image img { height: 100%; object-fit: cover; object-position: center top; }
+    .walk-image.large { max-width: 75%; margin: 0 auto; }
+    .walk-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.06;
+      margin-bottom: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .live-shell { margin-top: 70px; }
+    .live-container {
+      max-width: 75%;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      background: #ebe8e2;
+      overflow: hidden;
+      position: relative;
+    }
+    .live-container img { object-fit: cover; }
+    .live-annotation {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      color: #444;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+      transition-delay: var(--delay, 0s);
+    }
+    .live-annotation::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: rgba(58,58,58,.55);
+      flex-shrink: 0;
+    }
+    .live-annotation.in { opacity: 1; transform: translateY(0); }
+    .la1 { top: 16%; left: 4%; --delay: .08s; }
+    .la2 { bottom: 24%; left: 4%; --delay: .16s; }
+    .la3 { top: 16%; right: 4%; --delay: .24s; }
+    .la4 { bottom: 12%; right: 4%; --delay: .32s; }
+
+    .editorial-block {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 30px 40px;
+    }
+    .editorial-title {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 68px);
+      line-height: 1.03;
+      margin-bottom: 28px;
+      letter-spacing: -0.03em;
+    }
+    .editorial-body {
+      font-size: 22px;
+      line-height: 1.76;
+      color: #2f2f2f;
+      max-width: 40ch;
+      margin: 0 auto;
+    }
+
+    .feedback-major {
+      margin-top: 62px;
+      border: 1px solid var(--line);
+      background: #ece8e2;
+      overflow: hidden;
+      position: relative;
+    }
+    .feedback-major img { max-height: 78vh; object-fit: cover; object-position: center top; }
+    .feedback-annotation {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      color: #474747;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+      transition-delay: var(--delay, 0s);
+    }
+    .feedback-annotation::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: rgba(60,60,60,.6);
+      flex-shrink: 0;
+    }
+    .feedback-annotation.in { opacity: 1; transform: translateY(0); }
+    .fa1 { top: 10%; left: 4%; --delay: .08s; }
+    .fa2 { top: 24%; left: 4%; --delay: .16s; }
+    .fa3 { top: 38%; left: 4%; --delay: .24s; }
+    .fa4 { top: 52%; left: 4%; --delay: .32s; }
+    .fa5 { top: 66%; left: 4%; --delay: .40s; }
+    .fa6 { top: 80%; left: 4%; --delay: .48s; }
+
+    .feedback-reasoning { margin-top: 38px; }
+    .reason-item + .reason-item { margin-top: 20px; }
+    .reason-item h4 {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #232323;
+      margin-bottom: 6px;
+    }
+    .reason-item p { font-size: 17px; line-height: 1.82; color: #343434; }
+
+    .loop-shell {
+      margin: 58px auto 0;
+      width: min(760px, 100%);
+      border: 1px solid var(--line);
+      background: #f6f4f0;
+      padding: 38px 26px;
+    }
+    .loop-track {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(90px, 1fr));
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+    .loop-node {
+      font-size: 15px;
+      line-height: 1.4;
+      color: #2f2f2f;
+      padding: 8px;
+      border: 1px solid #d6d0c7;
+      background: #f8f6f2;
+    }
+    .loop-arrow { font-size: 14px; color: #8a857b; }
+
+    .micro-block {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .key-cards {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .key-card {
+      border: 1px solid var(--line);
+      padding: 24px;
+      background: transparent;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .45s var(--ease), transform .45s var(--ease);
+    }
+    .key-card.in { opacity: 1; transform: translateY(0); }
+    .key-card h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+      color: #171717;
+    }
+    .key-card p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #3a3a3a;
+    }
+
+    .chapter-quote {
+      min-height: 56vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 90px 40px;
+    }
+    .chapter-quote blockquote {
+      font-family: var(--serif);
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      max-width: 20ch;
+      color: #171717;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+    .chapter-quote blockquote.in { opacity: 1; transform: translateY(0); }
+
+    .next-project {
+      padding: 78px 0;
+      border-top: 1px solid var(--line);
+    }
+    .next-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 14px;
+    }
+    .next-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--serif);
+      font-size: clamp(25px, 3vw, 38px);
+      letter-spacing: -0.02em;
+      transition: gap .2s var(--ease);
+    }
     .next-link:hover { gap: 20px; }
     .next-link svg { width: 28px; height: 28px; flex-shrink: 0; }
 
-    footer { padding: 32px 0; border-top: 1px solid var(--line); }
-    .footer-inner { max-width: 1120px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
     .footer-copy { font-size: 12px; color: var(--light); }
     .footer-back { font-size: 12px; color: var(--mid); transition: color .2s; }
     .footer-back:hover { color: var(--black); }
 
-    .lightbox { position: fixed; inset: 0; background: rgba(10,10,10,.74); display: none; align-items: center; justify-content: center; z-index: 999; padding: 24px; }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,10,.74);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 24px;
+    }
     .lightbox.open { display: flex; }
-    .lightbox-dialog { width: min(1100px, 100%); max-height: 90vh; background: #f3f1ed; border: 1px solid #d8d4ce; position: relative; overflow: hidden; }
+    .lightbox-dialog {
+      width: min(1100px, 100%);
+      max-height: 90vh;
+      background: #f3f1ed;
+      border: 1px solid #d8d4ce;
+      position: relative;
+      overflow: hidden;
+    }
     .lightbox-image-wrap { max-height: 86vh; overflow: auto; background: #ece8e2; }
     .lightbox-image-wrap img { width: 100%; height: auto; display: block; }
-    .lightbox-close { position: absolute; right: 12px; top: 12px; width: 36px; height: 36px; border: 1px solid #c8c4be; background: rgba(248,247,244,.95); color: #202020; font-size: 18px; line-height: 1; cursor: pointer; }
+    .lightbox-close {
+      position: absolute;
+      right: 12px; top: 12px;
+      width: 36px; height: 36px;
+      border: 1px solid #c8c4be;
+      background: rgba(248,247,244,.95);
+      color: #202020;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+    }
 
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .75s var(--ease), transform .75s var(--ease); }
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .75s var(--ease), transform .75s var(--ease);
+    }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 1100px) {
-      .hero-grid, .principles-layout { grid-template-columns: 1fr; gap: 42px; }
+      .hero-grid, .principles-layout, .walk-grid { grid-template-columns: 1fr; gap: 42px; }
       .hero-main { transform: none; }
       .annotated-frame { margin-top: 6px; }
+      .walk-image.large, .live-container { max-width: 100%; }
+      .journey-track { min-width: 980px; }
     }
+
     @media (max-width: 900px) {
       .matter-columns { grid-template-columns: 1fr; gap: 22px; }
       .matter-col p { font-size: 21px; }
       .hero-title { max-width: none; }
       .section { padding: 102px 0; }
+      .key-cards { grid-template-columns: 1fr; }
+      .editorial-body { font-size: 20px; }
+      .journey-board { padding: 20px; }
+      .journey-track {
+        min-width: 100%;
+        grid-template-columns: 1fr;
+      }
+      .journey-step {
+        min-height: 64px;
+      }
+      .journey-step:not(:last-child)::after {
+        width: 1px;
+        height: 100%;
+        left: 50%;
+        right: auto;
+        top: 100%;
+        transform: translateX(-50%);
+      }
     }
+
     @media (max-width: 768px) {
       .nav-inner, .page-wrap, .read-wrap, .screen-wrap, .footer-inner { padding: 0 24px; }
       .nav-hamburger { display: flex; }
@@ -157,7 +682,10 @@
       .meta-row { grid-template-columns: 124px 1fr; gap: 12px; }
       .hero { padding-top: 72px; }
       .section { padding: 90px 0; }
+      .loop-track { grid-template-columns: 1fr; }
+      .loop-arrow { transform: rotate(90deg); }
     }
+
     @media (max-width: 520px) {
       body { font-size: 17px; }
       .thumb-row { grid-template-columns: 1fr; }
@@ -193,12 +721,15 @@
   </nav>
 
   <main>
+    <!-- PART 1 -->
     <section class="hero page-wrap">
       <div class="hero-grid">
         <div class="reveal">
           <p class="project-name">DesignMock AI</p>
           <h1 class="hero-title">Designing an AI interview coach that helps Product Designers practice realistic interviews, receive recruiter-style feedback and improve through deliberate practice.</h1>
-          <p class="hero-intro">DesignMock AI is a concept product exploring how artificial intelligence can help Product, UX and UI Designers prepare for interviews through realistic mock sessions, structured evaluation and personalised improvement plans.</p>
+          <p class="hero-intro">
+            DesignMock AI is a concept product exploring how artificial intelligence can help Product, UX and UI Designers prepare for interviews through realistic mock sessions, structured evaluation and personalised improvement plans.
+          </p>
 
           <div class="meta-block" aria-label="Project metadata">
             <div class="meta-row"><span class="meta-label">Role</span><span class="meta-value">Product Designer</span></div>
@@ -272,10 +803,22 @@
         <div>
           <h2 class="section-title reveal">Design Principles</h2>
           <div class="principles-grid">
-            <article class="principle-card reveal"><svg class="principle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><div><h3 class="principle-title">Practice should feel realistic.</h3><p class="principle-desc">Sessions mirror the pacing and uncertainty of real interviews so users can rehearse how they think aloud, not just what they say.</p></div></article>
-            <article class="principle-card reveal"><svg class="principle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M5 8h14M5 16h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><div><h3 class="principle-title">Feedback should be actionable.</h3><p class="principle-desc">Every critique is anchored to communication behaviours and interview expectations, so improvement points can be applied in the very next session.</p></div></article>
-            <article class="principle-card reveal"><svg class="principle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 19h16M7 16V9m5 7V6m5 10v-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><div><h3 class="principle-title">Progress should be measurable.</h3><p class="principle-desc">The product tracks performance across sessions to reveal trends in clarity, storytelling and strategic depth over time.</p></div></article>
-            <article class="principle-card reveal"><svg class="principle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z" stroke="currentColor" stroke-width="1.3"/></svg><div><h3 class="principle-title">Every session should encourage improvement.</h3><p class="principle-desc">Recommendations are framed as next steps, helping users convert feedback into focused practice rather than passive score watching.</p></div></article>
+            <article class="principle-card reveal">
+              <svg class="principle-icon" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <div><h3 class="principle-title">Practice should feel realistic.</h3><p class="principle-desc">Sessions mirror the pacing and uncertainty of real interviews so users can rehearse how they think aloud, not just what they say.</p></div>
+            </article>
+            <article class="principle-card reveal">
+              <svg class="principle-icon" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M5 8h14M5 16h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <div><h3 class="principle-title">Feedback should be actionable.</h3><p class="principle-desc">Every critique is anchored to communication behaviours and interview expectations, so improvement points can be applied in the very next session.</p></div>
+            </article>
+            <article class="principle-card reveal">
+              <svg class="principle-icon" viewBox="0 0 24 24" fill="none"><path d="M4 19h16M7 16V9m5 7V6m5 10v-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <div><h3 class="principle-title">Progress should be measurable.</h3><p class="principle-desc">The product tracks performance across sessions to reveal trends in clarity, storytelling and strategic depth over time.</p></div>
+            </article>
+            <article class="principle-card reveal">
+              <svg class="principle-icon" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z" stroke="currentColor" stroke-width="1.3"/></svg>
+              <div><h3 class="principle-title">Every session should encourage improvement.</h3><p class="principle-desc">Recommendations are framed as next steps, helping users convert feedback into focused practice rather than passive score watching.</p></div>
+            </article>
           </div>
         </div>
 
@@ -291,11 +834,164 @@
       </div>
     </section>
 
+    <!-- PART 2 -->
+    <section class="chapter section">
+      <div class="read-wrap">
+        <h2 class="section-title reveal">Designing the Experience</h2>
+        <p class="body-text reveal">
+          A realistic interview experience is more than asking questions. It requires uncertainty, follow-up conversations, structured evaluation and meaningful reflection. Every interaction inside DesignMock AI was shaped to recreate those moments while staying approachable for designers at different stages of their careers. The flow begins by reducing ambiguity: users understand what they will practise, why it matters and how progress will be measured. From there, each step builds deliberate focus — choosing context before starting, answering in a conversational rhythm, receiving critique mapped to interview expectations, then returning for another round with clearer intent. The product was designed to protect cognitive energy during high-pressure practice. Rather than overwhelming users with options, it narrows each moment to the most meaningful next decision. This creates an experience that feels steady and realistic, helping designers build confidence through repetition rather than performative perfection.
+        </p>
+      </div>
+
+      <div class="screen-wrap journey-wrap reveal">
+        <div class="journey-board">
+          <div class="journey-track">
+            <div class="journey-step"><span>Landing Page</span></div>
+            <div class="journey-step"><span>Choose Interview Type</span></div>
+            <div class="journey-step"><span>Choose Seniority Level</span></div>
+            <div class="journey-step"><span>Begin AI Interview</span></div>
+            <div class="journey-step"><span>Answer Questions</span></div>
+            <div class="journey-step"><span>AI asks Follow-up Questions</span></div>
+            <div class="journey-step"><span>Interview Ends</span></div>
+            <div class="journey-step"><span>Receive Feedback Report</span></div>
+            <div class="journey-step"><span>Identify Weaknesses</span></div>
+            <div class="journey-step"><span>Practice Again</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="page-wrap">
+        <h2 class="section-title reveal">Experience Walkthrough</h2>
+
+        <div class="walk-grid">
+          <figure class="walk-image reveal">
+            <img loading="lazy" src="images/Educraft hero screen.png" alt="Landing experience" />
+          </figure>
+          <div class="reveal">
+            <h3 class="walk-title">A single promise builds clarity quickly.</h3>
+            <p class="body-text">The landing experience prioritises one clear promise so users can immediately understand the value of the product without scanning through competing feature claims. This decision reduces cognitive load at the most fragile point of the journey: the first impression.</p>
+            <p class="body-text">By limiting early choices and using a straightforward navigation hierarchy, the experience creates confidence and trust. Users can identify what happens next, how practice works and where to begin, which lowers friction and encourages action.</p>
+          </div>
+        </div>
+
+        <div class="walk-grid">
+          <div class="reveal">
+            <h3 class="walk-title">Context before questions creates realism.</h3>
+            <p class="body-text">Before the interview begins, users choose role, seniority and interview type. This framing step ensures prompts are not generic. It mirrors how real interviews are contextual, with expectations shaped by level, responsibilities and decision scope.</p>
+            <p class="body-text">Customised setup also improves preparation quality. Designers practise articulating decisions that are relevant to the conversations they are likely to face, making each session feel less like a simulation and more like targeted rehearsal.</p>
+          </div>
+          <figure class="walk-image reveal">
+            <img loading="lazy" src="images/Course cards.png" alt="Interview selection style screen" />
+          </figure>
+        </div>
+
+        <div class="live-shell">
+          <div class="live-container reveal" id="liveZone">
+            <img loading="lazy" src="images/Pricing section.png" alt="Live interview style interface" />
+            <figcaption class="live-annotation la1">Interview Question</figcaption>
+            <figcaption class="live-annotation la2">Response Area</figcaption>
+            <figcaption class="live-annotation la3">Progress Indicator</figcaption>
+            <figcaption class="live-annotation la4">Active Session</figcaption>
+          </div>
+          <div class="read-wrap" style="margin-top:40px;">
+            <p class="body-text reveal">The interview interaction was designed to feel conversational rather than transactional. Instead of rigid form-filling, the flow encourages thoughtful responses, then adapts with follow-up prompts that keep the discussion moving naturally.</p>
+            <p class="body-text reveal">This pacing reduces intimidation and helps users stay focused on reasoning under pressure. By keeping the interface quiet and direct, attention stays on thinking quality, narrative structure and confidence in communication.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="editorial-block reveal">
+        <h2 class="editorial-title">Why a conversation instead of a questionnaire?</h2>
+        <p class="editorial-body">Questionnaires test memory. Conversations reveal thinking. Recruiters rarely evaluate whether a candidate can recite definitions; they evaluate how that candidate reasons through ambiguity, explains trade-offs and connects outcomes to decisions. DesignMock AI is intentionally structured around dialogue because dialogue naturally exposes communication patterns, product judgment and structured problem solving in ways fixed-answer formats cannot.</p>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="screen-wrap">
+        <h2 class="section-title reveal">Designing Feedback</h2>
+        <div class="feedback-major reveal" id="feedbackZone">
+          <img loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Feedback report" />
+          <figcaption class="feedback-annotation fa1">Overall Score</figcaption>
+          <figcaption class="feedback-annotation fa2">Communication</figcaption>
+          <figcaption class="feedback-annotation fa3">Storytelling</figcaption>
+          <figcaption class="feedback-annotation fa4">Product Thinking</figcaption>
+          <figcaption class="feedback-annotation fa5">Metrics</figcaption>
+          <figcaption class="feedback-annotation fa6">Recommendation</figcaption>
+        </div>
+      </div>
+
+      <div class="read-wrap feedback-reasoning">
+        <div class="reason-item reveal"><h4>Communication</h4><p>Communication exists as a dedicated category because strong ideas lose value when explained without clarity. This score reinforces that articulation is part of design competence, not separate from it.</p></div>
+        <div class="reason-item reveal"><h4>Storytelling</h4><p>Storytelling evaluates whether candidates can connect problem framing, design decisions and outcomes into a coherent narrative. This mirrors how interviewers assess strategic maturity, not just isolated deliverables.</p></div>
+        <div class="reason-item reveal"><h4>Product Thinking</h4><p>Product Thinking encourages designers to relate interface decisions to user outcomes and business priorities. It pushes beyond aesthetic preference toward decision-making grounded in impact.</p></div>
+        <div class="reason-item reveal"><h4>Metrics</h4><p>Metrics reinforces accountability. Rather than vague claims, candidates are nudged to discuss measurable change, evidence and the value of their work in concrete terms.</p></div>
+        <div class="reason-item reveal"><h4>Recommendation</h4><p>The recommendation summarises readiness while identifying where practice should focus next. It converts feedback into direction, helping users move from evaluation to action.</p></div>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="read-wrap">
+        <h2 class="section-title reveal">The Improvement Loop</h2>
+      </div>
+      <div class="loop-shell reveal">
+        <div class="loop-track">
+          <div class="loop-node">Interview</div>
+          <div class="loop-arrow">→</div>
+          <div class="loop-node">Feedback</div>
+          <div class="loop-arrow">→</div>
+          <div class="loop-node">Reflection</div>
+          <div class="loop-arrow">→</div>
+          <div class="loop-node">Practice</div>
+          <div class="loop-arrow">→</div>
+          <div class="loop-node">Improvement</div>
+          <div class="loop-arrow">→</div>
+          <div class="loop-node">Interview</div>
+        </div>
+      </div>
+      <div class="read-wrap" style="margin-top:40px;">
+        <p class="body-text reveal">Deliberate practice is not a single event. It is a cycle. Designers improve when they repeat meaningful sessions, receive specific feedback, reflect honestly and apply lessons in the next attempt. That sequence builds self-awareness over time: users begin noticing where they become vague, where stories lose structure and where outcomes are not clearly expressed.</p>
+        <p class="body-text reveal">Repetition also changes confidence. Instead of treating interviews as unpredictable performance moments, users begin to recognise familiar patterns and respond with more control. Each iteration reduces anxiety because progress becomes visible and directional. The goal is not perfection after one interview. The goal is steady growth across multiple sessions, where each conversation sharpens reasoning, communication and clarity under pressure.</p>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="micro-block">
+        <h2 class="section-title reveal">Micro Interactions</h2>
+        <p class="body-text reveal">Interaction design was treated as quiet support. Transitions are smooth but restrained, feedback appears quickly, and motion avoids drawing attention away from the conversation itself. The interface stays readable and responsive so users can focus on answers, not UI mechanics.</p>
+        <p class="body-text reveal">Every micro interaction was designed to reduce friction: minimal distractions, immediate response cues and clear state changes. The product should feel calm under pressure, helping concentration rather than competing for it.</p>
+      </div>
+    </section>
+
+    <section class="chapter section">
+      <div class="page-wrap">
+        <h2 class="section-title reveal">Key Design Decisions</h2>
+        <div class="key-cards" id="keyCards">
+          <article class="key-card"><h4>Making AI feel conversational.</h4><p>The flow prioritises dialogue pacing and follow-up continuity so users practise thinking through discussion, not isolated prompts.</p></article>
+          <article class="key-card"><h4>Reducing interview anxiety.</h4><p>Clear progression, predictable structure and focused tasks lower uncertainty and help users remain composed during practice.</p></article>
+          <article class="key-card"><h4>Encouraging measurable storytelling.</h4><p>Prompts and scoring reinforce outcome-oriented narratives that connect decisions to impact, evidence and business context.</p></article>
+          <article class="key-card"><h4>Providing actionable feedback.</h4><p>Insights are framed as next steps, helping users translate critique into immediate, repeatable behavioural improvements.</p></article>
+          <article class="key-card"><h4>Creating a repeatable learning loop.</h4><p>Interview, feedback and reflection are intentionally connected so progress compounds over multiple sessions.</p></article>
+          <article class="key-card"><h4>Designing for confidence rather than perfection.</h4><p>The system rewards clarity and growth, helping users build reliable performance habits instead of chasing flawless answers.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-quote">
+      <blockquote id="endQuote">“The goal wasn’t to simulate an interviewer perfectly. It was to create an environment where designers could think more clearly, communicate more confidently and improve with every conversation.”</blockquote>
+    </section>
+
     <div class="next-project">
       <div class="page-wrap">
         <div class="next-label reveal">Next Chapter</div>
-        <a href="nairaland.html" class="next-link reveal">Explore the product experience and interview flow
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 14H24M24 14L16 6M24 14L16 22" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="nairaland.html" class="next-link reveal">
+          Visual language, system decisions and outcomes
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 14H24M24 14L16 6M24 14L16 22" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </a>
       </div>
     </div>
@@ -323,16 +1019,62 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     const calloutZone = document.getElementById('calloutZone');
-    const calloutObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) calloutZone.querySelectorAll('.callout').forEach(c => c.classList.add('in'));
-      });
-    }, { threshold: 0.34 });
-    calloutObserver.observe(calloutZone);
+    if (calloutZone) {
+      const calloutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) calloutZone.querySelectorAll('.callout').forEach(c => c.classList.add('in'));
+        });
+      }, { threshold: 0.34 });
+      calloutObserver.observe(calloutZone);
+    }
+
+    const liveZone = document.getElementById('liveZone');
+    if (liveZone) {
+      const liveObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) liveZone.querySelectorAll('.live-annotation').forEach(c => c.classList.add('in'));
+        });
+      }, { threshold: 0.36 });
+      liveObserver.observe(liveZone);
+    }
+
+    const feedbackZone = document.getElementById('feedbackZone');
+    if (feedbackZone) {
+      const fbObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) feedbackZone.querySelectorAll('.feedback-annotation').forEach(c => c.classList.add('in'));
+        });
+      }, { threshold: 0.3 });
+      fbObserver.observe(feedbackZone);
+    }
+
+    const keyCards = document.getElementById('keyCards');
+    if (keyCards) {
+      const cardsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            keyCards.querySelectorAll('.key-card').forEach((card, i) => {
+              card.style.transitionDelay = `${i * 0.06}s`;
+              card.classList.add('in');
+            });
+          }
+        });
+      }, { threshold: 0.25 });
+      cardsObserver.observe(keyCards);
+    }
+
+    const endQuote = document.getElementById('endQuote');
+    if (endQuote) {
+      const quoteObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) endQuote.classList.add('in'); });
+      }, { threshold: 0.35 });
+      quoteObserver.observe(endQuote);
+    }
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
+
     function openLightbox(src, alt) {
       lightboxImage.src = src;
       lightboxImage.alt = alt;
@@ -346,10 +1088,16 @@
       lightboxImage.src = '';
       document.body.style.overflow = '';
     }
-    document.querySelectorAll('.thumb').forEach(btn => btn.addEventListener('click', () => openLightbox(btn.dataset.full, btn.dataset.alt || 'Preview image')));
+
+    document.querySelectorAll('.thumb').forEach(btn => {
+      btn.addEventListener('click', () => openLightbox(btn.dataset.full, btn.dataset.alt || 'Preview image'));
+    });
+
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
 
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
@@ -357,6 +1105,7 @@
       menu.classList.toggle('open');
       button.classList.toggle('open');
     }
+
     function closeMenu() {
       const menu = document.getElementById('mobileMenu');
       const button = document.querySelector('.nav-hamburger');
