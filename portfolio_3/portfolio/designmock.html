@@ -1,1922 +1,1643 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DesignMock AI — Case Study · Oyeniran Joel</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --black: #0a0a0a;
-      --white: #f8f7f4;
-      --mid: #5f5f5f;
-      --light: #9b9b9b;
-      --line: #e3e1dc;
-      --serif: 'Newsreader', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
-      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
-      --page-max: 1280px;
-      --read-max: 840px;
-      --screen-max: 1120px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      background: var(--white);
-      color: var(--black);
-      font-size: 18px;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+<title>DesignMock AI — Case Study | Oyeniran Joel</title>
 
-    a { color: inherit; text-decoration: none; }
-    img{
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    max-width:100%;
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-    display:block;
+<style>
 
-    height:auto;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: color-mix(in srgb, var(--white) 96%, transparent);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--line);
-      padding: 20px 0;
-    }
-
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--mid);
-      transition: color .2s var(--ease);
-    }
-
-    .nav-back:hover { color: var(--black); }
-    .nav-back svg { width: 14px; height: 14px; transition: transform .2s var(--ease); }
-    .nav-back:hover svg { transform: translateX(-3px); }
-    .nav-name { font-family: var(--serif); font-size: 16px; letter-spacing: -0.02em; }
-
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-
-    .nav-hamburger span {
-      display: block;
-      height: 1.5px;
-      background: var(--black);
-      transition: transform .3s var(--ease), opacity .3s var(--ease);
-      transform-origin: center;
-    }
-
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-    .nav-mobile {
-      display: none;
-      flex-direction: column;
-      border-top: 1px solid var(--line);
-      background: var(--white);
-    }
-
-    .nav-mobile.open { display: flex; }
-
-    .nav-mobile a {
-      font-size: 15px;
-      color: var(--mid);
-      padding: 16px 24px;
-      border-bottom: 1px solid var(--line);
-      transition: color .2s var(--ease);
-    }
-
-    .nav-mobile a:last-child { border-bottom: none; }
-    .nav-mobile a:hover { color: var(--black); }
-
-   .page-wrap{
-
-    width:min(var(--page-max),100%);
-
-    margin:auto;
-
-    padding-inline:32px;
-}
-    .read-wrap
-
-    width:min(var(--page-max),100%);
-
-    margin:auto;
-
-    padding-inline:32px;
-}
-    .screen-wrap  width:min(var(--page-max),100%);
-
-    margin:auto;
-
-    padding-inline:32px;
-    .section { padding: 128px 0; }
-    .chapter + .chapter { border-top: 1px solid var(--line); }
-
-.hero {
-  padding: 96px 0 112px;
+html{
+scroll-behavior:smooth;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 72px;
-  align-items: start;
-}
+body{
 
-.hero-title {
-  font-family: var(--serif);
-  font-size: clamp(48px, 5vw, 70px);
-  font-weight: 500;
-  line-height: 0.94;
-  letter-spacing: -0.045em;
-  max-width: 16ch;
-  margin-bottom: 30px;
-  text-wrap: balance;
-  color: var(--black);
-}
+font-family:'DM Sans',sans-serif;
 
-.hero-intro {
-  font-size: clamp(18px, 1.45vw, 21px);
-  line-height: 1.68;
-  color: #3b3b3b;
-  max-width: 60ch;
-  margin-bottom: 48px;
-}
+background:#F8F7F4;
 
-.hero-main {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  overflow: hidden;
-  background: #ece9e3;
-  aspect-ratio: 16 / 10.8;
-  box-shadow: 0 10px 30px rgba(10, 10, 10, 0.04);
-  transition: transform .35s ease, box-shadow .35s ease;
-}
+color:#111;
 
-.hero-main:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 42px rgba(10, 10, 10, 0.08);
-}
+line-height:1.75;
 
-.thumb-row {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.thumb {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #efede8;
-  padding: 8px;
-  transition: all .25s ease;
-  cursor: pointer;
-}
-
-.thumb:hover {
-  transform: translateY(-2px);
-  border-color: #d5d2cb;
-  background: #f6f4ef;
-}
-
-.thumb-title {
-  font-size: 11px;
-  line-height: 1.35;
-  color: #4b4b4b;
-  letter-spacing: .02em;
-}
-    }
-
-    .project-name {
-      font-size: 14px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 24px;
-      font-weight: 500;
-    }
-
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(50px, 7vw, 82px);
-      line-height: 1.01;
-      letter-spacing: -0.03em;
-      margin-bottom: 28px;
-      max-width: 16ch;
-    }
-
-    .hero-intro {
-      font-size: 20px;
-      line-height: 1.78;
-      color: #2c2c2c;
-      max-width: 60ch;
-      margin-bottom: 52px;
-    }
-
-    .meta-block {
-      border-top: 1px solid var(--line);
-      max-width: 620px;
-      padding-top: 18px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .meta-row {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 24px;
-      align-items: baseline;
-    }
-
-    .meta-label {
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--light);
-      font-weight: 600;
-    }
-
-    .meta-value { font-size: 17px; color: #212121; font-weight: 400; }
-    .meta-stack { display: flex; flex-wrap: wrap; gap: 10px 18px; line-height: 1.65; }
-
-    .hero-visual { display: grid; gap: 20px; }
-
-    .hero-main {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      overflow: hidden;
-      background: #ece9e3;
-      aspect-ratio: 16/11;
-      box-shadow: 0 8px 22px rgba(10,10,10,.03);
-      transform: translateX(24px);
-    }
-
-    .hero-main img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } {
-      width: 118%;
-      max-width: none;
-      height: 100%;
-      object-fit: cover;
-      object-position: left top;
-    }
-
-    .thumb-row {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .thumb {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #efede8;
-      padding: 8px;
-      cursor: pointer;
-      text-align: left;
-      transition: transform .26s var(--ease), border-color .26s var(--ease);
-    }
-
-    .thumb:hover, .thumb:focus-visible {
-      transform: scale(1.02);
-      border-color: #c7c3bc;
-      outline: none;
-    }
-
-    .thumb-image {
-      aspect-ratio: 16/10;
-      overflow: hidden;
-      margin-bottom: 8px;
-      background: #dfdcd6;
-      border-radius: 8px;
-    }
-
-    .thumb-image img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { object-fit: cover; height: 100%; }
-    .thumb-title { font-size: 12px; line-height: 1.35; color: #454545; letter-spacing: .01em; }
-
-    .section-title {
-  font-family: var(--serif);
-  font-size: clamp(38px, 4vw, 56px);
-  font-weight: 500;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  color: var(--black);
-  margin-bottom: 28px;
-  text-wrap: balance;
-}
-    }
-
-    .section-intro {
-      font-size: clamp(22px, 3vw, 28px);
-      line-height: 1.52;
-      letter-spacing: -0.01em;
-      margin-bottom: 34px;
-      color: #222;
-    }
-
-    .body-text {
-      font-size: 18px;
-      line-height: 1.88;
-      color: #2f2f2f;
-      max-width: 72ch;
-    }
-
-    .body-text + .body-text { margin-top: 24px; }
-
-    .caption {
-      font-size: 14px;
-      color: #7a7a7a;
-      line-height: 1.6;
-      margin-top: 14px;
-      max-width: 82ch;
-    }
-
-    .feature-screen { margin-top: 52px; }
-
-    .feature-frame {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #ece9e3;
-      overflow: hidden;
-      aspect-ratio: 16/9;
-      box-shadow: 0 8px 22px rgba(10,10,10,.03);
-    }
-
-    .feature-frame img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { height: 100%; object-fit: cover; object-position: center top; }
-
-    .matter-columns {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 44px;
-      margin-top: 18px;
-    }
-
-    .matter-col p {
-      font-size: 23px;
-      line-height: 1.52;
-      letter-spacing: -0.01em;
-      color: #1f1f1f;
-    }
-
-    .vision {
-      min-height: 48vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 72px 0;
-    }
-
-    .vision p {
-      font-family: var(--serif);
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      max-width: 22ch;
-    }
-
-    .principles-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
-      gap: 58px;
-      align-items: start;
-    }
-
-    .principles-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
-
-    .principle-card {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 26px 24px;
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 16px;
-      background: transparent;
-    }
-
-    .principle-icon { width: 18px; height: 18px; margin-top: 3px; color: #4d4d4d; }
-    .principle-title { font-size: 22px; line-height: 1.28; margin-bottom: 8px; letter-spacing: -0.01em; color: #181818; }
-    .principle-desc { font-size: 17px; color: #444; line-height: 1.72; max-width: 54ch; }
-
-    .annotated-frame {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #ece9e3;
-      overflow: hidden;
-      aspect-ratio: 11/12;
-      position: relative;
-      margin-top: 84px;
-      box-shadow: 0 8px 22px rgba(10,10,10,.03);
-    }
-
-    .annotated-frame img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { height: 100%; object-fit: cover; object-position: center top; }
-
-    .callout {
-      position: absolute;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      line-height: 1.25;
-      color: #424242;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity .7s var(--ease), transform .7s var(--ease);
-      transition-delay: var(--delay, 0s);
-    }
-
-    .callout::before { content: ""; width: 34px; height: 1px; background: rgba(57,57,57,.55); flex-shrink: 0; }
-    .callout.in { opacity: 1; transform: translateY(0); }
-
-    .c1 { top: 15%; right: 6%; --delay: .08s; }
-    .c2 { top: 30%; right: 6%; --delay: .16s; }
-    .c3 { top: 45%; right: 6%; --delay: .24s; }
-    .c4 { top: 60%; right: 6%; --delay: .32s; }
-
-    /* PART 2 */
-    .journey-wrap { margin-top: 54px; }
-
-    .journey-board {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 30px;
-      overflow: auto;
-      background: #f6f4f0;
-      box-shadow: 0 8px 22px rgba(10,10,10,.03);
-    }
-
-    .journey-track {
-      min-width: 1120px;
-      display: grid;
-      grid-template-columns: repeat(10, minmax(110px, 1fr));
-      align-items: center;
-      gap: 0;
-    }
-
-    .journey-step {
-      position: relative;
-      padding: 18px 12px;
-      font-size: 14px;
-      line-height: 1.45;
-      color: #333;
-      text-align: center;
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .journey-step:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      right: -1px;
-      top: 50%;
-      width: 100%;
-      height: 1px;
-      background: #cfcac2;
-      z-index: 0;
-      transform: translateY(-50%);
-    }
-
-    .journey-step span { background: #f6f4f0; padding: 0 8px; position: relative; z-index: 1; }
-
-    .walk-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-      margin-top: 70px;
-    }
-
-    .walk-grid + .walk-grid { margin-top: 96px; }
-
-    .walk-image {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #ece9e3;
-      overflow: hidden;
-      box-shadow: 0 8px 22px rgba(10,10,10,.03);
-    }
-
-    .walk-image img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { height: 100%; object-fit: cover; object-position: center top; }
-
-    .walk-title {
-      font-family: var(--serif);
-      font-size: clamp(30px, 4vw, 42px);
-      line-height: 1.06;
-      margin-bottom: 22px;
-      letter-spacing: -0.02em;
-    }
-
-    .live-shell { margin-top: 70px; }
-
-    .live-container {
-      max-width: 75%;
-      margin: 0 auto;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #ebe8e2;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 8px 22px rgba(10,10,10,.03);
-    }
-
-    .live-container img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { object-fit: cover; }
-
-    .live-annotation {
-      position: absolute;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .11em;
-      color: #444;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity .7s var(--ease), transform .7s var(--ease);
-      transition-delay: var(--delay, 0s);
-    }
-
-    .live-annotation::before {
-      content: "";
-      width: 30px;
-      height: 1px;
-      background: rgba(58,58,58,.55);
-      flex-shrink: 0;
-    }
-
-    .live-annotation.in { opacity: 1; transform: translateY(0); }
-
-    .la1 { top: 16%; left: 4%; --delay: .08s; }
-    .la2 { bottom: 24%; left: 4%; --delay: .16s; }
-    .la3 { top: 16%; right: 4%; --delay: .24s; }
-    .la4 { bottom: 12%; right: 4%; --delay: .32s; }
-
-    .editorial-block {
-      max-width: 980px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 30px 40px;
-    }
-
-    .editorial-title {
-      font-family: var(--serif);
-      font-size: clamp(44px, 6vw, 68px);
-      line-height: 1.03;
-      margin-bottom: 28px;
-      letter-spacing: -0.03em;
-    }
-
-    .editorial-body {
-      font-size: 22px;
-      line-height: 1.76;
-      color: #2f2f2f;
-      max-width: 40ch;
-      margin: 0 auto;
-    }
-
-    .feedback-major {
-      margin-top: 62px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #ece8e2;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 8px 22px rgba(10,10,10,.03);
-    }
-
-    .feedback-major img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { max-height: 78vh; object-fit: cover; object-position: center top; }
-
-    .feedback-annotation {
-      position: absolute;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 10.5px;
-      text-transform: uppercase;
-      letter-spacing: .11em;
-      color: #474747;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity .7s var(--ease), transform .7s var(--ease);
-      transition-delay: var(--delay, 0s);
-    }
-
-    .feedback-annotation::before {
-      content: "";
-      width: 34px;
-      height: 1px;
-      background: rgba(60,60,60,.6);
-      flex-shrink: 0;
-    }
-
-    .feedback-annotation.in { opacity: 1; transform: translateY(0); }
-
-    .fa1 { top: 10%; left: 4%; --delay: .08s; }
-    .fa2 { top: 24%; left: 4%; --delay: .16s; }
-    .fa3 { top: 38%; left: 4%; --delay: .24s; }
-    .fa4 { top: 52%; left: 4%; --delay: .32s; }
-    .fa5 { top: 66%; left: 4%; --delay: .40s; }
-    .fa6 { top: 80%; left: 4%; --delay: .48s; }
-
-    .feedback-reasoning { margin-top: 38px; }
-    .reason-item + .reason-item { margin-top: 20px; }
-    .reason-item h4 { font-size: 16px; text-transform: uppercase; letter-spacing: .08em; color: #232323; margin-bottom: 6px; }
-    .reason-item p { font-size: 17px; line-height: 1.82; color: #343434; }
-
-    .loop-shell {
-      margin: 58px auto 0;
-      width: min(760px, 100%);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #f6f4f0;
-      padding: 38px 26px;
-    }
-
-    .loop-track {
-      display: grid;
-      grid-template-columns: repeat(11, minmax(20px, 1fr));
-      align-items: center;
-      text-align: center;
-      gap: 8px;
-    }
-
-    .loop-node {
-      grid-column: span 1;
-      font-size: 14px;
-      line-height: 1.35;
-      color: #2f2f2f;
-      padding: 10px 8px;
-      border: 1px solid #d6d0c7;
-      border-radius: 9px;
-      background: #f8f6f2;
-    }
-
-    .loop-node.wide { grid-column: span 2; }
-    .loop-arrow { color: #8a857b; font-size: 14px; }
-
-    .micro-block { max-width: 920px; margin: 0 auto; }
-
-    .key-cards {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .key-card {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 24px;
-      background: transparent;
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity .45s var(--ease), transform .45s var(--ease);
-    }
-
-    .key-card.in { opacity: 1; transform: translateY(0); }
-    .key-card h4 { font-size: 18px; margin-bottom: 8px; letter-spacing: -0.01em; color: #171717; }
-    .key-card p { font-size: 16px; line-height: 1.75; color: #3a3a3a; }
-
-    .chapter-quote {
-      min-height: 56vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 90px 40px;
-    }
-
-    .chapter-quote blockquote {
-      font-family: var(--serif);
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      max-width: 20ch;
-      color: #171717;
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .8s var(--ease), transform .8s var(--ease);
-    }
-
-    .chapter-quote blockquote.in { opacity: 1; transform: translateY(0); }
-
-    /* PART 3 */
-    .vl-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
-      gap: 58px;
-      align-items: start;
-      margin-top: 40px;
-    }
-
-    .system-stack { display: grid; gap: 34px; }
-
-    .system-block {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #f7f5f1;
-      padding: 24px;
-    }
-
-    .system-title {
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-
-    .type-sample { display: grid; gap: 14px; }
-    .type-sample .display { font-family: var(--serif); font-size: clamp(40px, 6vw, 58px); line-height: 1.02; letter-spacing: -0.03em; }
-    .type-sample .heading { font-family: var(--serif); font-size: clamp(30px, 4vw, 40px); line-height: 1.08; }
-    .type-sample .body { font-size: 18px; line-height: 1.8; color: #2f2f2f; }
-    .type-sample .caption { font-size: 13px; color: #6d6d6d; letter-spacing: .01em; }
-
-    .token-row {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .token {
-      border: 1px solid #d8d3cc;
-      border-radius: 12px;
-      padding: 10px;
-      background: #fbfaf8;
-      font-size: 12px;
-      color: #454545;
-      min-height: 82px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .swatch {
-      width: 100%;
-      height: 26px;
-      border-radius: 8px;
-      border: 1px solid rgba(0,0,0,.08);
-      margin-bottom: 8px;
-    }
-
-    .component-masonry {
-      columns: 2 260px;
-      column-gap: 14px;
-    }
-
-    .component-card {
-      break-inside: avoid;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #fbfaf8;
-      padding: 16px;
-      margin-bottom: 14px;
-      transition: transform .25s var(--ease), border-color .25s var(--ease);
-    }
-
-    .component-card:hover { transform: translateY(-2px); border-color: #cdc7bf; }
-
-    .chip-row, .btn-row, .pill-row, .bar-row { display: flex; flex-wrap: wrap; gap: 8px; }
-
-    .ui-btn {
-      border: 1px solid #cfc9c1;
-      background: #f7f4ef;
-      color: #1f1f1f;
-      font-size: 13px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      line-height: 1;
-    }
-
-    .ui-btn.primary { background: #111; color: #f6f5f2; border-color: #111; }
-
-    .ui-input {
-      width: 100%;
-      border: 1px solid #d0cbc4;
-      border-radius: 10px;
-      padding: 12px 14px;
-      background: #fff;
-      font-size: 14px;
-    }
-
-    .ui-tag, .ui-pill {
-      border: 1px solid #d4cec6;
-      border-radius: 999px;
-      font-size: 11px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 7px 10px;
-      color: #3f3f3f;
-      background: #f7f5f1;
-    }
-
-    .ui-pill.success { border-color: #becdbf; }
-    .ui-pill.warn { border-color: #d7c9ad; }
-    .ui-pill.error { border-color: #d5b8b8; }
-
-    .progress {
-      width: 100%;
-      height: 9px;
-      border-radius: 999px;
-      border: 1px solid #d3cdc6;
-      overflow: hidden;
-      background: #f0ede8;
-    }
-
-    .progress > span {
-      display: block;
-      height: 100%;
-      background: #111;
-      width: var(--w, 55%);
-    }
-
-    .mini-chart {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 6px;
-      align-items: end;
-      height: 90px;
-      margin-top: 8px;
-    }
-
-    .mini-chart span {
-      border: 1px solid #d0cbc4;
-      background: #ece8e1;
-      border-radius: 6px 6px 2px 2px;
-      height: var(--h, 40%);
-    }
-
-    .a11y-list { margin-top: 22px; display: grid; gap: 12px; }
-
-    .a11y-item {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 16px 18px;
-      background: #faf8f4;
-    }
-
-    .device-strip {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: 1.22fr .92fr .72fr;
-      gap: 16px;
-      align-items: end;
-    }
-
-    .device {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      overflow: hidden;
-      background: #ece8e1;
-      box-shadow: 0 8px 22px rgba(15,15,15,.04);
-    }
-
-    .device img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { aspect-ratio: 16/10; object-fit: cover; }
-    .device.tablet img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { aspect-ratio: 4/3; }
-    .device.mobile img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { aspect-ratio: 9/16; }
-
-    .reflection-wrap { max-width: 860px; margin: 0 auto; }
-
-    .final-gallery {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
-    }
-
-    .gallery-col { display: grid; gap: 16px; }
-
-    .gallery-item {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      overflow: hidden;
-      background: #ede9e2;
-      box-shadow: 0 7px 20px rgba(14,14,14,.04);
-      opacity: 0;
-      transform: translateY(12px) scale(.98);
-      transition: opacity .5s var(--ease), transform .5s var(--ease);
-    }
-
-    .gallery-item.in { opacity: 1; transform: translateY(0) scale(1); }
-
-    .closing-statement {
-      min-height: 44vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 24px;
-    }
-
-    .closing-statement p {
-      font-family: var(--serif);
-      font-size: clamp(32px, 4.8vw, 54px);
-      line-height: 1.18;
-      letter-spacing: -0.02em;
-      max-width: 24ch;
-    }
-
-    .next-project-shell {
-      padding: 86px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .next-card {
-      margin-top: 24px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, .92fr);
-      background: #f7f4ef;
-      transition: border-color .25s var(--ease), transform .25s var(--ease);
-    }
-
-    .next-card:hover { border-color: #cfc8be; transform: translateY(-2px); }
-
-    .next-card-copy { padding: 30px 28px; }
-
-    .next-kicker {
-      font-size: 11px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    .next-card-title {
-  font-family: var(--serif);
-  font-size: clamp(32px, 3.5vw, 42px);
-  font-weight: 500;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  margin-bottom: 14px;
-  color: var(--black);
-  text-wrap: balance;
-}
-    }
-
-    .next-card-desc { font-size: 17px; color: #333; line-height: 1.72; max-width: 44ch; }
-
-    .next-arrow {
-      margin-top: 18px;
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      font-size: 13px;
-      color: #3f3f3f;
-      transition: gap .2s var(--ease);
-    }
-
-    .next-card:hover .next-arrow { gap: 16px; }
-
-    .next-thumb { border-left: 1px solid var(--line); overflow: hidden; }
-    .next-thumb img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } {
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.01);
-      transition: transform .32s var(--ease);
-    }
-
-    .next-card:hover .next-thumb img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { transform: scale(1.06); }
-
-    footer {
-      padding: 32px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-copy { font-size: 12px; color: var(--light); }
-    .footer-back { font-size: 12px; color: var(--mid); transition: color .2s; }
-    .footer-back:hover { color: var(--black); }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(10,10,10,.74);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-      padding: 24px;
-    }
-
-    .lightbox.open { display: flex; }
-
-    .lightbox-dialog {
-      width: min(1100px, 100%);
-      max-height: 90vh;
-      background: #f3f1ed;
-      border: 1px solid #d8d4ce;
-      position: relative;
-      overflow: hidden;
-      border-radius: 14px;
-    }
-
-    .lightbox-image-wrap { max-height: 86vh; overflow: auto; background: #ece8e2; }
-    .lightbox-image-wrap img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } { width: 100%; height: auto; display: block; }
-
-    .lightbox-close {
-      position: absolute;
-      right: 12px; top: 12px;
-      width: 36px; height: 36px;
-      border: 1px solid #c8c4be;
-      background: rgba(248,247,244,.95);
-      color: #202020;
-      font-size: 18px;
-      line-height: 1;
-      cursor: pointer;
-      border-radius: 10px;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .75s var(--ease), transform .75s var(--ease);
-      will-change: transform, opacity;
-    }
-
-    .reveal.in { opacity: 1; transform: translateY(0); }
-
-  /* ===========================================================
-   RESPONSIVE DESIGN
-=========================================================== */
-
-@media (max-width: 1100px) {
-
-  .hero-grid{
-    grid-template-columns:1fr;
-    gap:56px;
-  }
-
-  .hero-title{
-    max-width:100%;
-  }
-
-  .hero-main{
-    max-width:900px;
-    margin:auto;
-  }
-
-  .experience-row,
-  .experience-row.reverse{
-    grid-template-columns:1fr;
-    gap:56px;
-  }
-
-  .principles-grid{
-    grid-template-columns:1fr;
-  }
-
-  .gallery-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+-webkit-font-smoothing:antialiased;
 
 }
 
-@media (max-width:768px){
+img{
 
-  body{
-    font-size:17px;
-  }
+width:100%;
 
-  .page-wrap,
-  .read-wrap,
-  .screen-wrap,
-  .footer-inner,
-  .nav-inner{
-    padding-inline:20px;
-  }
-
-  .hero{
-    padding:64px 0 72px;
-  }
-
-  .hero-grid{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-
-  .hero-title{
-
-    font-size:clamp(38px,10vw,52px);
-
-    line-height:.95;
-
-    letter-spacing:-.045em;
-
-    max-width:100%;
-  }
-
-  .hero-intro{
-
-    font-size:18px;
-
-    line-height:1.65;
-
-    max-width:100%;
-  }
-
-  .meta-row{
-
-    grid-template-columns:1fr;
-
-    gap:20px;
-  }
-
-  .hero-main{
-
-    width:100%;
-  }
-
-  .thumb-row{
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:10px;
-  }
-
-  .section{
-
-    padding:88px 0;
-  }
-
-  .section-title{
-
-    font-size:42px;
-
-    line-height:.95;
-
-    letter-spacing:-.04em;
-  }
-
-  .section-intro{
-
-    font-size:22px;
-  }
-
-  .editorial-columns{
-
-    grid-template-columns:1fr;
-
-    gap:40px;
-  }
-
-  .design-principles{
-
-    grid-template-columns:1fr;
-  }
-
-  .experience-row,
-  .experience-row.reverse{
-
-    grid-template-columns:1fr;
-
-    gap:40px;
-  }
-
-  .feedback-layout{
-
-    grid-template-columns:1fr;
-  }
-
-  .loop-track{
-
-    grid-template-columns:1fr;
-  }
-
-  .loop-node,
-  .loop-node.wide{
-
-    grid-column:auto;
-  }
-
-  .loop-arrow{
-
-    transform:rotate(90deg);
-  }
-
-  .gallery-grid{
-
-    grid-template-columns:1fr;
-  }
-
-  .next-card{
-
-    padding:32px;
-  }
+display:block;
 
 }
 
-@media (max-width:520px){
+a{
 
-  body{
+text-decoration:none;
 
-    font-size:16px;
-  }
-
-  .hero{
-
-    padding:48px 0 60px;
-  }
-
-  .hero-title{
-
-    font-size:36px;
-  }
-
-  .hero-intro{
-
-    font-size:17px;
-  }
-
-  .thumb-row{
-
-    grid-template-columns:1fr;
-  }
-
-  .section{
-
-    padding:72px 0;
-  }
-
-  .section-title{
-
-    font-size:34px;
-  }
-
-  .section-intro{
-
-    font-size:20px;
-  }
-
-  .next-card-title{
-
-    font-size:30px;
-  }
+color:inherit;
 
 }
-    }
-  </style>
+
+:root{
+
+--border:#E8E5DF;
+
+--text:#111;
+
+--muted:#666;
+
+--bg:#F8F7F4;
+
+--section:140px;
+
+--radius:22px;
+
+}
+
+.container{
+
+width:min(1180px,92%);
+
+margin:auto;
+
+}
+
+/* ---------------------- */
+/* NAVIGATION */
+/* ---------------------- */
+
+nav{
+
+position:sticky;
+
+top:0;
+
+z-index:100;
+
+background:rgba(248,247,244,.9);
+
+backdrop-filter:blur(10px);
+
+border-bottom:1px solid var(--border);
+
+}
+
+.nav-inner{
+
+height:78px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+}
+
+.logo{
+
+font-family:'Newsreader',serif;
+
+font-size:22px;
+
+font-weight:500;
+
+letter-spacing:-.03em;
+
+}
+
+.back{
+
+font-size:15px;
+
+color:#666;
+
+transition:.25s;
+
+}
+
+.back:hover{
+
+color:#111;
+
+}
+
+/* ---------------------- */
+/* HERO */
+/* ---------------------- */
+
+.hero{
+
+padding:120px 0;
+
+}
+
+.hero-grid{
+
+display:grid;
+
+grid-template-columns:1.1fr .9fr;
+
+gap:80px;
+
+align-items:start;
+
+}
+
+.kicker{
+
+font-size:13px;
+
+text-transform:uppercase;
+
+letter-spacing:.18em;
+
+color:#777;
+
+margin-bottom:28px;
+
+}
+
+.hero h1{
+
+font-family:'Newsreader',serif;
+
+font-size:clamp(58px,7vw,92px);
+
+font-weight:500;
+
+line-height:.94;
+
+letter-spacing:-.06em;
+
+margin-bottom:28px;
+
+max-width:10ch;
+
+}
+
+.hero p{
+
+font-size:21px;
+
+color:#444;
+
+max-width:34ch;
+
+margin-bottom:50px;
+
+}
+
+.meta{
+
+border-top:1px solid var(--border);
+
+padding-top:22px;
+
+display:grid;
+
+gap:18px;
+
+}
+
+.meta-row{
+
+display:grid;
+
+grid-template-columns:170px 1fr;
+
+}
+
+.meta-title{
+
+font-size:12px;
+
+text-transform:uppercase;
+
+letter-spacing:.14em;
+
+color:#888;
+
+}
+
+.meta-value{
+
+font-size:17px;
+
+}
+
+.hero-image{
+
+border:1px solid var(--border);
+
+border-radius:20px;
+
+overflow:hidden;
+
+background:#ECE9E3;
+
+box-shadow:0 24px 60px rgba(0,0,0,.05);
+
+}
+
+.hero-image img{
+
+display:block;
+
+}
+
+/* ---------------------- */
+/* OVERVIEW */
+/* ---------------------- */
+
+.overview{
+
+padding:var(--section) 0;
+
+border-top:1px solid var(--border);
+
+}
+
+.section-label{
+
+font-size:13px;
+
+letter-spacing:.16em;
+
+text-transform:uppercase;
+
+color:#777;
+
+margin-bottom:24px;
+
+}
+
+.overview h2{
+
+font-family:'Newsreader',serif;
+
+font-size:clamp(40px,5vw,62px);
+
+font-weight:500;
+
+line-height:.95;
+
+letter-spacing:-.05em;
+
+max-width:11ch;
+
+margin-bottom:34px;
+
+}
+
+.overview-grid{
+
+display:grid;
+
+grid-template-columns:1.1fr .9fr;
+
+gap:90px;
+
+}
+
+.overview p{
+
+font-size:20px;
+
+color:#444;
+
+}
+
+.stats{
+
+display:grid;
+
+gap:28px;
+
+}
+
+.stat{
+
+border-top:1px solid var(--border);
+
+padding-top:18px;
+
+}
+
+.stat-number{
+
+font-family:'Newsreader',serif;
+
+font-size:42px;
+
+margin-bottom:6px;
+
+}
+
+.stat-label{
+
+color:#666;
+
+font-size:16px;
+
+}
+
+/* ---------------------- */
+/* MOBILE */
+/* ---------------------- */
+
+@media(max-width:900px){
+
+.hero-grid,
+
+.overview-grid{
+
+grid-template-columns:1fr;
+
+gap:50px;
+
+}
+
+.hero{
+
+padding:80px 0;
+
+}
+
+.hero h1{
+
+font-size:58px;
+
+}
+
+.meta-row{
+
+grid-template-columns:1fr;
+
+gap:10px;
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-back">
-        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 7H2M2 7L6 3M2 7L6 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Back to Home
-      </a>
-      <span class="nav-name">Oyeniran Joel</span>
-      <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav-mobile" id="mobileMenu">
-      <a href="index.html" onclick="closeMenu()">Home</a>
-      <a href="index.html#work" onclick="closeMenu()">Work</a>
-      <a href="index.html#about" onclick="closeMenu()">About</a>
-      <a href="contact.html" onclick="closeMenu()">Contact</a>
-    </div>
-  </nav>
 
-  <main>
-    <!-- PART 1 -->
-    <section class="hero page-wrap">
-      <div class="hero-grid">
-        <div class="reveal">
-          <p class="project-name">DesignMock AI</p>
-          <h1 class="hero-title">Helping product designers prepare for real interviews with AI..</h1>
-          <p class="hero-intro">DesignMock AI is a concept product exploring how artificial intelligence can help Product, UX and UI Designers prepare for interviews through realistic mock sessions, structured evaluation and personalised improvement plans.</p>
+<nav>
 
-          <div class="meta-block" aria-label="Project metadata">
-            <div class="meta-row"><span class="meta-label">Role</span><span class="meta-value">Product Designer</span></div>
-            <div class="meta-row"><span class="meta-label">Timeline</span><span class="meta-value">3 Weeks</span></div>
-            <div class="meta-row"><span class="meta-label">Project Type</span><span class="meta-value">Concept Product</span></div>
-            <div class="meta-row"><span class="meta-label">Responsibilities</span><span class="meta-value meta-stack">UX Strategy · Product Design · Interaction Design · Visual Design · Design System · Prototyping</span></div>
-          </div>
-        </div>
+<div class="container nav-inner">
 
-        <aside class="hero-visual reveal" aria-label="DesignMock AI previews">
-          <figure class="hero-main">
-            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="eager" src="images/Educraft hero screen.png" alt="DesignMock AI landing page preview" />
-          </figure>
+<a href="index.html" class="back">
+← Back to Portfolio
+</a>
 
-          <div class="thumb-row">
-            <button class="thumb" data-full="images/Educraft hero screen.png" data-alt="Landing page" aria-label="Open Landing Page screenshot">
-              <div class="thumb-image"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Educraft hero screen.png" alt="Landing Page thumbnail" /></div>
-              <span class="thumb-title">Landing Page</span>
-            </button>
-            <button class="thumb" data-full="images/Course cards.png" data-alt="AI Interview" aria-label="Open AI Interview screenshot">
-              <div class="thumb-image"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Course cards.png" alt="AI Interview thumbnail" /></div>
-              <span class="thumb-title">AI Interview</span>
-            </button>
-            <button class="thumb" data-full="images/Pricing section.png" data-alt="Live Feedback" aria-label="Open Live Feedback screenshot">
-              <div class="thumb-image"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Pricing section.png" alt="Live Feedback thumbnail" /></div>
-              <span class="thumb-title">Live Feedback</span>
-            </button>
-            <button class="thumb" data-full="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" data-alt="Performance Dashboard" aria-label="Open Performance Dashboard screenshot">
-              <div class="thumb-image"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Performance Dashboard thumbnail" /></div>
-              <span class="thumb-title">Performance Dashboard</span>
-            </button>
-          </div>
-        </aside>
-      </div>
-    </section>
+<div class="logo">
+Oyeniran Joel
+</div>
 
-    <section class="chapter section">
-      <div class="read-wrap">
-        <h2 class="section-title reveal">The Opportunity</h2>
-        <p class="section-intro reveal">Product designers spend months refining portfolios, yet many still struggle to communicate their thinking during interviews.</p>
-        <p class="body-text reveal">Designing a strong product and explaining design thinking in an interview are two very different skills. In day-to-day work, designers have time to gather context, explore trade-offs and refine rationale. Interviews compress all of that into a high-pressure conversation where clarity, structure and confidence matter as much as craft.</p>
-        <p class="body-text reveal">Most hiring teams are not only evaluating visual output; they are evaluating how decisions were made. They want to hear a coherent story: what problem was framed, what alternatives were considered, what constraints shaped the outcome and what measurable results followed. Without that narrative, good work often appears shallow.</p>
-        <p class="body-text reveal">Existing preparation methods often rely on static documents, one-off mock questions or generic tips that fail to recreate real interview pressure. Designers are left practising in isolation, without timely critique or a system that helps them improve over repeated sessions. DesignMock AI was framed to close that gap with realistic practice and recruiter-style feedback loops.</p>
-      </div>
-      <div class="screen-wrap feature-screen reveal">
-        <figure class="feature-frame"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Educraft hero screen.png" alt="DesignMock AI homepage screenshot" /></figure>
-        <p class="caption">The landing experience introduces DesignMock AI by immediately focusing on realistic interview practice and recruiter-style feedback instead of technical feature noise.</p>
-      </div>
-    </section>
+</div>
 
-    <section class="chapter section">
-      <div class="read-wrap">
-        <h2 class="section-title reveal">Why This Matters</h2>
-        <div class="matter-columns">
-          <article class="matter-col reveal"><p>Knowing how to design is different from knowing how to communicate design decisions.</p></article>
-          <article class="matter-col reveal"><p>Interview performance depends on storytelling, structured thinking and measurable impact.</p></article>
-          <article class="matter-col reveal"><p>Current preparation resources rarely recreate the pressure or depth of a real product design interview.</p></article>
-        </div>
-      </div>
-    </section>
+</nav>
 
-    <section class="chapter section">
-      <div class="read-wrap vision">
-        <p class="reveal">Rather than helping designers memorise answers, DesignMock AI was created to help them build confidence through deliberate practice and meaningful feedback.</p>
-      </div>
-    </section>
+<section class="hero">
 
-    <section class="chapter section">
-      <div class="page-wrap principles-layout">
-        <div>
-          <h2 class="section-title reveal">Design Principles</h2>
-          <div class="principles-grid">
-            <article class="principle-card reveal">
-              <svg class="principle-icon" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              <div><h3 class="principle-title">Practice should feel realistic.</h3><p class="principle-desc">Sessions mirror the pacing and uncertainty of real interviews so users can rehearse how they think aloud, not just what they say.</p></div>
-            </article>
-            <article class="principle-card reveal">
-              <svg class="principle-icon" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M5 8h14M5 16h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              <div><h3 class="principle-title">Feedback should be actionable.</h3><p class="principle-desc">Every critique is anchored to communication behaviours and interview expectations, so improvement points can be applied in the very next session.</p></div>
-            </article>
-            <article class="principle-card reveal">
-              <svg class="principle-icon" viewBox="0 0 24 24" fill="none"><path d="M4 19h16M7 16V9m5 7V6m5 10v-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              <div><h3 class="principle-title">Progress should be measurable.</h3><p class="principle-desc">The product tracks performance across sessions to reveal trends in clarity, storytelling and strategic depth over time.</p></div>
-            </article>
-            <article class="principle-card reveal">
-              <svg class="principle-icon" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z" stroke="currentColor" stroke-width="1.3"/></svg>
-              <div><h3 class="principle-title">Every session should encourage improvement.</h3><p class="principle-desc">Recommendations are framed as next steps, helping users convert feedback into focused practice rather than passive score watching.</p></div>
-            </article>
-          </div>
-        </div>
+<div class="container hero-grid">
 
-        <div class="reveal" id="calloutZone">
-          <figure class="annotated-frame">
-            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="DesignMock AI feedback dashboard" />
-            <figcaption class="callout c1">Overall Score</figcaption>
-            <figcaption class="callout c2">Communication</figcaption>
-            <figcaption class="callout c3">Product Thinking</figcaption>
-            <figcaption class="callout c4">Recommendation</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
+<div>
 
-    <!-- PART 2 -->
-    <section class="chapter section">
-      <div class="read-wrap">
-        <h2 class="section-title reveal">Designing the Experience</h2>
-        <p class="body-text reveal">A realistic interview experience is more than asking questions. It requires uncertainty, follow-up conversations, structured evaluation and meaningful reflection. Every interaction inside DesignMock AI was shaped to recreate those moments while staying approachable for designers at different stages of their careers. The flow begins by reducing ambiguity: users understand what they will practise, why it matters and how progress will be measured. From there, each step builds deliberate focus — choosing context before starting, answering in a conversational rhythm, receiving critique mapped to interview expectations, then returning for another round with clearer intent. The product was designed to protect cognitive energy during high-pressure practice. Rather than overwhelming users with options, it narrows each moment to the most meaningful next decision.</p>
-      </div>
+<div class="kicker">
 
-      <div class="screen-wrap journey-wrap reveal">
-        <div class="journey-board">
-          <div class="journey-track">
-            <div class="journey-step"><span>Landing Page</span></div>
-            <div class="journey-step"><span>Choose Interview Type</span></div>
-            <div class="journey-step"><span>Choose Seniority Level</span></div>
-            <div class="journey-step"><span>Begin AI Interview</span></div>
-            <div class="journey-step"><span>Answer Questions</span></div>
-            <div class="journey-step"><span>AI asks Follow-up Questions</span></div>
-            <div class="journey-step"><span>Interview Ends</span></div>
-            <div class="journey-step"><span>Receive Feedback Report</span></div>
-            <div class="journey-step"><span>Identify Weaknesses</span></div>
-            <div class="journey-step"><span>Practice Again</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+AI PRODUCT DESIGN CASE STUDY
 
-    <section class="chapter section">
-      <div class="page-wrap">
-        <h2 class="section-title reveal">Experience Walkthrough</h2>
+</div>
 
-        <div class="walk-grid">
-          <figure class="walk-image reveal">
-            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Educraft hero screen.png" alt="Landing experience" />
-          </figure>
-          <div class="reveal">
-            <h3 class="walk-title">A single promise builds clarity quickly.</h3>
-            <p class="body-text">The landing experience prioritises one clear promise so users can immediately understand the value of the product without scanning through competing feature claims. This decision reduces cognitive load at the most fragile point of the journey: the first impression.</p>
-            <p class="body-text">By limiting early choices and using a straightforward navigation hierarchy, the experience creates confidence and trust. Users can identify what happens next, how practice works and where to begin, which lowers friction and encourages action.</p>
-          </div>
-        </div>
+<h1>
 
-        <div class="walk-grid">
-          <div class="reveal">
-            <h3 class="walk-title">Context before questions creates realism.</h3>
-            <p class="body-text">Before the interview begins, users choose role, seniority and interview type. This framing step ensures prompts are not generic. It mirrors how real interviews are contextual, with expectations shaped by level, responsibilities and decision scope.</p>
-            <p class="body-text">Customised setup also improves preparation quality. Designers practise articulating decisions that are relevant to the conversations they are likely to face, making each session feel less like a simulation and more like targeted rehearsal.</p>
-          </div>
-          <figure class="walk-image reveal">
-            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Course cards.png" alt="Interview selection screen" />
-          </figure>
-        </div>
+DesignMock AI
 
-        <div class="live-shell">
-          <div class="live-container reveal" id="liveZone">
-            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Pricing section.png" alt="Live interview style interface" />
-            <figcaption class="live-annotation la1">Interview Question</figcaption>
-            <figcaption class="live-annotation la2">Response Area</figcaption>
-            <figcaption class="live-annotation la3">Progress Indicator</figcaption>
-            <figcaption class="live-annotation la4">Active Session</figcaption>
-          </div>
-          <div class="read-wrap" style="margin-top:40px;">
-            <p class="body-text reveal">The interview interaction was designed to feel conversational rather than transactional. Instead of rigid form-filling, the flow encourages thoughtful responses, then adapts with follow-up prompts that keep the discussion moving naturally.</p>
-            <p class="body-text reveal">This pacing reduces intimidation and helps users stay focused on reasoning under pressure. By keeping the interface quiet and direct, attention stays on thinking quality, narrative structure and confidence in communication.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+</h1>
 
-    <section class="chapter section">
-      <div class="editorial-block reveal">
-        <h2 class="editorial-title">Why a conversation instead of a questionnaire?</h2>
-        <p class="editorial-body">Questionnaires test memory. Conversations reveal thinking. Recruiters rarely evaluate whether a candidate can recite definitions; they evaluate how that candidate reasons through ambiguity, explains trade-offs and connects outcomes to decisions. DesignMock AI is intentionally structured around dialogue because dialogue naturally exposes communication patterns, product judgment and structured problem solving in ways fixed-answer formats cannot.</p>
-      </div>
-    </section>
+<p>
 
-    <section class="chapter section">
-      <div class="screen-wrap">
-        <h2 class="section-title reveal">Designing Feedback</h2>
-        <div class="feedback-major reveal" id="feedbackZone">
-          <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Feedback report" />
-          <figcaption class="feedback-annotation fa1">Overall Score</figcaption>
-          <figcaption class="feedback-annotation fa2">Communication</figcaption>
-          <figcaption class="feedback-annotation fa3">Storytelling</figcaption>
-          <figcaption class="feedback-annotation fa4">Product Thinking</figcaption>
-          <figcaption class="feedback-annotation fa5">Metrics</figcaption>
-          <figcaption class="feedback-annotation fa6">Recommendation</figcaption>
-        </div>
-      </div>
+Helping product designers prepare for interviews through realistic AI mock interviews, personalized feedback, and actionable coaching.
 
-      <div class="read-wrap feedback-reasoning">
-        <div class="reason-item reveal"><h4>Communication</h4><p>Communication exists as a dedicated category because strong ideas lose value when explained without clarity. This score reinforces that articulation is part of design competence, not separate from it.</p></div>
-        <div class="reason-item reveal"><h4>Storytelling</h4><p>Storytelling evaluates whether candidates can connect problem framing, design decisions and outcomes into a coherent narrative. This mirrors how interviewers assess strategic maturity, not just isolated deliverables.</p></div>
-        <div class="reason-item reveal"><h4>Product Thinking</h4><p>Product Thinking encourages designers to relate interface decisions to user outcomes and business priorities. It pushes beyond aesthetic preference toward decision-making grounded in impact.</p></div>
-        <div class="reason-item reveal"><h4>Metrics</h4><p>Metrics reinforces accountability. Rather than vague claims, candidates are nudged to discuss measurable change, evidence and the value of their work in concrete terms.</p></div>
-        <div class="reason-item reveal"><h4>Recommendation</h4><p>The recommendation summarises readiness while identifying where practice should focus next. It converts feedback into direction, helping users move from evaluation to action.</p></div>
-      </div>
-    </section>
+</p>
 
-    <section class="chapter section">
-      <div class="read-wrap">
-        <h2 class="section-title reveal">The Improvement Loop</h2>
-      </div>
-      <div class="loop-shell reveal">
-        <div class="loop-track">
-          <div class="loop-node wide">Interview</div>
-          <div class="loop-arrow">→</div>
-          <div class="loop-node wide">Feedback</div>
-          <div class="loop-arrow">→</div>
-          <div class="loop-node wide">Reflection</div>
-          <div class="loop-arrow">→</div>
-          <div class="loop-node wide">Practice</div>
-          <div class="loop-arrow">→</div>
-          <div class="loop-node wide">Improvement</div>
-          <div class="loop-arrow">→</div>
-          <div class="loop-node wide">Interview</div>
-        </div>
-      </div>
-      <div class="read-wrap" style="margin-top:40px;">
-        <p class="body-text reveal">Deliberate practice is not a single event. It is a cycle. Designers improve when they repeat meaningful sessions, receive specific feedback, reflect honestly and apply lessons in the next attempt. That sequence builds self-awareness over time: users begin noticing where they become vague, where stories lose structure and where outcomes are not clearly expressed.</p>
-        <p class="body-text reveal">Repetition also changes confidence. Instead of treating interviews as unpredictable performance moments, users begin to recognise familiar patterns and respond with more control. Each iteration reduces anxiety because progress becomes visible and directional. The goal is not perfection after one interview. The goal is steady growth across multiple sessions, where each conversation sharpens reasoning, communication and clarity under pressure.</p>
-      </div>
-    </section>
+<div class="meta">
 
-    <section class="chapter section">
-      <div class="micro-block">
-        <h2 class="section-title reveal">Micro Interactions</h2>
-        <p class="body-text reveal">Interaction design was treated as quiet support. Transitions are smooth but restrained, feedback appears quickly, and motion avoids drawing attention away from the conversation itself. The interface stays readable and responsive so users can focus on answers, not UI mechanics.</p>
-        <p class="body-text reveal">Every micro interaction was designed to reduce friction: minimal distractions, immediate response cues and clear state changes. The product should feel calm under pressure, helping concentration rather than competing for it.</p>
-      </div>
-    </section>
+<div class="meta-row">
 
-    <section class="chapter section">
-      <div class="page-wrap">
-        <h2 class="section-title reveal">Key Design Decisions</h2>
-        <div class="key-cards" id="keyCards">
-          <article class="key-card"><h4>Making AI feel conversational.</h4><p>The flow prioritises dialogue pacing and follow-up continuity so users practise thinking through discussion, not isolated prompts.</p></article>
-          <article class="key-card"><h4>Reducing interview anxiety.</h4><p>Clear progression, predictable structure and focused tasks lower uncertainty and help users remain composed during practice.</p></article>
-          <article class="key-card"><h4>Encouraging measurable storytelling.</h4><p>Prompts and scoring reinforce outcome-oriented narratives that connect decisions to impact, evidence and business context.</p></article>
-          <article class="key-card"><h4>Providing actionable feedback.</h4><p>Insights are framed as next steps, helping users translate critique into immediate, repeatable behavioural improvements.</p></article>
-          <article class="key-card"><h4>Creating a repeatable learning loop.</h4><p>Interview, feedback and reflection are intentionally connected so progress compounds over multiple sessions.</p></article>
-          <article class="key-card"><h4>Designing for confidence rather than perfection.</h4><p>The system rewards clarity and growth, helping users build reliable performance habits instead of chasing flawless answers.</p></article>
-        </div>
-      </div>
-    </section>
+<div class="meta-title">
 
-    <section class="chapter chapter-quote">
-      <blockquote id="endQuote">“The goal wasn’t to simulate an interviewer perfectly. It was to create an environment where designers could think more clearly, communicate more confidently and improve with every conversation.”</blockquote>
-    </section>
+Role
 
-    <!-- PART 3 -->
-    <section class="chapter section">
-      <div class="read-wrap">
-        <h2 class="section-title reveal">Visual Language</h2>
-        <p class="body-text reveal">Every visual decision inside DesignMock AI was made to reduce cognitive load during interview practice. The goal was never to make the interface feel futuristic for its own sake, but to create a stable environment that supports concentration under pressure. Hierarchy ensures that the next action is always clear, consistency reduces interpretation effort across screens, readability protects momentum during longer sessions, and predictability helps users stay focused on their reasoning instead of navigating interface ambiguity. Together, these principles were used to design for confidence: users should feel guided, not managed, and supported, not overwhelmed.</p>
-      </div>
+</div>
 
-      <div class="page-wrap vl-grid">
-        <div class="system-stack">
-          <article class="system-block reveal">
-            <h3 class="system-title">Typography</h3>
-            <div class="type-sample">
-              <div class="display">Display / Hero Heading</div>
-              <div class="heading">Section Heading</div>
-              <p class="body">Body text is tuned for extended reading so users can process instructions and feedback without fatigue.</p>
-              <p class="caption">Caption text is reserved for supporting context, never primary action.</p>
-            </div>
-          </article>
+<div class="meta-value">
 
-          <article class="system-block reveal">
-            <h3 class="system-title">Color Roles</h3>
-            <div class="token-row">
-              <div class="token"><div class="swatch" style="background:#111;"></div><span>Primary</span></div>
-              <div class="token"><div class="swatch" style="background:#ece8e1;"></div><span>Neutral</span></div>
-              <div class="token"><div class="swatch" style="background:#dce8dd;"></div><span>Success</span></div>
-              <div class="token"><div class="swatch" style="background:#efe3cd;"></div><span>Warning</span></div>
-              <div class="token"><div class="swatch" style="background:#ecd6d6;"></div><span>Error</span></div>
-            </div>
-            <p class="caption">The palette stays restrained so status and hierarchy remain readable without visual noise.</p>
-          </article>
+Product Designer
 
-          <article class="system-block reveal">
-            <h3 class="system-title">Spacing & Rhythm</h3>
-            <p class="body-text">Generous vertical spacing was intentionally used to create pauses between decisions. During interview practice, breathing room improves comprehension, prevents dense blocks of information, and helps users recover context quickly after each action.</p>
-          </article>
-        </div>
+</div>
 
-        <div class="system-stack">
-          <article class="system-block reveal">
-            <h3 class="system-title">Component Library</h3>
-            <div class="component-masonry">
-              <div class="component-card">
-                <p class="caption" style="margin-bottom:10px;">Buttons</p>
-                <div class="btn-row">
-                  <button class="ui-btn primary">Start Interview</button>
-                  <button class="ui-btn">Save Progress</button>
-                  <button class="ui-btn">Review Feedback</button>
-                </div>
-              </div>
+</div>
 
-              <div class="component-card">
-                <p class="caption" style="margin-bottom:10px;">Input Fields</p>
-                <input class="ui-input" placeholder="Describe your design decision..." />
-              </div>
+<div class="meta-row">
 
-              <div class="component-card">
-                <p class="caption" style="margin-bottom:10px;">Tags & Badges</p>
-                <div class="chip-row">
-                  <span class="ui-tag">Senior</span>
-                  <span class="ui-tag">Product Design</span>
-                  <span class="ui-tag">Mock Session</span>
-                </div>
-                <div class="pill-row" style="margin-top:10px;">
-                  <span class="ui-pill success">Ready</span>
-                  <span class="ui-pill warn">In Review</span>
-                  <span class="ui-pill error">Needs Practice</span>
-                </div>
-              </div>
+<div class="meta-title">
 
-              <div class="component-card">
-                <p class="caption" style="margin-bottom:10px;">Progress Indicators</p>
-                <div class="bar-row" style="display:grid; gap:10px; width:100%;">
-                  <div class="progress"><span style="--w:72%;"></span></div>
-                  <div class="progress"><span style="--w:54%;"></span></div>
-                  <div class="progress"><span style="--w:83%;"></span></div>
-                </div>
-              </div>
+Timeline
 
-              <div class="component-card">
-                <p class="caption" style="margin-bottom:10px;">Charts</p>
-                <div class="mini-chart">
-                  <span style="--h:44%;"></span><span style="--h:58%;"></span><span style="--h:72%;"></span>
-                  <span style="--h:66%;"></span><span style="--h:78%;"></span><span style="--h:84%;"></span>
-                </div>
-              </div>
+</div>
 
-              <div class="component-card">
-                <p class="caption" style="margin-bottom:10px;">Interview & Score Cards</p>
-                <div style="display:grid; gap:10px;">
-                  <div style="border:1px solid #d8d2ca; border-radius:10px; padding:10px; background:#fff;">
-                    <strong style="font-size:13px;">Live Session</strong>
-                    <p class="caption" style="margin-top:4px;">Question 3 of 7 · Active</p>
-                  </div>
-                  <div style="border:1px solid #d8d2ca; border-radius:10px; padding:10px; background:#fff;">
-                    <strong style="font-size:13px;">Feedback Summary</strong>
-                    <p class="caption" style="margin-top:4px;">Communication 78 · Storytelling 72</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<div class="meta-value">
 
-    <section class="chapter section">
-      <div class="read-wrap">
-        <h2 class="section-title reveal">Accessibility</h2>
-        <p class="body-text reveal">Interview preparation already creates cognitive pressure, so the interface should never become an additional obstacle. Accessibility was treated as a product requirement, not a compliance checkbox.</p>
-        <div class="a11y-list">
-          <article class="a11y-item reveal"><strong>Large touch targets</strong><p class="caption">Interactive controls are sized for confident tapping and reduced input error.</p></article>
-          <article class="a11y-item reveal"><strong>Readable typography</strong><p class="caption">Text hierarchy prioritises legibility in long reading and response-writing moments.</p></article>
-          <article class="a11y-item reveal"><strong>Strong contrast & clear focus states</strong><p class="caption">Keyboard and low-vision users can reliably track active elements and context.</p></article>
-          <article class="a11y-item reveal"><strong>Keyboard accessibility & semantic HTML</strong><p class="caption">Core flows remain navigable and understandable without pointer-only interaction.</p></article>
-          <article class="a11y-item reveal"><strong>Reduced motion support</strong><p class="caption">Motion remains subtle and avoids interfering with concentration.</p></article>
-        </div>
-      </div>
-    </section>
+4 Weeks
 
-    <section class="chapter section">
-      <div class="page-wrap">
-        <h2 class="section-title reveal">Responsive Experience</h2>
-        <p class="body-text reveal">The experience adapts by intent, not only by screen size. Desktop focuses on immersion during longer practice sessions, tablet optimises readability and scan rhythm, while mobile prioritises simplicity and quick continuity between sessions.</p>
-        <div class="device-strip">
-          <figure class="device reveal">
-            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Desktop mockup" />
-          </figure>
-          <figure class="device tablet reveal">
-            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Course cards.png" alt="Tablet mockup" />
-          </figure>
-          <figure class="device mobile reveal">
-            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Pricing section.png" alt="Mobile mockup" />
-          </figure>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <section class="chapter section">
-      <div class="read-wrap">
-        <h2 class="section-title reveal">Outcome</h2>
-        <p class="body-text reveal">Success for this concept is defined by behavioural outcomes rather than vanity metrics. The intended impact is helping designers communicate decisions with greater confidence, practise more deliberately, and develop repeatable preparation habits before high-stakes interviews.</p>
-        <p class="body-text reveal">The product also aims to make interview preparation more accessible by turning abstract advice into structured sessions with clear reflection loops. Over time, this could improve storytelling quality, clarity of reasoning and confidence in real interview contexts.</p>
-      </div>
-    </section>
+</div>
 
-    <section class="chapter section">
-      <div class="reflection-wrap">
-        <h2 class="section-title reveal">Reflection</h2>
-        <p class="body-text reveal">Designing an AI interview experience highlighted a recurring tension in product design: automation can accelerate guidance, but trust determines whether users accept that guidance. Throughout this project, the central challenge was not how much intelligence to surface, but how to shape interactions so feedback feels credible, humane and useful under pressure. In interview preparation, people are often already self-critical. If a product sounds overly corrective or mechanistic, it can reduce motivation rather than improve performance.</p>
-        <p class="body-text reveal">That is why the feedback model in DesignMock AI was framed to encourage instead of discourage. The system points to patterns, not personal shortcomings. It emphasises what can be practised next, not what went wrong in isolation. This shift matters because confidence is not separate from competence; confidence directly influences how clearly candidates explain their thinking, how calmly they respond to ambiguity and how well they recover when challenged.</p>
-        <p class="body-text reveal">Another lesson was that realism requires restraint. A strong simulation does not need theatrical complexity. It needs pacing, context and reflection loops that mirror genuine interview behaviour. The product works best when interface friction stays low and cognitive effort is directed toward articulation, reasoning and narrative structure.</p>
-        <p class="body-text reveal">If this concept were extended, future iterations could explore voice-led interviews, portfolio walkthrough mode, hiring manager personas, company-specific interview tracks, collaborative peer practice, richer progress history and custom coaching paths. The next frontier is personalisation with accountability: adapting guidance to users over time while maintaining transparency in how recommendations are generated. The long-term ambition remains simple: help designers think more clearly, communicate more confidently and grow through repeated, intentional practice.</p>
-      </div>
-    </section>
+<div class="meta-row">
 
-    <section class="chapter section">
-      <div class="page-wrap">
-        <h2 class="section-title reveal">Final Gallery</h2>
-        <div class="final-gallery" id="finalGallery">
-          <div class="gallery-col">
-            <figure class="gallery-item"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776071523/Educraft_final_design_full-page_view_e3wi6j.png" alt="Gallery large 1" /></figure>
-            <figure class="gallery-item"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Educraft hero screen.png" alt="Gallery medium 1" /></figure>
-          </div>
-          <div class="gallery-col">
-            <figure class="gallery-item"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Course cards.png" alt="Gallery small 1" /></figure>
-            <figure class="gallery-item"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Pricing section.png" alt="Gallery medium 2" /></figure>
-            <figure class="gallery-item"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Educraft hero screen.png" alt="Gallery small 2" /></figure>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="meta-title">
 
-    <section class="chapter closing-statement">
-      <p class="reveal">DesignMock AI explores how thoughtful AI experiences can help designers prepare with greater confidence, communicate more clearly and continually improve through structured practice.</p>
-    </section>
+Tools
 
-    <section class="next-project-shell">
-      <div class="page-wrap">
-        <h2 class="section-title reveal">Next Project</h2>
-        <a href="nairaland.html" class="next-card reveal" aria-label="Open next project">
-          <div class="next-card-copy">
-            <p class="next-kicker">Case Study</p>
-            <h3 class="next-card-title">Nairaland Product Experience</h3>
-            <p class="next-card-desc">Exploring content architecture, interaction simplification and clearer contributor flows in a high-volume community product.</p>
-            <span class="next-arrow">View Project
-              <svg viewBox="0 0 20 20" fill="none" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 10H17M17 10L11 4M17 10L11 16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-          </div>
-          <figure class="next-thumb">
-            <img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } loading="lazy" src="images/Course cards.png" alt="Next project preview" />
-          </figure>
-        </a>
-      </div>
-    </section>
-  </main>
+</div>
 
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-copy">© 2025 Oyeniran Joel</span>
-      <a href="mailto:Joeloyekola@gmail.com" class="footer-back">Joeloyekola@gmail.com</a>
-      <a href="index.html" class="footer-back">← Back to Home</a>
-    </div>
-  </footer>
+<div class="meta-value">
 
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
-    <div class="lightbox-dialog">
-      <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">×</button>
-      <div class="lightbox-image-wrap"><img{      max-width:100%;      display:block;      height:auto; }{      max-width:100%;      display:block;      height:auto; } id="lightboxImage" src="" alt="" /></div>
-    </div>
-  </div>
+Figma • Claude • React • Framer Motion
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in'); });
-    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</div>
 
-    const calloutZone = document.getElementById('calloutZone');
-    if (calloutZone) {
-      const calloutObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) calloutZone.querySelectorAll('.callout').forEach(c => c.classList.add('in'));
-        });
-      }, { threshold: 0.34 });
-      calloutObserver.observe(calloutZone);
-    }
+</div>
 
-    const liveZone = document.getElementById('liveZone');
-    if (liveZone) {
-      const liveObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) liveZone.querySelectorAll('.live-annotation').forEach(c => c.classList.add('in'));
-        });
-      }, { threshold: 0.36 });
-      liveObserver.observe(liveZone);
-    }
+</div>
 
-    const feedbackZone = document.getElementById('feedbackZone');
-    if (feedbackZone) {
-      const fbObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) feedbackZone.querySelectorAll('.feedback-annotation').forEach(c => c.classList.add('in'));
-        });
-      }, { threshold: 0.3 });
-      fbObserver.observe(feedbackZone);
-    }
+</div>
 
-    const keyCards = document.getElementById('keyCards');
-    if (keyCards) {
-      const cardsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            keyCards.querySelectorAll('.key-card').forEach((card, i) => {
-              card.style.transitionDelay = `${i * 0.06}s`;
-              card.classList.add('in');
-            });
-          }
-        });
-      }, { threshold: 0.25 });
-      cardsObserver.observe(keyCards);
-    }
+<div class="hero-image">
 
-    const endQuote = document.getElementById('endQuote');
-    if (endQuote) {
-      const quoteObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) endQuote.classList.add('in'); });
-      }, { threshold: 0.35 });
-      quoteObserver.observe(endQuote);
-    }
+<img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1784120870/Designmock_tvxtdh.png">
 
-    const finalGallery = document.getElementById('finalGallery');
-    if (finalGallery) {
-      const gObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            finalGallery.querySelectorAll('.gallery-item').forEach((item, i) => {
-              item.style.transitionDelay = `${i * 0.06}s`;
-              item.classList.add('in');
-            });
-          }
-        });
-      }, { threshold: 0.2 });
-      gObserver.observe(finalGallery);
-    }
+</div>
 
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxClose = document.getElementById('lightboxClose');
+</div>
 
-    function openLightbox(src, alt) {
-      lightboxImage.src = src;
-      lightboxImage.alt = alt;
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
+</section>
 
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      lightboxImage.src = '';
-      document.body.style.overflow = '';
-    }
+<section class="overview">
 
-    document.querySelectorAll('.thumb').forEach(btn => {
-      btn.addEventListener('click', () => openLightbox(btn.dataset.full, btn.dataset.alt || 'Preview image'));
-    });
+<div class="container">
 
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+<div class="section-label">
 
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      const button = document.querySelector('.nav-hamburger');
-      menu.classList.toggle('open');
-      button.classList.toggle('open');
-    }
+Project Overview
 
-    function closeMenu() {
-      const menu = document.getElementById('mobileMenu');
-      const button = document.querySelector('.nav-hamburger');
-      menu.classList.remove('open');
-      button.classList.remove('open');
-    }
-  </script>
+</div>
+
+<div class="overview-grid">
+
+<div>
+
+<h2>
+
+Practicing interviews should feel like interviewing with a real hiring team.
+
+</h2>
+
+<p>
+
+DesignMock AI was created to bridge the gap between studying UX theory and performing confidently in real product design interviews. Instead of static interview questions, designers interact with an AI interviewer that evaluates their thinking, communication, and product reasoning before delivering structured feedback that helps them improve with every session.
+
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+
+3
+
+</div>
+
+<div class="stat-label">
+
+Core AI Interview Modes
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+40+
+
+</div>
+
+<div class="stat-label">
+
+Designed Screens
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+1
+
+</div>
+
+<div class="stat-label">
+
+Unified Design System
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+  <!-- =======================================================
+PROBLEM
+======================================================= -->
+
+<section class="overview" id="problem">
+
+<div class="container">
+
+<div class="section-label">
+The Challenge
+</div>
+
+<div class="overview-grid">
+
+<div>
+
+<h2>
+
+Most designers prepare alone.
+
+</h2>
+
+<p>
+
+After speaking with aspiring product designers and reflecting on my own interview preparation, I noticed a recurring pattern. Most people relied on YouTube videos, blog articles, or random mock questions. While these resources were helpful, they rarely recreated the pressure and unpredictability of an actual product design interview.
+
+There was no structured way to practice communicating decisions, defending trade-offs, or receiving meaningful feedback.
+
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+
+01
+
+</div>
+
+<div class="stat-label">
+
+No realistic interview simulation.
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+02
+
+</div>
+
+<div class="stat-label">
+
+Generic feedback with no actionable direction.
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+03
+
+</div>
+
+<div class="stat-label">
+
+No way to measure improvement over time.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- =======================================================
+FULL WIDTH IMAGE
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="hero-image">
+
+<img
+src="YOUR-PROBLEM-SCREENSHOT.png"
+alt="DesignMock AI Problem Discovery">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- =======================================================
+RESEARCH
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+
+Research
+
+</div>
+
+<h2>
+
+Understanding how designers prepare today.
+
+</h2>
+
+<div class="overview-grid">
+
+<div>
+
+<p>
+
+Rather than designing another collection of interview questions, I wanted to understand how designers currently prepare for interviews.
+
+Most participants described preparation as inconsistent.
+
+Some rehearsed with friends.
+
+Others watched interview recordings repeatedly.
+
+Many admitted they had no idea whether their answers were actually good until a real interview.
+
+</p>
+
+</div>
+
+<div>
+
+<p>
+
+The biggest insight wasn't that designers lacked information.
+
+They lacked feedback.
+
+Learning happens through iteration, and interviews provide very few opportunities to practice before the real thing.
+
+That became the central opportunity behind DesignMock AI.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- =======================================================
+RESEARCH INSIGHTS
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+
+Key Insights
+
+</div>
+
+<div class="overview-grid">
+
+<div class="hero-image">
+
+<img
+src="YOUR-RESEARCH-IMAGE.png"
+alt="Research insights">
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+
+78%
+
+</div>
+
+<div class="stat-label">
+
+Needed structured feedback after every interview.
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+64%
+
+</div>
+
+<div class="stat-label">
+
+Found mock interviews difficult to organize.
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+91%
+
+</div>
+
+<div class="stat-label">
+
+Wanted realistic interview conversations instead of static questions.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- =======================================================
+DESIGN PRINCIPLES
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+
+Design Principles
+
+</div>
+
+<h2>
+
+Three principles guided every design decision.
+
+</h2>
+
+<div class="overview-grid">
+
+<div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+01
+
+</div>
+
+<h3 style="margin:12px 0;font-size:28px;font-family:'Newsreader',serif;">
+
+Feel conversational.
+
+</h3>
+
+<p>
+
+The interface should reduce anxiety and encourage thoughtful discussion rather than feeling like an examination.
+
+</p>
+
+</div>
+
+<div class="stat" style="margin-top:40px;">
+
+<div class="stat-number">
+
+02
+
+</div>
+
+<h3 style="margin:12px 0;font-size:28px;font-family:'Newsreader',serif;">
+
+Provide meaningful feedback.
+
+</h3>
+
+<p>
+
+Every interview should end with actionable recommendations that designers can immediately apply.
+
+</p>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+03
+
+</div>
+
+<h3 style="margin:12px 0;font-size:28px;font-family:'Newsreader',serif;">
+
+Track progress over time.
+
+</h3>
+
+<p>
+
+Instead of isolated interview sessions, the experience should motivate continuous improvement through measurable progress.
+
+</p>
+
+</div>
+
+<div class="hero-image" style="margin-top:40px;">
+
+<img
+src="YOUR-DESIGN-PRINCIPLE-IMAGE.png"
+alt="Design Principles">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+  <!-- =======================================================
+USER JOURNEY
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+Experience Flow
+</div>
+
+<h2>
+From opening the app to becoming interview-ready.
+</h2>
+
+<div class="hero-image" style="padding:50px;">
+
+<img src="YOUR-USER-JOURNEY.png" alt="User Journey">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+THE EXPERIENCE
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+Product Walkthrough
+</div>
+
+<div class="overview-grid">
+
+<div>
+
+<h2>
+
+A guided interview experience that feels natural.
+
+</h2>
+
+<p>
+
+The experience begins by allowing designers to choose the type of interview they want to practice. Whether preparing for a portfolio presentation, a product thinking interview, or a whiteboard challenge, every session adapts to the selected format.
+
+Rather than displaying a list of static questions, the AI behaves like an interviewer, asking follow-up questions and encouraging deeper explanations.
+
+</p>
+
+</div>
+
+<div class="hero-image">
+
+<img src="YOUR-HOME-SCREEN.png">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+FEATURE ONE
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="overview-grid">
+
+<div class="hero-image">
+
+<img src="YOUR-INTERVIEW-SCREEN.png">
+
+</div>
+
+<div>
+
+<div class="section-label">
+Feature One
+</div>
+
+<h2>
+
+Real conversations instead of scripted questionnaires.
+
+</h2>
+
+<p>
+
+Every interview unfolds dynamically. The AI adapts to previous answers, probes for reasoning, and simulates the back-and-forth conversations designers experience during actual interviews.
+
+This creates a more realistic environment where communication skills become just as important as technical knowledge.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+FEATURE TWO
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="overview-grid">
+
+<div>
+
+<div class="section-label">
+Feature Two
+</div>
+
+<h2>
+
+Detailed AI feedback after every session.
+
+</h2>
+
+<p>
+
+Once an interview is completed, DesignMock AI generates structured feedback covering communication, product thinking, confidence, problem-solving, storytelling, and decision-making.
+
+Instead of generic encouragement, designers receive specific recommendations they can apply before the next interview.
+
+</p>
+
+</div>
+
+<div class="hero-image">
+
+<img src="YOUR-FEEDBACK.png">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+FEATURE THREE
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="overview-grid">
+
+<div class="hero-image">
+
+<img src="YOUR-PROGRESS.png">
+
+</div>
+
+<div>
+
+<div class="section-label">
+Feature Three
+</div>
+
+<h2>
+
+Track improvement over time.
+
+</h2>
+
+<p>
+
+Preparing for interviews is an iterative process. Every completed interview contributes to a broader understanding of progress, helping designers identify recurring weaknesses while celebrating measurable improvement.
+
+Progress dashboards reinforce consistency and encourage deliberate practice.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+FEATURE GRID
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+Highlights
+</div>
+
+<h2>
+
+Everything needed to prepare with confidence.
+
+</h2>
+
+<div style="display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:28px;
+margin-top:60px;">
+
+<div class="stat">
+
+<div class="stat-number">
+🎙
+</div>
+
+<h3 style="margin-bottom:12px;font-family:'Newsreader',serif;font-size:30px;">
+
+Voice Interviews
+
+</h3>
+
+<p>
+
+Practice natural conversations with AI-powered interview sessions.
+
+</p>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+📊
+</div>
+
+<h3 style="margin-bottom:12px;font-family:'Newsreader',serif;font-size:30px;">
+
+Performance Reports
+
+</h3>
+
+<p>
+
+Understand strengths and weaknesses through structured AI evaluations.
+
+</p>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+📈
+</div>
+
+<h3 style="margin-bottom:12px;font-family:'Newsreader',serif;font-size:30px;">
+
+Progress Tracking
+
+</h3>
+
+<p>
+
+Monitor improvement across multiple interview sessions.
+
+</p>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+🎯
+</div>
+
+<h3 style="margin-bottom:12px;font-family:'Newsreader',serif;font-size:30px;">
+
+Personalized Coaching
+
+</h3>
+
+<p>
+
+Receive recommendations tailored to each interview performance.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+FULL WIDTH MOCKUP
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+Final Interface
+</div>
+
+<div class="hero-image">
+
+<img src="YOUR-FULL-DASHBOARD.png">
+
+</div>
+
+</div>
+
+</section>
+  <!-- =======================================================
+DESIGN SYSTEM
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+Design System
+</div>
+
+<h2>
+Building consistency across the experience.
+</h2>
+
+<div class="overview-grid">
+
+<div>
+
+<p>
+
+A simple design language was created to keep every interaction familiar and distraction-free. Typography emphasizes readability, spacing creates breathing room, and a restrained color palette allows users to focus entirely on interview conversations and feedback.
+
+</p>
+
+<div style="margin-top:40px;display:flex;gap:18px;flex-wrap:wrap;">
+
+<div style="width:90px;height:90px;border-radius:16px;background:#0E766D;"></div>
+
+<div style="width:90px;height:90px;border-radius:16px;background:#F8F7F4;border:1px solid #E5E5E5;"></div>
+
+<div style="width:90px;height:90px;border-radius:16px;background:#111111;"></div>
+
+<div style="width:90px;height:90px;border-radius:16px;background:#D7EDEB;"></div>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="YOUR-DESIGN-SYSTEM.png" alt="Design System">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+RESPONSIVE SHOWCASE
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+Responsive Experience
+</div>
+
+<h2>
+
+Designed for desktop, tablet and mobile.
+
+</h2>
+
+<div style="display:grid;
+grid-template-columns:1.2fr .8fr .55fr;
+gap:20px;
+align-items:end;
+margin-top:60px;">
+
+<div class="hero-image">
+
+<img src="YOUR-DESKTOP.png">
+
+</div>
+
+<div class="hero-image">
+
+<img src="YOUR-TABLET.png">
+
+</div>
+
+<div class="hero-image">
+
+<img src="YOUR-MOBILE.png">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+OUTCOME
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+
+Outcome
+
+</div>
+
+<h2>
+
+Helping designers practice with confidence.
+
+</h2>
+
+<div class="overview-grid">
+
+<div>
+
+<p>
+
+DesignMock AI transforms interview preparation from passive learning into active practice. By combining conversational AI with personalized coaching, designers gain a safe environment to improve communication, sharpen product thinking, and build confidence before meeting real hiring teams.
+
+</p>
+
+</div>
+
+<div>
+
+<p>
+
+Beyond solving an immediate problem, the project demonstrates how AI can become a practical learning companion rather than simply another content generator.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+REFLECTION
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+
+Reflection
+
+</div>
+
+<h2>
+
+What I learned.
+
+</h2>
+
+<div class="overview-grid">
+
+<div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+01
+
+</div>
+
+<div class="stat-label">
+
+Designing AI experiences requires clarity more than complexity.
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+02
+
+</div>
+
+<div class="stat-label">
+
+Meaningful feedback creates more value than simply asking questions.
+
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+03
+
+</div>
+
+<div class="stat-label">
+
+Strong UX is built through iteration, testing and continuous refinement.
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+
+04
+
+</div>
+
+<div class="stat-label">
+
+Simple interfaces increase confidence during stressful tasks like interviews.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+NEXT PROJECT
+======================================================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="section-label">
+
+Next Project
+
+</div>
+
+<a href="nairaland.html" style="display:block;">
+
+<div class="hero-image">
+
+<img src="YOUR-NEXT-PROJECT.png">
+
+<div style="padding:40px;">
+
+<h2 style="margin-bottom:18px;">
+
+Nairaland Redesign
+
+</h2>
+
+<p style="font-size:20px;color:#555;">
+
+Reimagining one of Africa's largest online communities with a cleaner and more modern experience.
+
+</p>
+
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<footer style="padding:80px 0;border-top:1px solid #E5E5E5;">
+
+<div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+
+<p style="color:#777;">
+
+© 2026 Oyeniran Joel
+
+</p>
+
+<a href="index.html">
+
+Back to Portfolio →
+
+</a>
+
+</div>
+
+</footer>
+
+
+
 </body>
+
 </html>
