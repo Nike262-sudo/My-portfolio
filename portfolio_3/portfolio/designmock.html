@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>DesignMock AI — Case Study | Oyeniran Joel</title>
+
+<meta
+name="description"
+content="DesignMock AI is a product design case study exploring how AI can help designers prepare for interviews through realistic mock interviews, actionable feedback, and continuous coaching."
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,636 +21,470 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
+}
+
+:root{
+
+    --background:#F8F7F4;
+    --surface:#FFFFFF;
+
+    --text:#0A0A0A;
+    --muted:#5F5F5F;
+
+    --border:#E8E5DF;
+
+    --radius:22px;
+
+    --container:1180px;
+
+    --section-space:140px;
+
+    --transition:.3s ease;
+
 }
 
 body{
 
-font-family:'DM Sans',sans-serif;
+    font-family:"DM Sans",sans-serif;
 
-background:#F8F7F4;
+    background:var(--background);
 
-color:#111;
+    color:var(--text);
 
-line-height:1.75;
+    line-height:1.75;
 
--webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+
+    -webkit-font-smoothing:antialiased;
 
 }
 
 img{
 
-width:100%;
+    width:100%;
 
-display:block;
+    display:block;
 
 }
 
 a{
 
-text-decoration:none;
+    text-decoration:none;
 
-color:inherit;
-
-}
-
-:root{
-
---border:#E8E5DF;
-
---text:#111;
-
---muted:#666;
-
---bg:#F8F7F4;
-
---section:140px;
-
---radius:22px;
+    color:inherit;
 
 }
 
 .container{
 
-width:min(1180px,92%);
+    width:min(var(--container),92%);
 
-margin:auto;
+    margin-inline:auto;
 
 }
 
-/* ---------------------- */
-/* NAVIGATION */
-/* ---------------------- */
+/* ===================================================
+TYPOGRAPHY
+=================================================== */
+
+h1,
+h2,
+h3{
+
+    font-family:"Instrument Serif", Georgia, serif;
+
+    font-style:normal;
+
+    font-weight:700;
+
+    color:#0A0A0A;
+
+}
+
+.section-label{
+
+    display:inline-block;
+
+    margin-bottom:24px;
+
+    font-size:12px;
+
+    font-weight:500;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    color:#7B7B7B;
+
+}
+
+p{
+
+    font-size:18px;
+
+    line-height:1.85;
+
+    color:var(--muted);
+
+}
+/* ===================================================
+NAVIGATION
+=================================================== */
 
 nav{
 
-position:sticky;
+    position:sticky;
 
-top:0;
+    top:0;
 
-z-index:100;
+    z-index:1000;
 
-background:rgba(248,247,244,.9);
+    background:rgba(248,247,244,.88);
 
-backdrop-filter:blur(10px);
+    backdrop-filter:blur(18px);
 
-border-bottom:1px solid var(--border);
+    border-bottom:1px solid var(--border);
 
 }
 
 .nav-inner{
 
-height:78px;
+    height:82px;
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:space-between;
+    justify-content:space-between;
 
 }
 
 .logo{
 
-font-family:'Instrument Serif',serif;
+    font-family:"Instrument Serif", Georgia, serif;
 
-font-size:22px;
+    font-size:24px;
 
-font-weight:500;
+    font-weight:700;
 
-letter-spacing:-.03em;
+    letter-spacing:-0.03em;
+
+    color:var(--text);
 
 }
 
 .back{
 
-font-size:15px;
+    font-size:15px;
 
-color:#666;
+    color:var(--muted);
 
-transition:.25s;
+    transition:var(--transition);
 
 }
 
 .back:hover{
 
-color:#111;
+    color:var(--text);
 
 }
 
-/* ---------------------- */
-/* HERO */
-/* ---------------------- */
+
+
+
+
+/* ===================================================
+HERO
+=================================================== */
 
 .hero{
+
     padding:120px 0;
+
 }
 
 .hero-grid{
+
     display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:80px;
-    align-items:start;
+
+    grid-template-columns:1.05fr .95fr;
+
+    gap:88px;
+
+    align-items:center;
+
 }
 
 .kicker{
-    font-size:13px;
+
+    display:inline-block;
+
+    margin-bottom:24px;
+
+    font-size:12px;
+
+    font-weight:500;
+
     text-transform:uppercase;
+
     letter-spacing:.18em;
+
     color:#777;
-    margin-bottom:28px;
+
 }
 
 .hero h1{
-    font-family:"Instrument Serif", Georgia, serif;
-    font-weight:700;
+
     font-size:76px;
+
     line-height:76px;
-    letter-spacing:-0.03em;
-    color:#0A0A0A;
+
+    letter-spacing:-0.04em;
+
+    max-width:8.5ch;
+
     margin-bottom:28px;
-    max-width:13ch;
+
     text-wrap:balance;
+
 }
 
 .hero p{
-    font-size:20px;
-    line-height:1.75;
-    color:#444;
+
     max-width:34ch;
-    margin-bottom:48px;
+
+    margin-bottom:52px;
+
 }
 
 .meta{
-    border-top:1px solid var(--border);
-    padding-top:22px;
+
     display:grid;
+
     gap:18px;
+
+    padding-top:28px;
+
+    border-top:1px solid var(--border);
+
 }
 
 .meta-row{
+
     display:grid;
-    grid-template-columns:170px 1fr;
-    gap:24px;
+
+    grid-template-columns:160px 1fr;
+
+    align-items:start;
+
 }
 
 .meta-title{
+
     font-size:12px;
+
+    font-weight:500;
+
     text-transform:uppercase;
-    letter-spacing:.14em;
-    color:#888;
+
+    letter-spacing:.16em;
+
+    color:#8B8B8B;
+
 }
 
 .meta-value{
+
     font-size:17px;
-    color:#222;
+
+    color:var(--text);
+
 }
 
 .hero-image{
+
     overflow:hidden;
-    border-radius:20px;
+
+    border-radius:24px;
+
     border:1px solid var(--border);
+
     background:#ECE9E3;
-    box-shadow:0 24px 60px rgba(0,0,0,.05);
+
+    box-shadow:
+    0 24px 60px rgba(0,0,0,.05);
+
 }
 
 .hero-image img{
-    display:block;
+
     width:100%;
+
+    height:auto;
+
+    display:block;
+
 }
 
-/* ---------------------- */
-/* OVERVIEW */
-/* ---------------------- */
 
-.overview{
-    padding:var(--section) 0;
-    border-top:1px solid var(--border);
-}
 
-.section-label{
-    font-size:13px;
-    text-transform:uppercase;
-    letter-spacing:.16em;
-    color:#777;
-    margin-bottom:24px;
-}
 
-.section-title,
-.overview h2{
-    font-family:"Instrument Serif", Georgia, serif;
-    font-weight:700;
-    font-size:40px;
-    line-height:44px;
-    letter-spacing:-0.02em;
-    color:#0A0A0A;
-    margin-bottom:28px;
-    max-width:18ch;
-    text-wrap:balance;
-}
 
-.overview-grid{
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:90px;
-    align-items:start;
-}
-
-.overview p{
-    font-size:18px;
-    line-height:1.8;
-    color:#444;
-}
-
-.stats{
-    display:grid;
-    gap:28px;
-}
-
-.stat{
-    border-top:1px solid var(--border);
-    padding-top:20px;
-}
-
-.stat-number{
-    font-family:"Instrument Serif", Georgia, serif;
-    font-size:48px;
-    line-height:1;
-    margin-bottom:8px;
-}
-
-.stat-label{
-    font-size:16px;
-    color:#666;
-}
+/* ===================================================
+MOBILE
+=================================================== */
 
 @media (max-width:900px){
 
-.hero-grid,
-.overview-grid{
-    grid-template-columns:1fr;
-    gap:56px;
-}
+    .hero{
 
-.hero{
-    padding:80px 0;
-}
+        padding:72px 0;
 
-.hero h1{
-    font-size:48px;
-    line-height:48px;
-    max-width:100%;
-    text-wrap:balance;
-}
+    }
 
-.hero p{
-    font-size:18px;
-    line-height:1.7;
-    max-width:100%;
-}
+    .hero-grid{
 
-.section-title,
-.overview h2{
-    font-size:32px;
-    line-height:36px;
-    max-width:100%;
-}
+        grid-template-columns:1fr;
 
-.meta-row{
-    grid-template-columns:1fr;
-    gap:16px;
-}
+        gap:48px;
 
-.stat-number{
-    font-size:40px;
-}
+    }
 
-.overview p{
-    font-size:16px;
-    line-height:1.75;
-}
+    .nav-inner{
 
-.hero-main{
-    width:100%;
-    transform:none;
-}
+        height:74px;
 
-.thumb-row{
-    grid-template-columns:repeat(2,1fr);
-}
+    }
 
-.next-card{
-    grid-template-columns:1fr;
-}
+    .logo{
 
-.next-thumb{
-    border-left:none;
-    border-top:1px solid var(--border);
-}
+        font-size:22px;
 
-.page-wrap,
-.read-wrap,
-.screen-wrap,
-.nav-inner,
-.footer-inner{
-    padding-inline:20px;
-}
+    }
 
-}
-}
+    .hero h1{
 
-}
+        font-size:48px;
 
-}
+        line-height:48px;
 
-</style>
+        max-width:100%;
 
-</head>
+        margin-bottom:20px;
 
-<body>
+    }
 
-<nav>
+    .hero p{
 
-<div class="container nav-inner">
+        font-size:17px;
 
-<a href="index.html" class="back">
-← Back to Portfolio
-</a>
+        line-height:1.8;
 
-<div class="logo">
-Oyeniran Joel
-</div>
+        max-width:100%;
 
-</div>
+        margin-bottom:40px;
 
-</nav>
+    }
 
-<section class="hero">
+    .meta{
 
-<div class="container hero-grid">
+        gap:22px;
 
-<div>
+    }
 
-<div class="kicker">
+    .meta-row{
 
-AI PRODUCT DESIGN CASE STUDY
+        grid-template-columns:1fr;
 
-</div>
+        gap:8px;
 
-<h1>
+    }
 
-DesignMock AI
-
-</h1>
-
-<p>
-
-Helping product designers prepare for interviews through realistic AI mock interviews, personalized feedback, and actionable coaching.
-
-</p>
-
-<div class="meta">
-
-<div class="meta-row">
-
-<div class="meta-title">
-
-Role
-
-</div>
-
-<div class="meta-value">
-
-Product Designer
-
-</div>
-
-</div>
-
-<div class="meta-row">
-
-<div class="meta-title">
-
-Timeline
-
-</div>
-
-<div class="meta-value">
-
-4 Weeks
-
-</div>
-
-</div>
-
-<div class="meta-row">
-
-<div class="meta-title">
-
-Tools
-
-</div>
-
-<div class="meta-value">
-
-Figma • Claude • React • Framer Motion
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1784120870/Designmock_tvxtdh.png">
-
-</div>
-
-</div>
-
-</section>
-
-<section class="overview">
-
-<div class="container">
-
-<div class="section-label">
-
-Project Overview
-
-</div>
-
-<div class="overview-grid">
-
-<div>
-
-<h2>
-
-Practicing interviews should feel like interviewing with a real hiring team.
-
-</h2>
-
-<p>
-
-DesignMock AI was created to bridge the gap between studying UX theory and performing confidently in real product design interviews. Instead of static interview questions, designers interact with an AI interviewer that evaluates their thinking, communication, and product reasoning before delivering structured feedback that helps them improve with every session.
-
-</p>
-
-</div>
-
-<div class="stats">
-
-<div class="stat">
-
-<div class="stat-number">
-
-3
-
-</div>
-
-<div class="stat-label">
-
-Core AI Interview Modes
-
-</div>
-
-</div>
-
-<div class="stat">
-
-<div class="stat-number">
-
-40+
-
-</div>
-
-<div class="stat-label">
-
-Designed Screens
-
-</div>
-
-</div>
-
-<div class="stat">
-
-<div class="stat-number">
-
-1
-
-</div>
-
-<div class="stat-label">
-
-Unified Design System
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<!-- =======================================================
-PROBLEM
+}<!-- =======================================================
+THE CHALLENGE
 ======================================================= -->
 
 <section class="overview" id="problem">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-label">
-The Challenge
-</div>
+        <div class="section-label">
+            The Challenge
+        </div>
 
-<div class="overview-grid">
+        <div class="overview-grid">
 
-<div>
+            <div class="overview-content">
 
-<h2>
+                <h2>
+                    Most designers prepare alone.
+                </h2>
 
-Most designers prepare alone.
+                <p>
+                    After speaking with aspiring product designers and reflecting on my own interview preparation, I noticed a recurring pattern. Most people relied on YouTube videos, blog articles, or random mock questions.
+                </p>
 
-</h2>
+                <p>
+                    While these resources were helpful, they rarely recreated the pressure and unpredictability of an actual product design interview.
+                </p>
 
-<p>
+                <p>
+                    There was no structured way to practice communicating decisions, defending trade-offs, or receiving meaningful feedback.
+                </p>
 
-After speaking with aspiring product designers and reflecting on my own interview preparation, I noticed a recurring pattern. Most people relied on YouTube videos, blog articles, or random mock questions. While these resources were helpful, they rarely recreated the pressure and unpredictability of an actual product design interview.
+            </div>
 
-There was no structured way to practice communicating decisions, defending trade-offs, or receiving meaningful feedback.
+            <div class="stats">
 
-</p>
+                <div class="stat">
 
-</div>
+                    <div class="stat-number">
+                        01
+                    </div>
 
-<div class="stats">
+                    <div class="stat-label">
+                        No realistic interview simulation.
+                    </div>
 
-<div class="stat">
+                </div>
 
-<div class="stat-number">
+                <div class="stat">
 
-01
+                    <div class="stat-number">
+                        02
+                    </div>
 
-</div>
+                    <div class="stat-label">
+                        Generic feedback with no actionable direction.
+                    </div>
 
-<div class="stat-label">
+                </div>
 
-No realistic interview simulation.
+                <div class="stat">
 
-</div>
+                    <div class="stat-number">
+                        03
+                    </div>
 
-</div>
+                    <div class="stat-label">
+                        No way to measure improvement over time.
+                    </div>
 
-<div class="stat">
+                </div>
 
-<div class="stat-number">
+            </div>
 
-02
+        </div>
 
-</div>
-
-<div class="stat-label">
-
-Generic feedback with no actionable direction.
-
-</div>
-
-</div>
-
-<div class="stat">
-
-<div class="stat-number">
-
-03
-
-</div>
-
-<div class="stat-label">
-
-No way to measure improvement over time.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
@@ -653,22 +493,22 @@ No way to measure improvement over time.
 
 
 <!-- =======================================================
-FULL WIDTH IMAGE
+PROBLEM IMAGE
 ======================================================= -->
 
-<section class="overview">
+<section class="image-section">
 
-<div class="container">
+    <div class="container">
 
-<div class="hero-image">
+        <div class="hero-image large-image">
 
-<img
-src="YOUR-PROBLEM-SCREENSHOT.png"
-alt="DesignMock AI Problem Discovery">
+            <img
+            src="YOUR-PROBLEM-SCREENSHOT.png"
+            alt="DesignMock AI problem discovery">
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
@@ -682,145 +522,315 @@ RESEARCH
 
 <section class="overview">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-label">
+        <div class="section-label">
+            Research
+        </div>
 
-Research
+        <h2>
+            Understanding how designers prepare today.
+        </h2>
 
-</div>
+        <div class="overview-grid">
 
-<h2>
+            <div>
 
-Understanding how designers prepare today.
+                <p>
+                    Rather than designing another collection of interview questions, I wanted to understand how designers currently prepare for interviews.
+                </p>
 
-</h2>
+                <p>
+                    Most participants described preparation as inconsistent. Some rehearsed with friends, while others watched interview recordings repeatedly.
+                </p>
 
-<div class="overview-grid">
+            </div>
 
-<div>
+            <div>
 
-<p>
+                <p>
+                    Many admitted they had no idea whether their answers were actually good until a real interview.
+                </p>
 
-Rather than designing another collection of interview questions, I wanted to understand how designers currently prepare for interviews.
+                <p>
+                    The biggest insight wasn't that designers lacked information—they lacked feedback. Learning happens through iteration, and interviews provide very few opportunities to practice before the real thing.
+                </p>
 
-Most participants described preparation as inconsistent.
+                <p>
+                    That became the central opportunity behind DesignMock AI.
+                </p>
 
-Some rehearsed with friends.
+            </div>
 
-Others watched interview recordings repeatedly.
+        </div>
 
-Many admitted they had no idea whether their answers were actually good until a real interview.
+    </div>
 
-</p>
+</section>/* ===================================================
+PART 2
+=================================================== */
 
-</div>
+.image-section{
 
-<div>
+    padding:0 0 var(--section-space);
 
-<p>
+}
 
-The biggest insight wasn't that designers lacked information.
+.large-image{
 
-They lacked feedback.
+    border-radius:24px;
 
-Learning happens through iteration, and interviews provide very few opportunities to practice before the real thing.
+    overflow:hidden;
 
-That became the central opportunity behind DesignMock AI.
+}
 
-</p>
+.overview-content p{
 
-</div>
+    margin-bottom:24px;
 
-</div>
+}
 
-</div>
+.overview-content p:last-child{
 
-</section>
+    margin-bottom:0;
 
+}
 
+.stats{
 
+    display:grid;
 
+    gap:32px;
 
-<!-- =======================================================
+}
+
+.stat{
+
+    padding-top:20px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.stat-number{
+
+    font-family:"Instrument Serif", Georgia, serif;
+
+    font-size:42px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    margin-bottom:8px;
+
+}
+
+.stat-label{
+
+    color:var(--muted);
+
+    font-size:17px;
+
+    line-height:1.7;
+
+}
+
+@media (max-width:900px){
+
+.image-section{
+
+    padding-bottom:80px;
+
+}
+
+.overview-content p{
+
+    margin-bottom:18px;
+
+}
+
+.stats{
+
+    gap:24px;
+
+}
+
+.stat-number{
+
+    font-size:34px;
+
+}
+
+.stat-label{
+
+    font-size:16px;
+
+}
+
+}/* ===================================================
+DESIGN PRINCIPLES
+=================================================== */
+
+.principles-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:72px;
+
+    align-items:start;
+
+    margin-top:56px;
+
+}
+
+.principle-card{
+
+    border-top:1px solid var(--border);
+
+    padding-top:22px;
+
+}
+
+.principle-card:not(:last-of-type){
+
+    margin-bottom:44px;
+
+}
+
+.principle-title{
+
+    font-family:"Instrument Serif", Georgia, serif;
+
+    font-size:30px;
+
+    line-height:36px;
+
+    font-weight:700;
+
+    letter-spacing:-0.02em;
+
+    color:var(--text);
+
+    margin:14px 0 16px;
+
+}
+
+.principle-image{
+
+    margin-top:12px;
+
+}
+
+/* ===================================================
+MOBILE
+=================================================== */
+
+@media (max-width:900px){
+
+    .principles-grid{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+        margin-top:40px;
+
+    }
+
+    .principle-card{
+
+        margin-bottom:0;
+
+    }
+
+    .principle-title{
+
+        font-size:24px;
+
+        line-height:30px;
+
+        margin:12px 0;
+
+    }
+
+    .principle-image{
+
+        margin-top:0;
+
+    }
+
+}<!-- =======================================================
 RESEARCH INSIGHTS
 ======================================================= -->
 
 <section class="overview">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-label">
+        <div class="section-label">
+            Key Insights
+        </div>
 
-Key Insights
+        <h2>
+            Three insights shaped the final product direction.
+        </h2>
 
-</div>
+        <div class="overview-grid">
 
-<div class="overview-grid">
+            <div class="hero-image">
 
-<div class="hero-image">
+                <img
+                    src="YOUR-RESEARCH-IMAGE.png"
+                    alt="Research insights">
 
-<img
-src="YOUR-RESEARCH-IMAGE.png"
-alt="Research insights">
+            </div>
 
-</div>
+            <div class="stats">
 
-<div class="stats">
+                <div class="stat">
 
-<div class="stat">
+                    <div class="stat-number">
+                        78%
+                    </div>
 
-<div class="stat-number">
+                    <div class="stat-label">
+                        Needed structured feedback after every interview.
+                    </div>
 
-78%
+                </div>
 
-</div>
+                <div class="stat">
 
-<div class="stat-label">
+                    <div class="stat-number">
+                        64%
+                    </div>
 
-Needed structured feedback after every interview.
+                    <div class="stat-label">
+                        Found mock interviews difficult to organize.
+                    </div>
 
-</div>
+                </div>
 
-</div>
+                <div class="stat">
 
-<div class="stat">
+                    <div class="stat-number">
+                        91%
+                    </div>
 
-<div class="stat-number">
+                    <div class="stat-label">
+                        Preferred realistic conversations over static interview questions.
+                    </div>
 
-64%
+                </div>
 
-</div>
+            </div>
 
-<div class="stat-label">
+        </div>
 
-Found mock interviews difficult to organize.
-
-</div>
-
-</div>
-
-<div class="stat">
-
-<div class="stat-number">
-
-91%
-
-</div>
-
-<div class="stat-label">
-
-Wanted realistic interview conversations instead of static questions.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
@@ -834,180 +844,156 @@ DESIGN PRINCIPLES
 
 <section class="overview">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-label">
+        <div class="section-label">
+            Design Principles
+        </div>
 
-Design Principles
+        <h2>
+            Three principles guided every design decision.
+        </h2>
 
-</div>
+        <div class="principles-grid">
 
-<h2>
+            <article class="principle-card">
 
-Three principles guided every design decision.
+                <div class="stat-number">
+                    01
+                </div>
 
-</h2>
+                <h3 class="principle-title">
+                    Feel conversational.
+                </h3>
 
-<div class="overview-grid">
+                <p>
+                    The interface should reduce anxiety and encourage thoughtful discussion rather than feeling like an examination.
+                </p>
 
-<div>
+            </article>
 
-<div class="stat">
+            <article class="principle-card">
 
-<div class="stat-number">
+                <div class="stat-number">
+                    02
+                </div>
 
-01
+                <h3 class="principle-title">
+                    Provide meaningful feedback.
+                </h3>
 
-</div>
+                <p>
+                    Every interview should end with actionable recommendations that designers can immediately apply.
+                </p>
 
-<h3 style="margin:12px 0;font-size:28px;font-family:'Newsreader',serif;">
+            </article>
 
-Feel conversational.
+            <article class="principle-card">
 
-</h3>
+                <div class="stat-number">
+                    03
+                </div>
 
-<p>
+                <h3 class="principle-title">
+                    Track progress over time.
+                </h3>
 
-The interface should reduce anxiety and encourage thoughtful discussion rather than feeling like an examination.
+                <p>
+                    Instead of isolated interview sessions, the experience should motivate continuous improvement through measurable progress.
+                </p>
 
-</p>
+            </article>
 
-</div>
+            <div class="hero-image principle-image">
 
-<div class="stat" style="margin-top:40px;">
+                <img
+                    src="YOUR-DESIGN-PRINCIPLE-IMAGE.png"
+                    alt="Design principles">
 
-<div class="stat-number">
+            </div>
 
-02
+        </div>
 
-</div>
-
-<h3 style="margin:12px 0;font-size:28px;font-family:'Newsreader',serif;">
-
-Provide meaningful feedback.
-
-</h3>
-
-<p>
-
-Every interview should end with actionable recommendations that designers can immediately apply.
-
-</p>
-
-</div>
-
-</div>
-
-<div>
-
-<div class="stat">
-
-<div class="stat-number">
-
-03
-
-</div>
-
-<h3 style="margin:12px 0;font-size:28px;font-family:'Newsreader',serif;">
-
-Track progress over time.
-
-</h3>
-
-<p>
-
-Instead of isolated interview sessions, the experience should motivate continuous improvement through measurable progress.
-
-</p>
-
-</div>
-
-<div class="hero-image" style="margin-top:40px;">
-
-<img
-src="YOUR-DESIGN-PRINCIPLE-IMAGE.png"
-alt="Design Principles">
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
-<!-- =======================================================
+    <!-- =======================================================
 USER JOURNEY
 ======================================================= -->
 
 <section class="overview">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-label">
-Experience Flow
-</div>
+        <div class="section-label">
+            Experience Flow
+        </div>
 
-<h2>
-From opening the app to becoming interview-ready.
-</h2>
+        <h2>
+            From opening the app to becoming interview-ready.
+        </h2>
 
-<div class="hero-image" style="padding:50px;">
+        <div class="journey-image">
 
-<img src="YOUR-USER-JOURNEY.png" alt="User Journey">
+            <img
+                src="YOUR-USER-JOURNEY.png"
+                alt="User Journey">
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
+
+
 
 
 
 <!-- =======================================================
-THE EXPERIENCE
+PRODUCT WALKTHROUGH
 ======================================================= -->
 
 <section class="overview">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-label">
-Product Walkthrough
-</div>
+        <div class="section-label">
+            Product Walkthrough
+        </div>
 
-<div class="overview-grid">
+        <div class="overview-grid">
 
-<div>
+            <div>
 
-<h2>
+                <h2>
+                    A guided interview experience that feels natural.
+                </h2>
 
-A guided interview experience that feels natural.
+                <p>
+                    The experience begins by allowing designers to choose the type of interview they want to practice. Whether preparing for a portfolio presentation, a product thinking interview, or a whiteboard challenge, every session adapts to the selected format.
+                </p>
 
-</h2>
+                <p>
+                    Rather than displaying static questions, the AI behaves like a real interviewer—asking follow-up questions, challenging assumptions, and encouraging deeper explanations.
+                </p>
 
-<p>
+            </div>
 
-The experience begins by allowing designers to choose the type of interview they want to practice. Whether preparing for a portfolio presentation, a product thinking interview, or a whiteboard challenge, every session adapts to the selected format.
+            <div class="hero-image">
 
-Rather than displaying a list of static questions, the AI behaves like an interviewer, asking follow-up questions and encouraging deeper explanations.
+                <img
+                    src="YOUR-HOME-SCREEN.png"
+                    alt="Home screen">
 
-</p>
+            </div>
 
-</div>
+        </div>
 
-<div class="hero-image">
-
-<img src="YOUR-HOME-SCREEN.png">
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
+
+
 
 
 
@@ -1017,43 +1003,45 @@ FEATURE ONE
 
 <section class="overview">
 
-<div class="container">
+    <div class="container">
 
-<div class="overview-grid">
+        <div class="overview-grid reverse">
 
-<div class="hero-image">
+            <div class="hero-image">
 
-<img src="YOUR-INTERVIEW-SCREEN.png">
+                <img
+                    src="YOUR-INTERVIEW-SCREEN.png"
+                    alt="Interview screen">
 
-</div>
+            </div>
 
-<div>
+            <div>
 
-<div class="section-label">
-Feature One
-</div>
+                <div class="section-label">
+                    Feature One
+                </div>
 
-<h2>
+                <h2>
+                    Real conversations instead of scripted questionnaires.
+                </h2>
 
-Real conversations instead of scripted questionnaires.
+                <p>
+                    Every interview unfolds dynamically. The AI adapts to previous answers, probes for reasoning, and simulates the back-and-forth conversations designers experience during real interviews.
+                </p>
 
-</h2>
+                <p>
+                    This creates a more realistic environment where communication becomes just as important as technical knowledge.
+                </p>
 
-<p>
+            </div>
 
-Every interview unfolds dynamically. The AI adapts to previous answers, probes for reasoning, and simulates the back-and-forth conversations designers experience during actual interviews.
+        </div>
 
-This creates a more realistic environment where communication skills become just as important as technical knowledge.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
+
+
 
 
 
@@ -1063,548 +1051,456 @@ FEATURE TWO
 
 <section class="overview">
 
-<div class="container">
+    <div class="container">
 
-<div class="overview-grid">
+        <div class="overview-grid">
 
-<div>
+            <div>
 
-<div class="section-label">
-Feature Two
-</div>
+                <div class="section-label">
+                    Feature Two
+                </div>
 
-<h2>
+                <h2>
+                    Detailed AI feedback after every interview.
+                </h2>
 
-Detailed AI feedback after every session.
+                <p>
+                    Once an interview is completed, DesignMock AI generates structured feedback covering communication, product thinking, storytelling, confidence, decision-making, and problem-solving.
+                </p>
 
-</h2>
+                <p>
+                    Instead of generic encouragement, designers receive clear recommendations they can immediately apply before their next interview.
+                </p>
 
-<p>
+            </div>
 
-Once an interview is completed, DesignMock AI generates structured feedback covering communication, product thinking, confidence, problem-solving, storytelling, and decision-making.
+            <div class="hero-image">
 
-Instead of generic encouragement, designers receive specific recommendations they can apply before the next interview.
+                <img
+                    src="YOUR-FEEDBACK.png"
+                    alt="Feedback report">
 
-</p>
+            </div>
 
-</div>
+        </div>
 
-<div class="hero-image">
-
-<img src="YOUR-FEEDBACK.png">
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
+    /* ===================================================
+PART 3
+=================================================== */
 
+.journey-image{
 
+    margin-top:56px;
 
-<!-- =======================================================
+    padding:48px;
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    background:#FFFFFF;
+
+}
+
+.reverse{
+
+    align-items:center;
+
+}
+
+.overview-grid p{
+
+    margin-bottom:20px;
+
+}
+
+.overview-grid p:last-child{
+
+    margin-bottom:0;
+
+}
+
+@media (max-width:900px){
+
+    .journey-image{
+
+        padding:24px;
+
+        margin-top:36px;
+
+    }
+
+    .overview-grid p{
+
+        margin-bottom:18px;
+
+    }
+
+}
+    <!-- =======================================================
 FEATURE THREE
 ======================================================= -->
 
 <section class="overview">
 
-<div class="container">
+    <div class="container">
 
-<div class="overview-grid">
+        <div class="overview-grid reverse">
 
-<div class="hero-image">
+            <div class="hero-image">
 
-<img src="YOUR-PROGRESS.png">
+                <img
+                    src="YOUR-PROGRESS.png"
+                    alt="Progress Dashboard">
 
-</div>
+            </div>
 
-<div>
+            <div>
 
-<div class="section-label">
-Feature Three
-</div>
+                <div class="section-label">
+                    Feature Three
+                </div>
 
-<h2>
+                <h2>
+                    Track improvement over time.
+                </h2>
 
-Track improvement over time.
+                <p>
+                    Preparing for interviews is an iterative process. Every completed interview contributes to a broader understanding of progress, helping designers identify recurring weaknesses while celebrating measurable improvement.
+                </p>
 
-</h2>
+                <p>
+                    Progress dashboards reinforce consistency and motivate designers to practice intentionally instead of preparing only before interviews.
+                </p>
 
-<p>
+            </div>
 
-Preparing for interviews is an iterative process. Every completed interview contributes to a broader understanding of progress, helping designers identify recurring weaknesses while celebrating measurable improvement.
+        </div>
 
-Progress dashboards reinforce consistency and encourage deliberate practice.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
 
+
+
 <!-- =======================================================
+FEATURE HIGHLIGHTS
+======================================================= -->
+
+<section class="overview">
+
+    <div class="container">
+
+        <div class="section-label">
+            Highlights
+        </div>
+
+        <h2>
+            Everything needed to prepare with confidence.
+        </h2>
+
+        <div class="feature-grid">
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+<rect x="9" y="2" width="6" height="12" rx="3"/>
+
+<path d="M5 10a7 7 0 0 0 14 0"/>
+
+<line x1="12" y1="19" x2="12" y2="22"/>
+
+<line x1="8" y1="22" x2="16" y2="22"/>
+
+</svg>
+
+</div>
+
+                <h3 class="feature-title">
+                    Voice Interviews
+                </h3>
+
+                <p>
+                    Practice natural conversations with AI-powered interview sessions that adapt to your responses.
+                </p>
+
+            </article>
+
+            <article class="feature-card">
+
+               <div class="feature-icon">
+
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+<path d="M3 3v18h18"/>
+
+<path d="M8 15l3-4 3 2 5-7"/>
+
+</svg>
+
+</div>
+
+                <h3 class="feature-title">
+                    Performance Reports
+                </h3>
+
+                <p>
+                    Understand strengths and weaknesses through structured AI evaluations after every interview.
+                </p>
+
+            </article>
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+<circle cx="12" cy="12" r="9"/>
+
+<path d="M12 7v5l3 3"/>
+
+</svg>
+
+</div>
+
+                <h3 class="feature-title">
+                    Progress Tracking
+                </h3>
+
+                <p>
+                    Monitor your growth across multiple interview sessions and identify recurring improvement areas.
+                </p>
+
+            </article>
+
+            <article class="feature-card">
+
+               <div class="feature-icon">
+
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+<circle cx="12" cy="8" r="4"/>
+
+<path d="M5 21c1.5-4 4-6 7-6s5.5 2 7 6"/>
+
+</svg>
+
+</div>
+
+                <h3 class="feature-title">
+                    Personalized Coaching
+                </h3>
+
+                <p>
+                    Receive recommendations tailored specifically to your interview performance and communication style.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =======================================================
+FINAL INTERFACE
+======================================================= -->
+
+<section class="overview">
+
+    <div class="container">
+
+        <div class="section-label">
+            Final Interface
+        </div>
+
+        <div class="hero-image">
+
+            <img
+                src="YOUR-FULL-DASHBOARD.png"
+                alt="Final dashboard">
+
+        </div>
+
+    </div>
+
+</section>
+    /* ===================================================
 FEATURE GRID
-======================================================= -->
+=================================================== */
 
-<section class="overview">
+.feature-grid{
 
-<div class="container">
+    display:grid;
 
-<div class="section-label">
-Highlights
-</div>
+    grid-template-columns:repeat(2,1fr);
 
-<h2>
+    gap:32px;
 
-Everything needed to prepare with confidence.
+    margin-top:56px;
 
-</h2>
+}
 
-<div style="display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:28px;
-margin-top:60px;">
+.feature-card{
 
-<div class="stat">
+    padding:28px;
 
-<div class="stat-number">
-🎙
-</div>
+    border:1px solid var(--border);
 
-<h3 style="margin-bottom:12px;font-family:'Newsreader',serif;font-size:30px;">
+    border-radius:20px;
 
-Voice Interviews
+    background:#FCFCFB;
 
-</h3>
+    transition:0.25s ease;
 
-<p>
+}
 
-Practice natural conversations with AI-powered interview sessions.
+.feature-card:hover{
 
-</p>
+    transform:translateY(-4px);
 
-</div>
+    box-shadow:0 12px 30px rgba(0,0,0,.05);
 
-<div class="stat">
+}
 
-<div class="stat-number">
-📊
-</div>
+.feature-icon{
 
-<h3 style="margin-bottom:12px;font-family:'Newsreader',serif;font-size:30px;">
+    width:56px;
 
-Performance Reports
+    height:56px;
 
-</h3>
+    display:flex;
 
-<p>
+    align-items:center;
 
-Understand strengths and weaknesses through structured AI evaluations.
+    justify-content:center;
 
-</p>
+    border:1px solid var(--border);
 
-</div>
+    border-radius:50%;
 
-<div class="stat">
+    margin-bottom:22px;
 
-<div class="stat-number">
-📈
-</div>
+    color:#111;
 
-<h3 style="margin-bottom:12px;font-family:'Newsreader',serif;font-size:30px;">
+    background:#FCFCFB;
 
-Progress Tracking
+}
 
-</h3>
+.feature-icon svg{
 
-<p>
+    width:26px;
 
-Monitor improvement across multiple interview sessions.
+    height:26px;
 
-</p>
+}
+}
 
-</div>
+.feature-title{
 
-<div class="stat">
+    font-family:"Instrument Serif", Georgia, serif;
 
-<div class="stat-number">
-🎯
-</div>
+    font-size:30px;
 
-<h3 style="margin-bottom:12px;font-family:'Newsreader',serif;font-size:30px;">
+    line-height:34px;
 
-Personalized Coaching
+    font-weight:700;
 
-</h3>
+    letter-spacing:-0.02em;
 
-<p>
+    margin-bottom:14px;
 
-Receive recommendations tailored to each interview performance.
+    color:var(--text);
 
-</p>
+}
 
-</div>
+.feature-card p{
 
-</div>
+    font-size:17px;
 
-</div>
+    line-height:1.8;
 
-</section>
+    color:var(--muted);
 
+}
 
 
-<!-- =======================================================
-FULL WIDTH MOCKUP
-======================================================= -->
 
-<section class="overview">
 
-<div class="container">
 
-<div class="section-label">
-Final Interface
-</div>
 
-<div class="hero-image">
 
-<img src="YOUR-FULL-DASHBOARD.png">
+/* ===================================================
+MOBILE
+=================================================== */
 
-</div>
+@media (max-width:900px){
 
-</div>
+    .feature-grid{
 
-</section>
-<!-- =======================================================
-DESIGN SYSTEM
-======================================================= -->
+        grid-template-columns:1fr;
 
-<section class="overview">
+        gap:20px;
 
-<div class="container">
+        margin-top:40px;
 
-<div class="section-label">
-Design System
-</div>
+    }
 
-<h2>
-Building consistency across the experience.
-</h2>
+    .feature-card{
 
-<div class="overview-grid">
+        padding:22px;
 
-<div>
+    }
 
-<p>
+    .feature-icon{
 
-A simple design language was created to keep every interaction familiar and distraction-free. Typography emphasizes readability, spacing creates breathing room, and a restrained color palette allows users to focus entirely on interview conversations and feedback.
+    width:48px;
 
-</p>
+    height:48px;
 
-<div style="margin-top:40px;display:flex;gap:18px;flex-wrap:wrap;">
+    margin-bottom:18px;
 
-<div style="width:90px;height:90px;border-radius:16px;background:#0E766D;"></div>
+}
 
-<div style="width:90px;height:90px;border-radius:16px;background:#F8F7F4;border:1px solid #E5E5E5;"></div>
+.feature-icon svg{
 
-<div style="width:90px;height:90px;border-radius:16px;background:#111111;"></div>
+    width:22px;
 
-<div style="width:90px;height:90px;border-radius:16px;background:#D7EDEB;"></div>
+    height:22px;
 
-</div>
+}
 
-</div>
+    }
 
-<div class="hero-image">
+    .feature-title{
 
-<img src="YOUR-DESIGN-SYSTEM.png" alt="Design System">
+        font-size:24px;
 
-</div>
+        line-height:30px;
 
-</div>
+        margin-bottom:10px;
 
-</div>
+    }
 
-</section>
+    .feature-card p{
 
+        font-size:16px;
 
+    }
 
-<!-- =======================================================
-RESPONSIVE SHOWCASE
-======================================================= -->
-
-<section class="overview">
-
-<div class="container">
-
-<div class="section-label">
-Responsive Experience
-</div>
-
-<h2>
-
-Designed for desktop, tablet and mobile.
-
-</h2>
-
-<div style="display:grid;
-grid-template-columns:1.2fr .8fr .55fr;
-gap:20px;
-align-items:end;
-margin-top:60px;">
-
-<div class="hero-image">
-
-<img src="YOUR-DESKTOP.png">
-
-</div>
-
-<div class="hero-image">
-
-<img src="YOUR-TABLET.png">
-
-</div>
-
-<div class="hero-image">
-
-<img src="YOUR-MOBILE.png">
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =======================================================
-OUTCOME
-======================================================= -->
-
-<section class="overview">
-
-<div class="container">
-
-<div class="section-label">
-
-Outcome
-
-</div>
-
-<h2>
-
-Helping designers practice with confidence.
-
-</h2>
-
-<div class="overview-grid">
-
-<div>
-
-<p>
-
-DesignMock AI transforms interview preparation from passive learning into active practice. By combining conversational AI with personalized coaching, designers gain a safe environment to improve communication, sharpen product thinking, and build confidence before meeting real hiring teams.
-
-</p>
-
-</div>
-
-<div>
-
-<p>
-
-Beyond solving an immediate problem, the project demonstrates how AI can become a practical learning companion rather than simply another content generator.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =======================================================
-REFLECTION
-======================================================= -->
-
-<section class="overview">
-
-<div class="container">
-
-<div class="section-label">
-
-Reflection
-
-</div>
-
-<h2>
-
-What I learned.
-
-</h2>
-
-<div class="overview-grid">
-
-<div>
-
-<div class="stat">
-
-<div class="stat-number">
-
-01
-
-</div>
-
-<div class="stat-label">
-
-Designing AI experiences requires clarity more than complexity.
-
-</div>
-
-</div>
-
-<div class="stat">
-
-<div class="stat-number">
-
-02
-
-</div>
-
-<div class="stat-label">
-
-Meaningful feedback creates more value than simply asking questions.
-
-</div>
-
-</div>
-
-</div>
-
-<div>
-
-<div class="stat">
-
-<div class="stat-number">
-
-03
-
-</div>
-
-<div class="stat-label">
-
-Strong UX is built through iteration, testing and continuous refinement.
-
-</div>
-
-</div>
-
-<div class="stat">
-
-<div class="stat-number">
-
-04
-
-</div>
-
-<div class="stat-label">
-
-Simple interfaces increase confidence during stressful tasks like interviews.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =======================================================
-NEXT PROJECT
-======================================================= -->
-
-<section class="overview">
-
-<div class="container">
-
-<div class="section-label">
-
-Next Project
-
-</div>
-
-<a href="nairaland.html" style="display:block;">
-
-<div class="hero-image">
-
-<img src="YOUR-NEXT-PROJECT.png">
-
-<div style="padding:40px;">
-
-<h2 style="margin-bottom:18px;">
-
-Nairaland Redesign
-
-</h2>
-
-<p style="font-size:20px;color:#555;">
-
-Reimagining one of Africa's largest online communities with a cleaner and more modern experience.
-
-</p>
-
-</div>
-
-</div>
-
-</a>
-
-</div>
-
-</section>
-
-
-
-<footer style="padding:80px 0;border-top:1px solid #E5E5E5;">
-
-<div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
-
-<p style="color:#777;">
-
-© 2026 Oyeniran Joel
-
-</p>
-
-<a href="index.html">
-
-Back to Portfolio →
-
-</a>
-
-</div>
-
-</footer>
-
-
-
-</body>
-
-</html>
+}
