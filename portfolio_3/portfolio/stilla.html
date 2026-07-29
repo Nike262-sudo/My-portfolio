@@ -265,8 +265,6 @@ STILLA HERO MOCKUP
     border-radius:12px;
 }
 
-}
-
 </style>
 <!-- ==========================================
 PROJECT OVERVIEW
@@ -384,6 +382,187 @@ PROJECT OVERVIEW
 .overview-right p{
     font-size:1rem;
     line-height:1.9;
+}
+
+}
+
+</style>
+<!-- ==========================================
+DESIGN PRINCIPLES
+========================================== -->
+
+<section class="principles">
+
+    <div class="case-container">
+
+        <p class="case-label">
+            DESIGN PRINCIPLES
+        </p>
+
+        <h2 class="principles-heading">
+            Every design decision followed four simple principles.
+        </h2>
+
+        <div class="principles-grid">
+
+            <div class="principle-card">
+
+                <span class="principle-number">
+                    01
+                </span>
+
+                <h3>
+                    Restraint over decoration
+                </h3>
+
+                <p>
+                    Rather than relying on gradients, excessive motion or visual noise, the interface remains intentionally quiet, allowing the products to become the primary visual focus.
+                </p>
+
+            </div>
+
+            <div class="principle-card">
+
+                <span class="principle-number">
+                    02
+                </span>
+
+                <h3>
+                    Whitespace creates rhythm
+                </h3>
+
+                <p>
+                    Generous spacing improves readability and creates the calm editorial feeling commonly found in premium furniture catalogues and printed magazines.
+                </p>
+
+            </div>
+
+            <div class="principle-card">
+
+                <span class="principle-number">
+                    03
+                </span>
+
+                <h3>
+                    Typography leads hierarchy
+                </h3>
+
+                <p>
+                    Instrument Serif provides character while Geist delivers clarity, creating a clear hierarchy without depending on oversized interface elements.
+                </p>
+
+            </div>
+
+            <div class="principle-card">
+
+                <span class="principle-number">
+                    04
+                </span>
+
+                <h3>
+                    Photography tells the story
+                </h3>
+
+                <p>
+                    Large immersive imagery replaces unnecessary interface decoration, communicating material quality and craftsmanship before visitors even begin reading.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.principles{
+    padding:9rem 0;
+    background:#faf8f4;
+}
+
+.principles-heading{
+    font-family:"Instrument Serif",serif;
+    font-size:clamp(2.3rem,4vw,3.8rem);
+    font-weight:400;
+    line-height:1.08;
+    max-width:760px;
+    margin:1.5rem 0 5rem;
+}
+
+.principles-grid{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:2rem;
+
+}
+
+.principle-card{
+
+    padding:2.5rem;
+    border:1px solid #e9e3d9;
+    background:white;
+
+}
+
+.principle-number{
+
+    display:inline-block;
+    margin-bottom:2rem;
+
+    font-size:.8rem;
+    letter-spacing:.16em;
+    color:#9b9b9b;
+    font-weight:600;
+
+}
+
+.principle-card h3{
+
+    font-family:"Instrument Serif",serif;
+    font-size:1.8rem;
+    font-weight:400;
+    line-height:1.2;
+
+    margin:0 0 1rem;
+
+}
+
+.principle-card p{
+
+    font-size:1rem;
+    line-height:1.9;
+    color:#666;
+    margin:0;
+
+}
+
+@media(max-width:900px){
+
+.principles{
+
+    padding:5rem 0;
+
+}
+
+.principles-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.principle-card{
+
+    padding:2rem;
+
+}
+
+.principles-heading{
+
+    margin-bottom:3rem;
+
 }
 
 }
