@@ -1,862 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nuvioweb — Case Study · Oyeniran Joel</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black: #0a0a0a;
-      --white: #f8f7f4;
-      --mid:   #6b6b6b;
-      --light: #a8a8a8;
-      --line:  #e0deda;
-      --serif: 'Instrument Serif', Georgia, serif;
-      --sans:  'DM Sans', sans-serif;
-      --ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
-      --max:   740px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      background: var(--white);
-      color: var(--black);
-      font-size: 16px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { display: block; width: 100%; }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
-      padding: 20px 0;
-    }
-
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--mid);
-      transition: color 0.2s var(--ease);
-    }
-
-    .nav-back:hover { color: var(--black); }
-    .nav-back svg { width: 14px; height: 14px; transition: transform 0.2s var(--ease); }
-    .nav-back:hover svg { transform: translateX(-3px); }
-
-    .nav-name {
-      font-family: var(--serif);
-      font-size: 16px;
-      letter-spacing: -0.02em;
-    }
-
-    /* LAYOUT */
-    .wrap      { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
-    .wrap-wide { max-width: 1000px;     margin: 0 auto; padding: 0 40px; }
-
-    /* HERO */
-    .hero {
-      padding: 96px 0 80px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero-tag {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--mid);
-      display: block;
-      margin-bottom: 24px;
-    }
-
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(52px, 8vw, 96px);
-      line-height: 0.95;
-      letter-spacing: -0.035em;
-      margin-bottom: 24px;
-    }
-
-    .hero-subtitle {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: clamp(18px, 2.2vw, 23px);
-      color: var(--mid);
-      line-height: 1.35;
-      margin-bottom: 24px;
-      max-width: 560px;
-    }
-
-    .hero-desc {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--mid);
-      max-width: 480px;
-      line-height: 1.75;
-      margin-bottom: 56px;
-    }
-
-    .meta-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-      max-width: 480px;
-    }
-
-    .meta-item {
-      padding: 18px 22px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .meta-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 6px;
-    }
-
-    .meta-value {
-      font-size: 13px;
-      color: var(--black);
-      line-height: 1.4;
-    }
-
-    /* HERO IMAGE */
-    .hero-image {
-      margin-top: 72px;
-      border-top: 1px solid var(--line);
-      padding-top: 72px;
-    }
-
-    /* IMAGE BLOCKS */
-    .img-block {
-      width: 100%;
-      background: #f0f0f0;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
-    }
-    .img-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .img-block.tall   { aspect-ratio: 16 / 9; }
-    .img-block.medium { aspect-ratio: 4 / 3; }
-    .img-block.hero-full { aspect-ratio: 16 / 8; min-height: 400px; }
-
-    @media (min-width: 960px) {
-      .img-block:hover {
-        box-shadow: 0 8px 28px rgba(0,0,0,0.13);
-        transform: scale(1.015);
-      }
-    }
-
-    .img-caption {
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--mid);
-      margin-top: 14px;
-      letter-spacing: 0.02em;
-    }
-
-    /* SECTIONS */
-    .section {
-      padding: 100px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-number {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(26px, 3.5vw, 38px);
-      line-height: 1.1;
-      letter-spacing: -0.025em;
-      margin-bottom: 36px;
-    }
-
-    .section-title em { font-style: italic; color: var(--mid); }
-
-    .body-text {
-      font-size: 15.5px;
-      font-weight: 300;
-      color: #2e2e2e;
-      line-height: 1.8;
-      max-width: 580px;
-    }
-
-    /* GOAL LIST */
-    .goal-list { list-style: none; margin-top: 28px; }
-
-    .goal-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 16px 0;
-      border-top: 1px solid var(--line);
-      font-size: 15px;
-      font-weight: 300;
-      color: #2e2e2e;
-      line-height: 1.6;
-    }
-
-    .goal-list li:last-child { border-bottom: 1px solid var(--line); }
-    .goal-dash { color: var(--light); font-size: 12px; margin-top: 4px; }
-
-    /* APPROACH GRID */
-    .approach-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      margin-top: 36px;
-    }
-
-    .approach-item {
-      background: var(--white);
-      padding: 28px 32px;
-    }
-
-    .approach-title {
-      font-size: 13.5px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 10px;
-    }
-
-    .approach-desc {
-      font-size: 13.5px;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.65;
-    }
-
-    /* KEY SECTIONS TABLE */
-    .key-table {
-      margin-top: 36px;
-      border: 1px solid var(--line);
-    }
-
-    .key-row {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .key-row:last-child { border-bottom: none; }
-
-    .key-name {
-      padding: 22px 28px;
-      font-size: 13.5px;
-      font-weight: 500;
-      border-right: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-    }
-
-    .key-detail {
-      padding: 22px 28px;
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.7;
-    }
-
-    /* VISUAL DESIGN SPECS */
-    .spec-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 17px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 14px;
-    }
-
-    .spec-row:first-child { border-top: 1px solid var(--line); }
-    .spec-label { font-weight: 400; color: var(--mid); }
-    .spec-value { font-weight: 300; color: var(--black); text-align: right; }
-
-    /* OUTCOME LIST */
-    .outcome-list { list-style: none; margin-top: 28px; }
-
-    .outcome-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 16px 0;
-      border-top: 1px solid var(--line);
-      font-size: 15px;
-      font-weight: 300;
-      color: #2e2e2e;
-      line-height: 1.6;
-    }
-
-    .outcome-list li:last-child { border-bottom: 1px solid var(--line); }
-
-    /* ── FIRST VISUAL ── */
-    .first-visual {
-      padding: 80px 0 100px;
-    }
-
-    /* ── DESIGN SHOWCASE ── */
-    .showcase-section {
-      padding: 100px 0 120px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    /* ── IMAGE GRID ── */
-    .img-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      margin-top: 40px;
-    }
-
-    .img-labeled {
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ── FINAL EXPERIENCE ── */
-    .final-experience {
-      padding: 100px 0;
-      text-align: center;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .final-experience .section-number,
-    .final-experience .section-title {
-      text-align: center;
-    }
-
-    .final-experience .section-title {
-      margin-bottom: 48px;
-    }
-
-    /* ── UTILITY ── */
-    .second-image-wrap {
-      padding-bottom: 80px;
-    }
-
-    .spec-list {
-      margin-top: 32px;
-    }
-
-    .body-text-spaced {
-      margin-top: 32px;
-    }
-
-    /* NEXT / FOOTER */
-    .next-project { padding: 64px 0; border-top: 1px solid var(--line); }
-
-    .next-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 16px;
-    }
-
-    .next-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-family: var(--serif);
-      font-size: clamp(24px, 3vw, 36px);
-      letter-spacing: -0.02em;
-      transition: gap 0.2s var(--ease);
-    }
-
-    .next-link:hover { gap: 20px; }
-    .next-link svg { width: 28px; height: 28px; flex-shrink: 0; }
-
-    /* ── CTA SECTION ── */
-    .cta-section {
-      border-top: 1px solid var(--line);
-      padding: 100px 0;
-      text-align: center;
-    }
-
-    .cta-headline {
-      font-family: var(--serif);
-      font-size: clamp(24px, 3vw, 32px);
-      letter-spacing: -0.02em;
-      margin-bottom: 28px;
-    }
-
-    .btn-cta-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 14px 28px;
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
-    }
-
-    .btn-cta-live:hover {
-      background: #2a2a2a;
-      transform: translateY(-2px);
-    }
-
-    footer { padding: 32px 0; border-top: 1px solid var(--line); }
-
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-copy { font-size: 12px; color: var(--light); }
-    .footer-back { font-size: 12px; color: var(--mid); transition: color 0.2s; }
-    .footer-back:hover { color: var(--black); }
-
-    /* REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
-    }
-
-    .reveal.in { opacity: 1; transform: none; }
-    .reveal.d1 { transition-delay: 0.07s; }
-    .reveal.d2 { transition-delay: 0.14s; }
-    .reveal.d3 { transition-delay: 0.21s; }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .nav-inner, .wrap, .wrap-wide, .footer-inner { padding: 0 24px; }
-      .hero { padding: 64px 0 56px; }
-      .meta-grid { grid-template-columns: 1fr 1fr; max-width: 100%; }
-      .meta-grid .meta-item:last-child { grid-column: 1 / -1; }
-      .approach-grid { grid-template-columns: 1fr; }
-      .key-row { grid-template-columns: 1fr; }
-      .key-name { border-right: none; border-bottom: 1px solid var(--line); }
-      .section { padding: 64px 0; }
-      .first-visual { padding: 48px 0 64px; }
-      .showcase-section { padding: 64px 0 80px; }
-      .img-grid-2 { grid-template-columns: 1fr; gap: 24px; }
-      .img-block.hero-full { min-height: 280px; }
-      .final-experience { padding: 64px 0; }
-    }
-
-    @media (max-width: 480px) {
-      .meta-grid { grid-template-columns: 1fr; }
-    }
-
-    /* HAMBURGER */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .nav-hamburger span {
-      display: block;
-      height: 1.5px;
-      background: var(--black);
-      transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
-      transform-origin: center;
-    }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .nav-mobile {
-      display: none;
-      flex-direction: column;
-      border-top: 1px solid var(--line);
-      background: var(--white);
-    }
-    .nav-mobile.open { display: flex; }
-    .nav-mobile a {
-      font-size: 15px;
-      color: var(--mid);
-      padding: 16px 24px;
-      border-bottom: 1px solid var(--line);
-      transition: color 0.2s var(--ease);
-    }
-    .nav-mobile a:last-child { border-bottom: none; }
-    .nav-mobile a:hover { color: var(--black); }
-  </style>
-</head>
-<body>
-
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-back">
-        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 7H2M2 7L6 3M2 7L6 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Back to Home
-      </a>
-      <span class="nav-name">Oyeniran Joel</span>
-      <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav-mobile" id="mobileMenu">
-      <a href="index.html" onclick="closeMenu()">Home</a>
-      <a href="index.html#work" onclick="closeMenu()">Work</a>
-      <a href="index.html#about" onclick="closeMenu()">About</a>
-      <a href="contact.html" onclick="closeMenu()">Contact</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="wrap">
-      <span class="hero-tag reveal" data-aos="fade-up">Case Study · Marketing Website</span>
-      <h1 class="hero-title reveal d1" data-aos="fade-up" data-aos-delay="100">Nuvioweb</h1>
-      <p class="hero-subtitle reveal d2" data-aos="fade-up" data-aos-delay="200">Designing a clean and conversion-focused marketing website</p>
-      <p class="hero-desc reveal d3" data-aos="fade-up" data-aos-delay="300">
-        A modern marketing website designed to communicate value clearly and guide users toward taking action.
-      </p>
-
-      <div class="meta-grid reveal" data-aos="fade-up" data-aos-delay="400">
-        <div class="meta-item">
-          <div class="meta-label">Role</div>
-          <div class="meta-value">Product Designer</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label">Type</div>
-          <div class="meta-value">Marketing Website</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label">Timeline</div>
-          <div class="meta-value">1 week</div>
-        </div>
+<!-- ==========================================
+STILLA HERO
+========================================== -->
+
+<section class="case-hero">
+  <div class="case-container">
+
+    <p class="case-label">
+      CASE STUDY · FURNITURE WEBSITE DESIGN
+    </p>
+
+    <h1 class="case-title">
+      STILLA
+    </h1>
+
+    <p class="case-subtitle">
+      A refined furniture experience built around craftsmanship, restraint, and timeless design.
+    </p>
+
+    <p class="case-description">
+      STILLA is a conceptual furniture brand website inspired by Scandinavian editorial design.
+      The goal was to create a digital experience where typography, imagery, and whitespace work
+      together to communicate quality without relying on excessive visual effects.
+    </p>
+
+    <div class="case-meta">
+
+      <div class="case-meta-item">
+        <span>ROLE</span>
+        <strong>Product Designer</strong>
       </div>
+
+      <div class="case-meta-item">
+        <span>TYPE</span>
+        <strong>Marketing Website</strong>
+      </div>
+
+      <div class="case-meta-item">
+        <span>TIMELINE</span>
+        <strong>2 Weeks</strong>
+      </div>
+
     </div>
 
-    <div class="hero-image wrap-wide reveal" data-aos="zoom-in" data-aos-delay="200">
-      <div class="img-block tall">
-        <img src="images/Nuvioweb full page view.png" alt="Nuvioweb full page view" />
-      </div>
-      <p class="img-caption">Full view</p>
-    </div>
   </div>
+</section>
+.case-hero{
+    padding:160px 0 100px;
+}
 
-  <!-- FIRST VISUAL -->
-  <div class="first-visual wrap-wide reveal" data-aos="zoom-in" data-aos-delay="100">
-    <div class="img-labeled">
-      <div class="img-block hero-full">
-        <img src="images/Nuvioweb.png" alt="Nuvioweb homepage" />
-      </div>
-      <p class="img-caption">Homepage</p>
-    </div>
-  </div>
+.case-container{
+    width:min(100%,980px);
+    margin:auto;
+    padding:0 24px;
+}
 
-  <!-- OVERVIEW -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">01 — Overview</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>project</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        A marketing website designed to communicate value clearly and guide users toward action.
-      </p>
-    </div>
-  </section>
+.case-label{
+    font-size:.78rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:#8f8f8f;
+    margin-bottom:26px;
+    font-weight:500;
+}
 
-  <!-- GOAL -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">02 — Goal</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Design <em>objectives</em></h2>
+.case-title{
+    font-family:"Instrument Serif",serif;
+    font-size:clamp(4.5rem,10vw,7.5rem);
+    line-height:.92;
+    font-weight:400;
+    color:#111;
+    margin-bottom:30px;
+}
 
-      <ul class="goal-list">
-        <li class="reveal" data-aos="fade-right" data-aos-delay="100"><span class="goal-dash">—</span><span>Clearly communicate the product's value from the first scroll</span></li>
-        <li class="reveal" data-aos="fade-right" data-aos-delay="200"><span class="goal-dash">—</span><span>Improve content structure and readability across all sections</span></li>
-        <li class="reveal" data-aos="fade-right" data-aos-delay="300"><span class="goal-dash">—</span><span>Guide users toward key actions — sign up, learn more, get started</span></li>
-        <li class="reveal" data-aos="fade-right" data-aos-delay="400"><span class="goal-dash">—</span><span>Create a clean, modern interface that builds trust</span></li>
-      </ul>
-    </div>
-  </section>
+.case-subtitle{
+    font-family:"Instrument Serif",serif;
+    font-style:italic;
+    font-size:clamp(1.6rem,2vw,2.2rem);
+    color:#6d6d6d;
+    line-height:1.4;
+    margin-bottom:30px;
+}
 
-  <!-- DESIGN APPROACH -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">03 — Design Approach</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Guided by <em>intent</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Guiding users through a clear journey — from introduction to action.
-      </p>
+.case-description{
+    max-width:620px;
+    font-size:1.18rem;
+    line-height:1.9;
+    color:#666;
+    margin-bottom:60px;
+}
 
-      <div class="approach-grid reveal" data-aos="fade-left" data-aos-delay="100">
-        <div class="approach-item">
-          <div class="approach-title">Clarity First</div>
-          <div class="approach-desc">Communicates value instantly — users understand the product within seconds.</div>
-        </div>
-        <div class="approach-item">
-          <div class="approach-title">Visual Hierarchy</div>
-          <div class="approach-desc">Sections guide attention naturally — headline to features to action.</div>
-        </div>
-        <div class="approach-item">
-          <div class="approach-title">Conversion Focus</div>
-          <div class="approach-desc">CTAs placed where users are most ready to act.</div>
-        </div>
-        <div class="approach-item">
-          <div class="approach-title">Minimalism</div>
-          <div class="approach-desc">Every element earns its place by contributing to clarity or conversion.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+.case-meta{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border:1px solid #e6e1d8;
+}
 
-  <!-- KEY SECTIONS -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">04 — Key Sections</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Building the <em>flow</em></h2>
+.case-meta-item{
+    padding:28px;
+}
 
-      <div class="key-table reveal" data-aos="fade-up">
-        <div class="key-row" data-aos="fade-up" data-aos-delay="100">
-          <div class="key-name">Hero Section</div>
-          <div class="key-detail">Immediate value communication — one message, one action.</div>
-        </div>
-        <div class="key-row" data-aos="fade-up" data-aos-delay="200">
-          <div class="key-name">Features Section</div>
-          <div class="key-detail">Scannable, digestible blocks with clear labels.</div>
-        </div>
-        <div class="key-row" data-aos="fade-up" data-aos-delay="300">
-          <div class="key-name">Call-to-Action</div>
-          <div class="key-detail">Action-oriented copy placed where users are ready to decide.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+.case-meta-item:not(:last-child){
+    border-right:1px solid #e6e1d8;
+}
 
-  <!-- SECOND IMAGE -->
-  <div class="wrap-wide second-image-wrap reveal" data-aos="zoom-in">
-    <div class="img-labeled">
-      <div class="img-block medium">
-        <img src="images/Nuvioweb section detail.png" alt="Nuvioweb section detail" />
-      </div>
-      <p class="img-caption">Features</p>
-    </div>
-  </div>
+.case-meta-item span{
+    display:block;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    color:#999;
+    margin-bottom:14px;
+    text-transform:uppercase;
+    font-weight:600;
+}
 
-  <!-- VISUAL DESIGN -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">05 — Visual Design</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">Design <em>decisions</em></h2>
-      <p class="body-text reveal d2" data-aos="fade-up" data-aos-delay="200">
-        Clarity and balance — every visual choice serves the content.
-      </p>
+.case-meta-item strong{
+    font-size:1.08rem;
+    font-weight:500;
+    color:#111;
+}
 
-      <div class="spec-list reveal" data-aos="fade-up" data-aos-delay="100">
-        <div class="spec-row">
-          <span class="spec-label">Typography</span>
-          <span class="spec-value">Clean, legible — hierarchy drives user attention</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Spacing</span>
-          <span class="spec-value">Consistent scale — creates structure and breathing room</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Color</span>
-          <span class="spec-value">Black, white, and grey only — minimal and focused</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Contrast</span>
-          <span class="spec-value">Used intentionally to highlight key actions and headings</span>
-        </div>
-      </div>
-    </div>
-  </section>
+@media(max-width:768px){
 
-  <!-- DESIGN SHOWCASE -->
-  <section class="showcase-section">
-    <div class="wrap-wide">
-      <div class="section-number reveal">Design Showcase</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>screens</em></h2>
+.case-hero{
+    padding:120px 0 70px;
+}
 
-      <!-- 1. Section detail (full-width) -->
-      <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="100">
-        <div class="img-block tall">
-          <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776070692/Section_detail_qutkwf.jpg" alt="Section detail" />
-        </div>
-        <p class="img-caption">Section detail</p>
-      </div>
+.case-title{
+    font-size:4.3rem;
+}
 
-      <!-- 2 & 3. Full view + Features 1 (2-column) -->
-      <div class="img-grid-2 reveal" data-aos="fade-up" data-aos-delay="200">
-        <div class="img-labeled">
-          <div class="img-block tall">
-            <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776072288/full_view_geoksd.jpg" alt="Full view" />
-          </div>
-          <p class="img-caption">Full view</p>
-        </div>
-        <div class="img-labeled">
-          <div class="img-block tall">
-            <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776072355/Features_hhhkpm.png" alt="Features 1" />
-          </div>
-          <p class="img-caption">Features 1</p>
-        </div>
-      </div>
+.case-description{
+    font-size:1rem;
+}
 
-      <!-- 4. Features 2 (full-width) -->
-      <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="300">
-        <div class="img-block tall">
-          <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776072355/Features_hhhkpm.png" alt="Features 2" />
-        </div>
-        <p class="img-caption">Features 2</p>
-      </div>
+.case-meta{
+    grid-template-columns:1fr;
+}
 
-      <!-- 5. Homepage 2 (full-width) -->
-      <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="400">
-        <div class="img-block tall">
-          <img src="https://res.cloudinary.com/dkuda0je5/image/upload/q_auto/f_auto/v1776072622/Homepage_nuvioweb_zjl97q.png" alt="Homepage 2" />
-        </div>
-        <p class="img-caption">Homepage 2</p>
-      </div>
-    </div>
-  </section>
+.case-meta-item{
+    border-right:none !important;
+    border-bottom:1px solid #e6e1d8;
+}
 
-  <!-- OUTCOME -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-number reveal">06 — Outcome</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>result</em></h2>
+.case-meta-item:last-child{
+    border-bottom:none;
+}
 
-      <ul class="outcome-list">
-        <li class="reveal" data-aos="fade-right" data-aos-delay="100"><span class="goal-dash">—</span><span>Communicates value effectively from the first section</span></li>
-        <li class="reveal" data-aos="fade-right" data-aos-delay="200"><span class="goal-dash">—</span><span>Guides users through a structured, distraction-free flow</span></li>
-        <li class="reveal" data-aos="fade-right" data-aos-delay="300"><span class="goal-dash">—</span><span>Encourages interaction through well-placed, intentional CTAs</span></li>
-      </ul>
-
-      <p class="body-text body-text-spaced reveal">
-        A modern, conversion-friendly interface — trustworthy, clean, and designed for action.
-      </p>
-    </div>
-  </section>
-
-  <!-- FINAL EXPERIENCE -->
-  <section class="final-experience">
-    <div class="wrap-wide">
-      <div class="section-number reveal">Final Experience</div>
-      <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>product</em></h2>
-      <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="100">
-        <div class="img-block hero-full">
-          <img src="images/Nuvioweb.png" alt="Nuvioweb final view" />
-        </div>
-        <p class="img-caption">Live product</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEXT PROJECT -->
-  <div class="next-project" data-aos="fade-up">
-    <div class="wrap">
-      <div class="next-label reveal">Back to start</div>
-      <a href="educraft.html" class="next-link reveal d1">
-        Educraft
-        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 14H24M24 14L16 6M24 14L16 22" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <p class="cta-headline">View the live product</p>
-    <a href="https://nuvioweb-phi.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-cta-live">View Live Site ↗</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-copy">© 2025 Oyeniran Joel</span>
-      <a href="mailto:Joeloyekola@gmail.com" class="footer-back">Joeloyekola@gmail.com</a>
-      <a href="index.html" class="footer-back">← Back to Home</a>
-    </div>
-  </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 900, once: true, offset: 80 });
-  </script>
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-
-  <script>
-    function toggleMenu() {
-      var btn = document.querySelector('.nav-hamburger');
-      var menu = document.getElementById('mobileMenu');
-      btn.classList.toggle('open');
-      menu.classList.toggle('open');
-    }
-    function closeMenu() {
-      var btn = document.querySelector('.nav-hamburger');
-      var menu = document.getElementById('mobileMenu');
-      btn.classList.remove('open');
-      menu.classList.remove('open');
-    }
-  </script>
-</body>
-</html>
+}
