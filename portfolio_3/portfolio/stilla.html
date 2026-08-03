@@ -223,17 +223,32 @@
       text-transform: uppercase;
     }
 
-    .hero-media .image-placeholder {
+   /* Hero */
+.hero-media .image-placeholder {
   min-height: 540px;
   border-radius: 24px;
   overflow: hidden;
   padding: 0;
 }
-    .hero-media .image-placeholder img {
+
+.hero-media .image-placeholder img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+/* Homepage Screenshot */
+.homepage-shot .image-placeholder {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.homepage-shot .image-placeholder img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
     .visual-block {
@@ -693,13 +708,14 @@
           </ul>
         </div>
         <div>
-   <!-- Homepage screenshot -->
-<div class="image-placeholder">
-  <img
-    src=https://res.cloudinary.com/dkuda0je5/image/upload/v1785757193/Frame_2147224904_ormbdn.png
-    alt="STILLA Homepage Screenshot"
-    class="case-image"
-  />
+   <section class="homepage-shot">
+  <div class="image-placeholder">
+    <img
+      src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785756848/Frame_2147224904_i3fipw.png"
+      alt="STILLA Homepage Screenshot"
+    />
+  </div>
+</section>
 </div>
           </div>
         </div>
