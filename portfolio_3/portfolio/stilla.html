@@ -459,6 +459,57 @@
       max-width: 53ch;
       margin-bottom: 40px;
     }
+    /* ===== Final CTAs ===== */
+.case-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.case-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, color 0.22s ease;
+}
+
+.case-cta.primary {
+  background: var(--text);
+  color: #f8f7f4;
+  border-color: var(--text);
+}
+
+.case-cta.secondary {
+  background: transparent;
+  color: var(--text);
+}
+
+.case-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(14, 12, 9, 0.12);
+}
+
+.case-cta.secondary:hover {
+  background: #efebe4;
+}
+
+@media (max-width: 560px) {
+  .case-cta-row {
+    flex-direction: column;
+  }
+
+  .case-cta {
+    width: 100%;
+  }
+}
 
     /* ===== Footer ===== */
     footer {
@@ -1037,12 +1088,24 @@
           </p>
         </div>
 
-        <!-- Final mockup -->
-        <div class="image-placeholder">
-          <div>
-            <strong>Final mockup</strong>
-            <span>Replace with final STILLA high-fidelity screen</span>
-          </div>
+        <div class="case-cta-row">
+  <a
+    class="case-cta primary"
+    href="https://joel-oyeniran.vercel.app/lume.html"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Next Case Study
+  </a>
+  <a
+    class="case-cta secondary"
+    href="https://stilla-zeta.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Visit Official Website
+  </a>
+</div>
         </div>
       </div>
     </section>
