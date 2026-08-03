@@ -1,1 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STILLA — Case Study | Oyeniran Joel</title>
+  <meta
+    name="description"
+    content="STILLA is a conceptual furniture website case study focused on calm, editorial design, restrained aesthetics, and responsive execution from Figma to React with Framer Motion."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+    rel="stylesheet"
+  />
 
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f8f7f4;
+      --surface: #f2efe9;
+      --line: #e4dfd7;
+      --text: #0a0a0a;
+      --muted: #62615d;
+      --soft: #7d7b76;
+      --serif: "Instrument Serif", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+      --container: 1160px;
+      --reading: 760px;
+      --section: 120px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--container), 92%);
+      margin: 0 auto;
+    }
+
+    .reading {
+      width: min(var(--reading), 100%);
+    }
+
+    .section {
+      padding: var(--section) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: clamp(36px, 5vw, 58px);
+      margin-bottom: 24px;
+    }
+
+    p {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    /* ===== Navigation ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 247, 244, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-link {
+      font-size: 14px;
+      color: var(--muted);
+      transition: color 0.24s ease;
+    }
+
+    .back-link:hover { color: var(--text); }
+
+    .brand {
+      font-family: var(--serif);
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 108px 0 86px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 74px;
+      align-items: end;
+    }
+
+    .kicker {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(62px, 10vw, 126px);
+      margin-bottom: 24px;
+    }
+
+    .hero-intro {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(19px, 2.1vw, 26px);
+      line-height: 1.35;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 25ch;
+    }
+
+    .hero-summary {
+      max-width: 43ch;
+      margin-bottom: 44px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      max-width: 560px;
+    }
+
+    .meta-item {
+      padding: 18px 20px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .meta-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 8px;
+    }
+
+    .meta-value {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    /* ===== Placeholders ===== */
+    .image-placeholder {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: linear-gradient(140deg, #f2efe9 0%, #ece7df 100%);
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      color: var(--soft);
+      text-align: center;
+      box-shadow: 0 16px 44px rgba(14, 12, 9, 0.06);
+      min-height: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-placeholder strong {
+      display: block;
+      font-family: var(--serif);
+      color: var(--text);
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .image-placeholder span {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-media .image-placeholder {
+      min-height: 540px;
+      border-radius: 24px;
+    }
+
+    .visual-block {
+      margin-top: 40px;
+    }
+
+    .visual-block .image-placeholder {
+      min-height: 500px;
+    }
+
+    .split-visual {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 38px;
+    }
+
+    .split-visual .image-placeholder {
+      min-height: 360px;
+    }
+
+    .small-visual-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .small-visual-grid .image-placeholder {
+      min-height: 250px;
+      border-radius: 16px;
+    }
+
+    @media (min-width: 960px) {
+      .image-placeholder:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 24px 52px rgba(14, 12, 9, 0.09);
+      }
+    }
+
+    /* ===== Content layouts ===== */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .stack > * + * {
+      margin-top: 18px;
+    }
+
+    .goals-list {
+      list-style: none;
+      border-top: 1px solid var(--line);
+      margin-top: 14px;
+    }
+
+    .goals-list li {
+      border-bottom: 1px solid var(--line);
+      padding: 17px 0;
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .goals-list li strong {
+      color: var(--soft);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    .direction-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .direction-item {
+      border: 1px solid var(--line);
+      background: #f4f1eb;
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .direction-item h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .direction-item p {
+      font-size: 15px;
+      line-height: 1.72;
+    }
+
+    .specimen {
+      border: 1px solid var(--line);
+      background: #f4f1eb;
+      border-radius: 14px;
+      padding: 26px;
+      margin-top: 24px;
+    }
+
+    .specimen-serif {
+      font-family: var(--serif);
+      font-size: clamp(36px, 4.4vw, 60px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+
+    .specimen-sans {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 48ch;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .swatch {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .swatch-tone {
+      aspect-ratio: 1.35 / 1;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .swatch-meta {
+      padding: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .tone-1 { background: #f8f7f4; }
+    .tone-2 { background: #ece7df; }
+    .tone-3 { background: #c6b9a8; }
+    .tone-4 { background: #1d1d1b; }
+
+    .pillars {
+      margin-top: 24px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f4f1eb;
+    }
+
+    .pillar {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pillar:last-child { border-bottom: none; }
+
+    .pillar-label,
+    .pillar-copy {
+      padding: 18px 22px;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .pillar-label {
+      border-right: 1px solid var(--line);
+      color: var(--soft);
+      font-weight: 500;
+    }
+
+    .pillar-copy {
+      color: var(--muted);
+    }
+
+    /* ===== Final outcome ===== */
+    .outcome {
+      border-top: 1px solid var(--line);
+      padding: 110px 0 120px;
+    }
+
+    .outcome h2 { margin-bottom: 18px; }
+
+    .outcome p {
+      max-width: 53ch;
+      margin-bottom: 40px;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--soft);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 1024px) {
+      :root { --section: 96px; }
+
+      .hero {
+        padding: 84px 0 70px;
+      }
+
+      .hero-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .hero-media .image-placeholder {
+        min-height: 460px;
+      }
+
+      .visual-block .image-placeholder {
+        min-height: 420px;
+      }
+
+      .split-visual {
+        gap: 20px;
+      }
+
+      .split-visual .image-placeholder {
+        min-height: 310px;
+      }
+
+      .small-visual-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root { --section: 74px; }
+
+      .container {
+        width: min(var(--container), 90%);
+      }
+
+      .nav-inner {
+        height: 70px;
+      }
+
+      .brand {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .hero {
+        padding: 68px 0 56px;
+      }
+
+      .hero-intro {
+        max-width: 100%;
+        margin-bottom: 22px;
+      }
+
+      .hero-summary {
+        max-width: 100%;
+        margin-bottom: 34px;
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 100%;
+      }
+
+      .meta-item:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .image-placeholder {
+        border-radius: 14px;
+      }
+
+      .hero-media .image-placeholder {
+        min-height: 360px;
+        border-radius: 18px;
+      }
+
+      .visual-block .image-placeholder {
+        min-height: 320px;
+      }
+
+      .split-visual {
+        grid-template-columns: 1fr;
+      }
+
+      .split-visual .image-placeholder {
+        min-height: 300px;
+      }
+
+      .small-visual-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .direction-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .palette-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pillar {
+        grid-template-columns: 1fr;
+      }
+
+      .pillar-label {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: clamp(50px, 18vw, 74px);
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-item:last-child {
+        grid-column: auto;
+      }
+
+      .palette-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media .image-placeholder,
+      .visual-block .image-placeholder {
+        min-height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html" class="back-link">← Back to Portfolio</a>
+      <span class="brand">Oyeniran Joel</span>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="kicker">Case Study · Furniture Web Experience</p>
+          <h1>STILLA</h1>
+          <p class="hero-intro">A calm, editorial furniture experience shaped by restraint.</p>
+          <p class="hero-summary">
+            STILLA is a conceptual furniture website inspired by Scandinavian interiors and print catalogues.
+            The work focused on creating a premium atmosphere without relying on visual noise.
+          </p>
+          <div class="meta-grid">
+            <div class="meta-item">
+              <p class="meta-label">Role</p>
+              <p class="meta-value">Product Designer · Frontend Developer</p>
+            </div>
+            <div class="meta-item">
+              <p class="meta-label">Tools</p>
+              <p class="meta-value">Figma · React · Framer Motion</p>
+            </div>
+            <div class="meta-item">
+              <p class="meta-label">Timeline</p>
+              <p class="meta-value">Concept exploration</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <!-- Hero mockup -->
+          <div class="image-placeholder">
+            <div>
+              <strong>Hero mockup</strong>
+              <span>Replace with STILLA hero screen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="section">
+      <div class="container content-grid">
+        <div class="reading stack">
+          <p class="section-label">Project Overview</p>
+          <h2>Luxury through restraint, not decoration.</h2>
+          <p>
+            The objective was not to make another furniture storefront. It was to design a digital space that feels quiet,
+            intentional, and premium from the first scroll.
+          </p>
+          <p>
+            Every decision was filtered through one question: does this increase clarity and calm, or does it simply add noise?
+          </p>
+        </div>
+        <div class="stack">
+          <p class="section-label">The Challenge</p>
+          <p>
+            Most furniture websites compete through dense interfaces, promotional blocks, and aggressive motion. That pattern made
+            premium pieces feel transactional.
+          </p>
+          <p>
+            STILLA needed to communicate quality through pacing, hierarchy, and material-focused presentation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Goals -->
+    <section class="section">
+      <div class="container content-grid">
+        <div class="reading stack">
+          <p class="section-label">Design Goals</p>
+          <h2>Set a clear system before styling screens.</h2>
+          <ul class="goals-list">
+            <li><strong>01</strong><span>Create an editorial reading rhythm with deliberate spacing.</span></li>
+            <li><strong>02</strong><span>Let typography and product photography carry the visual weight.</span></li>
+            <li><strong>03</strong><span>Build a simple path from inspiration to collection exploration.</span></li>
+            <li><strong>04</strong><span>Keep interactions subtle, with motion supporting context rather than spectacle.</span></li>
+          </ul>
+        </div>
+        <div>
+          <!-- Homepage screenshot -->
+          <div class="image-placeholder">
+            <div>
+              <strong>Homepage screenshot</strong>
+              <span>Replace with STILLA homepage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Creative Direction -->
+    <section class="section">
+      <div class="container reading stack">
+        <p class="section-label">Creative Direction</p>
+        <h2>Scandinavian calm, editorial pacing, tactile cues.</h2>
+        <p>
+          The direction draws from interior magazines and showroom catalogues where space is treated as part of the composition.
+          The interface stays minimal so products, materials, and typography can lead.
+        </p>
+
+        <div class="direction-grid">
+          <article class="direction-item">
+            <h3>Structure</h3>
+            <p>Alternating narrow reading blocks and wide visual moments to create rhythm.</p>
+          </article>
+          <article class="direction-item">
+            <h3>Motion</h3>
+            <p>Gentle transitions in React + Framer Motion to support hierarchy and continuity.</p>
+          </article>
+          <article class="direction-item">
+            <h3>Tone</h3>
+            <p>Calm, mature, and quiet. The copy remains concise and avoids promotional language.</p>
+          </article>
+          <article class="direction-item">
+            <h3>Interface</h3>
+            <p>Minimal controls and clear navigation to keep attention on furniture and craft.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="section">
+      <div class="container content-grid">
+        <div class="reading stack">
+          <p class="section-label">Typography</p>
+          <h2>Editorial contrast with restrained utility text.</h2>
+          <p>
+            The type system pairs expressive serif headlines with neutral sans-serif body copy. Headings set the emotional tone,
+            while supporting text stays understated and highly legible.
+          </p>
+          <div class="specimen">
+            <p class="specimen-serif">A home shaped by quiet details.</p>
+            <p class="specimen-sans">Instrument Serif for character and DM Sans for clarity across product details, navigation, and metadata.</p>
+          </div>
+        </div>
+        <div>
+          <!-- Typography board -->
+          <div class="image-placeholder">
+            <div>
+              <strong>Typography board</strong>
+              <span>Replace with type scale preview</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Colour & Material Palette -->
+    <section class="section">
+      <div class="container reading stack">
+        <p class="section-label">Colour &amp; Material Palette</p>
+        <h2>A restrained palette grounded in natural material references.</h2>
+        <p>
+          Neutral tones were selected to echo oak, linen, stone, and matte metal finishes.
+          Colour supports atmosphere and readability rather than acting as decoration.
+        </p>
+
+        <div class="palette-grid">
+          <div class="swatch"><div class="swatch-tone tone-1"></div><div class="swatch-meta"><span>Warm Paper</span><span>#F8F7F4</span></div></div>
+          <div class="swatch"><div class="swatch-tone tone-2"></div><div class="swatch-meta"><span>Soft Stone</span><span>#ECE7DF</span></div></div>
+          <div class="swatch"><div class="swatch-tone tone-3"></div><div class="swatch-meta"><span>Natural Oak</span><span>#C6B9A8</span></div></div>
+          <div class="swatch"><div class="swatch-tone tone-4"></div><div class="swatch-meta"><span>Charcoal Ink</span><span>#1D1D1B</span></div></div>
+        </div>
+
+        <div class="pillars">
+          <div class="pillar">
+            <p class="pillar-label">Materials</p>
+            <p class="pillar-copy">Visual direction emphasizes wood grain, fabric texture, and clean metal accents to imply quality.</p>
+          </div>
+          <div class="pillar">
+            <p class="pillar-label">Contrast</p>
+            <p class="pillar-copy">Soft contrast keeps the interface calm while preserving clear hierarchy and accessibility.</p>
+          </div>
+          <div class="pillar">
+            <p class="pillar-label">Consistency</p>
+            <p class="pillar-copy">The same palette logic carries across desktop and mobile to maintain a coherent brand tone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Homepage Design -->
+    <section class="section">
+      <div class="container reading stack">
+        <p class="section-label">Homepage Design</p>
+        <h2>A composed first impression with clear hierarchy.</h2>
+        <p>
+          The homepage introduces STILLA through a restrained hero, measured copy length, and immediate pathways into featured collections.
+          Spacing and type scale do most of the heavy lifting.
+        </p>
+      </div>
+      <div class="container visual-block">
+        <!-- Homepage screenshot -->
+        <div class="image-placeholder">
+          <div>
+            <strong>Homepage screenshot</strong>
+            <span>Replace with homepage full layout</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collection Experience -->
+    <section class="section">
+      <div class="container content-grid">
+        <div class="reading stack">
+          <p class="section-label">Collection Experience</p>
+          <h2>Browsing collections feels curated, not crowded.</h2>
+          <p>
+            Collections are grouped with clear categories and breathing room between product stories.
+            The user can scan quickly while still feeling the craftsmanship of each line.
+          </p>
+        </div>
+        <div>
+          <!-- Collection section -->
+          <div class="image-placeholder">
+            <div>
+              <strong>Collection section</strong>
+              <span>Replace with collection browsing layout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Craftsmanship Section -->
+    <section class="section">
+      <div class="container content-grid">
+        <div>
+          <!-- Craftsmanship section -->
+          <div class="image-placeholder">
+            <div>
+              <strong>Craftsmanship section</strong>
+              <span>Replace with craft narrative block</span>
+            </div>
+          </div>
+        </div>
+        <div class="reading stack">
+          <p class="section-label">Craftsmanship Section</p>
+          <h2>Detail stories reinforce the premium proposition.</h2>
+          <p>
+            Dedicated craft modules slow the experience down intentionally, framing construction details as part of the product value.
+            This section balances emotional storytelling with practical information.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section class="section">
+      <div class="container content-grid">
+        <div class="reading stack">
+          <p class="section-label">Materials Section</p>
+          <h2>Material transparency builds trust.</h2>
+          <p>
+            Material content is structured as concise, digestible blocks so visitors understand composition and finish choices
+            without leaving the flow of browsing.
+          </p>
+        </div>
+        <div>
+          <!-- Materials section -->
+          <div class="image-placeholder">
+            <div>
+              <strong>Materials section</strong>
+              <span>Replace with material details layout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section">
+      <div class="container reading stack">
+        <p class="section-label">Featured Products</p>
+        <h2>Product highlights maintain clarity at every card.</h2>
+        <p>
+          Featured cards use a reduced information set: product name, material hint, and price anchor.
+          The result feels confident and avoids visual clutter.
+        </p>
+      </div>
+      <div class="container small-visual-grid">
+        <!-- Product cards -->
+        <div class="image-placeholder"><div><strong>Product cards</strong><span>Replace with featured card 01</span></div></div>
+        <div class="image-placeholder"><div><strong>Product cards</strong><span>Replace with featured card 02</span></div></div>
+        <div class="image-placeholder"><div><strong>Product cards</strong><span>Replace with featured card 03</span></div></div>
+      </div>
+    </section>
+
+    <!-- Mobile Experience -->
+    <section class="section">
+      <div class="container content-grid">
+        <div class="reading stack">
+          <p class="section-label">Mobile Experience</p>
+          <h2>Mobile keeps the same calm, with tighter pacing.</h2>
+          <p>
+            On mobile, typography scales with care, vertical spacing is rebalanced, and image modules are resized to preserve the
+            editorial feel rather than collapsing into generic stacked blocks.
+          </p>
+        </div>
+        <div>
+          <!-- Mobile screens -->
+          <div class="image-placeholder">
+            <div>
+              <strong>Mobile screens</strong>
+              <span>Replace with responsive mobile sequence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsive Design -->
+    <section class="section">
+      <div class="container reading stack">
+        <p class="section-label">Responsive Design</p>
+        <h2>One system, tuned for desktop, tablet, and mobile.</h2>
+        <p>
+          The layout shifts from wide editorial compositions on desktop to balanced two-column and then single-column patterns,
+          with adjusted spacing and hierarchy at each breakpoint.
+        </p>
+      </div>
+      <div class="container split-visual">
+        <!-- Responsive layout -->
+        <div class="image-placeholder"><div><strong>Responsive layout</strong><span>Replace with desktop and tablet comparison</span></div></div>
+        <div class="image-placeholder"><div><strong>Responsive layout</strong><span>Replace with mobile comparison</span></div></div>
+      </div>
+    </section>
+
+    <!-- Development -->
+    <section class="section">
+      <div class="container content-grid">
+        <div class="reading stack">
+          <p class="section-label">Development</p>
+          <h2>From Figma system to React implementation.</h2>
+          <p>
+            The final front-end was developed in React, with Framer Motion used for subtle reveal transitions and interaction polish.
+            Implementation followed the same principles as the design: keep the interface focused, performant, and easy to maintain.
+          </p>
+        </div>
+        <div class="stack">
+          <p class="section-label">Key Learnings</p>
+          <p>
+            Premium experiences rely more on proportion, pacing, and consistency than on visual effects.
+            Restraint required more discipline, but produced a more distinctive and believable result.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Outcome -->
+    <section class="outcome">
+      <div class="container">
+        <div class="reading">
+          <p class="section-label">Final Outcome</p>
+          <h2>STILLA presents furniture as an experience, not just a catalogue.</h2>
+          <p>
+            The case study demonstrates how a restrained visual language can still feel rich, modern, and premium.
+            The final result is a cohesive concept ready for production refinement and real photography replacement.
+          </p>
+        </div>
+
+        <!-- Final mockup -->
+        <div class="image-placeholder">
+          <div>
+            <strong>Final mockup</strong>
+            <span>Replace with final STILLA high-fidelity screen</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Oyeniran Joel</span>
+      <a href="index.html" class="back-link">Back to Home</a>
+    </div>
+  </footer>
+</body>
+</html>
