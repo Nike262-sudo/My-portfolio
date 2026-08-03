@@ -207,6 +207,21 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .image-placeholder.has-image {
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      place-items: stretch;
+      overflow: hidden;
+    }
+
+    .image-placeholder.has-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
     .image-placeholder strong {
       display: block;
       font-family: var(--serif);
@@ -225,7 +240,7 @@
 
    /* Hero */
 .hero-media .image-placeholder {
-  min-height: 540px;
+  min-height: 620px;
   border-radius: 24px;
   overflow: hidden;
   padding: 0;
@@ -265,7 +280,7 @@
       margin-top: 40px;
     }
 .visual-block .image-placeholder {
-    min-height: auto;
+    min-height: 520px;
     padding: 0;
 }
 
@@ -282,14 +297,8 @@
 }
 
 .small-visual-grid .image-placeholder {
-  min-height: 250px;
+  min-height: 320px;
   border-radius: 16px;
-}
-
-@media (max-width: 768px) {
-  .small-visual-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (min-width: 960px) {
@@ -304,6 +313,12 @@
       grid-template-columns: 1.05fr 0.95fr;
       gap: 72px;
       align-items: start;
+    }
+
+    .hero-grid > *,
+    .content-grid > *,
+    .small-visual-grid > * {
+      min-width: 0;
     }
 
     .stack > * + * {
@@ -340,6 +355,13 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
       margin-top: 18px;
+    }
+
+    .split-visual {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+      margin-top: 34px;
     }
 
     .direction-item {
@@ -451,8 +473,11 @@
     .outcome {
       border-top: 1px solid var(--line);
       padding: 110px 0 120px;
-  .outcome {
-  text-align: center;
+      text-align: center;
+    }
+
+    .outcome .reading {
+      margin: 0 auto;
     }
 
     .outcome h2 { margin-bottom: 18px; }
@@ -504,7 +529,7 @@
   background: #efebe4;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 760px) {
   .case-cta-row {
     flex-direction: column;
   }
@@ -548,7 +573,7 @@
       }
 
       .visual-block .image-placeholder {
-        min-height: 420px;
+        min-height: 460px;
       }
 
       .split-visual {
@@ -556,7 +581,7 @@
       }
 
       .split-visual .image-placeholder {
-        min-height: 310px;
+        min-height: 360px;
       }
 
       .small-visual-grid {
@@ -612,12 +637,12 @@
       }
 
       .hero-media .image-placeholder {
-        min-height: 360px;
+        min-height: 420px;
         border-radius: 18px;
       }
 
       .visual-block .image-placeholder {
-        min-height: 320px;
+        min-height: 380px;
       }
 
       .split-visual {
@@ -625,7 +650,7 @@
       }
 
       .split-visual .image-placeholder {
-        min-height: 300px;
+        min-height: 320px;
       }
 
       .small-visual-grid {
@@ -674,7 +699,11 @@
 
       .hero-media .image-placeholder,
       .visual-block .image-placeholder {
-        min-height: 280px;
+        min-height: 300px;
+      }
+
+      .split-visual .image-placeholder {
+        min-height: 240px;
       }
     }
   </style>
@@ -718,7 +747,7 @@
 
         <div class="hero-media">
           <!-- Hero mockup -->
-<div class="image-placeholder">
+<div class="image-placeholder has-image">
   <img
     src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785752795/Free_iPad_Pro_mockup_on_a_dark_podium_Mockuuups_Studio_rlkgdm.png"
     alt="STILLA Hero Mockup"
@@ -726,8 +755,6 @@
   />
             </div>
           </div>
-        </div>
-      </div>
     </section>
 
     <!-- Project Overview -->
@@ -771,18 +798,16 @@
           </ul>
         </div>
         <div>
-   <section class="homepage-shot">
-  <div class="image-placeholder">
+   <div class="homepage-shot">
+  <div class="image-placeholder has-image">
     <img
       src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785756848/Frame_2147224904_i3fipw.png"
       alt="STILLA Homepage Screenshot"
     />
   </div>
-</section>
+</div>
 </div>
           </div>
-        </div>
-      </div>
     </section>
 
     <!-- Creative Direction -->
@@ -833,7 +858,7 @@
         </div>
         <div>
          <!-- Typography board -->
-<div class="image-placeholder">
+<div class="image-placeholder has-image">
   <img
     src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785758632/Frame_2147224904_tbaehp.png"
     alt="STILLA Typography System"
@@ -841,8 +866,6 @@
   />
 </div>
             </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -892,7 +915,7 @@
       </div>
       <div class="container visual-block">
        <!-- Homepage full layout -->
-<div class="image-placeholder">
+<div class="image-placeholder has-image">
   <img
     src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785762568/Frame_2147224904_iyb9zl.png"
     alt="STILLA Homepage Full Layout"
@@ -900,7 +923,6 @@
   />
 </div>
         </div>
-      </div>
     </section>
 
     <!-- Collection Experience -->
@@ -916,7 +938,7 @@
         </div>
         <div>
           <!-- Collection section -->
-<div class="image-placeholder">
+<div class="image-placeholder has-image">
   <img
     src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785763018/Frame_2147224904_tic2b1.png"
     alt="STILLA Collection Section"
@@ -924,7 +946,6 @@
   />
 </div>
           </div>
-        </div>
       </div>
     </section>
 
@@ -935,7 +956,7 @@
           <!-- Craftsmanship section -->
          <!-- Craftsmanship section -->
 <div class="craft-shot">
-  <div class="image-placeholder">
+  <div class="image-placeholder has-image">
     <img
       src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785763254/Frame_2147224904_dvlrq5.png"
       alt="STILLA Craftsmanship Section"
@@ -968,7 +989,7 @@
         </div>
         <div>
           <!-- Materials section -->
-<div class="image-placeholder">
+<div class="image-placeholder has-image">
   <img
     src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785763414/Frame_2147224904_sk0lde.png"
     alt="STILLA Materials Section"
@@ -990,9 +1011,9 @@
           The result feels confident and avoids visual clutter.
         </p>
       </div>
-      <<div class="container small-visual-grid">
+      <div class="container small-visual-grid">
 
-  <div class="image-placeholder">
+  <div class="image-placeholder has-image">
     <img
       src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785766821/Frame_2147224910_amocyz.png"
       alt="STILLA Featured Product Card 01"
@@ -1000,7 +1021,7 @@
     />
   </div>
 
-  <div class="image-placeholder">
+  <div class="image-placeholder has-image">
     <img
       src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785766819/Frame_2147224911_ixuvd4.png"
       alt="STILLA Featured Product Card 02"
@@ -1008,7 +1029,7 @@
     />
   </div>
 
-  <div class="image-placeholder">
+  <div class="image-placeholder has-image">
     <img
       src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785766818/Frame_2147224909_w2mjyv.png"
       alt="STILLA Featured Product Card 03"
@@ -1106,10 +1127,9 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    Visit Stilla
+    Visit Official Website
   </a>
 </div>
-        </div>
       </div>
     </section>
   </main>
