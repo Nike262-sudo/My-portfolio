@@ -191,53 +191,28 @@
       line-height: 1.45;
     }
 
-    /* ===== Placeholders ===== */
-    .image-placeholder {
-      width: 100%;
-      border: 1px solid var(--line);
-      background: linear-gradient(140deg, #f2efe9 0%, #ece7df 100%);
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      color: var(--soft);
-      text-align: center;
-      box-shadow: 0 16px 44px rgba(14, 12, 9, 0.06);
-      min-height: 280px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+   /* ===== Image Containers ===== */
+.image-placeholder {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
 
-    .image-placeholder.has-image {
-      background: transparent;
-      box-shadow: none;
-      padding: 0;
-      place-items: stretch;
-      overflow: hidden;
-    }
+.image-placeholder img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-    .image-placeholder.has-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
-
-    .image-placeholder strong {
-      display: block;
-      font-family: var(--serif);
-      color: var(--text);
-      font-size: clamp(24px, 3vw, 34px);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
-
-    .image-placeholder span {
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
+.case-browser-shot {
+  width: 100%;
+  display: block;
+  border-radius: inherit;
+}
    /* Hero */
 .hero-media .image-placeholder {
   min-height: 620px;
