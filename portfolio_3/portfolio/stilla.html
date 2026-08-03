@@ -264,33 +264,20 @@
     .visual-block {
       margin-top: 40px;
     }
+.visual-block .image-placeholder {
+    min-height: auto;
+    padding: 0;
+}
 
-    .visual-block .image-placeholder {
-      min-height: 500px;
-    }
+.split-visual .image-placeholder {
+    min-height: auto;
+    padding: 0;
+}
 
-    .split-visual {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-      margin-top: 38px;
-    }
-
-    .split-visual .image-placeholder {
-      min-height: 360px;
-    }
-
-    .small-visual-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 34px;
-    }
-
-    .small-visual-grid .image-placeholder {
-      min-height: 250px;
-      border-radius: 16px;
-    }
+.small-visual-grid .image-placeholder {
+    min-height: auto;
+    padding: 0;
+}
 
     @media (min-width: 960px) {
       .image-placeholder:hover {
@@ -881,13 +868,14 @@
         <div>
           <!-- Craftsmanship section -->
          <!-- Craftsmanship section -->
-<div class="image-placeholder">
-  <img
-    src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785763254/Frame_2147224904_dvlrq5.png"
-    alt="STILLA Craftsmanship Section"
-    class="case-browser-shot"
-  />
-</div>
+<div class="craft-shot">
+  <div class="image-placeholder">
+    <img
+      src="https://res.cloudinary.com/dkuda0je5/image/upload/v1785763254/Frame_2147224904_dvlrq5.png"
+      alt="STILLA Craftsmanship Section"
+      class="case-browser-shot"
+    />
+  </div>
           </div>
         </div>
         <div class="reading stack">
