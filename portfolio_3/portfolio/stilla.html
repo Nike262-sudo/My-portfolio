@@ -190,6 +190,7 @@
       color: var(--text);
       line-height: 1.45;
     }
+    
 
    /* ===== Image Containers ===== */
 .image-placeholder {
@@ -479,16 +480,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 13px 20px;
+
+  padding: 16px 28px;
+  min-height: 56px;
+
   border-radius: 999px;
+  box-sizing: border-box;
+
   font-size: 13px;
   font-weight: 600;
+  line-height: 1;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  border: 1px solid var(--line);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, color 0.22s ease;
-}
+  text-decoration: none;
 
+  border: 1px solid var(--line);
+  transition: transform 0.22s ease, box-shadow 0.22s ease,
+              background 0.22s ease, color 0.22s ease;
+}
 .case-cta.primary {
   background: var(--text);
   color: #f8f7f4;
