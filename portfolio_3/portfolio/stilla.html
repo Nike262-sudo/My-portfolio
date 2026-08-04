@@ -513,6 +513,31 @@
     width: 100%;
   }
 }
+    .case-nav-simple{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-top:24px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.case-nav-simple a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.case-nav-simple a:hover{
+  color:var(--text);
+}
+
+@media (max-width:760px){
+  .case-nav-simple{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
 
     /* ===== Footer ===== */
     footer {
@@ -705,10 +730,6 @@
             The work focused on creating a premium atmosphere without relying on visual noise.
           </p>
           <div class="meta-grid">
-            <div class="case-cta-row project-actions">
-  <a href="#" class="case-cta primary">View Live Site</a>
-  <a href="lume.html" class="case-cta secondary">Next Project</a>
-</div>
             <div class="meta-item">
               <p class="meta-label">Role</p>
               <p class="meta-value">Product Designer · Frontend Developer</p>
@@ -720,7 +741,9 @@
             <div class="meta-item">
               <p class="meta-label">Timeline</p>
               <p class="meta-value">Concept exploration</p>
-            </div>
+             <div class="case-cta-row project-actions">
+  <a href="#" class="case-cta primary">View Live Site</a>
+  <a href="lume.html" class="case-cta secondary">Next Project</a>
           </div>
         </div>
 
