@@ -126,12 +126,12 @@
       padding: 108px 0 86px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.04fr 0.96fr;
-      gap: 74px;
-      align-items: end;
-    }
+   .hero-grid{
+    display:grid;
+    grid-template-columns:1.04fr .96fr;
+    gap:74px;
+    align-items:start;
+}
 
     .kicker {
       font-size: 11px;
@@ -473,9 +473,18 @@
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 22px;
-  justify-content: center; /* centers buttons horizontally */
+  justify-content: flex-start;
 }
 
+/* Add this */
+.project-actions{
+  margin-top: 48px;
+}
+
+.case-cta {
+  display: inline-flex;
+  ...
+}
 .case-cta {
   display: inline-flex;
   align-items: center;
