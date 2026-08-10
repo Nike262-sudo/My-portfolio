@@ -1,335 +1,459 @@
-.nuvora-case-study {
-  --case-navy: #071b2b;
-  --case-gold: #d4a84f;
-  --case-offwhite: #f7f7f5;
-  --case-white: #ffffff;
-  --case-text: #111111;
-  --case-muted: #686868;
-
-  background: var(--case-offwhite);
-  color: var(--case-text);
-}
-
-.case-container {
-  width: min(1180px, calc(100% - 48px));
-  margin-inline: auto;
-}
-
-.case-hero {
-  padding: 140px 0 100px;
-}
-
-.case-hero-content {
-  max-width: 780px;
-}
-
-.case-eyebrow,
-.section-label {
-  margin: 0 0 20px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.case-hero h1 {
-  margin: 0;
-  font-size: clamp(64px, 9vw, 132px);
-  line-height: 0.9;
-  letter-spacing: -0.06em;
-  font-weight: 500;
-}
-
-.case-intro {
-  max-width: 620px;
-  margin: 40px 0 0;
-  font-size: clamp(20px, 2vw, 27px);
-  line-height: 1.35;
-}
-
-.case-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 60px;
-  margin-top: 70px;
-}
-
-.case-meta div {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.case-meta span {
-  color: var(--case-muted);
-  font-size: 13px;
-}
-
-.case-meta strong {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.image-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-  background: #e7e7e3;
-  color: #8a8a84;
-}
-
-.case-hero-image {
-  min-height: 680px;
-  margin-top: 90px;
-}
-
-.case-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.case-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50px;
-  padding: 0 22px;
-  border: 1px solid var(--case-navy);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-
-.case-button:hover {
-  transform: translateY(-2px);
-}
-
-.case-button-primary {
-  background: var(--case-navy);
-  color: white;
-}
-
-.case-button-secondary {
-  background: transparent;
-  color: var(--case-navy);
-}
-
-.case-section {
-  padding: 130px 0;
-}
-
-.case-dark {
-  background: var(--case-navy);
-  color: white;
-}
-
-.case-light {
-  background: white;
-}
-
-.case-two-column {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.5fr);
-  gap: 80px;
-}
-
-.case-copy {
-  max-width: 700px;
-}
-
-.case-copy h2,
-.case-section-heading h2 {
-  margin: 0;
-  max-width: 800px;
-  font-size: clamp(42px, 5vw, 72px);
-  line-height: 0.98;
-  letter-spacing: -0.045em;
-  font-weight: 500;
-}
-
-.case-copy p,
-.case-section-heading p {
-  max-width: 650px;
-  margin: 28px 0 0;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.case-section-heading {
-  max-width: 850px;
-  margin-bottom: 70px;
-}
-
-.case-wide-image {
-  min-height: 620px;
-}
-
-.case-large-image {
-  min-height: 760px;
-}
-
-.case-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.case-grid .image-placeholder {
-  min-height: 500px;
-}
-
-.case-screens {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.case-screens .image-placeholder {
-  min-height: 600px;
-}
-
-.case-screens .screen-wide {
-  grid-column: 1 / -1;
-  min-height: 520px;
-}
-
-.case-contact-image {
-  min-height: 500px;
-  margin-top: 60px;
-}
-
-.case-final-cta {
-  padding: 150px 0;
-  background: var(--case-navy);
-  color: white;
-}
-
-.case-final-cta h2 {
-  max-width: 850px;
-  margin: 0;
-  font-size: clamp(52px, 7vw, 100px);
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-  font-weight: 500;
-}
-
-.case-final-cta .case-button-primary {
-  background: white;
-  color: var(--case-navy);
-  border-color: white;
-}
-
-.case-final-cta .case-button-secondary {
-  color: white;
-  border-color: white;
-}
-
-@media (max-width: 800px) {
-  .case-container {
-    width: min(100% - 32px, 600px);
-  }
-
-  .case-hero {
-    padding: 90px 0 70px;
-  }
-
-  .case-hero h1 {
-    font-size: clamp(52px, 15vw, 90px);
-  }
-
-  .case-intro {
-    margin-top: 28px;
-    font-size: 20px;
-  }
-
-  .case-meta {
-    gap: 28px;
-    margin-top: 50px;
-  }
-
-  .case-hero-image {
-    min-height: 420px;
-    margin-top: 60px;
-  }
-
-  .case-section {
-    padding: 90px 0;
-  }
-
-  .case-two-column {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .case-copy h2,
-  .case-section-heading h2 {
-    font-size: clamp(40px, 11vw, 60px);
-  }
-
-  .case-grid,
-  .case-screens {
-    grid-template-columns: 1fr;
-  }
-
-  .case-grid .image-placeholder,
-  .case-screens .image-placeholder,
-  .case-screens .screen-wide {
-    min-height: 420px;
-    grid-column: auto;
-  }
-
-  .case-large-image,
-  .case-wide-image {
-    min-height: 440px;
-  }
-
-  .case-contact-image {
-    min-height: 380px;
-  }
-
-  .case-final-cta {
-    padding: 100px 0;
-  }
-
-  .case-final-cta h2 {
-    font-size: clamp(48px, 13vw, 76px);
-  }
-
-  .case-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .case-button {
-    width: 100%;
-  }
-}
 import React from "react";
-import "./NuvoraCaseStudy.css";
 
 export default function NuvoraCaseStudy() {
   return (
-    <main className="nuvora-case-study">
+    <>
+      <style>{`
+        .nuvora-case-study {
+          --navy: #071b2b;
+          --gold: #d4a84f;
+          --offwhite: #f7f7f5;
+          --white: #ffffff;
+          --text: #111111;
+          --muted: #686868;
+          background: var(--offwhite);
+          color: var(--text);
+          min-height: 100vh;
+          font-family: inherit;
+        }
 
-      {/* HERO */}
-      <section className="case-hero">
-        <div className="case-container">
-          <div className="case-hero-content">
-            <p className="case-eyebrow">Website Design · 2026</p>
+        .nuvora-case-study * {
+          box-sizing: border-box;
+        }
+
+        .nuvora-container {
+          width: min(1180px, calc(100% - 48px));
+          margin-inline: auto;
+        }
+
+        /* HERO */
+        .nuvora-hero {
+          padding: 140px 0 100px;
+        }
+
+        .nuvora-eyebrow {
+          margin: 0 0 20px;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--muted);
+        }
+
+        .nuvora-hero h1 {
+          max-width: 900px;
+          margin: 0;
+          font-size: clamp(64px, 9vw, 132px);
+          line-height: 0.9;
+          letter-spacing: -0.06em;
+          font-weight: 500;
+        }
+
+        .nuvora-intro {
+          max-width: 620px;
+          margin: 40px 0 0;
+          font-size: clamp(20px, 2vw, 27px);
+          line-height: 1.35;
+          letter-spacing: -0.02em;
+        }
+
+        .nuvora-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 60px;
+          margin-top: 60px;
+        }
+
+        .nuvora-meta div {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .nuvora-meta span {
+          color: var(--muted);
+          font-size: 13px;
+        }
+
+        .nuvora-meta strong {
+          font-size: 15px;
+          font-weight: 500;
+        }
+
+        .nuvora-hero-image {
+          min-height: 680px;
+          margin-top: 90px;
+        }
+
+        /* IMAGE PLACEHOLDERS */
+        .nuvora-placeholder {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 500px;
+          background: #e7e7e3;
+          color: #8a8a84;
+          overflow: hidden;
+        }
+
+        .nuvora-placeholder span {
+          font-size: 13px;
+          letter-spacing: 0.04em;
+        }
+
+        .nuvora-placeholder.dark {
+          background: #dcdcd8;
+        }
+
+        .nuvora-placeholder.wide {
+          min-height: 620px;
+        }
+
+        .nuvora-placeholder.tall {
+          min-height: 760px;
+        }
+
+        /* BUTTONS */
+        .nuvora-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 28px;
+        }
+
+        .nuvora-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 50px;
+          padding: 0 22px;
+          border: 1px solid var(--navy);
+          border-radius: 999px;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 500;
+          transition:
+            transform 0.25s ease,
+            background 0.25s ease,
+            color 0.25s ease;
+        }
+
+        .nuvora-button:hover {
+          transform: translateY(-2px);
+        }
+
+        .nuvora-button.primary {
+          background: var(--gold);
+          border-color: var(--gold);
+          color: white;
+        }
+
+        .nuvora-button.secondary {
+          background: transparent;
+          color: var(--navy);
+        }
+
+        /* SECTIONS */
+        .nuvora-section {
+          padding: 130px 0;
+        }
+
+        .nuvora-dark {
+          background: var(--navy);
+          color: white;
+        }
+
+        .nuvora-light {
+          background: white;
+        }
+
+        .nuvora-section-label {
+          margin: 0 0 20px;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+        }
+
+        .nuvora-section-grid {
+          display: grid;
+          grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.5fr);
+          gap: 80px;
+        }
+
+        .nuvora-copy {
+          max-width: 700px;
+        }
+
+        .nuvora-copy h2 {
+          max-width: 800px;
+          margin: 0;
+          font-size: clamp(42px, 5vw, 72px);
+          line-height: 0.98;
+          letter-spacing: -0.045em;
+          font-weight: 500;
+        }
+
+        .nuvora-copy p {
+          max-width: 650px;
+          margin: 28px 0 0;
+          font-size: 18px;
+          line-height: 1.6;
+        }
+
+        .nuvora-muted {
+          color: var(--muted);
+        }
+
+        .nuvora-dark .nuvora-muted {
+          color: rgba(255,255,255,0.62);
+        }
+
+        /* TWO COLUMN */
+        .nuvora-two-column {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 80px;
+        }
+
+        .nuvora-two-column h3 {
+          margin: 0;
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        .nuvora-two-column p {
+          max-width: 600px;
+          margin: 18px 0 0;
+          font-size: 16px;
+          line-height: 1.65;
+          color: var(--muted);
+        }
+
+        /* PROJECT IMAGES */
+        .nuvora-image-section {
+          padding: 0;
+        }
+
+        .nuvora-image-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px;
+        }
+
+        .nuvora-image-grid .nuvora-placeholder {
+          min-height: 600px;
+        }
+
+        /* DESIGN DIRECTION */
+        .nuvora-direction {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px;
+          margin-top: 70px;
+        }
+
+        .nuvora-direction-card {
+          padding: 36px;
+          border: 1px solid rgba(0,0,0,0.12);
+          min-height: 220px;
+        }
+
+        .nuvora-direction-card h3 {
+          margin: 0;
+          font-size: 24px;
+          font-weight: 500;
+        }
+
+        .nuvora-direction-card p {
+          margin: 18px 0 0;
+          max-width: 450px;
+          color: var(--muted);
+          line-height: 1.6;
+        }
+
+        /* SCREENS */
+        .nuvora-screens {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px;
+          margin-top: 70px;
+        }
+
+        .nuvora-screens .nuvora-placeholder {
+          min-height: 560px;
+        }
+
+        .nuvora-screen-wide {
+          grid-column: 1 / -1;
+          min-height: 700px !important;
+        }
+
+        /* PROCESS */
+        .nuvora-process {
+          margin-top: 70px;
+          border-top: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .nuvora-process-item {
+          display: grid;
+          grid-template-columns: 120px 1fr 1fr;
+          gap: 40px;
+          padding: 38px 0;
+          border-bottom: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .nuvora-process-number {
+          font-size: 48px;
+          line-height: 1;
+          letter-spacing: -0.04em;
+        }
+
+        .nuvora-process-item h3 {
+          margin: 0;
+          font-size: 20px;
+          font-weight: 500;
+        }
+
+        .nuvora-process-item p {
+          margin: 0;
+          color: rgba(255,255,255,0.62);
+          line-height: 1.6;
+        }
+
+        /* OUTCOME */
+        .nuvora-outcome-image {
+          min-height: 620px;
+          margin-top: 70px;
+        }
+
+        /* FINAL CTA */
+        .nuvora-final-cta {
+          padding: 150px 0;
+          text-align: center;
+          background: white;
+        }
+
+        .nuvora-final-cta h2 {
+          max-width: 850px;
+          margin: 0 auto;
+          font-size: clamp(52px, 7vw, 100px);
+          line-height: 0.95;
+          letter-spacing: -0.055em;
+          font-weight: 500;
+        }
+
+        .nuvora-final-cta .nuvora-actions {
+          justify-content: center;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+          .nuvora-container {
+            width: min(100% - 32px, 600px);
+          }
+
+          .nuvora-hero {
+            padding: 90px 0 70px;
+          }
+
+          .nuvora-hero h1 {
+            font-size: clamp(52px, 15vw, 90px);
+          }
+
+          .nuvora-intro {
+            margin-top: 28px;
+            font-size: 20px;
+          }
+
+          .nuvora-meta {
+            gap: 28px;
+            margin-top: 45px;
+          }
+
+          .nuvora-hero-image {
+            min-height: 420px;
+            margin-top: 60px;
+          }
+
+          .nuvora-section {
+            padding: 90px 0;
+          }
+
+          .nuvora-section-grid,
+          .nuvora-two-column {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+
+          .nuvora-copy h2 {
+            font-size: clamp(40px, 11vw, 60px);
+          }
+
+          .nuvora-copy p {
+            font-size: 16px;
+          }
+
+          .nuvora-image-grid,
+          .nuvora-direction,
+          .nuvora-screens {
+            grid-template-columns: 1fr;
+          }
+
+          .nuvora-image-grid .nuvora-placeholder,
+          .nuvora-screens .nuvora-placeholder,
+          .nuvora-screen-wide {
+            min-height: 420px !important;
+          }
+
+          .nuvora-process-item {
+            grid-template-columns: 60px 1fr;
+            gap: 20px;
+          }
+
+          .nuvora-process-item p {
+            grid-column: 2;
+          }
+
+          .nuvora-process-number {
+            font-size: 36px;
+          }
+
+          .nuvora-final-cta {
+            padding: 100px 0;
+          }
+
+          .nuvora-final-cta h2 {
+            font-size: clamp(46px, 13vw, 72px);
+          }
+
+          .nuvora-button {
+            width: 100%;
+          }
+
+          .nuvora-actions {
+            width: 100%;
+          }
+        }
+      `}</style>
+
+      <main className="nuvora-case-study">
+
+        {/* HERO */}
+        <section className="nuvora-hero">
+          <div className="nuvora-container">
+            <p className="nuvora-eyebrow">Website Design · 2026</p>
 
             <h1>Nuvora Studios</h1>
 
-            <p className="case-intro">
+            <p className="nuvora-intro">
               A refined digital experience for a modern creative studio,
               designed around clarity, visual storytelling, and thoughtful
               interactions.
             </p>
 
-            <div className="case-meta">
+            <div className="nuvora-meta">
               <div>
                 <span>Role</span>
                 <strong>Product Designer</strong>
@@ -345,266 +469,268 @@ export default function NuvoraCaseStudy() {
                 <strong>Figma · React</strong>
               </div>
             </div>
-          </div>
 
-          <div className="case-hero-image image-placeholder">
-            <span>Hero Image</span>
-          </div>
+            <div className="nuvora-actions">
+              <a
+                href="https://nuvora-studios-five.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="nuvora-button primary"
+              >
+                View Live Site ↗
+              </a>
 
-          <div className="case-actions">
-            <a
-              href="https://nuvora-studios-five.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
-              className="case-button case-button-primary"
-            >
-              View Live Site ↗
-            </a>
-
-            <a href="/" className="case-button case-button-secondary">
-              Back to Home ←
-            </a>
-          </div>
-        </div>
-      </section>
-
-
-      {/* OVERVIEW */}
-      <section className="case-section">
-        <div className="case-container case-two-column">
-          <div>
-            <p className="section-label">01 — Overview</p>
-          </div>
-
-          <div className="case-copy">
-            <h2>A digital presence built around clarity.</h2>
-
-            <p>
-              Nuvora Studios is a creative studio focused on building
-              thoughtful digital experiences. The goal was to create a
-              website that felt confident and premium without becoming
-              visually overwhelming.
-            </p>
-
-            <p>
-              The experience combines editorial typography, generous
-              whitespace, strong imagery, and subtle motion to communicate
-              the studio's approach.
-            </p>
-          </div>
-        </div>
-      </section>
-
-
-      {/* DESIGN DIRECTION */}
-      <section className="case-section case-dark">
-        <div className="case-container">
-          <div className="case-section-heading">
-            <p className="section-label">02 — Design Direction</p>
-
-            <h2>
-              Minimal, editorial, and intentional.
-            </h2>
-
-            <p>
-              The visual direction was built around a restrained palette,
-              expressive typography, and carefully considered spacing.
-              Every element has room to breathe.
-            </p>
-          </div>
-
-          <div className="image-placeholder case-wide-image">
-            <span>Design Direction Image</span>
-          </div>
-        </div>
-      </section>
-
-
-      {/* STORY / INTERACTION */}
-      <section className="case-section">
-        <div className="case-container case-two-column">
-          <div>
-            <p className="section-label">03 — Experience</p>
-          </div>
-
-          <div className="case-copy">
-            <h2>Designed to feel alive as you scroll.</h2>
-
-            <p>
-              The Story section introduces a scroll-driven image interaction
-              that gradually transforms the layout as the user moves through
-              the page.
-            </p>
-
-            <p>
-              Instead of relying on excessive motion, the interaction gives
-              the content a sense of progression while keeping the experience
-              calm and focused.
-            </p>
-          </div>
-        </div>
-
-        <div className="case-container">
-          <div className="image-placeholder case-large-image">
-            <span>Story Section Image</span>
-          </div>
-        </div>
-      </section>
-
-
-      {/* SERVICES / WORK */}
-      <section className="case-section case-light">
-        <div className="case-container">
-          <div className="case-section-heading">
-            <p className="section-label">04 — Structure</p>
-
-            <h2>Clear information, without the clutter.</h2>
-
-            <p>
-              Services, selected work, process, and testimonials were
-              organized into distinct sections so visitors can understand
-              the studio quickly and naturally move toward working together.
-            </p>
-          </div>
-
-          <div className="case-grid">
-            <div className="image-placeholder">
-              <span>Services</span>
+              <a href="/" className="nuvora-button secondary">
+                Back to Home ←
+              </a>
             </div>
 
-            <div className="image-placeholder">
-              <span>Selected Work</span>
+            <div className="nuvora-hero-image">
+              <div className="nuvora-placeholder wide">
+                <span>Hero Image Placeholder</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+        {/* OVERVIEW */}
+        <section className="nuvora-section nuvora-light">
+          <div className="nuvora-container">
+            <div className="nuvora-section-grid">
+              <div>
+                <p className="nuvora-section-label">01 — Overview</p>
+              </div>
 
-      {/* SELECTED SCREENS */}
-      <section className="case-section">
-        <div className="case-container">
-          <div className="case-section-heading">
-            <p className="section-label">05 — Selected Screens</p>
+              <div className="nuvora-copy">
+                <h2>A digital presence built around clarity.</h2>
 
-            <h2>The final experience.</h2>
-          </div>
-
-          <div className="case-screens">
-            <div className="image-placeholder screen-tall">
-              <span>Screen 01</span>
-            </div>
-
-            <div className="image-placeholder screen-tall">
-              <span>Screen 02</span>
-            </div>
-
-            <div className="image-placeholder screen-wide">
-              <span>Screen 03</span>
-            </div>
-
-            <div className="image-placeholder screen-wide">
-              <span>Screen 04</span>
+                <p>
+                  Nuvora Studios needed a website that felt as considered as
+                  the digital products they create. The goal was to combine
+                  strong typography, clear structure, and immersive visuals
+                  without making the experience feel complicated.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+        {/* THE IDEA */}
+        <section className="nuvora-section">
+          <div className="nuvora-container">
+            <div className="nuvora-two-column">
+              <div>
+                <h3>The challenge</h3>
+                <p>
+                  Create a studio website that communicates quality quickly
+                  while still giving the work enough room to breathe.
+                </p>
+              </div>
 
-      {/* RESPONSIVE */}
-      <section className="case-section case-dark">
-        <div className="case-container case-two-column">
-          <div>
-            <p className="section-label">06 — Responsive</p>
-          </div>
+              <div>
+                <h3>The direction</h3>
+                <p>
+                  A restrained editorial layout with large typography,
+                  generous whitespace, strong imagery, and subtle motion.
+                </p>
+              </div>
+            </div>
 
-          <div className="case-copy">
-            <h2>The experience adapts naturally.</h2>
-
-            <p>
-              The layouts were designed to remain spacious and easy to
-              navigate across desktop and mobile, while preserving the
-              visual character and interactions of the original experience.
-            </p>
-          </div>
-        </div>
-
-        <div className="case-container">
-          <div className="image-placeholder case-wide-image">
-            <span>Mobile Screens</span>
-          </div>
-        </div>
-      </section>
-
-
-      {/* CONTACT */}
-      <section className="case-section">
-        <div className="case-container case-two-column">
-          <div>
-            <p className="section-label">07 — Contact</p>
-          </div>
-
-          <div className="case-copy">
-            <h2>A simple path from interest to conversation.</h2>
-
-            <p>
-              The contact experience keeps things straightforward, giving
-              potential clients a clear next step without adding unnecessary
-              friction.
-            </p>
-
-            <div className="image-placeholder case-contact-image">
-              <span>Contact Section</span>
+            <div className="nuvora-outcome-image">
+              <div className="nuvora-placeholder wide">
+                <span>Project Overview Image Placeholder</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+        {/* DESIGN DIRECTION */}
+        <section className="nuvora-section nuvora-dark">
+          <div className="nuvora-container">
+            <p className="nuvora-section-label">02 — Design Direction</p>
 
-      {/* REFLECTION */}
-      <section className="case-section case-light">
-        <div className="case-container case-two-column">
-          <div>
-            <p className="section-label">08 — Reflection</p>
+            <div className="nuvora-copy">
+              <h2>Minimal, editorial, and intentionally expressive.</h2>
+
+              <p className="nuvora-muted">
+                The visual system uses contrast and scale to create hierarchy,
+                while motion helps guide the user through the story.
+              </p>
+            </div>
+
+            <div className="nuvora-direction">
+              <div className="nuvora-direction-card">
+                <h3>Typography</h3>
+                <p>
+                  Large editorial headlines paired with clean supporting
+                  typography to create a confident visual rhythm.
+                </p>
+              </div>
+
+              <div className="nuvora-direction-card">
+                <h3>Visuals</h3>
+                <p>
+                  Photography and product screens are treated as part of the
+                  story rather than simple decoration.
+                </p>
+              </div>
+
+              <div className="nuvora-direction-card">
+                <h3>Motion</h3>
+                <p>
+                  Subtle transitions and scroll interactions make the page feel
+                  dynamic without distracting from the content.
+                </p>
+              </div>
+
+              <div className="nuvora-direction-card">
+                <h3>Structure</h3>
+                <p>
+                  Clear sections and generous spacing keep the experience easy
+                  to scan while maintaining a premium feel.
+                </p>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="case-copy">
-            <h2>Simple doesn't have to mean ordinary.</h2>
+        {/* SCREENS */}
+        <section className="nuvora-section nuvora-light">
+          <div className="nuvora-container">
+            <p className="nuvora-section-label">03 — Selected Screens</p>
 
-            <p>
-              Nuvora Studios was an exercise in creating a strong digital
-              identity through restraint. The project challenged me to use
-              typography, spacing, imagery, and motion together without
-              letting any one element overpower the experience.
-            </p>
+            <div className="nuvora-copy">
+              <h2>Designed to tell the story through the work.</h2>
+            </div>
+
+            <div className="nuvora-screens">
+              <div className="nuvora-placeholder nuvora-screen-wide">
+                <span>Full Website Screenshot Placeholder</span>
+              </div>
+
+              <div className="nuvora-placeholder">
+                <span>Homepage Screenshot Placeholder</span>
+              </div>
+
+              <div className="nuvora-placeholder">
+                <span>Project Section Placeholder</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+        {/* PROCESS */}
+        <section className="nuvora-section nuvora-dark">
+          <div className="nuvora-container">
+            <p className="nuvora-section-label">04 — Process</p>
 
-      {/* FINAL CTA */}
-      <section className="case-final-cta">
-        <div className="case-container">
-          <p className="section-label">Nuvora Studios</p>
+            <div className="nuvora-copy">
+              <h2>A structured path to an exceptional outcome.</h2>
+            </div>
 
-          <h2>Let's build something thoughtful.</h2>
+            <div className="nuvora-process">
+              <div className="nuvora-process-item">
+                <span className="nuvora-process-number">01</span>
 
-          <div className="case-actions">
-            <a
-              href="https://nuvora-studios-five.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
-              className="case-button case-button-primary"
-            >
-              View Live Site ↗
-            </a>
+                <div>
+                  <h3>Discover</h3>
+                </div>
 
-            <a href="/" className="case-button case-button-secondary">
-              Back to Home ←
-            </a>
+                <p>
+                  Defined the studio's positioning, audience, and visual
+                  direction.
+                </p>
+              </div>
+
+              <div className="nuvora-process-item">
+                <span className="nuvora-process-number">02</span>
+
+                <div>
+                  <h3>Define</h3>
+                </div>
+
+                <p>
+                  Established the page structure, content hierarchy, and
+                  overall experience.
+                </p>
+              </div>
+
+              <div className="nuvora-process-item">
+                <span className="nuvora-process-number">03</span>
+
+                <div>
+                  <h3>Design</h3>
+                </div>
+
+                <p>
+                  Developed the visual system, layouts, typography, and
+                  interactive moments.
+                </p>
+              </div>
+
+              <div className="nuvora-process-item">
+                <span className="nuvora-process-number">04</span>
+
+                <div>
+                  <h3>Deliver</h3>
+                </div>
+
+                <p>
+                  Translated the final direction into a responsive React
+                  experience.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-    </main>
+        {/* FINAL RESULT */}
+        <section className="nuvora-section">
+          <div className="nuvora-container">
+            <div className="nuvora-section-grid">
+              <div>
+                <p className="nuvora-section-label">05 — Outcome</p>
+              </div>
+
+              <div className="nuvora-copy">
+                <h2>A studio experience that feels like the work it represents.</h2>
+
+                <p>
+                  The final experience brings together a strong visual identity,
+                  clear storytelling, and purposeful interaction into one
+                  cohesive digital presence.
+                </p>
+              </div>
+            </div>
+
+            <div className="nuvora-outcome-image">
+              <div className="nuvora-placeholder tall">
+                <span>Final Website Image Placeholder</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CONTACT */}
+        <section className="nuvora-final-cta">
+          <div className="nuvora-container">
+            <p className="nuvora-section-label">Let's work together</p>
+
+            <h2>Ready to elevate your product?</h2>
+
+            <div className="nuvora-actions">
+              <a href="/get-started" className="nuvora-button primary">
+                Start a Project →
+              </a>
+
+              <a href="/" className="nuvora-button secondary">
+                Back to Home ←
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </>
   );
 }
