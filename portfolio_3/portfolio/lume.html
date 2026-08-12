@@ -15,13 +15,13 @@
     :root {
       --black: #0a0a0a;
       --white: #f8f7f4;
-      --mid:   #6b6b6b;
+      --mid: #6b6b6b;
       --light: #a8a8a8;
-      --line:  #e0deda;
+      --line: #e0deda;
       --serif: 'Instrument Serif', Georgia, serif;
-      --sans:  'DM Sans', sans-serif;
-      --ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
-      --max:   740px;
+      --sans: 'DM Sans', sans-serif;
+      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+      --max: 740px;
     }
 
     html { scroll-behavior: smooth; }
@@ -38,7 +38,6 @@
     a { color: inherit; text-decoration: none; }
     img { display: block; width: 100%; }
 
-    /* NAV */
     nav {
       position: sticky;
       top: 0;
@@ -76,11 +75,9 @@
       letter-spacing: -0.02em;
     }
 
-    /* LAYOUT */
-    .wrap      { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
-    .wrap-wide { max-width: 1000px;     margin: 0 auto; padding: 0 40px; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
+    .wrap-wide { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
 
-    /* HERO */
     .hero {
       padding: 96px 0 80px;
       border-bottom: 1px solid var(--line);
@@ -151,14 +148,56 @@
       line-height: 1.4;
     }
 
-    /* HERO IMAGE */
+    /* HERO ACTIONS — only Live Site + Next Case Study */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .hero-live {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 13px 22px;
+      background: var(--black);
+      color: var(--white);
+      border: 1px solid var(--black);
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: transform 0.2s var(--ease), background 0.2s var(--ease);
+    }
+
+    .hero-live:hover {
+      background: #2a2a2a;
+      transform: translateY(-2px);
+    }
+
+    .hero-next {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 13px 4px;
+      color: var(--black);
+      font-size: 14px;
+      font-weight: 500;
+      transition: gap 0.2s var(--ease);
+    }
+
+    .hero-next:hover { gap: 11px; }
+
+    .hero-next svg { width: 17px; height: 17px; }
+
     .hero-image {
       margin-top: 72px;
       border-top: 1px solid var(--line);
       padding-top: 72px;
     }
 
-    /* IMAGE BLOCKS */
     .img-block {
       width: 100%;
       background: #f0f0f0;
@@ -169,7 +208,7 @@
     }
 
     .img-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .img-block.tall   { aspect-ratio: 16 / 9; }
+    .img-block.tall { aspect-ratio: 16 / 9; }
     .img-block.medium { aspect-ratio: 4 / 3; }
     .img-block.hero-full { aspect-ratio: 16 / 8; min-height: 400px; }
 
@@ -188,7 +227,6 @@
       letter-spacing: 0.02em;
     }
 
-    /* SECTIONS */
     .section {
       padding: 100px 0;
       border-bottom: 1px solid var(--line);
@@ -221,7 +259,6 @@
       max-width: 580px;
     }
 
-    /* GOAL LIST */
     .goal-list {
       list-style: none;
       margin-top: 28px;
@@ -240,10 +277,8 @@
     }
 
     .goal-list li:last-child { border-bottom: 1px solid var(--line); }
-
     .goal-dash { color: var(--light); font-size: 12px; margin-top: 4px; }
 
-    /* DESIGN DECISIONS */
     .decisions {
       margin-top: 40px;
       border: 1px solid var(--line);
@@ -275,19 +310,14 @@
       line-height: 1.7;
     }
 
-    /* ── FIRST VISUAL ── */
-    .first-visual {
-      padding: 80px 0 100px;
-    }
+    .first-visual { padding: 80px 0 100px; }
 
-    /* ── DESIGN SHOWCASE ── */
     .showcase-section {
       padding: 100px 0 120px;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
-    /* ── IMAGE GRID ── */
     .img-grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -300,66 +330,50 @@
       flex-direction: column;
     }
 
-    /* NEXT / FOOTER */
-    .next-project { padding: 64px 0; border-top: 1px solid var(--line); }
-
-    .next-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 16px;
+    /* BOTTOM CASE-STUDY NAVIGATION */
+    .case-nav {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .next-link {
-      display: inline-flex;
+    .case-nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .case-nav-link {
+      display: flex;
       align-items: center;
       gap: 12px;
       font-family: var(--serif);
       font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.1;
       letter-spacing: -0.02em;
       transition: gap 0.2s var(--ease);
     }
 
-    .next-link:hover { gap: 20px; }
-    .next-link svg { width: 28px; height: 28px; flex-shrink: 0; }
+    .case-nav-link.next {
+      justify-content: flex-end;
+      text-align: right;
+    }
 
-    /* ── CTA SECTION ── */
-    .cta-section {
+    .case-nav-link:hover { gap: 20px; }
+
+    .case-nav-link svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    footer {
+      padding: 32px 0;
       border-top: 1px solid var(--line);
-      padding: 100px 0;
-      text-align: center;
     }
-
-    .cta-headline {
-      font-family: var(--serif);
-      font-size: clamp(24px, 3vw, 32px);
-      letter-spacing: -0.02em;
-      margin-bottom: 28px;
-    }
-
-    .btn-cta-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 14px 28px;
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
-    }
-
-    .btn-cta-live:hover {
-      background: #2a2a2a;
-      transform: translateY(-2px);
-    }
-
-    footer { padding: 32px 0; border-top: 1px solid var(--line); }
 
     .footer-inner {
       max-width: 1120px;
@@ -374,7 +388,6 @@
     .footer-back { font-size: 12px; color: var(--mid); transition: color 0.2s; }
     .footer-back:hover { color: var(--black); }
 
-    /* REVEAL */
     .reveal {
       opacity: 0;
       transform: translateY(20px);
@@ -386,12 +399,12 @@
     .reveal.d2 { transition-delay: 0.14s; }
     .reveal.d3 { transition-delay: 0.21s; }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .nav-inner, .wrap, .wrap-wide, .footer-inner { padding: 0 24px; }
+      .nav-inner, .wrap, .wrap-wide, .footer-inner, .case-nav-inner { padding-left: 24px; padding-right: 24px; }
       .hero { padding: 64px 0 56px; }
       .meta-grid { grid-template-columns: 1fr 1fr; max-width: 100%; }
       .meta-grid .meta-item:last-child { grid-column: 1 / -1; }
+      .hero-actions { gap: 12px; }
       .decision-row { grid-template-columns: 1fr; }
       .decision-name { border-right: none; border-bottom: 1px solid var(--line); }
       .section { padding: 64px 0; }
@@ -399,13 +412,24 @@
       .showcase-section { padding: 64px 0 80px; }
       .img-grid-2 { grid-template-columns: 1fr; gap: 24px; }
       .img-block.hero-full { min-height: 280px; }
+      .case-nav { padding: 56px 0; }
+      .case-nav-inner { gap: 18px; }
+      .case-nav-link { font-size: 25px; }
+      .case-nav-link svg { width: 22px; height: 22px; }
     }
 
     @media (max-width: 480px) {
       .meta-grid { grid-template-columns: 1fr; }
+      .hero-actions { align-items: flex-start; flex-direction: column; }
+      .hero-live { width: auto; }
+      .case-nav-inner { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .case-nav-link { font-size: 21px; gap: 7px; }
+      .case-nav-link.next { justify-content: flex-end; }
+      .case-nav-link:hover { gap: 10px; }
+      .case-nav-link svg { width: 18px; height: 18px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
     }
 
-    /* HAMBURGER */
     .nav-hamburger {
       display: none;
       flex-direction: column;
@@ -418,6 +442,7 @@
       border: none;
       padding: 4px;
     }
+
     .nav-hamburger span {
       display: block;
       height: 1.5px;
@@ -425,16 +450,20 @@
       transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
       transform-origin: center;
     }
+
     .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
     .nav-mobile {
       display: none;
       flex-direction: column;
       border-top: 1px solid var(--line);
       background: var(--white);
     }
+
     .nav-mobile.open { display: flex; }
+
     .nav-mobile a {
       font-size: 15px;
       color: var(--mid);
@@ -442,6 +471,7 @@
       border-bottom: 1px solid var(--line);
       transition: color 0.2s var(--ease);
     }
+
     .nav-mobile a:last-child { border-bottom: none; }
     .nav-mobile a:hover { color: var(--black); }
   </style>
@@ -462,6 +492,7 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+
     <div class="nav-mobile" id="mobileMenu">
       <a href="index.html" onclick="closeMenu()">Home</a>
       <a href="index.html#work" onclick="closeMenu()">Work</a>
@@ -494,11 +525,25 @@
           <div class="meta-value">1 week</div>
         </div>
       </div>
+
+      <!-- ONLY THESE TWO UNDER THE HERO -->
+      <div class="hero-actions reveal" data-aos="fade-up" data-aos-delay="500">
+        <a href="https://lume-black-delta.vercel.app/" target="_blank" rel="noopener noreferrer" class="hero-live">
+          View Live Site ↗
+        </a>
+
+        <a href="nuvora.html" class="hero-next">
+          Next Case Study
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 10H17M17 10L11 4M17 10L11 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
     </div>
 
     <div class="hero-image wrap-wide reveal" data-aos="zoom-in" data-aos-delay="200">
       <div class="img-block tall">
-        <img src="images/Lume landing page.png" alt="Lume landing page" />
+        <img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1786503500/Lume_landing_page_cwyktb.png" alt="Lume landing page" />
       </div>
       <p class="img-caption">Full view</p>
     </div>
@@ -508,7 +553,7 @@
   <div class="first-visual wrap-wide reveal" data-aos="zoom-in" data-aos-delay="100">
     <div class="img-labeled">
       <div class="img-block hero-full">
-        <img src="images/Lume.png" alt="Lume landing page overview" />
+        <img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1786503499/Lume_1_wloycv.png" alt="Lume landing page overview" />
       </div>
       <p class="img-caption">Landing page</p>
     </div>
@@ -577,7 +622,7 @@
       <h2 class="section-title reveal d1" data-aos="fade-up" data-aos-delay="100">The <em>screens</em></h2>
       <div class="img-labeled reveal" data-aos="zoom-in" data-aos-delay="100">
         <div class="img-block tall">
-          <img src="images/Lume detail view.png" alt="Lume detail view" />
+          <img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1786503500/Lume_landing_page_cwyktb.png" alt="Lume detail view" />
         </div>
         <p class="img-caption">Section detail</p>
       </div>
@@ -595,23 +640,23 @@
     </div>
   </section>
 
-  <!-- NEXT PROJECT -->
-  <div class="next-project" data-aos="fade-up">
-    <div class="wrap">
-      <div class="next-label reveal">Next project</div>
-      <a href="nuvioweb.html" class="next-link reveal d1">
-        Nuvioweb
+  <!-- BOTTOM CASE-STUDY ARROWS -->
+  <section class="case-nav">
+    <div class="case-nav-inner">
+      <a href="stilla.html" class="case-nav-link previous">
         <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 14H24M24 14L16 6M24 14L16 22" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 14H4M4 14L12 6M4 14L12 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Previous Case Study</span>
+      </a>
+
+      <a href="nuvora.html" class="case-nav-link next">
+        <span>Next Case Study</span>
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 14H24M24 14L16 6M24 14L16 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
     </div>
-  </div>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <p class="cta-headline">See the live site</p>
-    <a href="https://lume-black-delta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-cta-live">View Live Site ↗</a>
   </section>
 
   <!-- FOOTER -->
@@ -627,6 +672,7 @@
   <script>
     AOS.init({ duration: 900, once: true, offset: 80 });
   </script>
+
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -647,12 +693,16 @@
       btn.classList.toggle('open');
       menu.classList.toggle('open');
     }
+
     function closeMenu() {
       var btn = document.querySelector('.nav-hamburger');
       var menu = document.getElementById('mobileMenu');
       btn.classList.remove('open');
       menu.classList.remove('open');
     }
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
