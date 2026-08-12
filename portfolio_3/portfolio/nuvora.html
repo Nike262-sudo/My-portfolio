@@ -27,7 +27,7 @@ a{color:inherit;text-decoration:none}
 .case-dark .case-button-primary{background:var(--white);border-color:var(--white);color:var(--black)}
 .case-dark .case-button-secondary{background:transparent;border-color:var(--white);color:var(--white)}
 
-.image-placeholder{display:flex;align-items:center;justify-content:center;min-height:560px;background:#eeeeee;color:#777777;font-size:13px;letter-spacing:.04em;text-align:center}
+
 .case-hero-image{min-height:680px;margin-top:90px}
 .case-section{padding:130px 0}.case-dark{background:var(--black);color:var(--white)}.case-light{background:white}
 .case-dark .section-label{color:#bdbdbd}
@@ -38,28 +38,35 @@ a{color:inherit;text-decoration:none}
 .case-copy p{max-width:700px;margin-top:22px;color:#3f3f3f;font-size:17px}.case-dark .case-copy p{color:#d6d6d6}
 .case-section-heading{max-width:850px;margin-bottom:70px}.case-section-heading .section-label{margin-bottom:20px}
 .case-section-heading p{max-width:650px;margin-top:22px;color:var(--muted)}.case-dark .case-section-heading p{color:#c7c7c7}
-.case-wide-image{min-height:620px}.case-large-image{min-height:760px}
-.case-grid,.case-screens{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.case-grid .image-placeholder{min-height:500px}.case-screens .image-placeholder{min-height:600px}
-.case-screens .screen-wide{grid-column:1/-1;min-height:650px}
-.process-list{border-top:1px solid var(--line)}
-.process-item{display:grid;grid-template-columns:120px 1fr 1.5fr;gap:40px;align-items:start;padding:38px 0;border-bottom:1px solid var(--line)}
-.process-number{font-family:Georgia,"Times New Roman",serif;font-size:48px;line-height:1}
-.process-item h3{font-family:Georgia,"Times New Roman",serif;font-size:25px;font-weight:500}.process-item p{color:var(--muted);max-width:500px}
-.case-contact{padding:150px 0;text-align:center}.case-contact h2{max-width:850px;margin:auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(48px,7vw,100px);font-style:italic;font-weight:500;line-height:.95;letter-spacing:-.05em}
+.case-wide-image{margin-top:0}.case-large-image{margin-top:0}
+.interaction-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+
+
+
+
+
+
+.case-contact{padding:150px 0;text-align:center}.case-contact h2{max-width:850px;margin:auto;font-family:"Instrument Serif",Georgia,"Times New Roman",serif;font-size:clamp(48px,7vw,100px);font-style:italic;font-weight:500;line-height:.95;letter-spacing:-.05em}
 .case-contact .case-actions{justify-content:center;margin-top:42px}
 .case-footer{padding:55px 0;background:var(--black);color:var(--white)}.footer-inner{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
-.footer-brand{font-family:Georgia,"Times New Roman",serif;font-size:25px}.footer-copy{max-width:300px;margin-top:12px;color:#bdbdbd;font-size:13px}.footer-link{font-size:14px}
+.footer-brand{font-family:"Instrument Serif",Georgia,"Times New Roman",serif;font-size:25px}.footer-copy{max-width:300px;margin-top:12px;color:#bdbdbd;font-size:13px}.footer-link{font-size:14px}
 @media(max-width:800px){
 .case-container{width:min(100% - 32px,600px)}.case-hero{padding:80px 0 70px}.case-hero h1{font-size:clamp(52px,15vw,90px)}
 .case-intro{margin-top:28px;font-size:20px}.case-meta{gap:25px 40px;margin-top:35px}.case-actions{flex-direction:column;align-items:stretch}.case-button{width:100%}
-.case-hero-image{min-height:420px;margin-top:60px}.case-section{padding:90px 0}.case-two-column{grid-template-columns:1fr;gap:40px}
+.case-hero-image{margin-top:60px}.case-section{padding:90px 0}.case-two-column{grid-template-columns:1fr;gap:40px}
 .case-copy h2,.case-section-heading h2{font-size:clamp(40px,12vw,60px)}.case-copy p{font-size:16px}
-.case-wide-image,.case-large-image{min-height:440px}.case-grid,.case-screens{grid-template-columns:1fr}
-.case-grid .image-placeholder,.case-screens .image-placeholder,.case-screens .screen-wide{min-height:420px;grid-column:auto}
-.process-item{grid-template-columns:70px 1fr;gap:20px}.process-item p{grid-column:2}.process-number{font-size:40px}
+.case-wide-image,.case-large-image{min-height:0}.interaction-grid{grid-template-columns:1fr}
+
+
 .case-contact{padding:100px 0}.footer-inner{flex-direction:column;align-items:flex-start}
 }
+
+.case-image{width:100%;overflow:hidden}
+.case-image img{display:block;width:100%;height:auto}
+.case-hero-image{margin-top:90px}
+.story-image{margin-top:10px}
+.interaction-grid{margin-top:24px}
+.case-wide-image img,.case-large-image img{width:100%;height:auto}
 </style>
 </head>
 <body>
@@ -79,21 +86,20 @@ a{color:inherit;text-decoration:none}
 <a href="https://nuvora-studios-five.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-button case-button-primary">View Live Site ↗</a>
 <a href="index.html" class="case-button case-button-secondary">Back to Home ←</a>
 </div>
-<div class="image-placeholder case-hero-image">HERO IMAGE — ADD IMAGE HERE</div>
+<div class="case-image case-hero-image">
+<img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1786500585/Desktop_-_175_vpcvrk.png" alt="Nuvora Studios homepage" loading="eager">
+</div>
 </div>
 </section>
 
 <section class="case-section case-light">
 <div class="case-container">
 <div class="case-two-column">
-<div class="section-label">01 — Overview</div>
+<div class="section-label">01 — Project Overview</div>
 <div class="case-copy">
 <h2>A digital presence built around clarity.</h2>
 <p>Nuvora Studios needed a website that felt as considered as the digital products they create. The goal was to combine strong typography, clear structure, and immersive visuals without making the experience feel complicated.</p>
-<h3>The challenge</h3>
-<p>Create a studio website that communicates quality quickly while still giving the work enough room to breathe.</p>
-<h3>The direction</h3>
-<p>A restrained editorial layout with large typography, generous whitespace, strong imagery, and subtle motion.</p>
+<p>The final direction uses an editorial layout, generous whitespace, strong imagery, and subtle motion to give the studio a confident digital presence.</p>
 </div>
 </div>
 </div>
@@ -104,41 +110,10 @@ a{color:inherit;text-decoration:none}
 <div class="case-section-heading">
 <div class="section-label">02 — Design Direction</div>
 <h2>Quiet structure. Strong visual language.</h2>
-<p>The visual system balances an editorial feel with the confidence of a modern digital studio.</p>
+<p>The visual direction was built around oversized typography, restrained colour, generous spacing, and imagery that gives the work room to breathe.</p>
 </div>
-<div class="image-placeholder case-wide-image">PROJECT OVERVIEW IMAGE — ADD IMAGE HERE</div>
-</div>
-</section>
-
-<section class="case-section case-light">
-<div class="case-container">
-<div class="case-section-heading">
-<div class="section-label">03 — Visual System</div>
-<h2>Typography and imagery do the heavy lifting.</h2>
-<p>Large type creates hierarchy while photography gives the experience warmth and personality.</p>
-</div>
-<div class="case-grid">
-<div class="image-placeholder">IMAGE 01 — ADD IMAGE HERE</div>
-<div class="image-placeholder">IMAGE 02 — ADD IMAGE HERE</div>
-</div>
-</div>
-</section>
-
-<section class="case-section case-dark">
-<div class="case-container">
-<div class="case-two-column">
-<div class="section-label">04 — Experience</div>
-<div class="case-copy">
-<h2>Designed to feel considered, not complicated.</h2>
-<p>The layout uses movement and spacing to guide attention through the work. Sections transition naturally, keeping the experience engaging without distracting from the content.</p>
-<p>Interactive moments were kept intentional so the website still feels fast, clear, and easy to navigate.</p>
-</div>
-</div>
-<div style="height:70px"></div>
-<div class="case-screens">
-<div class="image-placeholder screen-wide">FULL-WIDTH SCREEN — ADD IMAGE HERE</div>
-<div class="image-placeholder">SCREEN 02 — ADD IMAGE HERE</div>
-<div class="image-placeholder">SCREEN 03 — ADD IMAGE HERE</div>
+<div class="case-image case-wide-image">
+<img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1786500585/Frame_2147224915_xsucbs.png" alt="Nuvora Studios design direction" loading="lazy">
 </div>
 </div>
 </section>
@@ -146,14 +121,22 @@ a{color:inherit;text-decoration:none}
 <section class="case-section case-light">
 <div class="case-container">
 <div class="case-section-heading">
-<div class="section-label">05 — Process</div>
-<h2>A structured path to a thoughtful outcome.</h2>
+<div class="section-label">03 — Interaction &amp; Experience</div>
+<h2>Designed to move with the user.</h2>
+<p>Motion was used to make the experience feel alive without taking attention away from the work. Scroll transitions, image reveals, and interactive sections create a more considered journey through the site.</p>
 </div>
-<div class="process-list">
-<div class="process-item"><div class="process-number">01</div><h3>Discover</h3><p>Defined the studio's positioning, audience, content needs, and the feeling the website needed to communicate.</p></div>
-<div class="process-item"><div class="process-number">02</div><h3>Define</h3><p>Built the information structure and established a clear visual direction before moving into detailed screens.</p></div>
-<div class="process-item"><div class="process-number">03</div><h3>Design</h3><p>Developed the typography, layouts, imagery, components, and interaction details across the experience.</p></div>
-<div class="process-item"><div class="process-number">04</div><h3>Deliver</h3><p>Refined the responsive experience and translated the design into a functional web experience.</p></div>
+
+<div class="case-image story-image">
+<img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1786500586/About_us_jm8n3y.png" alt="Nuvora Studios story interaction" loading="lazy">
+</div>
+
+<div class="interaction-grid">
+<div class="case-image">
+<img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1786500952/Screenshot_2026-08-12_024555_1_kmazgb.png" alt="Nuvora Studios testimonial interaction" loading="lazy">
+</div>
+<div class="case-image">
+<img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1786501031/Screenshot_2026-08-12_024412_1_mbjylj.png" alt="Nuvora Studios moving screens interaction" loading="lazy">
+</div>
 </div>
 </div>
 </section>
@@ -161,17 +144,19 @@ a{color:inherit;text-decoration:none}
 <section class="case-section case-dark">
 <div class="case-container">
 <div class="case-section-heading">
-<div class="section-label">06 — Final Experience</div>
+<div class="section-label">04 — Final Design</div>
 <h2>A digital home for the studio's work.</h2>
-<p>A balance of strong visual moments, clear content, and interaction that lets the work remain the focus.</p>
+<p>The final experience brings the visual system and interactions together into a focused, editorial website for Nuvora Studios.</p>
 </div>
-<div class="image-placeholder case-large-image">FINAL WEBSITE IMAGE — ADD IMAGE HERE</div>
+<div class="case-image case-large-image">
+<img src="https://res.cloudinary.com/dkuda0je5/image/upload/v1786502171/Frame_2147224915_g4tpt9.png" alt="Nuvora Studios final design" loading="lazy">
+</div>
 </div>
 </section>
 
 <section class="case-contact case-light">
 <div class="case-container">
-<h2>Ready to elevate your product?</h2>
+<h2>Want to see more of my work?</h2>
 <div class="case-actions">
 <a href="index.html" class="case-button case-button-primary">Back to Home →</a>
 </div>
